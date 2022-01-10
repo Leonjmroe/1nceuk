@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #E6E6E6; /* #282c34 */
+  background-color: #282c34; /* #282c34 */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,5 +38,5 @@
 }
 
 .under-dev-text {
-  color: #666666;
+  color: #eeeeee;
 }
