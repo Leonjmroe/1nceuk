@@ -8,20 +8,35 @@ export default function Header() {
   
   const useStyles = makeStyles(() => ({
     button: {
-      'height': '100%',
-      'left': '-2vw',
-      'margin-left': '2vw',
+      'height': '80%',
+      'align-items': 'center',
     },
     button_cont: {
-      'margin-left': '20vw',
+      'display': 'flex',
+      'align-items': 'center',
     },
     nav_bar: {
       'display': 'flex',
-      'justify-content': 'space-around',
+      // 'justify-content': 'space-around',
       'background-color': '#333333',
       'height': '8vh',
       'background-image': 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 38%, rgba(0,212,255,1) 100%);',
-    }
+    },
+    butn1: {
+      'margin-left': '3%',
+    },
+    butn2: {
+      'margin-left': '50%',
+    },
+    butn3: {
+      'margin-left': '1%',
+    },
+    butn4: {
+      'margin-left': '1%',
+    },
+    butn5: {
+      'margin-left': '7%',
+    },
   }));
   
   const classes = useStyles();
@@ -44,29 +59,33 @@ export default function Header() {
 
 return (
 
-<nav className={classes.nav_bar}>
-    <ul>
-   		<Link to="/home">
-    		<Button className={classes.button} variant="contained" color="primary">Home</Button>
-    	</Link>
-     </ul>
-     <ul className={classes.button_cont}>
-     	<Link to="/shop">
-     		<Button className={classes.button} variant="contained" color="primary">Shop</Button>
-     	</Link>
-     	<Link to="/about">	
-     		<Button className={classes.button} variant="contained" color="primary">About</Button>
-      	</Link>
-      	<Link to="/contact">	
-      		<Button className={classes.button} variant="contained" color="primary">Contact</Button>
-    	</Link>
-    </ul>
-    <ul className={classes.button_cont} >
-    	<Link to="/checkout">
-     		<Button className={classes.button} variant="contained" color="primary">Checkout</Button>
-    	</Link>
-    </ul>
-</nav>
+<div className={classes.nav_bar}>
+  <div className={`${classes.button_cont} ${classes.butn1}`}>
+ 		<Link to="/home">
+  		<Button className={classes.button} variant="contained" color="primary">Home</Button>
+  	</Link>
+   </div>
+   <div className={`${classes.button_cont} ${classes.butn2}`}>
+   	<Link to="/shop">
+   		<Button className={classes.button} variant="contained" color="primary">Store</Button>
+   	</Link>
+  </div>
+  <div className={`${classes.button_cont} ${classes.butn3}`}>
+   	<Link to="/about">	
+   		<Button className={classes.button} variant="contained" color="primary">About Us</Button>
+    </Link>
+  </div>
+  <div className={`${classes.button_cont} ${classes.butn4}`}>
+    <Link to="/contact">	
+  		<Button className={classes.button} variant="contained" color="primary">Contact Us</Button>
+  	</Link>
+  </div>
+  <div className={`${classes.button_cont} ${classes.butn5}`}>
+  	<Link to="/checkout">
+   		<Button className={classes.button} variant="contained" color="primary">Checkout</Button>
+  	</Link>
+  </div>
+</div>
 
 )}
 

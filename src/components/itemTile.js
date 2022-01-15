@@ -20,10 +20,9 @@ export default function Shop() {
     text: {
       'display': 'flex',
       'align-items': 'center',
-      // 'text-align': 'center',
+      'text-align': 'left',
       'height': '15%',
       'width': '100%'
-      // 'background-color': '#555555',
     },
     price: {
       'display': 'flex',
@@ -31,7 +30,6 @@ export default function Shop() {
       'height': '10%',
       'width': '100%',
       'font-weight': 'bold'
-      // 'background-color': '#333333',
     }
   }));
   const classes = useStyles();
