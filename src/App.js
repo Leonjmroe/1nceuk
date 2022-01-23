@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/navbar.js';
+import Navbar from './components/core/navbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Switch from 'react-switch';
 import Home from './pages/home.js';
@@ -19,6 +19,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<Checkout />} />
+            {/*<Route path="/admin" component={requireAuth(NoteContainer)} />*/}
           </Routes>
          </Router>  
       </div>
