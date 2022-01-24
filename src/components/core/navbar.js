@@ -17,6 +17,7 @@ export default function Header() {
     },
     nav_bar: {
       'display': 'flex',
+      'width': '100%',
       // 'justify-content': 'space-around',
       'background-color': '#333333',
       'height': '8vh',
@@ -66,7 +67,7 @@ return (
   	</Link>
    </div>
    <div className={`${classes.button_cont} ${classes.butn2}`}>
-   	<Link to="/shop">
+   	<Link to="/store">
    		<Button className={classes.button} variant="contained" color="primary">Store</Button>
    	</Link>
   </div>

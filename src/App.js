@@ -2,11 +2,12 @@ import './App.css';
 import Navbar from './components/core/navbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Switch from 'react-switch';
-import Home from './pages/home.js';
-import Shop from './pages/shop.js';
-import About from './pages/about.js';
-import Contact from './pages/contact.js';
-import Checkout from './pages/checkout.js';
+import Home from './components/home/home.js';
+import Store from './components/store/store.js';
+import About from './components/about/about.js';
+import Contact from './components/contact/contact.js';
+import Checkout from './components/checkout/checkout.js';
+import ItemDetail from './components/shop/itemDetail.js';
 
 function App() {
  return (                                                                
@@ -15,11 +16,11 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route path="/store" element={<Store />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<Checkout />} />
-            {/*<Route path="/admin" component={requireAuth(NoteContainer)} />*/}
+            <Route path="/itemDetail" element={<ItemDetail />} />
           </Routes>
          </Router>  
       </div>

@@ -1,71 +1,58 @@
-import { makeStyles } from '@material-ui/core/styles';
-import stock_img_1 from '../../images/stock-image-1.jpeg';
-import stock_img_2 from'../../images/stock-image-2.jpeg';
-import stock_img_3 from '../../images/stock-image-3.jpeg';
-import Item from '../shop/itemTile.js';
+import './home.css';
+import { Carousel } from 'react-bootstrap';
+import tile1 from '../../images/stock-image-1.jpeg';
+import tile2 from'../../images/stock-image-2.jpeg';
+import tile3 from '../../images/stock-image-3.jpeg';
+import { useState } from "react";
+
 
 export default function Main() {
 
-  const useStyles = makeStyles(() => ({
-    carousel_cont: {
-      'height': '40vh',
-      'width': '80%',
-      'margin-left': '10%',
-      'margin-top': '5%',
-      'border': '1px solid black',
-      'border-radius': '1%',
-      'background-color': '#999999',
-      'axis': 'vertical',
-      'display': 'flex'
-    },
-    tile1: {
-      'height': '75%',
-      'width': '100%',
-      'background-color': '#777777'
-    },
-    tile3: {
-      'height': '75%',
-      'width': '100%',
-      'background-color': '#777777'
-    },
-    tile3: {
-      'height': '75%',
-      'width': '100%',
-      'background-color': '#777777'
-    }
-  }));
-  const classes = useStyles();
+  const [index, setIndex] = useState(0);
 
-  const breakPoints = [
-  	{ width: 1, itemsToShow: 1 },
-  	{ width: 550, itemsToShow: 2 },
-  	{ width: 768, itemsToShow: 3 },
-  	{ width: 1200, itemsToShow: 4 },
-  ];
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
-  return (
- //  	<div className={classes.carousel}>
- //    <div>
- //        <img src={stock_img_1} />
- //        <p className="legend">Legend 1</p>
- //    </div>
- //    <div>
- //        <img src={stock_img_2} />
- //        <p className="legend">Legend 2</p>
- //    </div>
- //    <div>
- //        <img src={stock_img_3} />
- //        <p className="legend">Legend 3</p>
- //    </div>
-	// </div>
-	<div className={classes.carousel_cont}>
-	{/*<Carousel breakPoints={breakPoints}>
-		<Item>One</Item>
-		<Item>Two</Item>
-		<Item>Three</Item>
-		<Item>Four</Item>
-	</Carousel>*/}
-	</div>
+  return (  
+  <Carousel className="carousel_cont" variant="dark" fade 
+            activeIndex={index} onSelect={handleSelect}>
+  <Carousel.Item interval={1300}>
+    <img
+      className="d-block w-100"
+      src={tile1}
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item interval={1300}>
+    <img
+      className="d-block w-100"
+      src={tile2}
+      alt="Second slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item interval={1300}>
+    <img
+      className="d-block w-100"
+      src={tile3}
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
   );
 }
 
