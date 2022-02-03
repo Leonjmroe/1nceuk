@@ -19,7 +19,7 @@ export default function Main() {
             activeIndex={index} onSelect={handleSelect}>
   <Carousel.Item interval={2000}>
     <img
-      className="d-block w-100 img-fluid"
+      className="d-block w-100"
       src={tile1}
       alt="First slide"
     />
@@ -38,7 +38,7 @@ export default function Main() {
       alt="Third slide"
     />
   </Carousel.Item>
-</Carousel>
+  </Carousel>
   );
 }
 

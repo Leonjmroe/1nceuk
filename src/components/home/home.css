@@ -1,28 +1,46 @@
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 80vw;
-  margin-top: 5vh;
-  margin-left: 10vw;
-  padding: 0% 0% 4% 0%;
+/* ------------  Navbar  ------------ */
+.header {
+  width: 80%;
+  margin-left: 10%;
+  height: 15vh;
+  margin-top: 1vh;
+  background-color: #30003c;
 }
 
-.carousel_cont {
-  display: flex;
-  height: 70vh;
-  width: 100%;
-  margin-left: 0%;
-  margin-top: 0%;
-  background-color: #999999;
+.logo1nce{
+  width: 25%;
+  margin-left: 1.5%;
+  height: 12vh;
+  margin-top: 1.5vh;
+  background-image: url('../../images/1ncelogo1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size:100% 100%;
 }
+
+
+
+/* ------------  Carousel  ------------ */
+.carousel_cont {
+  height: 60vh;
+  width: 88%;
+  margin-left: 6%;
+  margin-top: 2vh;
+  background-size: contain;
+  overflow: hidden;
+}
+
 
 
 /* ------------  About Us  ------------ */
 .aboutContainer {
   display: flex;
   height: 35vh;
-  width: 100%;
-  margin-top: 5%;
+  width: 88%;
+  margin-left: 6%;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
   background-color: #bfbfbf;
 }
 
@@ -64,7 +82,7 @@
 
 
 /* ------------  shopDrop  ------------ */
-.section2Cont {
+/*.section2Cont {
   display: flex;
   height: 60vh;
   width: 100%;
@@ -100,3 +118,4 @@
   height: 50%;
   background-color: green;
 }
+*/

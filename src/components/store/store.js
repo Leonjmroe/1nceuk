@@ -1,8 +1,8 @@
 import ItemTile from './itemTile.js'
 import './store.css';
-import image1 from '../../images/stock-image-1.jpeg';
-import image2 from '../../images/stock-image-2.jpeg';
-import image3 from '../../images/stock-image-3.jpeg';
+import image1 from '../../images/tile1.jpg';
+import image2 from '../../images/tile1.jpg';
+import image3 from '../../images/tile1.jpg';
 
 export default function Shop() {
 

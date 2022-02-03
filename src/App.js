@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from './components/core/navbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Switch from 'react-switch';
@@ -8,10 +7,11 @@ import About from './components/about/about.js';
 import Contact from './components/contact/contact.js';
 import Checkout from './components/checkout/checkout.js';
 import ItemDetail from './components/store/itemDetail.js';
+import './app.css'
 
 function App() {
  return (                                                                
-      <div className="App">
+      <div className="app">
           <Router>  
           <Navbar />
           <Routes>
