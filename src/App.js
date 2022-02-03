@@ -7,7 +7,7 @@ import Store from './components/store/store.js';
 import About from './components/about/about.js';
 import Contact from './components/contact/contact.js';
 import Checkout from './components/checkout/checkout.js';
-import ItemDetail from './components/shop/itemDetail.js';
+import ItemDetail from './components/store/itemDetail.js';
 
 function App() {
  return (                                                                
