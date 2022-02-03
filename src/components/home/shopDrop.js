@@ -2,14 +2,13 @@ import './home.css';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-export default function TopItem() {
+export default function ShopDrop() {
 
    return (
-    <div className="section2Cont">
+    <div className="shopContainer">
       <div className="linkCont">
         <div className="linkBtn1Cont">
           <Link to="/store" className="linkBtn1">  
-            <Button className="btn1" variant="contained" color="primary">View Designs</Button>
           </Link>
         </div>
         <div className="linkBtn2Cont">
@@ -29,4 +28,3 @@ export default function TopItem() {
     </div>
   );
 }
-
