@@ -7,11 +7,11 @@ import About from './components/about/about.js';
 import Contact from './components/contact/contact.js';
 import Checkout from './components/checkout/checkout.js';
 import ItemDetail from './components/store/itemDetail.js';
-import './app.css'
+import './App.css'
 
 function App() {
  return (                                                                
-      <div className="app">
+      <div className="App">
           <Router>  
           <Navbar />
           <Routes>
