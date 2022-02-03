@@ -4,17 +4,67 @@
   max-width: 80vw;
   margin-top: 5vh;
   margin-left: 10vw;
-  background-color: #dddddd;
   padding: 0% 0% 4% 0%;
 }
 
 .carousel_cont {
   display: flex;
+  height: 70vh;
+  width: 100%;
+  margin-left: 0%;
+  margin-top: 0%;
+  background-color: #999999;
+}
+
+.section2Cont {
+  display: flex;
   height: 60vh;
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
+  margin-left: 0%;
   margin-top: 5%;
   border: 1px solid black;
   border-radius: 1%;
   background-color: #999999;
+}
+
+.linkCont {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  margin-left: 0%;
+  margin-top: 0%;
+  border: 1px solid black;
+  border-radius: 1%;
+  background-color: #999999;
+}
+
+.linkBtn1Cont {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  background-color: red;
+}
+
+.linkBtn2Cont {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  background-color: green;
+}
+
+.linkBtn1{
+  width: 100%;
+  height: 100%;
+  margin-top: 25%;
+}
+
+.linkBtn2{
+  width: 100%;
+  height: 100%;
+  margin-top: 25%;
+}
+
+.btn1 {
+  padding: 100px;
 }

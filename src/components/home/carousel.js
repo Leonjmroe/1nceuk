@@ -1,8 +1,8 @@
 import './home.css';
 import { Carousel } from 'react-bootstrap';
-import tile1 from '../../images/stock-image-1.jpeg';
-import tile2 from'../../images/stock-image-2.jpeg';
-import tile3 from '../../images/stock-image-3.jpeg';
+import tile1 from '../../images/tile1.jpg';
+import tile2 from'../../images/IMG-3162.jpg';
+import tile3 from '../../images/IMG-3157.jpg';
 import { useState } from "react";
 
 
@@ -15,42 +15,28 @@ export default function Main() {
   };
 
   return (  
-  <Carousel className="carousel_cont" variant="dark" fade 
+  <Carousel className="carousel_cont" variant="light" fade 
             activeIndex={index} onSelect={handleSelect}>
-  <Carousel.Item interval={1300}>
+  <Carousel.Item interval={2000}>
     <img
-      className="d-block w-100"
+      className="d-block w-100 img-fluid"
       src={tile1}
       alt="First slide"
     />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={1300}>
+  <Carousel.Item interval={2000}>
     <img
       className="d-block w-100"
       src={tile2}
       alt="Second slide"
     />
-
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={1300}>
+  <Carousel.Item interval={2000}>
     <img
       className="d-block w-100"
       src={tile3}
       alt="Third slide"
     />
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
   );
