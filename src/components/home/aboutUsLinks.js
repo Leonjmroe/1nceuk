@@ -20,6 +20,15 @@ export default function AboutUsLinks() {
         <div className="circleCont">
           <div className="circleImg img3" onClick={()=> navigate('/contact')}/>
         </div>
+        <div className="circleCont">
+          <div className="circleText">Skating</div>
+        </div>
+        <div className="circleCont">
+          <div className="circleText">Designs</div>
+        </div>
+        <div className="circleCont">
+          <div className="circleText">Best of 1nce</div>
+        </div>
     </div>
   );
 }

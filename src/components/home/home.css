@@ -13,13 +13,13 @@
 
 /* ------------  About Us  ------------ */
 .aboutContainer {
+  flex-wrap: wrap;
   display: flex;
-  height: 35vh;
+  /*height: 35vh;*/
   width: 88%;
   margin-left: 6%;
   margin-top: 2vh;
-  margin-bottom: 5vh;
-  background-color: #bfbfbf;
+  background-color: #86C2A4;
 }
 
 .circleImg {
@@ -33,6 +33,25 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size:100% 100%;
+}
+
+.circleCont {
+  width: 33.3%;
+  height: 100%;
+}
+
+.circleText {
+  width: 60%;
+  margin-left: 20%;
+  height: 6vh;
+  margin-top: 3.5vh;
+  border-radius: 100%;
+  margin-bottom: 3.5vh;
+  font-weight: bold;
+  font-size: 4vh;
+  text-align: center;
+  color: black;
+  font-family: monospace;
 }
 
 .img1 {
@@ -50,11 +69,6 @@
 .circleImg:hover, .circleImg2:hover, .circleImg3:hover{
   opacity: 0.9;
   cursor: pointer;
-}
-
-.circleCont {
-  width: 33.3%;
-  height: 100%;
 }
 
 
