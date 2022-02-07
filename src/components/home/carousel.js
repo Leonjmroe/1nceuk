@@ -1,8 +1,8 @@
 import './home.css';
 import { Carousel } from 'react-bootstrap';
-import tile1 from '../../images/tile1.jpg';
-import tile2 from'../../images/IMG-3162.jpg';
-import tile3 from '../../images/IMG-3157.jpg';
+import tile1 from '../../images/IMG_0587.jpeg';
+import tile2 from'../../images/IMG_0568.jpeg';
+import tile3 from '../../images/IMG_0544.jpeg';
 import { useState } from "react";
 
 

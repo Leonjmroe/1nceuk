@@ -1,29 +1,7 @@
-/* ------------  Navbar  ------------ */
-.header {
-  width: 80%;
-  margin-left: 10%;
-  height: 15vh;
-  margin-top: 1vh;
-  background-color: #30003c;
-}
-
-.logo1nce{
-  width: 25%;
-  margin-left: 1.5%;
-  height: 12vh;
-  margin-top: 1.5vh;
-  background-image: url('../../images/1ncelogo1.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  background-size:100% 100%;
-}
-
-
 
 /* ------------  Carousel  ------------ */
 .carousel_cont {
-  height: 60vh;
+  height: 75vh;
   width: 88%;
   margin-left: 6%;
   margin-top: 2vh;
@@ -62,11 +40,11 @@
 }
 
 .img2 {
-  background-image: url('../../images/IMG-3162.jpg');
+  background-image: url('../../images/IMG-3163.jpg');
 }
 
 .img3 {
-  background-image: url('../../images/IMG-3162.jpg');
+  background-image: url('../../images/IMG-3111.jpg');
 }
 
 .circleImg:hover, .circleImg2:hover, .circleImg3:hover{

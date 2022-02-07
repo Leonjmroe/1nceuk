@@ -1,28 +1,27 @@
-import './../home/home.css';
+import './../core/core.css';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Header() {
 
+  const navigate = useNavigate();
+
 return (
 
 <div className="header">
-  <div className="logo1nce">1nce</div>
-  <div className="shopBtn"/>
-  {/*<div className="dropdownCont">
-      <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-    </div>
+  <div className="logo1nce" onClick={()=> navigate('/home')}/>
+  {/*<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
   </div>*/}
   <div className="basketCont">  
-    <div className="basketBtn" />
-    <div className="basketCnt" />
+    <div className="shopCounter">1</div>
+    <div className="shopBtn" onClick={()=> navigate('/checkout')}/>
   </div>
 </div>
 )}
