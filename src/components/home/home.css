@@ -3,9 +3,8 @@
 
 .carousel_cont {
   height: 75vh;
-  width: 88%;
-  margin-left: 6%;
-  margin-top: 2vh;
+  width: 80%;
+  margin-left: 10%;
   background-size: contain;
   overflow: hidden;
 }
@@ -17,9 +16,8 @@
 .circleContainer {
   flex-wrap: wrap;
   display: flex;
-  width: 88%;
-  margin-left: 6%;
-  margin-top: 2vh;
+  width: 80%;
+  margin-left: 10%;
   background-color: #86C2A4;
 }
 
@@ -79,10 +77,9 @@
 
 .shopNowCont {
   height: 60vh;
-  width: 88%;
-  margin-left: 6%;
+  width: 80%;
+  margin-left: 10%;
   margin-top: 2%;
-  margin-bottom: 2%;
   background-color: #86C2A4;
 }
 
@@ -165,7 +162,7 @@
 }
 
 .shopTitle {
-  color: white;
+  color: black;
   font-family: monospace;
   width: 60%;
   margin-left: 20%;
@@ -173,10 +170,11 @@
   height: 1vh;
   padding: 0em 0em 1.6em 0em;
   border-radius: 8px;
-  background-color: #333333;
+  background-color: #29E66B;
   text-align: center;
   font-size: 4vh;
   border: 1px solid black;
+  font-weight: bold;
 }
 
 .shopTitle:hover {

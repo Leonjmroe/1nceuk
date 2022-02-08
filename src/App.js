@@ -1,4 +1,5 @@
 import Navbar from './components/core/navbar.js';
+import Underbar from './components/core/underbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Switch from 'react-switch';
 import Home from './components/home/home.js';
@@ -14,6 +15,7 @@ function App() {
       <div className="App">
           <Router>  
           <Navbar />
+          <Underbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
