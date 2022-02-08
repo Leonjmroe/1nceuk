@@ -18,7 +18,8 @@
   display: flex;
   width: 80%;
   margin-left: 10%;
-  background-color: #86C2A4;
+  background-color: #E8FFF0;
+  opacity: 0.8;
 }
 
 .circleImg {
@@ -79,7 +80,8 @@
   height: 60vh;
   width: 80%;
   margin-left: 10%;
-  background-color: #86C2A4;
+  background-color: #E8FFF0;
+  opacity: 0.8;
 }
 
 .boxCont {
