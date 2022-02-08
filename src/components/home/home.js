@@ -1,13 +1,15 @@
 import './home.css';
 import Carousel from './carousel.js';
-import AboutUsLinks from './aboutUsLinks.js';
+import Circles from './circles.js';
+import ShopNow from './shop_now.js';
 
 export default function Home() {
 
    return (
     <div className="container">
       <Carousel />
-      <AboutUsLinks />
+      <Circles />
+      <ShopNow />
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function AboutUsLinks() {
   const navigate = useNavigate();
 
    return (
-    <div className="aboutContainer">
+    <div className="circleContainer">
         <div className="circleCont">
           <div className="circleImg img1" onClick={()=> navigate('/store')}/>
         </div>
