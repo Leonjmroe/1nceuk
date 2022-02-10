@@ -19,7 +19,7 @@ export default function Main() {
             activeIndex={index} onSelect={handleSelect}>
   <Carousel.Item interval={2000}>
     <img
-      className="d-block w-100"
+      className="d-block w-100 carousel_img"
       src={tile1}
       alt="First slide"
     />

@@ -6,14 +6,25 @@
   width: 80%;
   margin-left: 10%;
   background-size: contain;
+  background-repeat: no-repeat;
   overflow: hidden;
+  background-size: 100% 100%;
 }
 
+@media only screen and (max-width: 1050px) {
+  .carousel_cont {
+    height: auto;
+  }
+}
 
+.mainCont {
+  height: auto;
+}
 
 /* ------------  About Us  ------------ */
 
 .circleContainer {
+  height: auto;
   flex-wrap: wrap;
   display: flex;
   width: 80%;
@@ -21,10 +32,15 @@
   background-color: #E8FFF0;
 }
 
+.circleCont {
+  width: 33.3%;
+  height: 100%;
+}
+
 .circleImg {
   width: 60%;
   margin-left: 20%;
-  height: 28vh;
+  height: 15vw;
   margin-top: 3.5vh;
   border-radius: 100%;
   object-fit: cover;
@@ -34,15 +50,10 @@
   background-size:100% 100%;
 }
 
-.circleCont {
-  width: 33.3%;
-  height: 100%;
-}
-
 .circleText {
   width: 60%;
   margin-left: 20%;
-  height: 6vh;
+  height: 3vw;
   margin-top: 3.5vh;
   border-radius: 100%;
   margin-bottom: 3.5vh;
@@ -76,7 +87,7 @@
 /* ------------  shopDrop  ------------ */
 
 .shopNowCont {
-  height: 60vh;
+  height: 32vw;
   width: 80%;
   margin-left: 10%;
   background-color: #E8FFF0;
@@ -85,7 +96,7 @@
 .boxCont {
   display: flex;
   flex-direction: row;
-  height: 40vh;
+  height: 20vw;
   width: 100%;
   margin-left: 0%;
   margin-top: 0%;
@@ -101,7 +112,7 @@
 .smallCont {
   display: flex;
   width: 100%;
-  height: 10vh;
+  height: 6vw;
 }
 
 .smallBox {
@@ -123,8 +134,8 @@
 .squareImg {
   width: 60%;
   margin-left: 20%;
-  height: 28vh;
-  margin-top: 4vh;
+  height: 20vw;
+  margin-top: 2vw;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
@@ -154,7 +165,7 @@
 .squareTxt {
   font-weight: bold;
   font-size: 2vw;
-  margin-top: 3vh;
+  margin-top: 2vw;
   text-align: center;
   color: black;
   font-family: monospace;
@@ -165,8 +176,8 @@
   font-family: monospace;
   width: 60%;
   margin-left: 20%;
-  margin-top: 2.5vh;
-  height: 1vh;
+  margin-top: 2.5vw;
+  height: 1vw;
   padding: 0em 0em 1.6em 0em;
   border-radius: 8px;
   background-color: #29E66B;
@@ -186,20 +197,19 @@
   font-family: monospace;
   width: 60%;
   margin-left: 20%;
-  margin-top: 3vh;
-  height: 0.5vh;
+  margin-top: 3vw;
+  height: 0.5vw;
   padding: 0em 0em 0em 0em;
   border-radius: 8px;
   background-color: #333333;
   text-align: center;
-  font-size: 4vh;
+  font-size: 2vw;
 }
 
 .crown {
   width: 18%;
   margin-left: 41%;
-  height: 12vh;
-  margin-top: -2vh;
+  height: 7vw;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
