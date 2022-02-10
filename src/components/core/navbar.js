@@ -6,10 +6,22 @@ export default function Header() {
 
   const navigate = useNavigate();
 
+  const dropdown = () => {
+    console.log(100)
+  }
+
 return (
 
 <div className="header">
-  <div className="logo1nce" onClick={()=> navigate('/home')}/>
+  <div className="logo1nce" onClick={()=> navigate('/CSSDesign')}/>
+  <div className="storeTitle">Store</div>
+  <div className="dropdown">
+    {/*<ul class="dropdown_menu" onClick={()=> dropdown()}>
+      <li><a href="#">Designs</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>*/}
+  </div>
   {/*<div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
     <span class="caret"></span></button>

@@ -1,41 +1,33 @@
 /* ------------  Navbar  ------------ */
 
 .header {
-  display: flex;
   width: 80%;
   margin-left: 10%;
-  height: 15vh;
+  height: 10vh;
   margin-top: 1vh;
   background-color: #30003c;
-  opacity: 0.8;
 }
 
 .underbar {
-  display: flex;
   width: 80%;
   margin-left: 10%;
   height: 2vh;
   margin-top: 1vh;
   margin-bottom: 1vh;
   background-color: #30003c;
-  opacity: 0.8;
 }
 
 .logo1nce{
-  width: 25%;
+  position: absolute;
+  width: 20%;
   margin-left: 1.5%;
-  height: 12vh;
-  margin-top: 1.5vh;
+  height: 8vh;
+  margin-top: 1vh;
   background-image: url('../../images/1ncelogo1.png');
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
-  background-size:100% 100%;
-}
-
-.logo1nce:hover {
-  opacity: 0.9;
-  cursor: pointer;
+  background-size: 100% 100%;
 }
 
 .dropdownBtn {
@@ -45,23 +37,23 @@
 }
 
 .basketCont {
-  position: relative;
-  width: 10%;
-  height: 12vh;
-  margin-top: 1.5vh;
-  margin-left: 60%;
+  position: absolute;
+  width: 6%;
+  height: 8vh;
+  margin-top: 1vh;
+  margin-left: 72%;
 }
 
-.basketCont:hover {
+.basketCont:hover, .dropdown:hover, .logo1nce:hover, .storeTitle:hover {
   opacity: 0.9;
   cursor: pointer;
 }
 
 .shopBtn{
   position: absolute;
-  left: 10%;
   width: 100%;
-  height: 12vh;
+  height: 100%;
+  margin-left: 10%;
   background-image: url('../../images/whiteShoppingCart.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -71,17 +63,38 @@
 
 .shopCounter {
   position: absolute;
-  left: 10%;
   width: 100%;
-  height: 12vh;
-  margin-top: 3vh;
+  height: 8vh;
+  margin-top: 1.5vh;
   color: white;
-  font-size: 4vh;
+  font-size: 2vw;
   font-weight: bolder;
   font-family: monospace;
 }
 
+.storeTitle{
+  position: absolute;
+  margin-left: 50%;
+  height: 8vh;
+  margin-top: 1vh;
+  color: white;
+  font-size: 5.5vh;
+  font-weight: bolder;
+  font-family: monospace;
+}
 
+.dropdown{
+  position: absolute;
+  width: 5%;
+  height: 8vh;
+  margin-left: 60%;
+  margin-top: 1.5vh;
+  background-image: url('../../images/dropdown.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+}
 
 /* ------------  Footer  ------------ */
 
@@ -92,7 +105,6 @@
   margin-bottom: 1vh;
   height: 15vh;
   background-color: #30003c;
-  opacity: 0.8;
 }
 
 .box {
