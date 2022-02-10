@@ -8,6 +8,14 @@
   background-color: #30003c;
 }
 
+@media only screen and (max-width: 1050px) {
+  .header {
+    height: 10vw;
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
 .underbar {
   width: 80%;
   margin-left: 10%;
@@ -16,6 +24,14 @@
   margin-bottom: 1vh;
   background-color: #30003c;
 }
+
+@media only screen and (max-width: 1050px) {
+  .underbar {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
 
 .logo1nce{
   position: absolute;
@@ -30,10 +46,12 @@
   background-size: 100% 100%;
 }
 
-.dropdownBtn {
-  margin-left: 50%;
-  height: 10vw;
-  margin-top: 3.5vw;
+@media only screen and (max-width: 1050px) {
+  .logo1nce {
+    height: 10vw;
+    margin-top: 0vw;
+    width: 25%;
+  }
 }
 
 .basketCont {
@@ -42,6 +60,14 @@
   height: 5vw;
   margin-top: 0.5vw;
   margin-left: 72%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .basketCont {
+    height: 9vw;
+    width: 10%;
+    margin-left: 78%;
+  }
 }
 
 .basketCont:hover, .dropdown:hover, .logo1nce:hover, .storeTitle:hover {
@@ -72,15 +98,27 @@
   font-family: monospace;
 }
 
+@media only screen and (max-width: 1050px) {
+  .shopCounter {
+    font-size: 4vw;
+    margin-top: 1.5vw;
+  }
+}
+
 .storeTitle{
   position: absolute;
   margin-left: 50%;
-  height: 8vq;
   margin-top: 1vw;
   color: white;
   font-size: 3vw;
   font-weight: bolder;
   font-family: monospace;
+}
+
+@media only screen and (max-width: 1050px) {
+  .storeTitle {
+    font-size: 5vw;  
+  }
 }
 
 .dropdown{
@@ -96,6 +134,16 @@
   background-size: 100% 100%;
 }
 
+@media only screen and (max-width: 1050px) {
+  .dropdown {
+    height: 8vw;
+    width: 7%;
+    margin-left: 67%;
+    margin-top: 1.3vw;
+  }
+}
+
+
 /* ------------  Footer  ------------ */
 
 .footer {
@@ -105,6 +153,14 @@
   margin-bottom: 1vh;
   height: 8vw;
   background-color: #30003c;
+}
+
+@media only screen and (max-width: 1050px) {
+  .footer {
+    height: 14vw;
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 .box {
@@ -121,6 +177,13 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .icon {
+    margin-top: 3.5vw;
+    height: 3.5vw;
+  }
 }
 
 .icon:hover {

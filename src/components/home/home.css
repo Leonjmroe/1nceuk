@@ -14,6 +14,8 @@
 @media only screen and (max-width: 1050px) {
   .carousel_cont {
     height: auto;
+    width: 90%;
+    margin-left: 5%;
   }
 }
 
@@ -30,6 +32,13 @@
   width: 80%;
   margin-left: 10%;
   background-color: #E8FFF0;
+}
+
+@media only screen and (max-width: 1050px) {
+  .circleContainer {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 .circleCont {
@@ -91,6 +100,13 @@
   width: 80%;
   margin-left: 10%;
   background-color: #E8FFF0;
+}
+
+@media only screen and (max-width: 1050px) {
+  .shopNowCont {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 .boxCont {
@@ -185,6 +201,16 @@
   font-size: 2vw;
   border: 1px solid black;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 1050px) {
+  .shopTitle {
+    font-size: 4vw;
+    margin-left: 9%;
+    margin-top: 0.5vw;
+    height: 2vw;
+    width: 80%;
+  }
 }
 
 .shopTitle:hover {
