@@ -41,7 +41,7 @@
   width: 60%;
   margin-left: 20%;
   height: 15vw;
-  margin-top: 3.5vh;
+  margin-top: 3.5vw;
   border-radius: 100%;
   object-fit: cover;
   background-size: contain;
@@ -54,9 +54,9 @@
   width: 60%;
   margin-left: 20%;
   height: 3vw;
-  margin-top: 3.5vh;
+  margin-top: 3.5vw;
   border-radius: 100%;
-  margin-bottom: 3.5vh;
+  margin-bottom: 3.5vw;
   font-weight: bold;
   font-size: 2vw;
   text-align: center;
@@ -87,7 +87,7 @@
 /* ------------  shopDrop  ------------ */
 
 .shopNowCont {
-  height: 32vw;
+  height: 37.5vw;
   width: 80%;
   margin-left: 10%;
   background-color: #E8FFF0;
@@ -96,7 +96,7 @@
 .boxCont {
   display: flex;
   flex-direction: row;
-  height: 20vw;
+  height: 24vw;
   width: 100%;
   margin-left: 0%;
   margin-top: 0%;
@@ -124,7 +124,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 50%;
+  height: 60%;
 }
 
 .large {
@@ -134,13 +134,13 @@
 .squareImg {
   width: 60%;
   margin-left: 20%;
-  height: 20vw;
-  margin-top: 2vw;
+  height: 30vw;
+  margin-top: 3vw;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
-  background-size:100% 100%;
+  background-size: 100% 100%;
   background-color: #999999;
 }
 
@@ -165,7 +165,7 @@
 .squareTxt {
   font-weight: bold;
   font-size: 2vw;
-  margin-top: 2vw;
+  margin-top: 3vw;
   text-align: center;
   color: black;
   font-family: monospace;
