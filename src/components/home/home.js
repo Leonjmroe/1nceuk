@@ -14,8 +14,6 @@ export default function Home() {
       <Circles />
       <Underbar />
       <ShopNow />
-      <Underbar />
-      <Footer />
     </div>
   );
 }

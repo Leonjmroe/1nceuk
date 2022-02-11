@@ -1,4 +1,5 @@
 import Navbar from './components/core/navbar.js';
+import Footer from './components/core/footer.js';
 import Underbar from './components/core/underbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Switch from 'react-switch';
@@ -8,15 +9,15 @@ import About from './components/about/about.js';
 import Contact from './components/contact/contact.js';
 import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
-import ItemDetail from './components/store/itemDetail.js';
+import ItemPreview from './components/store/item_preview.js';
 import './App.css'
 
 function App() {
  return (                                                                
       <div className="App">
           <Router>  
-          <Navbar />
-          <Underbar />
+          <Navbar/>
+          <Underbar/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
@@ -24,8 +25,10 @@ function App() {
             <Route path="/designs" element={<Designs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/itemDetail" element={<ItemDetail />} />
+            <Route path="/item_preview" element={<ItemPreview />} />
           </Routes>
+          <Underbar/>
+          <Footer />
          </Router>  
       </div>
   )};

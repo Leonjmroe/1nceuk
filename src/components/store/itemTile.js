@@ -1,17 +1,17 @@
 import './store.css';
-import { makeStyles } from '@material-ui/core/styles';
-import ItemDetail from './itemDetail.js';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Tile(props) {
 
+  const navigate = useNavigate();
+
   return (
-      <div className="tile">
-      <Link to="/itemDetail" image={props.image}>
+      <div className="tile" onClick={()=> navigate('/item_preview')}>
         <img className="image" src={props.image}></img>
-        <div className="text"><span>{props.text}</span></div>
-        <div className="price">{props.price}</div>
-      </Link>
+        <div className="detailBox"> 
+          <div className="text">{props.text}</div>
+          <div className="price">{props.price}</div>
+        </div>
       </div>
   );
 }
