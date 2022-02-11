@@ -13,7 +13,7 @@ export default function ShopNow() {
           <div className="titleDash">------------</div>
         </div>
         <div className="smallBox">
-          <div className="shopTitle" onClick={()=> navigate('/shop')}>Shop Now</div>
+          <div className="shopTitle" onClick={()=> navigate('/store')}>Shop Now</div>
         </div>
         <div className="smallBox">
           <div className="titleDash">------------</div>

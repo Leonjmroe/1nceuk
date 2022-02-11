@@ -6,6 +6,7 @@ import Home from './components/home/home.js';
 import Store from './components/store/store.js';
 import About from './components/about/about.js';
 import Contact from './components/contact/contact.js';
+import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
 import ItemDetail from './components/store/itemDetail.js';
 import './App.css'
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/about" element={<About />} />
+            <Route path="/designs" element={<Designs />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/itemDetail" element={<ItemDetail />} />

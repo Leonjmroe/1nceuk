@@ -1,36 +1,36 @@
 import './../core/core.css';
 import { useNavigate } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { useState } from 'react';
 
 
 export default function Header() {
 
   const navigate = useNavigate();
+  const [classState, setclassState] = useState('box_nodisplay dropdown_box')
 
-  const dropdown = dropdown => {
-    console.log(100)
+   const dropdown = () => {
+    if(classState == 'box_display dropdown_box'){
+      setclassState('box_nodisplay dropdown_box')
+    }else{
+      setclassState('box_display dropdown_box')
+    }
   }
 
-  const useStyles = makeStyles(() => ({
-      dropdown_box: {
-        position: 'absolute',
-        'display': 'none'
-      }
-    }))
-
-  const classes = useStyles();
+  const drop_link = (x) => {
+    setclassState('box_nodisplay dropdown_box')
+    navigate(x)
+  }
 
 return (
-
 <div className="header">
-  <div className="logo1nce" onClick={()=> navigate('/CSSDesign')}/>
-  <div className="storeTitle">Store</div>
+  <div className="logo1nce" onClick={()=> navigate('/')}/>
+  <div className="storeTitle" onClick={()=> navigate('/store')}>Store</div>
   <div className="dropdown" onClick={()=> dropdown()}/>
-  <ul className={classes.dropdown_box}>
-    <li><a href="#">Designs</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
+  <div className={classState}>
+    <div className="dropdown_list" onClick={()=> drop_link('/designs')}>Designs</div>
+    <div className="dropdown_list" onClick={()=> drop_link('/about')}>About</div>
+    <div className="dropdown_list" onClick={()=> drop_link('/contact')}>Contact</div>
+  </div>
   <div className="basketCont">  
     <div className="shopCounter">1</div>
     <div className="shopBtn" onClick={()=> navigate('/checkout')}/>
