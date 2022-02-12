@@ -34,7 +34,7 @@ export default function Preview() {
               alt="Second slide"
             />
           </Carousel.Item>
-          <Carousel.Item className="carouselItem" interval={2000}>
+          <Carousel.Item interval={2000}>
             <img
               className="carouselImg"
               src={tile3}

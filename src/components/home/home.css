@@ -2,9 +2,9 @@
 /* ------------  Carousel  ------------ */
 
 .carousel_cont {
-  height: 75vh;
-  width: 80%;
-  margin-left: 10%;
+  height: 95vh;
+  width: 90%;
+  margin-left: 5%;
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -14,8 +14,8 @@
 @media only screen and (max-width: 1050px) {
   .carousel_cont {
     height: auto;
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    margin-left: 0%;
   }
 }
 
@@ -29,15 +29,15 @@
   height: auto;
   flex-wrap: wrap;
   display: flex;
-  width: 80%;
-  margin-left: 10%;
+  width: 90%;
+  margin-left: 5%;
   background-color: #E8FFF0;
 }
 
 @media only screen and (max-width: 1050px) {
   .circleContainer {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    margin-left: 0%;
   }
 }
 
@@ -47,9 +47,9 @@
 }
 
 .circleImg {
-  width: 60%;
-  margin-left: 20%;
-  height: 15vw;
+  width: 70%;
+  margin-left: 15%;
+  height: 20vw;
   margin-top: 3.5vw;
   border-radius: 100%;
   object-fit: cover;
@@ -57,6 +57,14 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size:100% 100%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .circleImg {
+    height: 25vw;
+    width: 75%;
+    margin-left: 12.5%;
+  }
 }
 
 .circleText {
@@ -96,26 +104,33 @@
 /* ------------  shopDrop  ------------ */
 
 .shopNowCont {
-  height: 37.5vw;
-  width: 80%;
-  margin-left: 10%;
+  height: 42vw;
+  width: 90%;
+  margin-left: 5%;
   background-color: #E8FFF0;
 }
 
 @media only screen and (max-width: 1050px) {
   .shopNowCont {
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    margin-left: 0%;
+    height: 45vw;
   }
 }
 
 .boxCont {
   display: flex;
   flex-direction: row;
-  height: 24vw;
+  height: 28vw;
   width: 100%;
   margin-left: 0%;
   margin-top: 0%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .boxCont {
+    height: 32vw;
+  }
 }
 
 .box {
