@@ -6,7 +6,7 @@ import Switch from 'react-switch';
 import Home from './components/home/home.js';
 import Store from './components/store/store.js';
 import About from './components/about/about.js';
-import Skating from './components/contact/contact.js';
+import Skating from './components/skating/skating.js';
 import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
 import ItemPreview from './components/item_preview/item_preview.js';
