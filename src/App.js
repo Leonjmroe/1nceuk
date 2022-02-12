@@ -6,11 +6,11 @@ import Switch from 'react-switch';
 import Home from './components/home/home.js';
 import Store from './components/store/store.js';
 import About from './components/about/about.js';
-import Contact from './components/contact/contact.js';
+import Skating from './components/contact/contact.js';
 import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
-import ItemPreview from './components/store/item_preview.js';
-import './App.css'
+import ItemPreview from './components/item_preview/item_preview.js';
+import './App.css';
 
 function App() {
  return (                                                                
@@ -23,7 +23,7 @@ function App() {
             <Route path="/store" element={<Store />} />
             <Route path="/about" element={<About />} />
             <Route path="/designs" element={<Designs />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/skating" element={<Skating />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/item_preview" element={<ItemPreview />} />
           </Routes>

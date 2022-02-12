@@ -29,7 +29,7 @@ return (
   <div className={classState}>
     <div className="dropdown_list" onClick={()=> drop_link('/designs')}>Designs</div>
     <div className="dropdown_list" onClick={()=> drop_link('/about')}>About</div>
-    <div className="dropdown_list" onClick={()=> drop_link('/contact')}>Contact</div>
+    <div className="dropdown_list" onClick={()=> drop_link('/skating')}>Skating</div>
   </div>
   <div className="basketCont">  
     <div className="shopCounter">1</div>

@@ -27,7 +27,7 @@ export default function AboutUsLinks() {
           <div className="circleText">Designs</div>
         </div>
         <div className="circleCont">
-          <div className="circleText">Best of 1nce</div>
+          <div className="circleText">About 1nce</div>
         </div>
     </div>
   );
