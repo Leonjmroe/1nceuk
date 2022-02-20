@@ -49,14 +49,14 @@
   width: 6%;
   height: 5vw;
   margin-top: 0.5vw;
-  margin-left: 72%;
+  margin-left: 92%;
 }
 
 @media only screen and (max-width: 1050px) {
   .basketCont {
     height: 9vw;
     width: 10%;
-    margin-left: 78%;
+    margin-left: 88%;
   }
 }
 
@@ -97,7 +97,7 @@
 
 .storeTitle{
   position: absolute;
-  margin-left: 50%;
+  margin-left: 70%;
   margin-top: 1vw;
   color: white;
   font-size: 3vw;
@@ -108,6 +108,7 @@
 @media only screen and (max-width: 1050px) {
   .storeTitle {
     font-size: 5vw;  
+    margin-left: 58%;
   }
 }
 
@@ -115,7 +116,7 @@
   position: absolute;
   width: 5%;
   height: 4vw;
-  margin-left: 60%;
+  margin-left: 80%;
   margin-top: 1.5vw;
   background-image: url('../../images/dropdown.png');
   background-size: contain;
@@ -128,7 +129,7 @@
   .dropdown {
     height: 8vw;
     width: 7%;
-    margin-left: 67%;
+    margin-left: 75%;
     margin-top: 1.3vw;
   }
 }
@@ -151,15 +152,17 @@
   }
 }
 
-.box {
+.footerBox {
   display: flex;
+  height: 100%;
+  width: 33.33%;
 }
 
 .icon {
-  width: 6%;
-  margin-left: 47%;
-  height: 2.5vw;
-  margin-top: 1vw;
+  width: 10%;
+  margin-left: 40%;
+  height: 3vw;
+  margin-top: 1.5vw;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
@@ -193,10 +196,19 @@
 
 .iconTxt {
   font-size: 1.5vw;
-  margin-top: 1vh;
+  margin-top: 1.8vw;
+  margin-left: 3%;
   text-align: center;
   color: white;
   font-family: monospace;
+}
+
+@media only screen and (max-width: 1050px) {
+  .iconTxt {
+    margin-top: 3.3vw;
+    height: 3.5vw;
+    font-size: 2.5vw;
+  }
 }
 
 
@@ -245,5 +257,16 @@
   cursor: pointer;
 }
 
+
+/* ----- Item Bar ----- */
+
+.itembar {
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 0vh;
+  height: 6vw;
+  background-color: #30003c;
+}
 
 

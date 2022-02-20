@@ -18,35 +18,71 @@ export default function Preview() {
 
    return (
     <div className="previewCont">
-        <Carousel className="carousel_cont2" variant="light" fade 
+      <div className="imagePreviewCont">
+        <Carousel className="imageBox" variant="light" fade 
             activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item interval={2000}>
             <img
-              className="carouselImg"
+              className="d-block w-100 carousel_img"
               src={tile1}
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item interval={2000}>
             <img
-              className="carouselImg"
+              className="d-block w-100"
               src={tile2}
               alt="Second slide"
             />
           </Carousel.Item>
           <Carousel.Item interval={2000}>
             <img
-              className="carouselImg"
+              className="d-block w-100"
               src={tile3}
               alt="Third slide"
             />
           </Carousel.Item>
         </Carousel>
         <div className="previewBox">
-          <div className="basketBox">
-            <div className="basketBtn">Add to basket</div>
+          <div className="prevDetail">
+            <div className="prevDetailItem">Info</div>
+          </div>
+          <div className="prevDetail">
+            <div className="prevDetailItem">Info</div>
+          </div>
+          <div className="prevDetail">
+            <div className="prevDetailItem">Info</div>
+          </div>
+          <div className="prevDetail">
+            <div className="prevDetailItem">Info</div>
+          </div>
+          <div className="prevDetail">
+            <div className="prevDetailItem">Info</div>
           </div>
         </div>
+      </div>
+      <div className="previewBox2">
+        <div className="prevDetail">
+          <div className="prevDetailItem">Info</div>
+        </div>
+        <div className="prevDetail">
+          <div className="prevDetailItem">Info</div>
+        </div>
+        <div className="prevDetail">
+          <div className="prevDetailItem">Info</div>
+        </div>
+        <div className="prevDetail">
+          <div className="prevDetailItem">Info</div>
+        </div>
+        <div className="prevDetail">
+          <div className="prevDetailItem">Info</div>
+        </div>
+      </div>
+      <div className="addBasketCont">
+        <div className="basketBox">
+          <div className="basketBtn">Add to basket</div>
+        </div>
+      </div>
     </div>
   );
 }

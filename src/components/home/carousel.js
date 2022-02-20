@@ -17,27 +17,27 @@ export default function Main() {
   return (  
   <Carousel className="carousel_cont" variant="light" fade 
             activeIndex={index} onSelect={handleSelect}>
-  <Carousel.Item interval={2000}>
-    <img
-      className="d-block w-100 carousel_img"
-      src={tile1}
-      alt="First slide"
-    />
-  </Carousel.Item>
-  <Carousel.Item interval={2000}>
-    <img
-      className="d-block w-100"
-      src={tile2}
-      alt="Second slide"
-    />
-  </Carousel.Item>
-  <Carousel.Item interval={2000}>
-    <img
-      className="d-block w-100"
-      src={tile3}
-      alt="Third slide"
-    />
-  </Carousel.Item>
+    <Carousel.Item interval={2000}>
+      <img
+        className="d-block w-100 carousel_img"
+        src={tile1}
+        alt="First slide"
+      />
+    </Carousel.Item>
+    <Carousel.Item interval={2000}>
+      <img
+        className="d-block w-100"
+        src={tile2}
+        alt="Second slide"
+      />
+    </Carousel.Item>
+    <Carousel.Item interval={2000}>
+      <img
+        className="d-block w-100"
+        src={tile3}
+        alt="Third slide"
+      />
+    </Carousel.Item>
   </Carousel>
   );
 }
