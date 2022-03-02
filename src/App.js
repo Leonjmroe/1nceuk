@@ -10,7 +10,7 @@ import Skating from './components/skating/skating.js';
 import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
 import ItemPreview from './components/item_preview/item_preview.js';
-import ItemAdmin from './components/item_admin/item_admin.js';
+import Login from './components/login/login.js';
 import './App.css';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
             <Route path="/skating" element={<Skating />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/item_preview" element={<ItemPreview />} />
-            <Route path="/item_admin" element={<ItemAdmin />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
           <Underbar/>
           <Footer />

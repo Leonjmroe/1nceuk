@@ -5,7 +5,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3'
-DEBUG = True # True - admin access, Falso - deployment 
+DEBUG = True # True - admin access, False - deployment 
 ALLOWED_HOSTS = ['*']
 
 
@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'apps.accounts',
     'apps.notes',
+    'corsheaders',
 ]
 
 
@@ -27,6 +28,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -34,6 +36,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
