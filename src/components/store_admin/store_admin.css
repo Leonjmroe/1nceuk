@@ -1,0 +1,50 @@
+.storeAdminCont{
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  height: 50vw;
+  opacity: 0.8;
+}
+
+.addItemCont{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.deleteItemCont{
+  width: 100%;
+  border: 1px solid black;
+}
+
+.addItem {
+  color: black;
+  font-family: monospace;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 10vw;
+  height: 4vw;
+  padding: 0.2em 0em 1.6em 0em;
+  border-radius: 8px;
+  background-color: #29E66B;
+  text-align: center;
+  font-size: 2vw;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.addItem:hover {
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.itemTitle, .itemPrice, .itemDescription {
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 5vw;
+  font-size: 1.5vw;
+  color: black;
+  font-family: monospace;
+  font-weight: bold;
+}

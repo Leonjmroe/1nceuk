@@ -11,6 +11,7 @@ import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
 import ItemPreview from './components/item_preview/item_preview.js';
 import Login from './components/login/login.js';
+import StoreAdmin from './components/store_admin/store_admin.js';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/item_preview" element={<ItemPreview />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/store_admin" element={<StoreAdmin />} />
           </Routes>
           <Underbar/>
           <Footer />
