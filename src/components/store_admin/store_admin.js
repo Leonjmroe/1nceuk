@@ -11,9 +11,15 @@ export default function StoreAdmin() {
    const [description, setDescription] = useState()
    const [price, setPrice] = useState()
 
-   const titleInput = event => { setTitle(event.target.value) }
-   const descriptionInput = event => { setDescription(event.target.value) }
-   const priceInput = event => { setPrice(event.target.value) }
+   const titleInput = event => { 
+      setTitle(event.target.value) 
+   }
+   const descriptionInput = event => { 
+      setDescription(event.target.value) 
+   }
+   const priceInput = event => { 
+      setPrice(event.target.value) 
+   }
 
    const items = []
    const addItem = () => {
@@ -23,6 +29,7 @@ export default function StoreAdmin() {
          'price': price,    
       }
       items.push(item)
+      console.log(items)
   }
 
    return (
