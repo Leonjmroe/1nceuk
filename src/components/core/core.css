@@ -225,7 +225,7 @@
 
 .dropdown_box {
   position: absolute;
-  margin-left: 60%;
+  margin-left: 81%;
   width: 15%;
   height: 15vw;
   z-index: 2;
@@ -234,8 +234,9 @@
 
 @media only screen and (max-width: 1050px) {
   .dropdown_box {
-    margin-left: 69%;
-    margin-top: 8vw; 
+    margin-left: 77%;
+    margin-top: 10vw; 
+    width: 20%;
   }
 }
 
@@ -250,6 +251,14 @@
   font-family: monospace;
   user-select: none;
   background-color: #30003c;
+}
+
+@media only screen and (max-width: 1050px) {
+  .dropdown_list {
+    height: 10vw;
+    font-size: 2.5vw;
+    padding: 3vw 0vw 1vw 0vw;
+  }
 }
 
 .dropdown_list:hover {

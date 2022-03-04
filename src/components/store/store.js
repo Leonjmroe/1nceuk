@@ -12,12 +12,6 @@ export default function Shop() {
       { 'id': '3', 'image': image, 'text': '1nce Hoody', 'price': '£35' },
       { 'id': '4', 'image': image, 'text': '1nce Hoody', 'price': '£35' },
       { 'id': '5', 'image': image, 'text': '1nce Hoody', 'price': '£35' },
-      // { 'id': '6', 'image': image, 'text': '1nce Hoody', 'price': '£35' },
-      // { 'id': '7', 'image': image, 'text': '1nce Hoody', 'price': '£35' },
-      // { 'id': '8', 'image': image, 'text': '1nce Hoody', 'price': '£35' },
-      // { 'id': '9', 'image': image, 'text': '1nce Hoody', 'price': '£35' }, 
-      // { 'id': '9', 'image': image, 'text': '1nce Hoody', 'price': '£35' }, 
-      // { 'id': '9', 'image': image, 'text': '1nce Hoody', 'price': '£35' }, 
     ]
 
    return (

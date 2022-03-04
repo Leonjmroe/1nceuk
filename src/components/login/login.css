@@ -8,11 +8,17 @@
   height: 50vw;
 }
 
+@media only screen and (max-width: 1050px) {
+  .adminCont {
+    height: 140vw;
+  }
+}
+
 .usernameCont{
   position: absolute;
   width: 40%;
   height: 2vw;
-  top: 15vw;
+  top: 20vw;
   margin-left: 35%;
 }
 
@@ -20,8 +26,14 @@
   position: absolute;
   width: 40%;
   height: 2vw;
-  top: 22vw;
+  top: 27vw;
   margin-left: 35%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .passwordCont {
+    top: 30vw;
+  }
 }
 
 .username, .usernameTitle, .password, .passwordTitle{
@@ -35,7 +47,7 @@
   position: absolute;
   width: 10%;
   height: 2vw;
-  top: 29vw;
+  top: 34vw;
   margin-left: 40%;
   color: black;
   font-family: monospace;
@@ -46,6 +58,12 @@
   font-size: 1.5vw;
   border: 1px solid black;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 1050px) {
+  .login {
+    top: 40vw;
+  }
 }
 
 .login:hover{

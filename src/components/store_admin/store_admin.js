@@ -15,12 +15,14 @@ export default function StoreAdmin() {
    const descriptionInput = event => { setDescription(event.target.value) }
    const priceInput = event => { setPrice(event.target.value) }
 
+   const items = []
    const addItem = () => {
       const item = {
          'title': title,
          'description': description,
          'price': price,    
       }
+      items.push(item)
   }
 
    return (
@@ -32,6 +34,9 @@ export default function StoreAdmin() {
          <div className="addItem" onClick={addItem}>Add Item</div>
       </div>
       <div className="deleteItemCont">
+         {/*{items.map( item => (
+           <ItemTile key={item.id} datakey={item.id} image={item.image} text={item.text} price={item.price} />
+         ))}*/}
       </div>
     </div>
   );
