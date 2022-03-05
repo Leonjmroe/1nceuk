@@ -2,7 +2,7 @@
   display: flex;
   width: 90%;
   margin-left: 5%;
-  height: 50vw;
+  height: auto;
   opacity: 0.8;
   background-color: green;
 }
@@ -10,12 +10,14 @@
 .addItemCont{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  flex-wrap: wrap;
+  width: 35%;
   border: 1px solid black;
 }
 
 .deleteItemCont{
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   border: 1px solid black;
 }
@@ -23,9 +25,10 @@
 .addItem {
   color: black;
   font-family: monospace;
-  width: 40%;
-  margin-left: 30%;
-  margin-top: 10vw;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 4vw;
+  margin-bottom: 4vw;
   height: 4vw;
   padding: 0.2em 0em 1.6em 0em;
   border-radius: 8px;
@@ -41,12 +44,16 @@
 	cursor: pointer;
 }
 
-.itemTitle, .itemPrice, .itemDescription {
-  width: 40%;
-  margin-left: 30%;
-  margin-top: 5vw;
+.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .imageUpload {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 3.5vw;
   font-size: 1.5vw;
   color: black;
   font-family: monospace;
   font-weight: bold;
+}
+
+.itemDescription{
+  height: 8vw;
 }
