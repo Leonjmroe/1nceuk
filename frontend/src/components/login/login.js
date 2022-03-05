@@ -24,12 +24,10 @@ export default function Login() {
     }
     axios.post('/api/v1/token/login/', userData).then((response) => {
       const data = response.data['auth_token']
-      console.log(response)
       setToken(data)
       navigate('/store_admin', {state:{token:data}})
     }).catch(error => {
-      console.log(error)
-      //alert('Incorrect Details')
+      alert('Incorrect Details')
       setUsername('')
       setPassword('')
     })

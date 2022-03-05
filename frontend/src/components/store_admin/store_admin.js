@@ -1,15 +1,16 @@
 import './store_admin.css';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function StoreAdmin() {
 
    const location = useLocation()
-   console.log(location.state.token)
+   //console.log(location.state.token)
 
-   const [title, setTitle] = useState()
-   const [description, setDescription] = useState()
-   const [price, setPrice] = useState()
+   const [title, setTitle] = useState('')
+   const [description, setDescription] = useState('')
+   const [price, setPrice] = useState('')
+   const [items, set_items] = useState([]);
 
    const titleInput = event => { 
       setTitle(event.target.value) 
@@ -21,7 +22,6 @@ export default function StoreAdmin() {
       setPrice(event.target.value) 
    }
 
-   const items = []
    const addItem = () => {
       const item = {
          'title': title,
@@ -29,15 +29,17 @@ export default function StoreAdmin() {
          'price': price,    
       }
       items.push(item)
-      console.log(items)
+      setTitle('') 
+      setDescription('')
+      setPrice('')
   }
 
    return (
     <div className="storeAdminCont">
       <div className="addItemCont">
-         <input className="itemTitle" placeholder="title" type="text" onChange={titleInput} />
-         <input className="itemDescription" placeholder="description" onChange={descriptionInput} type="text" />
-         <input className="itemPrice" type="text" placeholder="price" onChange={priceInput} />
+         <input className="itemTitle" placeholder="title" type="text" value={title} onChange={titleInput} />
+         <input className="itemDescription" placeholder="description" value={description} onChange={descriptionInput} type="text" />
+         <input className="itemPrice" type="text" placeholder="price" value={price} onChange={priceInput} />
          <div className="addItem" onClick={addItem}>Add Item</div>
       </div>
       <div className="deleteItemCont">
@@ -48,4 +50,3 @@ export default function StoreAdmin() {
     </div>
   );
 }
-
