@@ -5,8 +5,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3'
-DEBUG = True # True - admin access, False - deployment 
-ALLOWED_HOSTS = []
+DEBUG = False 
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
@@ -54,8 +54,7 @@ REST_FRAMEWORK = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #'DIRS': [os.path.join(BASE_DIR,'../build')],
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'../frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,10 +104,11 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
-# STATIC_ROOT = os.path.join(BASE_DIR, '../build/static')
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = []
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = []
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
