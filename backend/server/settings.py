@@ -5,8 +5,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3'
-DEBUG = False # True - admin access, False - deployment 
-ALLOWED_HOSTS = ['*']
+DEBUG = True # True - admin access, False - deployment 
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
@@ -21,7 +21,6 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.notes',
     'djoser',
-    # 'corsheaders',
 ]
 
 
@@ -29,7 +28,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -37,12 +35,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# CORS_ORIGIN_ALLOW_ALL = False
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:8000',
-# )
 
-# configure Djoser
 DJOSER = {
     "USER_ID_FIELD": "username"
 }
@@ -61,7 +54,8 @@ REST_FRAMEWORK = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'../build')],
+        #'DIRS': [os.path.join(BASE_DIR,'../build')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,11 +105,10 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
-STATIC_ROOT = os.path.join(BASE_DIR, '../build/static')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = []
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATIC_ROOT = os.path.join(BASE_DIR, '../build/static')
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = []
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
