@@ -44,7 +44,7 @@
 	cursor: pointer;
 }
 
-.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .imageUpload {
+.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .imageUpload, .itemCategory {
   width: 80%;
   margin-left: 10%;
   margin-top: 3.5vw;

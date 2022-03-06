@@ -6,7 +6,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3'
-DEBUG = False 
+DEBUG = True 
 ALLOWED_HOSTS = ['*']
 
 
@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'apps.accounts',
-    'apps.notes',
+    'apps.items',
     'djoser',
 ]
 
@@ -105,9 +105,12 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
-STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = []
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')                                                        # full path to the directory where we would like django to store uploaded files. files stored on the file system not on the database for performance reasons. Specifies that a media directory should be creased at the project base directory. media directories will be stored inside media
+MEDIA_URL = '/media/'  
+
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
