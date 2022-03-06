@@ -105,11 +105,15 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = []
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')                                                        # full path to the directory where we would like django to store uploaded files. files stored on the file system not on the database for performance reasons. Specifies that a media directory should be creased at the project base directory. media directories will be stored inside media
-MEDIA_URL = '/media/'  
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_URL = '/static/'
+
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
