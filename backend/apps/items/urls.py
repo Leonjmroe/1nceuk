@@ -8,6 +8,14 @@ router = routers.DefaultRouter()
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('item-list/', views.ItemsList.as_view()),
-    path('item-detail/', views.ItemsDetail.as_view())
+    path('item-list/', views.ItemsList.as_view())
 ]
+
+
+# from django.conf.urls import url, include 
+# from rest_framework.routers import DefaultRouter
+# from .views import ItemsList
+
+# router = DefaultRouter()
+# router.register("items", ItemsList, basename="items")
+# items_urlpatterns = [url("api/items/item-list", include(router.urls))]

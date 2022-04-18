@@ -6,11 +6,10 @@ class ItemsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Items
         fields = (
-        	'created',
         	'title',
-        	'description'
+        	'description',
         	'price',
-        	'category'
+        	'category',
         	'size',
         	'colour',
         	'quantity',

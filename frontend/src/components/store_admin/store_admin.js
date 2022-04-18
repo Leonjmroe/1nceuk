@@ -1,4 +1,5 @@
 import './store_admin.css';
+import {addItem} from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
 import { useState, useRef } from 'react';
@@ -31,7 +32,7 @@ export default function StoreAdmin() {
    const image2Input = event => { setImage2(URL.createObjectURL(event.target.files[0]))}
    const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0]))}
 
-   const addItem = () => {
+   const loadItem = () => {
       if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
          const item = {
             'title': title,
@@ -56,6 +57,7 @@ export default function StoreAdmin() {
          setImage2('')
          setImage3('')
          console.log(item)
+         addItem(item)
       }
    }
  
@@ -106,7 +108,7 @@ export default function StoreAdmin() {
          <input className="imageUpload" type="file" onChange={image1Input} />
          <input className="imageUpload" type="file" onChange={image2Input} />
          <input className="imageUpload" type="file" onChange={image3Input} />
-         <div className="addItem" onClick={addItem}>Add Item</div>
+         <div className="addItem" onClick={loadItem}>Add Item</div>
       </div>
       <div className="deleteItemCont">
          {items.map( item => (
