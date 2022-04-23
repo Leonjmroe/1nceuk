@@ -15,7 +15,7 @@
   border: 1px solid black;
 }
 
-.deleteItemCont{
+.editItemCont{
   display: flex;
   flex-wrap: wrap;
   width: 100%;

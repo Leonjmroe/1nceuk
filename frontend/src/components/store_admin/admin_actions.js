@@ -1,41 +1,75 @@
 import axios from "axios";
+import { returnItems } from './store_admin.js';
 
-// export const getItems = () => dispatch => {
-//   axios
-//     .get("/api/items/item-list")
-//     .then(response => {
-//       dispatch({
-//         type: 'GET_ITEMS',
-//         payload: response.data
-//       });
-//     })
-//     .catch(error => {
-//       console.log(error)
-//     });
-// };
-
-// export const addItem = item => dispatch => {
-//   axios
-//     .post("/api/items/item-list", item)
-//     .then(response => {
-//       dispatch({
-//         type: 'ADD_ITEM',
-//         payload: response.data
-//       });
-//     })
-//     .catch(error => {
-//       console.log(error)
-//     });
-// };
 
 export const addItem = (item) => {
- axios.post('/api/items/item-list/', item).then((response) => {
-      const data = response.data
-      console.log(data)
-    }).catch(error => {
-      console.log(error)
-    })
-  };
+  axios({
+  method: "post",
+  url: "/api/items/item-list/",
+  data: item,
+  headers: { "Content-Type": "multipart/form-data" },
+})
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (response) {
+    console.log(response);
+  });
+};
+
+var items = null
+
+export const getItems = () => { 
+  items = axios.get('/api/items/item-list/').then((response) => response.data)
+  return items
+}
+
+
+
+
+// export const getItems = () => {
+//     return axios.get('/api/items/item-list/').then(response => response).then(data => {
+//     })
+// }
+
+
+
+
+// export const getItems = async () => {
+//   var data = null
+//   await fetch('/api/items/item-list/')
+//   .then((response) => response.json())
+//   .then((data) => {
+//     data = data
+//   });
+//   return data
+// };
+
+
+// export const getItems = (item) => {
+  
+//   const request = axios({
+//     method: "get",
+//     url: "/api/items/item-list/",
+//   })
+  
+//   const data = request.then((response) => response.data.result)
+  
+//   // const error = request.catch(function (response) {
+//   //   console.log(response);
+//   // });
+
+//   return data
+
+//   };
+
+
+//   async function axiosTest() {
+//     const response = await axios.get(url)
+//     return response.data
+// }
+
+
 
 
 // export const deleteItems = id => dispatch => {
