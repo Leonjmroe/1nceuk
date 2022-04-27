@@ -279,4 +279,24 @@
 }
 
 
+/* ----- Delete Box ----- */
+
+.deleteBox {
+  width: 40%;
+  height: 5vh;
+  background-color: red;
+  margin-left: 30%;
+  margin-top: 5vw;
+}
+
+.delbox_nodisplay {
+  display: none;
+}
+
+.delbox_display {
+  display: inline;
+} 
+
+
+
 

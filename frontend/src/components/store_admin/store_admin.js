@@ -1,16 +1,19 @@
 import './store_admin.css';
-import { addItem, getItems } from './admin_actions.js';
+import { addItem, getItems, editItem, deleteItem  } from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function StoreAdmin() {
 
    const location = useLocation()
-   //console.log(location.state.token)
-   var items = []
+
+   const [boxClass, setBoxClass] = useState('delbox_nodisplay deleteBox')
 
    const [render, setRender] = useState(0)
+   const [items, setItems] = useState([])
+
    const [title, setTitle] = useState('')
    const [description, setDescription] = useState('')
    const [price, setPrice] = useState('')
@@ -34,24 +37,34 @@ export default function StoreAdmin() {
    const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0]))}
 
    useEffect(() => {
-      if( render == 0 ) {
-         getItems().then((data) => {outputItems(data)})
+      if( render === 0 ) {
+         if(location.state.switch === 1) {
+            populateFields()
+         }
+         pullItems()
          setRender(1)
-
-         const outputItems = (data) => {
-            items = data
-            console.log(items)
-         }  
       }
    });
 
+   const pullItems = (x) => {
+      getItems().then((data) => {
+         //console.log(data)
+         setItems(data)
+      })
+   }
+
+   const createItems = items.map( item => 
+      <ItemTile title={item.title} description={item.description} price={item.price} category={item.category} 
+                size={item.size} colour={item.colour} quantity={item.quantity} image1={item.image1}
+                image2={item.image2} image3={item.image3} mode="admin" />
+   );
 
    const formSubmit = event => { 
       event.preventDefault();
       if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
             const e = event.target
-            const item = new FormData(e)
-            //for (var pair of form.entries()) { console.log(pair[0]+ ', ' + pair[1]); }               
+            const item = new FormData(e)     
+            console.log(e, image1)         
             addItem(item)  
             setCategory('') 
             setTitle('') 
@@ -65,6 +78,35 @@ export default function StoreAdmin() {
             setImage3('')
          }  
       }
+
+   const populateFields = () => {
+      const item  = location.state.item
+      setCategory(item.category) 
+      setTitle(item.title) 
+      setDescription(item.description)
+      setPrice(item.price)
+      setSize(item.size)
+      setColour(item.colour)
+      setQuantity(item.quantity)
+
+      console.log(item.image1)
+
+
+      for( let i = 1; i < 4; i++ ){
+      //    console.log(i)
+      //    fetch(item.image1)
+      //   .then(res => res.blob()) 
+      //   .then(blob => {
+      //       setImage1(blob)
+      // });
+      }
+
+      const image_files = document.getElementsByClassName('imageUpload')
+      image_files[0].file = item.image1
+      image_files[1].file = item.image2
+      image_files[2].file = item.image3
+      console.log(image_files[0])
+   }
 
    return (
     <div className="storeAdminCont">
@@ -117,11 +159,7 @@ export default function StoreAdmin() {
             <button className="addItem" type="submit">Add Item</button>
          </form>
       </div>
-      <div className="editItemCont">
-         {items.map( item => (
-           <ItemTile key={item.id} datakey={item.id} title={item.title} description={item.description} price={item.price} />
-         ))}
-      </div>
+      <div className="editItemCont">{ createItems }</div>
     </div>
   );
 }

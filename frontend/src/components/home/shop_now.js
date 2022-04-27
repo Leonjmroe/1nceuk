@@ -50,7 +50,7 @@ export default function ShopNow() {
           <div className="titleDash">------------</div>
         </div>
         <div className="smallBox">
-          <div className="crown" onClick={()=> navigate('/login')}/>
+          <div className="crown" onClick={()=> navigate('/login',{switch:0})}/>
         </div>
         <div className="smallBox">
           <div className="titleDash">------------</div>

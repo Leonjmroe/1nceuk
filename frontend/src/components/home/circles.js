@@ -1,9 +1,5 @@
 import './home.css';
 import { useNavigate } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import tile1 from '../../images/IMG-3163.jpg';
-import tile2 from '../../images/IMG-3112.jpg';
-import tile3 from '../../images/IMG-3156.jpg';
 
 export default function AboutUsLinks() {
 

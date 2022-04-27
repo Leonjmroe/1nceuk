@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 
-export default function Header() {
+export default function Header(item) {
 
   const navigate = useNavigate();
   const [classState, setclassState] = useState('box_nodisplay dropdown_box')
+  // const [deleteBox, setDeleteBox] = useState('delbox_nodisplay deleteBox')
 
    const dropdown = () => {
-    if(classState == 'box_display dropdown_box'){
+    if(classState === 'box_display dropdown_box'){
       setclassState('box_nodisplay dropdown_box')
     }else{
       setclassState('box_display dropdown_box')

@@ -2,7 +2,6 @@ import Navbar from './components/core/navbar.js';
 import Footer from './components/core/footer.js';
 import Underbar from './components/core/underbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Switch from 'react-switch';
 import Home from './components/home/home.js';
 import Store from './components/store/store.js';
 import About from './components/about/about.js';

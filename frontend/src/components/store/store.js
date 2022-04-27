@@ -1,7 +1,6 @@
 import ItemTile from './itemTile.js'
-import './store.css';
+import './tile.css';
 import image from '../../images/IMG-3162.jpg';
-import { useState } from "react";
 
 export default function Shop() {
 
@@ -17,7 +16,7 @@ export default function Shop() {
    return (
     <div className="storeCont">
       {items.map( item => (
-        <ItemTile key={item.id} datakey={item.id} image={item.image} text={item.text} price={item.price} />
+        <ItemTile key={item.id} datakey={item.id} image={item.image} text={item.text} price={item.price} mode="live" />
       ))}
     </div>
   );
