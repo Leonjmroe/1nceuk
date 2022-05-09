@@ -2,16 +2,17 @@ import './store_admin.css';
 import { addItem, getItems, editItem, deleteItem  } from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useHistory } from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 export default function StoreAdmin() {
 
    const location = useLocation()
+   //const history = History()
 
-   const [boxClass, setBoxClass] = useState('delbox_nodisplay deleteBox')
-
-   const [render, setRender] = useState(0)
+   const [addEditDelText, setaddEditDelText] = useState('Add Item')
+   const [addEditDelClass, setaddEditDelClass] = useState('addItem')
+  // const [render, setRender] = useState(0)
    const [items, setItems] = useState([])
 
    const [title, setTitle] = useState('')
@@ -36,27 +37,38 @@ export default function StoreAdmin() {
    const image2Input = event => { setImage2(URL.createObjectURL(event.target.files[0]))}
    const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0]))}
 
+
    useEffect(() => {
-      if( render === 0 ) {
-         if(location.state.switch === 1) {
+      pullItems()
+   }, []);
+
+
+   useEffect(() => {
+      if(location.state.editSwitch != null) {
+         if( location.state.editSwitch == 1 ) {
             populateFields()
+            setaddEditDelText('Edit Item')
+            setaddEditDelClass('editItem')
+         }else if( location.state.delSwitch == 1 ){
+            populateFields()
+            setaddEditDelText('Delete Item')
+            setaddEditDelClass('delItem')
          }
-         pullItems()
-         setRender(1)
       }
-   });
+  }, [location.state]);
+
 
    const pullItems = (x) => {
       getItems().then((data) => {
-         //console.log(data)
          setItems(data)
       })
    }
 
-   const createItems = items.map( item => 
-      <ItemTile title={item.title} description={item.description} price={item.price} category={item.category} 
+   const createItems = items.map((item, key) => (
+      <ItemTile key={key} title={item.title} description={item.description} price={item.price} category={item.category} 
                 size={item.size} colour={item.colour} quantity={item.quantity} image1={item.image1}
                 image2={item.image2} image3={item.image3} mode="admin" />
+      )
    );
 
    const formSubmit = event => { 
@@ -66,16 +78,7 @@ export default function StoreAdmin() {
             const item = new FormData(e)     
             console.log(e, image1)         
             addItem(item)  
-            setCategory('') 
-            setTitle('') 
-            setDescription('')
-            setPrice('')
-            setSize('')
-            setColour('')
-            setQuantity('')
-            setImage1('')
-            setImage2('')
-            setImage3('')
+            resetFields()
          }  
       }
 
@@ -89,9 +92,6 @@ export default function StoreAdmin() {
       setColour(item.colour)
       setQuantity(item.quantity)
 
-      console.log(item.image1)
-
-
       for( let i = 1; i < 4; i++ ){
       //    console.log(i)
       //    fetch(item.image1)
@@ -101,11 +101,28 @@ export default function StoreAdmin() {
       // });
       }
 
-      const image_files = document.getElementsByClassName('imageUpload')
-      image_files[0].file = item.image1
-      image_files[1].file = item.image2
-      image_files[2].file = item.image3
-      console.log(image_files[0])
+      // const image_files = document.getElementsByClassName('imageUpload')
+      // image_files[0].file = item.image1
+      // image_files[1].file = item.image2
+      // image_files[2].file = item.image3
+      // console.log(image_files[0])
+   }
+
+   const resetFields = () => {
+      setCategory('') 
+      setTitle('') 
+      setDescription('')
+      setPrice('')
+      setSize('')
+      setColour('')
+      setQuantity('')
+      setImage1('')
+      setImage2('')
+      setImage3('')
+      setaddEditDelText('Add Item')
+      setaddEditDelClass('addItem')
+      location.state.editSwitch = 0 
+      location.state.delSwitch = 0 
    }
 
    return (
@@ -116,7 +133,7 @@ export default function StoreAdmin() {
             <textarea className="itemDescription" placeholder="description" name="description" value={description} onChange={descriptionInput} type="text" />
             <input className="itemPrice" type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
             <select className="itemCategory" name="category" value={category} onChange={categoryInput}>
-               <option value="" disabled selected>select category</option>
+               <option>select category</option>
                <option className="sizeOption">hats</option>
                <option className="sizeOption">hoodies</option>
                <option className="sizeOption">jackets</option>
@@ -127,14 +144,14 @@ export default function StoreAdmin() {
                <option className="sizeOption">accessories</option>
             </select>
             <select className="itemSize" name="size" value={size} onChange={sizeInput}>
-               <option value="" disabled selected>select size</option>
+               <option>select size</option>
                <option className="sizeOption">small</option>
                <option className="sizeOption">medium</option>
                <option className="sizeOption">large</option>
                <option className="sizeOption">extra large</option>
             </select>
             <select className="itemColour" name="colour" value={colour} onChange={colourInput}>
-               <option value="" disabled selected>select colour</option>
+               <option>select colour</option>
                <option className="sizeOption">red</option>
                <option className="sizeOption">green</option>
                <option className="sizeOption">dark blue</option>
@@ -156,10 +173,10 @@ export default function StoreAdmin() {
             <input className="imageUpload" type="file" name="image1" onChange={image1Input} />
             <input className="imageUpload" type="file" name="image2" onChange={image2Input} />
             <input className="imageUpload" type="file" name="image3" onChange={image3Input} />
-            <button className="addItem" type="submit">Add Item</button>
+            <button className={addEditDelClass} type="submit">{addEditDelText}</button>
          </form>
       </div>
-      <div className="editItemCont">{ createItems }</div>
+      <div className="editItemCont" onClick={() => resetFields()}>{ createItems }</div>
     </div>
   );
 }

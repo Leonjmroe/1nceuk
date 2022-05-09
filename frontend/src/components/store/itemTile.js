@@ -1,13 +1,12 @@
 import './tile.css';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 // import { Carousel } from 'react-bootstrap';
-// import { deleteComf, editPopulate } from '../store_admin/store_admin.js';
 
 
 export default function Tile(props) {
 
   const navigate = useNavigate(props);
-  //const [isShown, setIsShown] = useState(false);
 
     const shuffle = () => {
       const img = document.getElementsByClassName('image');
@@ -32,38 +31,17 @@ export default function Tile(props) {
     }, 2000);
   }
 
-  // const editPopulate = () => {
-
-  // }
-
-
-   //  const toggleDeleteBox = () => {
-  //   if(classState == 'delbox_display deleteBox'){
-  //     setclassState('delbox_nodisplay deleteBox')
-  //     console.log('box hide')
-  //     console.log(item)
-  //   }
-  // }
-
-  // const deleteItem = (x) => {
-  //   setclassState('delbox_nodisplay deleteBox')
-  //   console.log('deleteItem')
-  // }
-
+  // useEffect(() => {
+  //     pullItems()
+  //  }, [editIncrement]);
 
   const editPopulate = (item) => {
-    //console.log('edit', item)
-    window.location.reload(false);
-    navigate('/store_admin', {state:{item:item,switch:1}})
+    navigate('/store_admin', {state:{item:item,editSwitch:1,delSwitch:0}})
   }
 
-  const deleteComf = (item) => {
-    //setBoxClass('delbox_display deleteBox')
-    console.log('delete', item)
+  const deletePopulate = (item) => {
+    navigate('/store_admin', {state:{item:item,editSwitch:0,delSwitch:1}})
   }
-
-
-  
 
   return (
       <div className="tile deleteConf">
@@ -99,6 +77,7 @@ export default function Tile(props) {
             />
           </Carousel.Item>
         </Carousel>*/}
+
         <div className="detailBox"> 
           <div className="title">{props.title}</div>
           <div className="description">{props.description}</div>
@@ -109,16 +88,9 @@ export default function Tile(props) {
           <div className="quantity">{props.price}</div>
         </div>
         <div className="adminButtonCont">
-          <div className="deleteTile" onClick={() => deleteComf(props)}/>
+          <div className="deleteTile" onClick={() => deletePopulate(props)}/>
           <div className="editTile" onClick={() => editPopulate(props)}/>
         </div>
-
-          {/*<div className="delbox_nodisplay deleteBox">
-    <div className="delBoxText">Are you sure you would like to delete this item?</div>
-    <div className="confirm" onClick={toggleDeleteBox()}>Confirm</div>
-    <div className="cancel" onClick={toggleDeleteBox()}>Cancel</div>
-  </div>*/}
-
       </div>
   );
 }

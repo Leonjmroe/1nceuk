@@ -22,7 +22,7 @@
   border: 1px solid black;
 }
 
-.addItem {
+.addItem, .editItem, .delItem {
   color: black;
   font-family: monospace;
   width: 80%;
@@ -32,16 +32,27 @@
   height: 4vw;
   padding: 0.2em 0em 1.6em 0em;
   border-radius: 8px;
-  background-color: #29E66B;
   text-align: center;
   font-size: 2vw;
   border: 1px solid black;
   font-weight: bold;
 }
 
-.addItem:hover {
-	opacity: 0.9;
-	cursor: pointer;
+.addItem:hover, .editItem:hover, .delItem:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.addItem {
+  background-color: #29E66B;
+}
+
+.editItem {
+  background-color: yellow;
+}
+
+.delItem {
+  background-color: red;
 }
 
 .itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .imageUpload, .itemCategory {
