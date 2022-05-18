@@ -3,16 +3,14 @@ import { addItem, getItems, editItem, deleteItem  } from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect, useHistory } from 'react';
-// import { useNavigate } from 'react-router-dom';
+
 
 export default function StoreAdmin() {
 
    const location = useLocation()
-   //const history = History()
 
    const [addEditDelText, setaddEditDelText] = useState('Add Item')
    const [addEditDelClass, setaddEditDelClass] = useState('addItem')
-  // const [render, setRender] = useState(0)
    const [items, setItems] = useState([])
 
    const [title, setTitle] = useState('')
@@ -40,16 +38,18 @@ export default function StoreAdmin() {
 
    useEffect(() => {
       pullItems()
+      location.state.editSwitch = 0
+      location.state.delSwitch = 0
    }, []);
 
 
    useEffect(() => {
-      if(location.state.editSwitch != null) {
-         if( location.state.editSwitch == 1 ) {
+      if (location.state.editSwitch != null) {
+         if ( location.state.editSwitch === 1 ) {
             populateFields()
             setaddEditDelText('Edit Item')
             setaddEditDelClass('editItem')
-         }else if( location.state.delSwitch == 1 ){
+         } else if( location.state.delSwitch === 1 ){
             populateFields()
             setaddEditDelText('Delete Item')
             setaddEditDelClass('delItem')
@@ -64,6 +64,7 @@ export default function StoreAdmin() {
       })
    }
 
+
    const createItems = items.map((item, key) => (
       <ItemTile key={key} title={item.title} description={item.description} price={item.price} category={item.category} 
                 size={item.size} colour={item.colour} quantity={item.quantity} image1={item.image1}
@@ -71,9 +72,18 @@ export default function StoreAdmin() {
       )
    );
 
+
+
    const formSubmit = event => { 
-      event.preventDefault();
-      if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
+
+      if (addEditDelText === 'Delete Item') {
+         console.log('Delete')
+      }else if ( addEditDelText === 'Edit Item' ) {
+         console.log('Edit')
+      }else {
+         console.log('Add')
+         event.preventDefault();
+         if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
             const e = event.target
             const item = new FormData(e)     
             console.log(e, image1)         
@@ -81,6 +91,9 @@ export default function StoreAdmin() {
             resetFields()
          }  
       }
+   }
+
+
 
    const populateFields = () => {
       const item  = location.state.item
@@ -92,21 +105,56 @@ export default function StoreAdmin() {
       setColour(item.colour)
       setQuantity(item.quantity)
 
-      for( let i = 1; i < 4; i++ ){
+      // for (let i = 1; i < 4; i++) {
       //    console.log(i)
       //    fetch(item.image1)
       //   .then(res => res.blob()) 
       //   .then(blob => {
       //       setImage1(blob)
       // });
-      }
+      // }
 
-      // const image_files = document.getElementsByClassName('imageUpload')
-      // image_files[0].file = item.image1
-      // image_files[1].file = item.image2
-      // image_files[2].file = item.image3
-      // console.log(image_files[0])
+      // console.log((item.image1).blob())
+
+      // fetch(item.image1)
+      //   .then(res => res.blob()) 
+      //   .then(blob => {
+      //       setImage1(blob)
+      //    })
+
+      const config = {
+         headers: {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+         }
+      };
+
+//       fetch(item.image1, config)
+//          .then(res => res.blob()) // Gets the response and returns it as a blob
+//          .then(blob => {
+//     // Here's where you get access to the blob
+//     // And you can use it for whatever you want
+//     // Like calling ref().put(blob)
+
+//     // Here, I use it to make an image appear on the page
+//     let objectURL = URL.createObjectURL(blob);
+//     let myImage = new Image();
+//     myImage.src = objectURL;
+//     document.getElementsByClassName('imageUpload')
+//     image_files[0].file = myImage
+//     console.log(image_files)
+// });
+
+
+      const image_files = document.getElementsByClassName('imageUpload')
+      image_files[0].file = item.image1
+      image_files[1].file = item.image2
+      image_files[2].file = item.image3
+      // image_files[0].value = URL.createObjectURL(item.image1)
+      // console.log(image_files)
    }
+
+
 
    const resetFields = () => {
       setCategory('') 
