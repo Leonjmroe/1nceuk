@@ -8,9 +8,9 @@
 }
 
 .addItemCont{
-  display: flex;
+/*  display: inline-flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: wrap;*/
   width: 35%;
   border: 1px solid black;
 }
@@ -55,7 +55,8 @@
   background-color: red;
 }
 
-.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .imageUpload, .itemCategory {
+.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .itemCategory, 
+.imageUpload1, .imageUpload2, .imageUpload3, .newImageUpload1, .newImageUpload2, .newImageUpload3 {
   width: 80%;
   margin-left: 10%;
   margin-top: 3.5vw;
@@ -68,3 +69,11 @@
 .itemDescription{
   height: 8vw;
 }
+
+.imgUploadToggle1, .imgUploadToggle2, .imgUploadToggle3, .newImgUploadToggle1, .newImgUploadToggle2, 
+.newImgUploadToggle3 {
+  display: none;
+}
+
+
+

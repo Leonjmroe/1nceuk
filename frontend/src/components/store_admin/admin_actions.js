@@ -27,13 +27,14 @@ export const getItems = () => {
 export const deleteItem = (item) => { 
   // const items = axios.delete('/api/items/item-list/').then((response) => response.data)
   // return items
-  console.log('Item deleted: ', item)
+  console.log('Item Deleted: ', item)
 }
+
 
 export const editItem = (item) => { 
   // const items = axios.delete('/api/items/item-list/').then((response) => response.data)
   // return items
-  console.log('Item updated: ', item)
+  console.log('Item Edited: ', item)
 }
 
 

@@ -20,20 +20,8 @@ export default function Tile(props) {
         img.src = props.image1
         console.log('image1')
       }
-        // setTimeout(() => {
-        //   shuffle()
-        // }, 2000);
     }
 
-  if( props.price === 43 ) {
-    setTimeout(() => {
-      //shuffle()
-    }, 2000);
-  }
-
-  // useEffect(() => {
-  //     pullItems()
-  //  }, [editIncrement]);
 
   const editPopulate = (item) => {
     navigate('/store_admin', {state:{item:item,editSwitch:1,delSwitch:0}})
@@ -42,6 +30,7 @@ export default function Tile(props) {
   const deletePopulate = (item) => {
     navigate('/store_admin', {state:{item:item,editSwitch:0,delSwitch:1}})
   }
+
 
   return (
       <div className="tile deleteConf">

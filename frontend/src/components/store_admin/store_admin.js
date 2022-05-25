@@ -3,6 +3,7 @@ import { addItem, getItems, editItem, deleteItem  } from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect, useHistory } from 'react';
+import $ from 'jquery';
 
 
 export default function StoreAdmin() {
@@ -11,6 +12,14 @@ export default function StoreAdmin() {
 
    const [addEditDelText, setaddEditDelText] = useState('Add Item')
    const [addEditDelClass, setaddEditDelClass] = useState('addItem')
+
+   const [imageUpload1, seImageUpload1] = useState('imageUpload1')
+   const [newImageUpload1, setNewImageUpload1] = useState('newImageUpload1 newImgUploadToggle1')
+   const [imageUpload2, seImageUpload2] = useState('imageUpload2')
+   const [newImageUpload2, setNewImageUpload2] = useState('newImageUpload2 newImgUploadToggle2')
+   const [imageUpload3, seImageUpload3] = useState('imageUpload3')
+   const [newImageUpload3, setNewImageUpload3] = useState('newImageUpload3 newImgUploadToggle3')
+
    const [items, setItems] = useState([])
 
    const [title, setTitle] = useState('')
@@ -31,16 +40,9 @@ export default function StoreAdmin() {
    const sizeInput = event => { setSize(event.target.value) }
    const colourInput = event => { setColour(event.target.value) }
    const quantityInput = event => { setQuantity(event.target.value) }
-   const image1Input = event => { setImage1(URL.createObjectURL(event.target.files[0]))}
-   const image2Input = event => { setImage2(URL.createObjectURL(event.target.files[0]))}
-   const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0]))}
-
-
-   useEffect(() => {
-      pullItems()
-      location.state.editSwitch = 0
-      location.state.delSwitch = 0
-   }, []);
+   const image1Input = event => { setImage1(URL.createObjectURL(event.target.files[0])) }
+   const image2Input = event => { setImage2(URL.createObjectURL(event.target.files[0])) }
+   const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0])) }
 
 
    useEffect(() => {
@@ -54,8 +56,20 @@ export default function StoreAdmin() {
             setaddEditDelText('Delete Item')
             setaddEditDelClass('delItem')
          }
+         seImageUpload1('imageUpload1 imgUploadToggle1')
+         setNewImageUpload1('newImageUpload1')
+         seImageUpload2('imageUpload2 imgUploadToggle2')
+         setNewImageUpload2('newImageUpload2')
+         seImageUpload3('imageUpload3 imgUploadToggle3')
+         setNewImageUpload3('newImageUpload3')
       }
   }, [location.state]);
+
+
+   useEffect(() => {
+      pullItems()
+      resetFields()
+   }, []);
 
 
    const pullItems = (x) => {
@@ -73,26 +87,22 @@ export default function StoreAdmin() {
    );
 
 
-
    const formSubmit = event => { 
+      event.preventDefault();
+      if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
+         const e = event.target
+         const item = new FormData(e)    
 
-      if (addEditDelText === 'Delete Item') {
-         console.log('Delete')
-      }else if ( addEditDelText === 'Edit Item' ) {
-         console.log('Edit')
-      }else {
-         console.log('Add')
-         event.preventDefault();
-         if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
-            const e = event.target
-            const item = new FormData(e)     
-            console.log(e, image1)         
-            addItem(item)  
-            resetFields()
-         }  
+         if (addEditDelText === 'Delete Item') {
+            deleteItem(item) 
+         }else if ( addEditDelText === 'Edit Item' ) {
+            editItem(item) 
+         }else {
+            addItem(item) 
+         } 
+         resetFields()
       }
    }
-
 
 
    const populateFields = () => {
@@ -104,56 +114,10 @@ export default function StoreAdmin() {
       setSize(item.size)
       setColour(item.colour)
       setQuantity(item.quantity)
-
-      // for (let i = 1; i < 4; i++) {
-      //    console.log(i)
-      //    fetch(item.image1)
-      //   .then(res => res.blob()) 
-      //   .then(blob => {
-      //       setImage1(blob)
-      // });
-      // }
-
-      // console.log((item.image1).blob())
-
-      // fetch(item.image1)
-      //   .then(res => res.blob()) 
-      //   .then(blob => {
-      //       setImage1(blob)
-      //    })
-
-      const config = {
-         headers: {
-            'Access-Control-Allow-Origin' : '*',
-            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-         }
-      };
-
-//       fetch(item.image1, config)
-//          .then(res => res.blob()) // Gets the response and returns it as a blob
-//          .then(blob => {
-//     // Here's where you get access to the blob
-//     // And you can use it for whatever you want
-//     // Like calling ref().put(blob)
-
-//     // Here, I use it to make an image appear on the page
-//     let objectURL = URL.createObjectURL(blob);
-//     let myImage = new Image();
-//     myImage.src = objectURL;
-//     document.getElementsByClassName('imageUpload')
-//     image_files[0].file = myImage
-//     console.log(image_files)
-// });
-
-
-      const image_files = document.getElementsByClassName('imageUpload')
-      image_files[0].file = item.image1
-      image_files[1].file = item.image2
-      image_files[2].file = item.image3
-      // image_files[0].value = URL.createObjectURL(item.image1)
-      // console.log(image_files)
+      setImage1(item.image1)
+      setImage2(item.image2)
+      setImage3(item.image3)
    }
-
 
 
    const resetFields = () => {
@@ -169,9 +133,44 @@ export default function StoreAdmin() {
       setImage3('')
       setaddEditDelText('Add Item')
       setaddEditDelClass('addItem')
+      seImageUpload1('imageUpload1')
+      setNewImageUpload1('newImageUpload1 newImgUploadToggle1')
+      seImageUpload2('imageUpload2')
+      setNewImageUpload2('newImageUpload2 newImgUploadToggle2')
+      seImageUpload3('imageUpload3')
+      setNewImageUpload3('newImageUpload3 newImgUploadToggle3')
+      $('#ImageBtn1').val('') 
+      $('#ImageBtn2').val('')
+      $('#ImageBtn3').val('')
       location.state.editSwitch = 0 
       location.state.delSwitch = 0 
    }
+
+
+   const newUpload1 = event => {
+      setNewImageUpload1('newImageUpload1 newImgUploadToggle1')
+      seImageUpload1('imageUpload1')
+      setImage1('')
+   }
+
+   const newUpload2 = event => {
+      setNewImageUpload2('newImageUpload2 newImgUploadToggle2')
+      seImageUpload2('imageUpload2')
+      setImage2('')
+   }
+
+   const newUpload3 = event => {
+      setNewImageUpload3('newImageUpload3 newImgUploadToggle3')
+      seImageUpload3('imageUpload3')
+      setImage3('')
+   }
+
+
+   const imageSlicer = (img) => {
+      const new_img = ('Upload New: ' + img.slice(33,39))
+      return new_img
+   }
+
 
    return (
     <div className="storeAdminCont">
@@ -218,9 +217,12 @@ export default function StoreAdmin() {
                <option className="sizeOption">beige</option>
             </select>
             <input className="itemQuantity" type="number" placeholder="quantity" name="quantity" value={quantity} onChange={quantityInput} />
-            <input className="imageUpload" type="file" name="image1" onChange={image1Input} />
-            <input className="imageUpload" type="file" name="image2" onChange={image2Input} />
-            <input className="imageUpload" type="file" name="image3" onChange={image3Input} />
+            <input className={imageUpload1} type="file" id="ImageBtn1" name="image1" onChange={image1Input} />
+            <input className={imageUpload2} type="file" id="ImageBtn2" name="image2" onChange={image2Input} />
+            <input className={imageUpload3} type="file" id="ImageBtn3" name="image3" onChange={image3Input} />
+            <input className={newImageUpload1} type="button" id="newImageBtn1" value={imageSlicer(image1)} onClick={newUpload1} />
+            <input className={newImageUpload2} type="button" id="newImageBtn2" value={imageSlicer(image2)} onClick={newUpload2} />
+            <input className={newImageUpload3} type="button" id="newImageBtn3" value={imageSlicer(image3)} onClick={newUpload3} />
             <button className={addEditDelClass} type="submit">{addEditDelText}</button>
          </form>
       </div>

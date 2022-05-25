@@ -22,12 +22,10 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.items',
     'djoser',
-    'corsheaders',
 ]
 
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -39,11 +37,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
-
-CORS_ORIGIN_WHITELIST = [
-    'https://localhost:3000'
-]
 
 DJOSER = {
     "USER_ID_FIELD": "username"
