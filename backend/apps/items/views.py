@@ -16,19 +16,15 @@ class ItemsList(generics.ListCreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def delete(self, request, pk):
+        item = Items.objects.get(pk=pk) 
+        item.delete()
+        return Response(status=status.HTTP_200_OK)
 
+    def put(self, request, pk):
+        serializer = ItemsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# from rest_framework import viewsets 
-# from .models import Items 
-# from .serializers import ItemsSerializer
-
-# class ItemsList(viewsets.ModelViewSet):
-
-#     serializer_class = ItemsSerializer
-#     queryset = Items.objects.all()
-
-#     def perform_create(self, serializer):
-#         serializer.save(created_by=self.request.user)
-
-#     def get_queryset(self):
-#         return self.queryset.filter(created_by=self.request.user)

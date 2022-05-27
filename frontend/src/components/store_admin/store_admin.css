@@ -8,9 +8,6 @@
 }
 
 .addItemCont{
-/*  display: inline-flex;
-  flex-direction: column;
-  flex-wrap: wrap;*/
   width: 35%;
   border: 1px solid black;
 }
@@ -72,7 +69,28 @@
 
 .imgUploadToggle1, .imgUploadToggle2, .imgUploadToggle3, .newImgUploadToggle1, .newImgUploadToggle2, 
 .newImgUploadToggle3 {
-  display: none;
+  opacity: 0;
+  z-index: -1;
+}
+
+#newImageBtn1 {
+  position: absolute;
+  width: 19%;
+  left: -3%;
+  margin-top: -9%;
+}
+
+#newImageBtn2 {
+  position: absolute;
+  width: 19%;
+  left: -3%;
+  margin-top: -2.75%;
+}
+
+#newImageBtn3 {
+  position: absolute;
+  width: 19%;
+  left: -3%;
 }
 
 

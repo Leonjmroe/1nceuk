@@ -79,8 +79,8 @@ export default function StoreAdmin() {
    }
 
 
-   const createItems = items.map((item, key) => (
-      <ItemTile key={key} title={item.title} description={item.description} price={item.price} category={item.category} 
+   const createItems = items.map((item) => (
+      <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} category={item.category} 
                 size={item.size} colour={item.colour} quantity={item.quantity} image1={item.image1}
                 image2={item.image2} image3={item.image3} mode="admin" />
       )
@@ -92,13 +92,13 @@ export default function StoreAdmin() {
       if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
          const e = event.target
          const item = new FormData(e)    
-
+         const id = location.state.item.id
          if (addEditDelText === 'Delete Item') {
-            deleteItem(item) 
+            deleteItem(item, id) 
          }else if ( addEditDelText === 'Edit Item' ) {
-            editItem(item) 
+            editItem(item, id) 
          }else {
-            addItem(item) 
+            addItem(item, id) 
          } 
          resetFields()
       }
