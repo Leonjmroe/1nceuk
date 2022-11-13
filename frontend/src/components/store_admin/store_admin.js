@@ -79,12 +79,15 @@ export default function StoreAdmin() {
       })
    }
 
-
+   const image_slice = (image) => {
+      let img = (image.slice(0, (image.length - 12)) + '.png')
+      return img 
+   }
 
    const createItems = items.map((item) => (
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} category={item.category} 
-                size={item.size} colour={item.colour} quantity={item.quantity} image1={item.image1}
-                image2={item.image2} image3={item.image3} mode="admin" />
+                size={item.size} colour={item.colour} quantity={item.quantity} image1={image_slice(item.image1)}
+                image2={image_slice(item.image2)} image3={image_slice(item.image3)} mode="admin" />
       )
    );
 
@@ -97,15 +100,47 @@ export default function StoreAdmin() {
          if (addEditDelText === 'Delete Item') {
             deleteItem(item, location.state.item.id) 
          }else if ( addEditDelText === 'Edit Item' ) {
-            // item.set('image1', imgFileConvert(image1))
-            // item.set('image2', imgFileConvert(image2))
-            // item.set('image3', imgFileConvert(image3))
-            editItem(item, location.state.item.id) 
+            item.set('title', title)
+            item.set('description', description)
+            item.set('category', category)
+            item.set('price', price)
+            item.set('colour', colour)
+            item.set('quantity', quantity)
+            item.set('size', size)
+            get_blob(item, image1, 1)
+            get_blob(item, image2, 2)
+            get_blob(item, image3, 3)
          }else {
             addItem(item)
          } 
          resetFields()
       }
+   }
+
+
+   const get_blob = (item, image, id) => {
+
+      const img = document.getElementById('imgCanvas')
+      img.src = image
+
+      let canvas = document.createElement('canvas');
+      canvas.width = img.clientWidth;
+      canvas.height = img.clientHeight;
+
+      let context = canvas.getContext('2d');
+      context.drawImage(img, 0, 0);
+
+      canvas.toBlob(function(blob) {
+         if( id == 1 ) {
+            item.set('image1', blob, image1)
+         }else if( id == 2 ){
+            item.set('image2', blob, image2)
+         }else {
+            item.set('image3', blob, image3)
+            editItem(item, location.state.item.id) 
+         }
+      }, 'image/png');
+
    }
 
 
@@ -179,6 +214,7 @@ export default function StoreAdmin() {
 
    return (
     <div className="storeAdminCont">
+    <img id="imgCanvas"></img>
       <div className="addItemCont">
          <form id="itemForm" onSubmit={formSubmit}>
             <input className="itemTitle" placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
@@ -235,161 +271,4 @@ export default function StoreAdmin() {
     </div>
   );
 }
-
-
-
-
-// ------------------ Auto edit image system ------------------
-
-
-//    const newUpload1 = event => {
-//       setNewImageUpload1('newImageUpload1 newImgUploadToggle1')
-//       seImageUpload1('imageUpload1')
-//       setImage1('')
-//    }
-
-//    const newUpload2 = event => {
-//       setNewImageUpload2('newImageUpload2 newImgUploadToggle2')
-//       seImageUpload2('imageUpload2')
-//       setImage2('')
-//    }
-
-//    const newUpload3 = event => {
-//       setNewImageUpload3('newImageUpload3 newImgUploadToggle3')
-//       seImageUpload3('imageUpload3')
-//       setImage3('')
-//    }
-
-
-//    const imageSlicer = (img) => {
-//       const new_img = ('Upload New: ' + img.slice(33,39))
-//       return new_img
-//    }
-
-
-
-//    const imgFileConvert = (img) => {
-
-
-// //    function toDataUri(img, scalar = 1) {
-// //      const canvas = document.createElement('canvas');
-// //      canvas.width = img.width * scalar;
-// //      canvas.height = img.height * scalar;
-// //      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-// //      return canvas.toDataURL('image/png');
-// // }
- 
-// //       const img = new Image();
-// //       img.crossOrigin = 'undefined';
-// //       img.addEventListener('load', () => {
-// //         const thumb = new Image();
-// //         // use the data URI as the source
-// //         thumb.src = toDataUri(img, .3);
-// //         console.log(thumb.src)
-// //         document.body.appendChild(thumb);
-// //       });
-
-// // //       img.src = image
-
-// //    return toDataUri(img)
-
-
-//       // const canvas = document.createElement('canvas');
-//       // const image = document.createElement('image');
-//       // image.src = img
-//       // canvas.width = image.width;
-//       // canvas.height = image.height;
-//       // canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
-//       // return canvas.toDataURL('image/png');
-
-
-//       function getDataUrl(image) {
-//    // Create canvas
-//          const canvas = document.createElement('canvas');
-//          const ctx = canvas.getContext('2d');
-//          // Set width and height
-//          canvas.width = image.width;
-//          canvas.height = image.height;
-//          // Draw the image
-//          ctx.drawImage(image, 0, 0);
-//          return canvas.toDataURL('image/jpeg');
-// }
-
-// //JS Image object for the user's profile picture.
-// var image = new Image();
-
-// //Set the crossOrigin attribute to anonymous.
-// image.crossOrigin = 'anonymous';
-
-// //Get the user's image and set it as the src attribute.
-// image.src = img
-
-// // Select the image
-// // const image = document.getElementById('canvas_image');
-// image.onload = function(){
-//    // console.log(event.currentTarget)
-//    const dataUrl = getDataUrl(image);
-//    console.log(dataUrl);
-// };
-
-
-//       // const dataURI = canvasToURI(img)
-
-
-//       // var byteString = atob(dataURI.split(',')[1]);
-//       // // console.log(byteString)
-//       // var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-//       // // console.log(mimeString)
-//       // var ab = new ArrayBuffer(byteString.length);
-//       // // console.log(ab)
-//       // var ia = new Uint8Array(ab);
-//       // // console.log(ia)
-//       // for (var i = 0; i < byteString.length; i++) {
-//       // ia[i] = byteString.charCodeAt(i);
-//       // }
-//       // // console.log(ia[i])
-
-//       // const blob = new Blob([ab], {type: mimeString});
-//       // // console.log(blob)
-//       // const imageFile = new File([ab], img, {type: blob.type})
-//       // // console.log(imageFile)
-
-//       // return imageFile
-   
-
-
-//      //  const canvas = document.createElement("canvas");
-//      //  const image = document.createElement('canvasImg')
-//      //  const ctx = canvas.getContext("2d");
-//      //  canvas.width = 100;
-//      //  canvas.height = 100;
-//      //  canvas.crossOrigin = "anonymous"
-//      //  ctx.crossOrigin = "anonymous"
-
-//      //  image.src = img
-
-//      //  image.onload = function(){
-//      //   ctx.drawImage(image, 100, 100);
-//      //   const dataURL1 = canvas.toDataURL('image/png');
-//      //   const dataURL2 = image.toDataURL('image/png');
-//      //   console.log(dataURL1, dataURL2)
-//      // }
-
-
-//       // const blob = dataURItoBlob(dataURL)
-//       // const binary = dataURL.replace(/^data:image\/(png|jpg);base64,/, "")
-//       // const imageFile = new File([dataURL], 'imgTest.png', {type: blob.type})
-
-//       // // const blob2 = canvas.toBlob(function(blob) {
-//       // //    console.log(blob)
-//       // // })
-
-//       // // console.log(blob2)
-//       // console.log(image)
-//       // console.log(dataURL)
-//       // console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""))
-
-//       // return imageFile
-
-//    }
 

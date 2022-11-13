@@ -93,5 +93,10 @@
   left: -3%;
 }
 
+#imgCanvas {
+  height: 1px;
+  width: 1px;
+}
+
 
 
