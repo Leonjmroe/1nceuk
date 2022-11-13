@@ -80,7 +80,9 @@ export default function StoreAdmin() {
    }
 
    const image_slice = (image) => {
-      let img = (image.slice(0, (image.length - 12)) + '.png')
+      const idx = image.lastIndexOf('.')
+      const img_type = image.slice(idx, image.length)
+      const img = (image.slice(0, (idx - 8)) + img_type)
       return img 
    }
 
@@ -91,7 +93,7 @@ export default function StoreAdmin() {
       )
    );
 
-  
+
    const formSubmit = event => { 
       event.preventDefault();
       if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
@@ -107,9 +109,23 @@ export default function StoreAdmin() {
             item.set('colour', colour)
             item.set('quantity', quantity)
             item.set('size', size)
-            get_blob(item, image1, 1)
-            get_blob(item, image2, 2)
-            get_blob(item, image3, 3)
+            const image1_blob_test = image1.slice(0, 5)
+            const image2_blob_test = image2.slice(0, 5)
+            const image3_blob_test = image3.slice(0, 5)
+            if( image1_blob_test != 'blob:' ){
+               get_blob(item, image1, 1)
+            }
+            if( image2_blob_test != 'blob:' ){
+               get_blob(item, image2, 2)
+            }
+            if( image3_blob_test != 'blob:' ){
+               get_blob(item, image3, 3)
+            } else {
+               const run_edit_item = () => {
+                  editItem(item, location.state.item.id) 
+               }
+               setTimeout(run_edit_item, 100);
+            }
          }else {
             addItem(item)
          } 
@@ -119,17 +135,13 @@ export default function StoreAdmin() {
 
 
    const get_blob = (item, image, id) => {
-
       const img = document.getElementById('imgCanvas')
       img.src = image
-
-      let canvas = document.createElement('canvas');
+      const canvas = document.createElement('canvas');
       canvas.width = img.clientWidth;
       canvas.height = img.clientHeight;
-
-      let context = canvas.getContext('2d');
+      const context = canvas.getContext('2d');
       context.drawImage(img, 0, 0);
-
       canvas.toBlob(function(blob) {
          if( id == 1 ) {
             item.set('image1', blob, image1)
@@ -139,9 +151,9 @@ export default function StoreAdmin() {
             item.set('image3', blob, image3)
             editItem(item, location.state.item.id) 
          }
-      }, 'image/png');
-
+      });   
    }
+
 
 
 
