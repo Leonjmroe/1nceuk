@@ -5,6 +5,7 @@ export const addItem = (item, id) => {
   axios.post('/api/items/item-list/', item)
     .then(function (response) {
       console.log(response);
+      window.location.reload()
     })
     .catch(function (response) {
       console.log(response);
@@ -23,6 +24,7 @@ export const deleteItem = (item, id) => {
   axios.delete(`/api/items/item-list/${id}`, item)
     .then(function (response) { 
       console.log(response) 
+      window.location.reload()
     })
     .catch(function (response) { 
       console.log(response) 
@@ -31,9 +33,10 @@ export const deleteItem = (item, id) => {
 
 
 export const editItem = (item, id) => {
-  axios.put(`/api/items/item-list/${id}`, item)
+  axios.put(`/api/items/item-list/${id}/`, item)
     .then(function (response) { 
       console.log(response) 
+      window.location.reload()
     })
     .catch(function (response) { 
       console.log(response) 

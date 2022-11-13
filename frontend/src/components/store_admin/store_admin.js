@@ -73,10 +73,12 @@ export default function StoreAdmin() {
 
 
    const pullItems = (x) => {
-      getItems().then((data) => {
+      getItems(location.state.token).then((data) => {
          setItems(data)
+         console.log(data)
       })
    }
+
 
 
    const createItems = items.map((item) => (
@@ -86,23 +88,26 @@ export default function StoreAdmin() {
       )
    );
 
-
+  
    const formSubmit = event => { 
       event.preventDefault();
       if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
          const e = event.target
-         const item = new FormData(e)    
-         const id = location.state.item.id
+         const item = new FormData(e)  
          if (addEditDelText === 'Delete Item') {
-            deleteItem(item, id) 
+            deleteItem(item, location.state.item.id) 
          }else if ( addEditDelText === 'Edit Item' ) {
-            editItem(item, id) 
+            // item.set('image1', imgFileConvert(image1))
+            // item.set('image2', imgFileConvert(image2))
+            // item.set('image3', imgFileConvert(image3))
+            editItem(item, location.state.item.id) 
          }else {
-            addItem(item, id) 
+            addItem(item)
          } 
          resetFields()
       }
    }
+
 
 
    const populateFields = () => {
@@ -230,3 +235,161 @@ export default function StoreAdmin() {
     </div>
   );
 }
+
+
+
+
+// ------------------ Auto edit image system ------------------
+
+
+//    const newUpload1 = event => {
+//       setNewImageUpload1('newImageUpload1 newImgUploadToggle1')
+//       seImageUpload1('imageUpload1')
+//       setImage1('')
+//    }
+
+//    const newUpload2 = event => {
+//       setNewImageUpload2('newImageUpload2 newImgUploadToggle2')
+//       seImageUpload2('imageUpload2')
+//       setImage2('')
+//    }
+
+//    const newUpload3 = event => {
+//       setNewImageUpload3('newImageUpload3 newImgUploadToggle3')
+//       seImageUpload3('imageUpload3')
+//       setImage3('')
+//    }
+
+
+//    const imageSlicer = (img) => {
+//       const new_img = ('Upload New: ' + img.slice(33,39))
+//       return new_img
+//    }
+
+
+
+//    const imgFileConvert = (img) => {
+
+
+// //    function toDataUri(img, scalar = 1) {
+// //      const canvas = document.createElement('canvas');
+// //      canvas.width = img.width * scalar;
+// //      canvas.height = img.height * scalar;
+// //      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+// //      return canvas.toDataURL('image/png');
+// // }
+ 
+// //       const img = new Image();
+// //       img.crossOrigin = 'undefined';
+// //       img.addEventListener('load', () => {
+// //         const thumb = new Image();
+// //         // use the data URI as the source
+// //         thumb.src = toDataUri(img, .3);
+// //         console.log(thumb.src)
+// //         document.body.appendChild(thumb);
+// //       });
+
+// // //       img.src = image
+
+// //    return toDataUri(img)
+
+
+//       // const canvas = document.createElement('canvas');
+//       // const image = document.createElement('image');
+//       // image.src = img
+//       // canvas.width = image.width;
+//       // canvas.height = image.height;
+//       // canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+//       // return canvas.toDataURL('image/png');
+
+
+//       function getDataUrl(image) {
+//    // Create canvas
+//          const canvas = document.createElement('canvas');
+//          const ctx = canvas.getContext('2d');
+//          // Set width and height
+//          canvas.width = image.width;
+//          canvas.height = image.height;
+//          // Draw the image
+//          ctx.drawImage(image, 0, 0);
+//          return canvas.toDataURL('image/jpeg');
+// }
+
+// //JS Image object for the user's profile picture.
+// var image = new Image();
+
+// //Set the crossOrigin attribute to anonymous.
+// image.crossOrigin = 'anonymous';
+
+// //Get the user's image and set it as the src attribute.
+// image.src = img
+
+// // Select the image
+// // const image = document.getElementById('canvas_image');
+// image.onload = function(){
+//    // console.log(event.currentTarget)
+//    const dataUrl = getDataUrl(image);
+//    console.log(dataUrl);
+// };
+
+
+//       // const dataURI = canvasToURI(img)
+
+
+//       // var byteString = atob(dataURI.split(',')[1]);
+//       // // console.log(byteString)
+//       // var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+//       // // console.log(mimeString)
+//       // var ab = new ArrayBuffer(byteString.length);
+//       // // console.log(ab)
+//       // var ia = new Uint8Array(ab);
+//       // // console.log(ia)
+//       // for (var i = 0; i < byteString.length; i++) {
+//       // ia[i] = byteString.charCodeAt(i);
+//       // }
+//       // // console.log(ia[i])
+
+//       // const blob = new Blob([ab], {type: mimeString});
+//       // // console.log(blob)
+//       // const imageFile = new File([ab], img, {type: blob.type})
+//       // // console.log(imageFile)
+
+//       // return imageFile
+   
+
+
+//      //  const canvas = document.createElement("canvas");
+//      //  const image = document.createElement('canvasImg')
+//      //  const ctx = canvas.getContext("2d");
+//      //  canvas.width = 100;
+//      //  canvas.height = 100;
+//      //  canvas.crossOrigin = "anonymous"
+//      //  ctx.crossOrigin = "anonymous"
+
+//      //  image.src = img
+
+//      //  image.onload = function(){
+//      //   ctx.drawImage(image, 100, 100);
+//      //   const dataURL1 = canvas.toDataURL('image/png');
+//      //   const dataURL2 = image.toDataURL('image/png');
+//      //   console.log(dataURL1, dataURL2)
+//      // }
+
+
+//       // const blob = dataURItoBlob(dataURL)
+//       // const binary = dataURL.replace(/^data:image\/(png|jpg);base64,/, "")
+//       // const imageFile = new File([dataURL], 'imgTest.png', {type: blob.type})
+
+//       // // const blob2 = canvas.toBlob(function(blob) {
+//       // //    console.log(blob)
+//       // // })
+
+//       // // console.log(blob2)
+//       // console.log(image)
+//       // console.log(dataURL)
+//       // console.log(dataURL.replace(/^data:image\/(png|jpg);base64,/, ""))
+
+//       // return imageFile
+
+//    }
+
