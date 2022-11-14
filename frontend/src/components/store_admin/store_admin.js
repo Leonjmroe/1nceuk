@@ -155,8 +155,6 @@ export default function StoreAdmin() {
    }
 
 
-
-
    const populateFields = () => {
       const item  = location.state.item
       setCategory(item.category) 

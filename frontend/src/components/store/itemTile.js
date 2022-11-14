@@ -20,7 +20,12 @@ export default function Tile(props) {
         img.src = props.image1
         console.log('image1')
       }
+     setTimeout(shuffle, 2500);
     }
+
+   //  useEffect(() => {
+   //    shuffle() 
+   // }, []);
 
 
   const editPopulate = (item) => {
