@@ -1,0 +1,58 @@
+
+.store_select_container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1% 1% 1% 1%;
+  margin-top: 5vw;
+}
+
+.sqrText {
+  font-size: 30px;
+  font-weight: bold;
+  font-size: 2vw;
+  text-align: center;
+  color: black;
+  font-family: monospace;
+}
+
+.img1 {
+  background-image: url('../../images/IMG-3162.jpg');
+}
+
+.img2 {
+  background-image: url('../../images/IMG-3163.jpg');
+}
+
+.img3 {
+  background-image: url('../../images/IMG-3111.jpg');
+}
+
+.img3 {
+  background-image: url('../../images/IMG-3111.jpg');
+}
+
+.img4 {
+  background-image: url('../../images/IMG-3156.jpg');
+}
+
+.sqrImage {
+  height: 30vw;
+  object-fit: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+}
+
+.sqrImage:Hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.squareCont {
+  background-color: white;
+  margin-left: 1%;
+  margin-bottom: 1%;
+  width: 23vw;
+  border: 5px solid black;
+}

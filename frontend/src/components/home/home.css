@@ -2,6 +2,7 @@
 /* ------------  Carousel  ------------ */
 
 .carousel_cont {
+  margin-top: 5vw;
   height: 95vh;
   width: 90%;
   margin-left: 5%;
@@ -81,16 +82,16 @@
   font-family: monospace;
 }
 
-.img1 {
-  background-image: url('../../images/IMG-3162.jpg');
+.circle_img1 {
+  background-image: url('../../images/llangland_mates.jpg');
 }
 
-.img2 {
+.circle_img2 {
   background-image: url('../../images/IMG-3163.jpg');
 }
 
-.img3 {
-  background-image: url('../../images/IMG-3111.jpg');
+.circle_img3 {
+  background-image: url('../../images/louis_llangland_0.jpg');
 }
 
 .circleImg:hover, .circleImg2:hover, .circleImg3:hover{
@@ -108,6 +109,7 @@
   width: 90%;
   margin-left: 5%;
   background-color: #E8FFF0;
+  flex-direction: row;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -123,7 +125,7 @@
   flex-direction: row;
   height: 28vw;
   width: 100%;
-  margin-left: 0%;
+  margin-left: 3.5%;
   margin-top: 0%;
 }
 
@@ -162,41 +164,52 @@
   height: 75%;
 }
 
-.squareImg {
-  width: 60%;
-  margin-left: 20%;
-  height: 30vw;
-  margin-top: 3vw;
+.collection_cont {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.collection_box {
+  width: 31%;
+  margin: 1% 1% 1% 1%;
+}
+
+.collection_img {
+  width: 100%;
+  height: 25vw;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
-  background-color: #999999;
 }
 
-.sImg1 {
-  background-image: url('../../images/IMG-3111.jpg');
+.collection_image_1 {
+  background-image: url('../../images/louis_llangland_1.jpg');
 }
 
-.sImg2 {
-  background-image: url('../../images/IMG-3111.jpg');
+.collection_image_2 {
+  background-image: url('../../images/summer_vibes.jpg');
 }
 
-.sImg3 {
-  background-image: url('../../images/IMG-3111.jpg');
+.collection_image_3 {
+  background-image: url('../../images/crown_gif.gif');
+  margin-top: 25%;
+  height: 50%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 
-.squareImg:hover{
+.collection_img:hover{
   opacity: 0.9;
   cursor: pointer;
 }
 
-.squareTxt {
+.collection_text {
   font-weight: bold;
   font-size: 2vw;
-  margin-top: 3vw;
   text-align: center;
   color: black;
   font-family: monospace;
@@ -238,7 +251,7 @@
   font-family: monospace;
   width: 60%;
   margin-left: 20%;
-  margin-top: 3vw;
+  margin-top: 1.75vw;
   height: 0.5vw;
   padding: 0em 0em 0em 0em;
   border-radius: 8px;
@@ -248,15 +261,16 @@
 }
 
 .crown {
+  margin-top: -1vw;
   width: 18%;
   margin-left: 41%;
-  height: 7vw;
+  height: 5vw;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
-  background-image: url('../../images/1nce-logo.png');
+  background-image: url('../../images/1nce_logo_2.png');
 }
 
 .crown:hover {

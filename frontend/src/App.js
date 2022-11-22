@@ -3,6 +3,7 @@ import Footer from './components/core/footer.js';
 import Underbar from './components/core/underbar.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/home/home.js';
+import StoreSelect from './components/store/store_select.js';
 import Store from './components/store/store.js';
 import About from './components/about/about.js';
 import Skating from './components/skating/skating.js';
@@ -21,6 +22,7 @@ function App() {
           <Underbar/>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/store_selection" element={<StoreSelect />} />
             <Route path="/store" element={<Store />} />
             <Route path="/about" element={<About />} />
             <Route path="/designs" element={<Designs />} />

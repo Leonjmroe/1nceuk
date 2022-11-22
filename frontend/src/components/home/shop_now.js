@@ -13,38 +13,28 @@ export default function ShopNow() {
           <div className="titleDash">------------</div>
         </div>
         <div className="smallBox">
-          <div className="shopTitle" onClick={()=> navigate('/store')}>Shop Now</div>
+          <div className="shopTitle" onClick={()=> navigate('/store_selection')}>Shop Now</div>
         </div>
         <div className="smallBox">
           <div className="titleDash">------------</div>
         </div>
       </div>
-      <div className="boxCont">
-        <div className="box">
-          <div className="squareCont large">
-            <div className="squareImg sImg1" onClick={()=> navigate('/t-shirts')}/>
-          </div>
-          <div className="squareCont">
-            <div className="squareTxt">T-Shirts</div>
-          </div>
+
+
+      <div className="collection_cont">
+
+        <div className="collection_box">
+          <div className="collection_img collection_image_1" onClick={()=> navigate('/store')}/>
+          <div className="collection_text">2022 Collection</div>
         </div>
-        <div className="box">
-          <div className="squareCont large">
-            <div className="squareImg sImg2" onClick={()=> navigate('/hoodies')}/>
-          </div>
-          <div className="squareCont">
-            <div className="squareTxt">Hoodies</div>
-          </div>
+        <div className="collection_box">
+          <div className="collection_img collection_image_3"/>
         </div>
-        <div className="box">
-          <div className="squareCont large">
-            <div className="squareImg sImg3" onClick={()=> navigate('/hat')}/>
-          </div>
-          <div className="squareCont">
-            <div className="squareTxt">Hats</div>
-          </div>
+        <div className="collection_box">
+          <div className="collection_img collection_image_2" onClick={()=> navigate('/store')}/>
+          <div className="collection_text">2023 Collection</div>
         </div>
-      </div>
+
       <div className="smallCont">
         <div className="smallBox">
           <div className="titleDash">------------</div>
@@ -56,6 +46,8 @@ export default function ShopNow() {
           <div className="titleDash">------------</div>
         </div>
       </div>
+
+    </div>
     </div>
   );
 }

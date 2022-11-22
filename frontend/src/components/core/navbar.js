@@ -25,8 +25,8 @@ export default function Header(item) {
 return (
 <div className="header">
   <div className="logo1nce" onClick={()=> navigate('/')}/>
-  <div className="storeTitle" onClick={()=> navigate('/store')}>Store</div>
-  <div className="dropdown" onClick={()=> dropdown()}/>
+  <div className="storeTitle" onClick={()=> navigate('/store_selection')}>Shop Now</div>
+  {/*<div className="dropdown" onClick={()=> dropdown()}/>*/}
   <div className={classState}>
     <div className="dropdown_list" onClick={()=> drop_link('/designs')}>Designs</div>
     <div className="dropdown_list" onClick={()=> drop_link('/about')}>About</div>

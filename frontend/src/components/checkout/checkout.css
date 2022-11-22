@@ -1,0 +1,12 @@
+.checkout_container {
+	height: 50vw;
+}
+
+.checkout_title {
+  margin-left: 1vw;
+  margin-top: 6vh;
+  font-weight: bold;
+  font-size: 4vw;
+  color: black;
+  font-family: monospace;
+}

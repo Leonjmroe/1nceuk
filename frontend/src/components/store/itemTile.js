@@ -1,7 +1,7 @@
 import './tile.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import { Carousel } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 
 export default function Tile(props) {
@@ -10,22 +10,33 @@ export default function Tile(props) {
 
     const shuffle = () => {
       const img = document.getElementsByClassName('image');
+      console.log(img.src)
       if( img.src === props.image1 || img.src == null ) {
-        img.src = props.image2
-        console.log('image2')
+        // console.log(1)
+        set_image_class_2('image')
+        set_image_class_1('display_none')
+        set_image_class_3('display_none')
       }else if( img.src === props.image2 ) {
-        img.src = props.image3
-        console.log('image3')
+        // console.log(2)
+        set_image_class_3('image')
+        set_image_class_1('display_none')
+        set_image_class_1('display_none')
       }else {
-        img.src = props.image1
-        console.log('image1')
+        // console.log(3)
+        set_image_class_1('image')
+        set_image_class_2('display_none')
+        set_image_class_3('display_none')
       }
      setTimeout(shuffle, 2500);
     }
 
-   //  useEffect(() => {
-   //    shuffle() 
-   // }, []);
+    const [image_class_1, set_image_class_1] = useState('display_none')
+    const [image_class_2, set_image_class_2] = useState('display_none')
+    const [image_class_3, set_image_class_3] = useState('display_none')
+
+    useEffect(() => {
+      shuffle() 
+   }, []);
 
 
   const editPopulate = (item) => {
@@ -39,8 +50,13 @@ export default function Tile(props) {
 
   return (
       <div className="tile deleteConf">
-        <img className="image" src={props.image1} onClick={()=> { if(props.mode === "live"){
+        <img className={image_class_1} src={props.image1} onClick={()=> { if(props.mode === "live"){
                                                       navigate('/item_preview',{state:{id:props.datakey}})}}} />
+        <img className={image_class_2} src={props.image2} onClick={()=> { if(props.mode === "live"){
+                                                      navigate('/item_preview',{state:{id:props.datakey}})}}} />
+        <img className={image_class_3} src={props.image3} onClick={()=> { if(props.mode === "live"){
+                                                      navigate('/item_preview',{state:{id:props.datakey}})}}} />
+
         {/*<button onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>Hover over me!</button>
           {isShown && (
             <div>

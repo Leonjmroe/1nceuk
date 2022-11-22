@@ -8,13 +8,13 @@ export default function AboutUsLinks() {
    return (
     <div className="circleContainer">
         <div className="circleCont">
-          <div className="circleImg img1" onClick={()=> navigate('/store')}/>
+          <div className="circleImg circle_img1" onClick={()=> navigate('/skating')}/>
         </div>
         <div className="circleCont">
-          <div className="circleImg img2" onClick={()=> navigate('/about')}/>
+          <div className="circleImg circle_img2" onClick={()=> navigate('/designs')}/>
         </div>
         <div className="circleCont">
-          <div className="circleImg img3" onClick={()=> navigate('/contact')}/>
+          <div className="circleImg circle_img3" onClick={()=> navigate('/about')}/>
         </div>
         <div className="circleCont">
           <div className="circleText">Skating</div>

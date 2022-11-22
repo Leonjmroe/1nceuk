@@ -4,8 +4,10 @@
   width: 100%;
   margin-left: 0%;
   height: 6vw;
- /* margin-top: 1vh;*/
+  margin-top: -1vh;
+  position: fixed;
   background-color: #30003c;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -86,6 +88,7 @@
   font-size: 2vw;
   font-weight: bolder;
   font-family: monospace;
+  display: none;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -97,7 +100,7 @@
 
 .storeTitle{
   position: absolute;
-  margin-left: 70%;
+  margin-left: 43%;
   margin-top: 1vw;
   color: white;
   font-size: 3vw;
@@ -116,7 +119,7 @@
   position: absolute;
   width: 5%;
   height: 4vw;
-  margin-left: 80%;
+  margin-left: 85%;
   margin-top: 1.5vw;
   background-image: url('../../images/dropdown.png');
   background-size: contain;
