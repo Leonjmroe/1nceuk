@@ -19,10 +19,9 @@
   height: 30vw;
   width: 27%;
   margin-left: 4.15vw;
-  margin-bottom: 2vw;
+  margin-top: 1.5vw;
   background-color: #333333;
   border: 2px solid #333333;
-  position: relative;
 }
 
 @media only screen and (max-width: 1050px) {
@@ -51,13 +50,12 @@
 }
 
 .adminButtonCont {
-  position: absolute;
-  margin-top: -128%;
+  margin-top: -29.75vw;
   margin-left: 80%;
-  display: flex;
-  flex-direction: column;
   width: 22.5%;
   height: 6vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .deleteTile {

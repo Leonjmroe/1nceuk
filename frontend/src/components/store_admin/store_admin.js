@@ -124,7 +124,7 @@ export default function StoreAdmin() {
                const run_edit_item = () => {
                   editItem(item, location.state.item.id) 
                }
-               setTimeout(run_edit_item, 100);
+               setTimeout(run_edit_item, 500);
             }
          }else {
             addItem(item)
