@@ -10,14 +10,18 @@ export default function Store() {
   const [items, setItems] = useState([])
 
    useEffect(() => {
-      console.log(location.state.catagory)
       pullItems()
    }, []);
 
    const pullItems = (x) => {
       getItems().then((data) => {
-         setItems(data)
-         console.log(data)
+         const items = []
+         const category_filter = data.map((item) => {
+            if( item.category == location.state.catagory ){
+               items.push(item)
+            }
+         })
+         setItems(items)
       })
    }
 

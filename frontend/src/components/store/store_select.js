@@ -9,35 +9,35 @@ export default function Store_Select() {
     <div className="store_select_container">
 	    <div className="squareCont">
 	      <div className="sqrText">Hats</div>
-	      <div className="sqrImage img4" onClick={()=> navigate('/store', {state: {catagory: 'Hats'} })} />
+	      <div className="sqrImage img4" onClick={()=> navigate('/store', {state: {catagory: 'hats'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">Hoodies</div>
-	      <div className="sqrImage img1" onClick={()=> navigate('/store', {state: {catagory: 'Hoodies'} })} />
+	      <div className="sqrImage img1" onClick={()=> navigate('/store', {state: {catagory: 'hoodies'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">Jackets</div>
-	      <div className="sqrImage img2" onClick={()=> navigate('/store', {state: {catagory: 'Jackets'} })} />
+	      <div className="sqrImage img2" onClick={()=> navigate('/store', {state: {catagory: 'jackets'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">Joggers</div>
-	      <div className="sqrImage img3" onClick={()=> navigate('/store', {state: {catagory: 'Joggers'} })} />
+	      <div className="sqrImage img3" onClick={()=> navigate('/store', {state: {catagory: 'joggers'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">Shorts</div>
-	      <div className="sqrImage img3" onClick={()=> navigate('/store', {state: {catagory: 'Shorts'} })} />
+	      <div className="sqrImage img3" onClick={()=> navigate('/store', {state: {catagory: 'shorts'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">T-Shirts</div>
-	      <div className="sqrImage img2" onClick={()=> navigate('/store', {state: {catagory: 'T-Shirts'} })} />
+	      <div className="sqrImage img2" onClick={()=> navigate('/store', {state: {catagory: 't-shirts'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">Jumpers</div>
-	      <div className="sqrImage img1" onClick={()=> navigate('/store', {state: {catagory: 'Jumpers'} })} />
+	      <div className="sqrImage img1" onClick={()=> navigate('/store', {state: {catagory: 'jumpers'} })} />
 	    </div>
 	    <div className="squareCont">
 	    	<div className="sqrText">Accessories</div>
-	      <div className="sqrImage img4" onClick={()=> navigate('/store', {state: {catagory: 'Accessories'} })} />
+	      <div className="sqrImage img4" onClick={()=> navigate('/store', {state: {catagory: 'accessories'} })} />
 	    </div>
     </div>
   );
