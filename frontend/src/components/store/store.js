@@ -9,8 +9,8 @@ export default function Store() {
   const location = useLocation()
   const [items, setItems] = useState([])
 
-
    useEffect(() => {
+      console.log(location.state.catagory)
       pullItems()
    }, []);
 
