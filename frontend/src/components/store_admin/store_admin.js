@@ -2,7 +2,7 @@ import './store_admin.css';
 import { addItem, getItems, editItem, deleteItem  } from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
-import { useState, useEffect, useHistory } from 'react';
+import { useState, useEffect } from 'react';
 import $ from 'jquery';
 
 
@@ -112,19 +112,19 @@ export default function StoreAdmin() {
             const image1_blob_test = image1.slice(0, 5)
             const image2_blob_test = image2.slice(0, 5)
             const image3_blob_test = image3.slice(0, 5)
-            if( image1_blob_test != 'blob:' ){
+            if( image1_blob_test !== 'blob:' ){
                get_blob(item, image1, 1)
             }
-            if( image2_blob_test != 'blob:' ){
+            if( image2_blob_test !== 'blob:' ){
                get_blob(item, image2, 2)
             }
-            if( image3_blob_test != 'blob:' ){
+            if( image3_blob_test !== 'blob:' ){
                get_blob(item, image3, 3)
             } else {
                const run_edit_item = () => {
                   editItem(item, location.state.item.id) 
                }
-               setTimeout(run_edit_item, 500);
+               setTimeout(run_edit_item, 1000);
             }
          }else {
             addItem(item)
@@ -143,9 +143,9 @@ export default function StoreAdmin() {
       const context = canvas.getContext('2d');
       context.drawImage(img, 0, 0);
       canvas.toBlob(function(blob) {
-         if( id == 1 ) {
+         if( id === 1 ) {
             item.set('image1', blob, image1)
-         }else if( id == 2 ){
+         }else if( id === 2 ){
             item.set('image2', blob, image2)
          }else {
             item.set('image3', blob, image3)

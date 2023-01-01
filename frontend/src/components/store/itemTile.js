@@ -11,24 +11,21 @@ export default function Tile(props) {
     const shuffle = () => {
       if( img_int == 1 ) {
         img_int = 2
-        console.log(1)
         set_image_class_1('image')
         set_image_class_2('display_none')
         set_image_class_3('display_none')
       }else if( img_int == 2 ) {
         img_int = 3
-        console.log(2)
         set_image_class_2('image')
         set_image_class_1('display_none')
         set_image_class_3('display_none')
       }else {
         img_int = 1
-        console.log(3)
         set_image_class_3('image')
         set_image_class_1('display_none')
         set_image_class_2('display_none')
       }
-     setTimeout(shuffle, 2500);
+     setTimeout(shuffle, 3500);
     }
 
     const [image_class_1, set_image_class_1] = useState('display_none')
@@ -66,7 +63,7 @@ export default function Tile(props) {
           <div className="category">{props.category}</div>
           <div className="size">{props.size}</div>
           <div className="colour">{props.colour}</div>
-          <div className="quantity">{props.price}</div>
+          <div className="quantity">{props.quantity}</div>
         </div>
         <div className="adminButtonCont">
           <div className="deleteTile" onClick={() => deletePopulate(props)}/>
