@@ -1,4 +1,4 @@
-import './store_admin.css';
+import css from './store_admin.module.css';
 import { addItem, getItems, editItem, deleteItem  } from './admin_actions.js';
 import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
@@ -11,14 +11,14 @@ export default function StoreAdmin() {
    const location = useLocation()
 
    const [addEditDelText, setaddEditDelText] = useState('Add Item')
-   const [addEditDelClass, setaddEditDelClass] = useState('addItem')
+   const [addEditDelClass, setaddEditDelClass] = useState(css.addItem)
 
-   const [imageUpload1, seImageUpload1] = useState('imageUpload1')
-   const [newImageUpload1, setNewImageUpload1] = useState('newImageUpload1 newImgUploadToggle1')
-   const [imageUpload2, seImageUpload2] = useState('imageUpload2')
-   const [newImageUpload2, setNewImageUpload2] = useState('newImageUpload2 newImgUploadToggle2')
-   const [imageUpload3, seImageUpload3] = useState('imageUpload3')
-   const [newImageUpload3, setNewImageUpload3] = useState('newImageUpload3 newImgUploadToggle3')
+   const [imageUpload1, setImageUpload1] = useState(css.imageUpload1)
+   const [newImageUpload1, setNewImageUpload1] = useState(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
+   const [imageUpload2, setImageUpload2] = useState(css.imageUpload2)
+   const [newImageUpload2, setNewImageUpload2] = useState(`${css.newImageUpload2} ${css.newImgUploadToggle2}`)
+   const [imageUpload3, setImageUpload3] = useState(css.imageUpload3)
+   const [newImageUpload3, setNewImageUpload3] = useState(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
 
    const [items, setItems] = useState([])
 
@@ -50,18 +50,18 @@ export default function StoreAdmin() {
          if ( location.state.editSwitch === 1 ) {
             populateFields()
             setaddEditDelText('Edit Item')
-            setaddEditDelClass('editItem')
+            setaddEditDelClass(css.editItem)
          } else if( location.state.delSwitch === 1 ){
             populateFields()
             setaddEditDelText('Delete Item')
-            setaddEditDelClass('delItem')
+            setaddEditDelClass(css.delItem)
          }
-         seImageUpload1('imageUpload1 imgUploadToggle1')
-         setNewImageUpload1('newImageUpload1')
-         seImageUpload2('imageUpload2 imgUploadToggle2')
-         setNewImageUpload2('newImageUpload2')
-         seImageUpload3('imageUpload3 imgUploadToggle3')
-         setNewImageUpload3('newImageUpload3')
+         setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
+         setNewImageUpload1(css.newImageUpload1)
+         setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
+         setNewImageUpload2(css.newImageUpload2)
+         setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
+         setNewImageUpload3(css.newImageUpload3)
       }
   }, [location.state]);
 
@@ -182,13 +182,13 @@ export default function StoreAdmin() {
       setImage2('')
       setImage3('')
       setaddEditDelText('Add Item')
-      setaddEditDelClass('addItem')
-      seImageUpload1('imageUpload1')
-      setNewImageUpload1('newImageUpload1 newImgUploadToggle1')
-      seImageUpload2('imageUpload2')
-      setNewImageUpload2('newImageUpload2 newImgUploadToggle2')
-      seImageUpload3('imageUpload3')
-      setNewImageUpload3('newImageUpload3 newImgUploadToggle3')
+      setaddEditDelClass(css.addItem)
+      setImageUpload1(css.imageUpload1)
+      setNewImageUpload1(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
+      setImageUpload2(css.imageUpload2)
+      setNewImageUpload2(`${css.newImageUpload2} ${css.newImgUploadToggle2}`)
+      setImageUpload3(css.imageUpload3)
+      setNewImageUpload3(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
       $('#ImageBtn1').val('') 
       $('#ImageBtn2').val('')
       $('#ImageBtn3').val('')
@@ -198,20 +198,20 @@ export default function StoreAdmin() {
 
 
    const newUpload1 = event => {
-      setNewImageUpload1('newImageUpload1 newImgUploadToggle1')
-      seImageUpload1('imageUpload1')
+      setNewImageUpload1(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
+      setImageUpload1(css.imageUpload1)
       setImage1('')
    }
 
    const newUpload2 = event => {
-      setNewImageUpload2('newImageUpload2 newImgUploadToggle2')
-      seImageUpload2('imageUpload2')
+      setNewImageUpload2(`${css.newImageUpload2} ${css.newImgUploadToggle2}`)
+      setImageUpload2(css.imageUpload2)
       setImage2('')
    }
 
    const newUpload3 = event => {
-      setNewImageUpload3('newImageUpload3 newImgUploadToggle3')
-      seImageUpload3('imageUpload3')
+      setNewImageUpload3(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
+      setImageUpload3(css.imageUpload3)
       setImage3('')
    }
 
@@ -223,51 +223,51 @@ export default function StoreAdmin() {
 
 
    return (
-    <div className="storeAdminCont">
+    <div className={css.storeAdminCont}>
     <img id="imgCanvas"></img>
-      <div className="addItemCont">
+      <div className={css.addItemCont}>
          <form id="itemForm" onSubmit={formSubmit}>
-            <input className="itemTitle" placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
-            <textarea className="itemDescription" placeholder="description" name="description" value={description} onChange={descriptionInput} type="text" />
-            <input className="itemPrice" type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
-            <select className="itemCategory" name="category" value={category} onChange={categoryInput}>
+            <input className={css.itemTitle} placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
+            <textarea className={css.itemDescription} placeholder="description" name="description" value={description} onChange={descriptionInput} type="text" />
+            <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
+            <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                <option>select category</option>
-               <option className="sizeOption">hats</option>
-               <option className="sizeOption">hoodies</option>
-               <option className="sizeOption">jackets</option>
-               <option className="sizeOption">joggers</option>
-               <option className="sizeOption">shorts</option>
-               <option className="sizeOption">t-shirts</option>
-               <option className="sizeOption">jumpers</option>
-               <option className="sizeOption">accessories</option>
+               <option className={css.sizeOption}>hats</option>
+               <option className={css.sizeOption}>hoodies</option>
+               <option className={css.sizeOption}>jackets</option>
+               <option className={css.sizeOption}>joggers</option>
+               <option className={css.sizeOption}>shorts</option>
+               <option className={css.sizeOption}>t-shirts</option>
+               <option className={css.sizeOption}>jumpers</option>
+               <option className={css.sizeOption}>accessories</option>
             </select>
-            <select className="itemSize" name="size" value={size} onChange={sizeInput}>
+            <select className={css.itemSize} name="size" value={size} onChange={sizeInput}>
                <option>select size</option>
-               <option className="sizeOption">small</option>
-               <option className="sizeOption">medium</option>
-               <option className="sizeOption">large</option>
-               <option className="sizeOption">extra large</option>
+               <option className={css.sizeOption}>small</option>
+               <option className={css.sizeOption}>medium</option>
+               <option className={css.sizeOption}>large</option>
+               <option className={css.sizeOption}>extra large</option>
             </select>
-            <select className="itemColour" name="colour" value={colour} onChange={colourInput}>
+            <select className={css.itemColour} name="colour" value={colour} onChange={colourInput}>
                <option>select colour</option>
-               <option className="sizeOption">red</option>
-               <option className="sizeOption">green</option>
-               <option className="sizeOption">dark blue</option>
-               <option className="sizeOption">light blue</option>
-               <option className="sizeOption">green</option>
-               <option className="sizeOption">purple</option>
-               <option className="sizeOption">pink</option>
-               <option className="sizeOption">grey</option>
-               <option className="sizeOption">black</option>
-               <option className="sizeOption">orange</option>
-               <option className="sizeOption">white</option>
-               <option className="sizeOption">brown</option>
-               <option className="sizeOption">yellow</option>
-               <option className="sizeOption">cream</option>
-               <option className="sizeOption">burgundy</option>
-               <option className="sizeOption">beige</option>
+               <option className={css.sizeOption}>red</option>
+               <option className={css.sizeOption}>green</option>
+               <option className={css.sizeOption}>dark blue</option>
+               <option className={css.sizeOption}>light blue</option>
+               <option className={css.sizeOption}>green</option>
+               <option className={css.sizeOption}>purple</option>
+               <option className={css.sizeOption}>pink</option>
+               <option className={css.sizeOption}>grey</option>
+               <option className={css.sizeOption}>black</option>
+               <option className={css.sizeOption}>orange</option>
+               <option className={css.sizeOption}>white</option>
+               <option className={css.sizeOption}>brown</option>
+               <option className={css.sizeOption}>yellow</option>
+               <option className={css.sizeOption}>cream</option>
+               <option className={css.sizeOption}>burgundy</option>
+               <option className={css.sizeOption}>beige</option>
             </select>
-            <input className="itemQuantity" type="number" placeholder="quantity" name="quantity" value={quantity} onChange={quantityInput} />
+            <input className={css.itemQuantity} type="number" placeholder="quantity" name="quantity" value={quantity} onChange={quantityInput} />
             <input className={imageUpload1} type="file" id="ImageBtn1" name="image1" onChange={image1Input} />
             <input className={imageUpload2} type="file" id="ImageBtn2" name="image2" onChange={image2Input} />
             <input className={imageUpload3} type="file" id="ImageBtn3" name="image3" onChange={image3Input} />
@@ -277,7 +277,7 @@ export default function StoreAdmin() {
             <button className={addEditDelClass} type="submit">{addEditDelText}</button>
          </form>
       </div>
-      <div className="editItemCont" onClick={() => resetFields()}>{ createItems }</div>
+      <div className={css.editItemCont} onClick={() => resetFields()}>{ createItems }</div>
     </div>
   );
 }

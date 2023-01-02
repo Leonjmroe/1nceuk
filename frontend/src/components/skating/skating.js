@@ -1,9 +1,9 @@
-import './skating.css';
+import css from './skating.module.css';
 
 export default function Skating() {
   return (
-    <div className="skating_container">
-      <div className="skating_title">Skating</div>
+    <div className={css.skating_container}>
+      <div className={css.skating_title}>Skating</div>
     </div>
   );
 }

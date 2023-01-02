@@ -1,4 +1,3 @@
-import './home.css';
 import Carousel from './carousel.js';
 import Circles from './circles.js';
 import ShopNow from './shop_now.js';

@@ -1,8 +1,8 @@
-import './../core/core.css';
+import css from './core.module.css';
 
 export default function Underbar() {
 
 return (
-  <div className="underbar"/>
+  <div className={css.underbar}/>
 )}
 

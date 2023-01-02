@@ -1,0 +1,54 @@
+.tile_container {
+  display: flex;
+  background-color: grey;
+  height: 500px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 7vw;
+}
+
+.image_container {
+  background-color: red;
+  width: 50%;
+}
+
+.item_info_container {
+  background-color: black;
+  width: 50%;
+}
+
+.image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+}
+
+
+.checkout_continer {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: green;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.add_to_basket, .continue_shopping{
+  color: black;
+  font-family: monospace;
+  margin-left: 15%;
+  height: 1vh;
+  padding: 0.5em 1em 2em 1em;
+  border-radius: 8px;
+  background-color: #29E66B;
+  text-align: center;
+  font-size: 1.75vw;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.add_to_basket:hover, .continue_shopping:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}

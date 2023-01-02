@@ -1,8 +1,9 @@
 import ItemTile from './itemTile.js'
-import './tile.css';
+import css from './tile.module.css';
 import { getItems } from '../store_admin/admin_actions.js';
 import { useState, useEffect, useHistory } from 'react';
 import { useLocation } from 'react-router-dom';
+
 
 export default function Store() {
 
@@ -35,13 +36,13 @@ export default function Store() {
    const createItems = items.map((item) => (
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} category={item.category} 
                 size={item.size} colour={item.colour} quantity={item.quantity} image1={image_slice(item.image1)}
-                image2={image_slice(item.image2)} image3={image_slice(item.image3)} mode="admin" />
+                image2={image_slice(item.image2)} image3={image_slice(item.image3)} mode="store" />
       )
    );
 
 
    return (
-    <div className="storeCont">
+    <div className={css.storeCont}>
         {createItems}
     </div>
   );

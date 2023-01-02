@@ -1,4 +1,4 @@
-import './login.css';
+import css from './login.module.css';
 import { useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
@@ -34,15 +34,15 @@ export default function Login() {
   }
 
 return (
-  <div className="adminCont">
-    <div className="usernameCont">
-      <div className="usernameTitle">Username:</div>
-      <input className="username" type="text" value={username} onChange={userInput}/>
+  <div className={css.adminCont}>
+    <div className={css.usernameCont}>
+      <div className={css.usernameTitle}>Username:</div>
+      <input className={css.username} type="text" value={username} onChange={userInput}/>
     </div>
-    <div className="passwordCont">
-      <div className="passwordTitle">Password:</div>
-      <input className="password" type="password" value={password} onChange={passInput}/>
+    <div className={css.passwordCont}>
+      <div className={css.passwordTitle}>Password:</div>
+      <input className={css.password} type="password" value={password} onChange={passInput}/>
     </div>  
-    <div className="login" onClick={login}>Login</div>
+    <div className={css.login} onClick={login}>Login</div>
   </div>
 )}

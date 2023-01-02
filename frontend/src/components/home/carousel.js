@@ -1,4 +1,3 @@
-import './home.css';
 import { Carousel } from 'react-bootstrap';
 import tile1 from '../../images/IMG_0587.jpeg';
 import tile2 from'../../images/IMG_0568.jpeg';
