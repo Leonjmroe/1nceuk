@@ -3,9 +3,7 @@
   width: 90%;
   margin-left: 5%;
   margin-top: 5vw;
-/*  height: auto;*/
-  height: 100vh;
-  opacity: 0.8;
+  height: auto;
   background-color: green;
 }
 
@@ -71,8 +69,7 @@
 
 .imgUploadToggle1, .imgUploadToggle2, .imgUploadToggle3, .newImgUploadToggle1, .newImgUploadToggle2, 
 .newImgUploadToggle3 {
-  opacity: 0;
-  z-index: -1;
+  display: none;
 }
 
 #newImageBtn1 {

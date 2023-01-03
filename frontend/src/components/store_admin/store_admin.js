@@ -144,10 +144,13 @@ export default function StoreAdmin() {
       context.drawImage(img, 0, 0);
       canvas.toBlob(function(blob) {
          if( id === 1 ) {
+            console.log(blob)
             item.set('image1', blob, image1)
          }else if( id === 2 ){
+            console.log(blob)
             item.set('image2', blob, image2)
          }else {
+            console.log(blob)
             item.set('image3', blob, image3)
             editItem(item, location.state.item.id) 
          }
