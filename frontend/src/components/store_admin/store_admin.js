@@ -53,14 +53,14 @@ export default function StoreAdmin() {
             setaddEditDelClass(css.editItem)
          } else if( location.state.delSwitch === 1 ){
             populateFields()
-            // setaddEditDelText('Delete Item')
+            setaddEditDelText('Delete Item')
             setaddEditDelClass(css.delItem)
          }
-         // setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
+         setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
          setNewImageUpload1(css.newImageUpload1)
-         // setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
+         setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
          setNewImageUpload2(css.newImageUpload2)
-         // setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
+         setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
          setNewImageUpload3(css.newImageUpload3)
       }
   }, [location.state]);
@@ -113,15 +113,19 @@ export default function StoreAdmin() {
             const image2_blob_test = image2.slice(0, 5)
             const image3_blob_test = image3.slice(0, 5)
             if( image1_blob_test !== 'blob:' ){
+               console.log(1)
                get_blob(item, image1, 1)
             }
             if( image2_blob_test !== 'blob:' ){
+               console.log(2)
                get_blob(item, image2, 2)
             }
             if( image3_blob_test !== 'blob:' ){
+               console.log(3)
                get_blob(item, image3, 3)
             } else {
                const run_edit_item = () => {
+                  console.log(4)
                   editItem(item, location.state.item.id) 
                }
                setTimeout(run_edit_item, 1000);

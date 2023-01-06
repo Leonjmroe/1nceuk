@@ -36,7 +36,7 @@ export const editItem = (item, id) => {
   axios.put(`/api/items/item-list/${id}/`, item)
     .then(function (response) { 
       console.log(response) 
-      window.location.reload()
+      // window.location.reload()
     })
     .catch(function (response) { 
       console.log(response) 
