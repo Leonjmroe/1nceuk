@@ -53,14 +53,14 @@ export default function StoreAdmin() {
             setaddEditDelClass(css.editItem)
          } else if( location.state.delSwitch === 1 ){
             populateFields()
-            setaddEditDelText('Delete Item')
+            // setaddEditDelText('Delete Item')
             setaddEditDelClass(css.delItem)
          }
-         setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
+         // setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
          setNewImageUpload1(css.newImageUpload1)
-         setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
+         // setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
          setNewImageUpload2(css.newImageUpload2)
-         setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
+         // setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
          setNewImageUpload3(css.newImageUpload3)
       }
   }, [location.state]);
@@ -144,13 +144,10 @@ export default function StoreAdmin() {
       context.drawImage(img, 0, 0);
       canvas.toBlob(function(blob) {
          if( id === 1 ) {
-            console.log(blob)
             item.set('image1', blob, image1)
          }else if( id === 2 ){
-            console.log(blob)
             item.set('image2', blob, image2)
          }else {
-            console.log(blob)
             item.set('image3', blob, image3)
             editItem(item, location.state.item.id) 
          }
@@ -174,6 +171,7 @@ export default function StoreAdmin() {
 
 
    const resetFields = () => {
+      console.log()
       setCategory('') 
       setTitle('') 
       setDescription('')
@@ -216,6 +214,7 @@ export default function StoreAdmin() {
       setNewImageUpload3(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
       setImageUpload3(css.imageUpload3)
       setImage3('')
+      console.log(12)
    }
 
 

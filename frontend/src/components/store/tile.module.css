@@ -22,9 +22,10 @@
 
 .tile {
   height: 30vw;
-  width: 27%;
-  margin-left: 4.15vw;
-  margin-top: 3vw;
+  width: 26%;
+  margin-left: 3.5vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
   background-color: #333333;
   border: 2px solid #333333;
 }
@@ -61,7 +62,7 @@
 }
 
 .adminButtonCont {
-  margin-top: -29.75vw;
+  margin-top: -29vw;
   margin-left: 80%;
   width: 22.5%;
   height: 6vw;

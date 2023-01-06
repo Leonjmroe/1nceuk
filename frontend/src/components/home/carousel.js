@@ -1,44 +1,47 @@
-import { Carousel } from 'react-bootstrap';
-import tile1 from '../../images/IMG_0587.jpeg';
-import tile2 from'../../images/IMG_0568.jpeg';
-import tile3 from '../../images/IMG_0544.jpeg';
-import { useState } from "react";
+import css from './home.module.css';
+import { useState, useEffect } from "react";
 
 
 export default function Main() {
 
-  const [index, setIndex] = useState(0);
+    var img_int = 1
 
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
+    const shuffle = () => {
+      if( img_int == 1 ) {
+        img_int = 2
+        set_image_class_1(`${css.carousel_img_1} ${css.carousel_img_style}`)
+        set_image_class_2(css.display_none)
+        set_image_class_3(css.display_none)
+      }else if( img_int == 2 ) {
+        img_int = 3
+        set_image_class_2(`${css.carousel_img_2} ${css.carousel_img_style}`)
+        set_image_class_1(css.display_none)
+        set_image_class_3(css.display_none)
+      }else {
+        img_int = 1
+        set_image_class_3(`${css.carousel_img_3} ${css.carousel_img_style}`)
+        set_image_class_1(css.display_none)
+        set_image_class_2(css.display_none)
+      }
+     setTimeout(shuffle, 3500);
+    }
 
-  return (  
-  <Carousel className="carousel_cont" variant="light" fade 
-            activeIndex={index} onSelect={handleSelect}>
-    <Carousel.Item interval={2000}>
-      <img
-        className="d-block w-100 carousel_img"
-        src={tile1}
-        alt="First slide"
-      />
-    </Carousel.Item>
-    <Carousel.Item interval={2000}>
-      <img
-        className="d-block w-100"
-        src={tile2}
-        alt="Second slide"
-      />
-    </Carousel.Item>
-    <Carousel.Item interval={2000}>
-      <img
-        className="d-block w-100"
-        src={tile3}
-        alt="Third slide"
-      />
-    </Carousel.Item>
-  </Carousel>
+    const [image_class_1, set_image_class_1] = useState(css.display_none)
+    const [image_class_2, set_image_class_2] = useState(css.display_none)
+    const [image_class_3, set_image_class_3] = useState(css.display_none)
+
+    useEffect(() => {
+      shuffle() 
+   }, []);
+
+      return (
+      <div className={css.carousel_cont}>
+        <img className={image_class_1} />
+        <img className={image_class_2} />
+        <img className={image_class_3} />
+      </div>
   );
+
 }
 
 
