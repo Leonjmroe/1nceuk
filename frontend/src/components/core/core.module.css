@@ -79,9 +79,10 @@
     font-size: 35px;
     line-height: 30px;
     margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
     border: 1px solid white;
     border-radius: 8px;
+    padding: 10px 90px 10px 10px;
   }
 }
 
