@@ -2,6 +2,12 @@
   height: 1px;
   width: 1px;
 }
+
+#canvas {
+  height: 1px;
+  width: 1px;
+}
+
 /*
 #newImageBtn1 {
   position: absolute;

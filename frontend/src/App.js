@@ -1,6 +1,4 @@
-import Navbar from './components/core/navbar.js';
-import Footer from './components/core/footer.js';
-import Underbar from './components/core/underbar.js';
+import { Navbar, Footer, Underbar, UnderbarNav } from './components/core/core.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/home/home.js';
 import StoreSelect from './components/store/store_select.js';
@@ -12,14 +10,14 @@ import Checkout from './components/checkout/checkout.js';
 import ItemPreview from './components/item_preview/item_preview.js';
 import Login from './components/login/login.js';
 import StoreAdmin from './components/store_admin/store_admin.js';
-import './App.css';
+import css from './App.module.css';
 
 function App() {
  return (                                                                
-      <div className="App">
+      <div className={css.App}>
           <Router>  
           <Navbar/>
-          <Underbar/>
+          <UnderbarNav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store_selection" element={<StoreSelect />} />
@@ -34,7 +32,7 @@ function App() {
           </Routes>
           <Underbar/>
           <Footer />
-         </Router>  
+         </Router>   
       </div>
   )};
 

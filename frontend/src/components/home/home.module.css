@@ -128,12 +128,13 @@
 
 
 
-/* ------------  shopDrop  ------------ */
+/* ------------  shop now  ------------ */
 
 .shopNowCont {
   height: 42vw;
   width: 90%;
   margin-left: 5%;
+  margin-bottom: 1vw;
   background-color: #E8FFF0;
   flex-direction: row;
 }
@@ -244,28 +245,21 @@
 .shopTitle {
   color: black;
   font-family: monospace;
-  width: 60%;
-  margin-left: 20%;
-  margin-top: 2.5vw;
-  height: 1vw;
-  padding: 0.4em 0em 1.2em 0em;
-  border-radius: 8px;
-  background-color: #29E66B;
   text-align: center;
-  font-size: 2vw;
+  font-size: 35px;
   border: 1px solid black;
   font-weight: bold;
+  border-radius: 8px;
+  background-color: #29E66B;
+  width: 200px;
+  margin-top: 50px;
+  height: 20px;
+  padding: 0px 5px 60px 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media only screen and (max-width: 1050px) {
-  .shopTitle {
-    font-size: 4vw;
-    margin-left: 9%;
-    margin-top: 0.5vw;
-    height: 2vw;
-    width: 80%;
-  }
-}
 
 .shopTitle:hover {
   opacity: 0.9;

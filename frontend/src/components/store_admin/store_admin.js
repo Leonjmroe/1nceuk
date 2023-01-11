@@ -141,7 +141,8 @@ export default function StoreAdmin() {
    const get_blob = (item, image, id) => {
       const img = document.getElementById('imgCanvas')
       img.src = image
-      const canvas = document.createElement('canvas');
+      // const canvas = document.createElement('canvas');
+      const canvas = document.getElementById('canvas')
       canvas.width = img.clientWidth;
       canvas.height = img.clientHeight;
       const context = canvas.getContext('2d');
@@ -218,7 +219,6 @@ export default function StoreAdmin() {
       setNewImageUpload3(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
       setImageUpload3(css.imageUpload3)
       setImage3('')
-      console.log(12)
    }
 
 
@@ -231,6 +231,7 @@ export default function StoreAdmin() {
    return (
     <div className={css.storeAdminCont}>
     <img id="imgCanvas"></img>
+    <canvas id="canvas"></canvas>
       <div className={css.addItemCont}>
          <form id="itemForm" onSubmit={formSubmit}>
             <input className={css.itemTitle} placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
