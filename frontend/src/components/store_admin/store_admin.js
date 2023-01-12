@@ -26,23 +26,27 @@ export default function StoreAdmin() {
    const [description, setDescription] = useState('')
    const [price, setPrice] = useState('')
    const [category, setCategory] = useState('')
-   const [size, setSize] = useState('')
    const [colour, setColour] = useState('')
-   const [quantity, setQuantity] = useState('')
    const [image1, setImage1] = useState('')
    const [image2, setImage2] = useState('')
    const [image3, setImage3] = useState('')
+   const [qty_small, set_qty_small] = useState('')
+   const [qty_medium, set_qty_medium] = useState('')
+   const [qty_large, set_qty_large] = useState('')
+   const [qty_extra_large, set_qty_extra_large] = useState('')
 
    const titleInput = event => { setTitle(event.target.value) }
    const descriptionInput = event => { setDescription(event.target.value) }
    const priceInput = event => { setPrice(event.target.value) }
    const categoryInput = event => { setCategory(event.target.value) }
-   const sizeInput = event => { setSize(event.target.value) }
    const colourInput = event => { setColour(event.target.value) }
-   const quantityInput = event => { setQuantity(event.target.value) }
    const image1Input = event => { setImage1(URL.createObjectURL(event.target.files[0])) }
    const image2Input = event => { setImage2(URL.createObjectURL(event.target.files[0])) }
    const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0])) }
+   const qtySmallInput = event => { set_qty_small(event.target.value) }
+   const qtyMediumInput = event => { set_qty_medium(event.target.value) }
+   const qtyLargeInput = event => { set_qty_large(event.target.value) }
+   const qtyExtraLargeInput = event => { set_qty_extra_large(event.target.value) }
 
 
    useEffect(() => {
@@ -87,16 +91,19 @@ export default function StoreAdmin() {
    }
 
    const createItems = items.map((item) => (
-      <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} category={item.category} 
-                size={item.size} colour={item.colour} quantity={item.quantity} image1={image_slice(item.image1)}
-                image2={image_slice(item.image2)} image3={image_slice(item.image3)} mode="admin" />
+      <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
+                category={item.category} colour={item.colour} image1={image_slice(item.image1)} 
+                image2={image_slice(item.image2)} image3={image_slice(item.image3)} qty_small={item.qty_small} 
+                qty_medium={item.qty_medium} qty_large={item.qty_large} qty_extra_large={item.qty_extra_large} 
+                mode="admin" />
       )
    );
 
 
    const formSubmit = event => { 
       event.preventDefault();
-      if (title && description && price && size && colour && quantity && image1 && image2 && image3) {
+      const qty_total = (qty_small + qty_medium + qty_large + qty_extra_large)
+      if (title && description && price && colour && image1 && image2 && image3 && qty_total) {
          const e = event.target
          const item = new FormData(e)  
          if (addEditDelText === 'Delete Item') {
@@ -107,8 +114,10 @@ export default function StoreAdmin() {
             item.set('category', category)
             item.set('price', price)
             item.set('colour', colour)
-            item.set('quantity', quantity)
-            item.set('size', size)
+            item.set('qty_small', qty_small)
+            item.set('qty_medium', qty_small)
+            item.set('qty_large', qty_large)
+            item.set('qty_extra_large', qty_extra_large)
             const image1_blob_test = image1.slice(0, 5)
             const image2_blob_test = image2.slice(0, 5)
             const image3_blob_test = image3.slice(0, 5)
@@ -166,12 +175,14 @@ export default function StoreAdmin() {
       setTitle(item.title) 
       setDescription(item.description)
       setPrice(item.price)
-      setSize(item.size)
       setColour(item.colour)
-      setQuantity(item.quantity)
       setImage1(item.image1)
       setImage2(item.image2)
       setImage3(item.image3)
+      set_qty_small(item.qty_small)
+      set_qty_medium(item.qty_medium)
+      set_qty_large(item.qty_large)
+      set_qty_extra_large(item.qty_extra_large)
    }
 
 
@@ -181,12 +192,14 @@ export default function StoreAdmin() {
       setTitle('') 
       setDescription('')
       setPrice('')
-      setSize('')
       setColour('')
-      setQuantity('')
       setImage1('')
       setImage2('')
       setImage3('')
+      set_qty_small('')
+      set_qty_medium('')
+      set_qty_large('')
+      set_qty_extra_large('')
       setaddEditDelText('Add Item')
       setaddEditDelClass(css.addItem)
       setImageUpload1(css.imageUpload1)
@@ -248,13 +261,6 @@ export default function StoreAdmin() {
                <option className={css.sizeOption}>jumpers</option>
                <option className={css.sizeOption}>accessories</option>
             </select>
-            <select className={css.itemSize} name="size" value={size} onChange={sizeInput}>
-               <option>select size</option>
-               <option className={css.sizeOption}>small</option>
-               <option className={css.sizeOption}>medium</option>
-               <option className={css.sizeOption}>large</option>
-               <option className={css.sizeOption}>extra large</option>
-            </select>
             <select className={css.itemColour} name="colour" value={colour} onChange={colourInput}>
                <option>select colour</option>
                <option className={css.sizeOption}>red</option>
@@ -274,7 +280,20 @@ export default function StoreAdmin() {
                <option className={css.sizeOption}>burgundy</option>
                <option className={css.sizeOption}>beige</option>
             </select>
-            <input className={css.itemQuantity} type="number" placeholder="quantity" name="quantity" value={quantity} onChange={quantityInput} />
+            <div className={css.size_qty_cont}>
+               <div className={css.size_qty_inner_cont}>
+                  <div className={css.size_text}>Small:</div>
+                  <div className={css.size_text}>Medium:</div>
+                  <div className={css.size_text}>Large:</div>
+                  <div className={css.size_text}>Extra Large:</div>
+               </div>
+               <div className={css.size_qty_inner_cont}>
+                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_small" value={qty_small} onChange={qtySmallInput} />
+                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_medium" value={qty_medium} onChange={qtyMediumInput} />
+                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_large" value={qty_large} onChange={qtyLargeInput} />
+                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_extra_large" value={qty_extra_large} onChange={qtyExtraLargeInput} />
+               </div>
+            </div>
             <input className={imageUpload1} type="file" id="ImageBtn1" name="image1" onChange={image1Input} />
             <input className={imageUpload2} type="file" id="ImageBtn2" name="image2" onChange={image2Input} />
             <input className={imageUpload3} type="file" id="ImageBtn3" name="image3" onChange={image3Input} />

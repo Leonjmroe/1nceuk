@@ -11,10 +11,12 @@ class ItemsSerializer(serializers.ModelSerializer):
         	'description',
         	'price',
         	'category',
-        	'size',
         	'colour',
-        	'quantity',
         	'image1',
         	'image2',
-        	'image3'
+        	'image3',
+            'qty_small',
+            'qty_medium',
+            'qty_large',
+            'qty_extra_large'
         )

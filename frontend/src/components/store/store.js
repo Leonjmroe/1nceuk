@@ -34,9 +34,11 @@ export default function Store() {
    }
 
    const createItems = items.map((item) => (
-      <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} category={item.category} 
-                size={item.size} colour={item.colour} quantity={item.quantity} image1={image_slice(item.image1)}
-                image2={image_slice(item.image2)} image3={image_slice(item.image3)} mode="store" />
+      <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
+                category={item.category} colour={item.colour} image1={image_slice(item.image1)} 
+                image2={image_slice(item.image2)} image3={image_slice(item.image3)} qty_small={item.qty_small} 
+                qty_medium={item.qty_medium} qty_large={item.qty_large} qty_extra_large={item.qty_extra_large} 
+                mode="store" />
       )
    );
 

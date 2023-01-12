@@ -5,7 +5,7 @@ export const addItem = (item, id) => {
   axios.post('/api/items/item-list/', item)
     .then(function (response) {
       console.log(response);
-      window.location.reload()
+      // window.location.reload()
     })
     .catch(function (response) {
       console.log(response);
