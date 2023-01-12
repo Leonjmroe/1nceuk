@@ -9,14 +9,14 @@
 
 .item_select_container {
   background-color: white;
-  margin-left: 12px;
-  margin-bottom: 12px;
+  margin-left: 35px;
+  margin-bottom: 35px;
   border: 5px solid black;
 }
 
 .sqrImage {
-  width: 400px;
-  height: 500px;
+  width: 300px;
+  height: 400px;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
@@ -58,3 +58,11 @@
 .img4 {
   background-image: url('../../images/IMG-3156.jpg');
 }
+
+@media screen and (max-width: 600px) {
+  .item_select_container {  
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+

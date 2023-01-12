@@ -6,6 +6,7 @@
   height: 100px;
   position: fixed;
   background-color: #30003c;
+  z-index: 2;
 }
 
 .navbar_flex_item {
@@ -78,7 +79,6 @@
     width: 90px;
     font-size: 35px;
     line-height: 30px;
-    margin-left: 50px;
     margin-top: 10px;
     border: 1px solid white;
     border-radius: 8px;
