@@ -1,6 +1,6 @@
 import Carousel from './carousel.js';
 import Circles from './circles.js';
-import ShopNow from './shop_now.js';
+import Collections from './collections.js';
 import { Underbar } from '../core/core.js';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       <Underbar />
       <Circles />
       <Underbar />
-      <ShopNow />
+      <Collections />
     </div>
   );
 }

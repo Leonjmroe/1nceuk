@@ -2,7 +2,7 @@ import css from './home.module.css';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function ShopNow() {
+export default function Collections() {
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function ShopNow() {
         <div className={css.dash}>----------------</div>
       </div>
 
-      <div className={css.collection_tile}>
+      <div className={`${css.collection_tile} ${css.mobile_order}`}>
         <div className={css.shop_now_button} onClick={()=> navigate('/store_selection')}>Shop Now</div>
         <div className={`${css.collection_img} ${css.collection_image_3}`}/>
         <div className={css.logo_login_button} onClick={()=> navigate('/login',{switch:0})}/>
