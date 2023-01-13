@@ -1,12 +1,3 @@
-.storeCont {
-  display: flex;
-  flex-wrap: wrap;
-  width: 88%;
-  height: 50vh;
-  margin-top: 3vw;
-  margin-left: 5vw;
-}
-
 .tile {
   height: 30vw;
   width: 26%;

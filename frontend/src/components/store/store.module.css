@@ -2,21 +2,39 @@
 .store_select_container{
   display: flex;
   flex-wrap: wrap;
-  margin: 10px 10px 10px 10px;
   margin-top: 100px;
   justify-content: center;
 }
 
 .item_select_container {
   background-color: white;
-  margin-left: 35px;
-  margin-bottom: 35px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   border: 5px solid black;
 }
 
+.store_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category_title {
+  margin: 90px 10px 10px 10px;
+  background-color: black;
+  border-radius: 5px;
+  padding: 0px 0px 0px 30px;
+  opacity: 0.6;
+  color: white;
+  font-size: 100px;
+  font-family: monospace;
+  font-weight: bold;
+  width: 100%;
+  height: 155px;
+}
+
 .sqrImage {
-  width: 300px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;

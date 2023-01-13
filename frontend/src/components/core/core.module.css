@@ -93,15 +93,9 @@
 .footer {
   display: flex;
   width: 100%;
-  height: 4vw;
+  height: 100px;
   bottom: 0vh;
   background-color: #30003c;
-}
-
-@media only screen and (max-width: 1050px) {
-  .footer {
-    height: 10vw;
-  }
 }
 
 .footerBox {
@@ -111,22 +105,22 @@
 }
 
 .icon {
-  width: 5%;
+  width: 50px;
   margin-left: 45%;
-  height: 1.5vw;
-  margin-top: 1.35vw;
-  object-fit: cover;
+  height: 50px;
+  margin-top: 25px;
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
 }
 
-@media only screen and (max-width: 1050px) {
-  .icon {
-    margin-top: 3.5vw;
-    height: 3.5vw;
-  }
+.iconTxt {
+  margin-top: 35px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: white;
+  font-family: monospace;
 }
 
 .icon:hover {
@@ -146,23 +140,22 @@
  background-image: url('../../images/mail.png');
 }
 
-.iconTxt {
-  font-size: 1.5vw;
-  margin-top: 1vw;
-  margin-left: 3%;
-  text-align: center;
-  color: white;
-  font-family: monospace;
-}
 
-@media only screen and (max-width: 1050px) {
+@media screen and (max-width: 800px) {
+  .footerBox {
+    flex-direction: column;
+  }
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 15px auto auto auto;
+  }
   .iconTxt {
-    margin-top: 3.3vw;
-    height: 3.5vw;
-    font-size: 2.5vw;
+    font-size: 12px;
+    text-align: center;
+    margin: auto auto 10px auto;
   }
 }
-
 
 
 /* ----- Bar ----- */
@@ -178,13 +171,9 @@
 }
 
 .underbar_nav {
-/*  position: fixed;*/
   display: inline-block;
   width: 100%;
   margin-left: 0%;
-/*  height: .5vh;*/
-/*  margin-top: 2vh;*/
-/*  background-color: #30003c;*/
   background-color: red;
 }
 

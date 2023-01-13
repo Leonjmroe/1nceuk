@@ -1,5 +1,5 @@
 import ItemTile from './itemTile.js'
-import css from './tile.module.css';
+import css from './store.module.css';
 import { getItems } from '../store_admin/admin_actions.js';
 import { useState, useEffect, useHistory } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -42,9 +42,17 @@ export default function Store() {
       )
    );
 
+   const capitalise = () => {
+      const catagory = location.state.catagory
+      const first_letter = catagory[0].toUpperCase()
+      const remaining = catagory.slice(1,catagory.length)
+      const capitalisation = first_letter + remaining
+      return capitalisation
+   }
 
    return (
-    <div className={css.storeCont}>
+    <div className={css.store_container}>
+      <div className={css.category_title}>{capitalise()}</div>
         {createItems}
     </div>
   );
