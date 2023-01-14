@@ -102,6 +102,7 @@
   background-color: #30003c;
   position: fixed;
   top: 105px;
+  z-index: 2;
 }
 
 .underbar_footer {
