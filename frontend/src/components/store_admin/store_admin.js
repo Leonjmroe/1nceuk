@@ -242,68 +242,70 @@ export default function StoreAdmin() {
 
 
    return (
-    <div className={css.storeAdminCont}>
-    <img id="imgCanvas"></img>
-    <canvas id="canvas"></canvas>
-      <div className={css.addItemCont}>
-         <form id="itemForm" onSubmit={formSubmit}>
-            <input className={css.itemTitle} placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
-            <textarea className={css.itemDescription} placeholder="description" name="description" value={description} onChange={descriptionInput} type="text" />
-            <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
-            <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
-               <option>select category</option>
-               <option className={css.sizeOption}>hats</option>
-               <option className={css.sizeOption}>hoodies</option>
-               <option className={css.sizeOption}>jackets</option>
-               <option className={css.sizeOption}>joggers</option>
-               <option className={css.sizeOption}>shorts</option>
-               <option className={css.sizeOption}>t-shirts</option>
-               <option className={css.sizeOption}>jumpers</option>
-               <option className={css.sizeOption}>accessories</option>
-            </select>
-            <select className={css.itemColour} name="colour" value={colour} onChange={colourInput}>
-               <option>select colour</option>
-               <option className={css.sizeOption}>red</option>
-               <option className={css.sizeOption}>green</option>
-               <option className={css.sizeOption}>dark blue</option>
-               <option className={css.sizeOption}>light blue</option>
-               <option className={css.sizeOption}>green</option>
-               <option className={css.sizeOption}>purple</option>
-               <option className={css.sizeOption}>pink</option>
-               <option className={css.sizeOption}>grey</option>
-               <option className={css.sizeOption}>black</option>
-               <option className={css.sizeOption}>orange</option>
-               <option className={css.sizeOption}>white</option>
-               <option className={css.sizeOption}>brown</option>
-               <option className={css.sizeOption}>yellow</option>
-               <option className={css.sizeOption}>cream</option>
-               <option className={css.sizeOption}>burgundy</option>
-               <option className={css.sizeOption}>beige</option>
-            </select>
-            <div className={css.size_qty_cont}>
-               <div className={css.size_qty_inner_cont}>
-                  <div className={css.size_text}>Small:</div>
-                  <div className={css.size_text}>Medium:</div>
-                  <div className={css.size_text}>Large:</div>
-                  <div className={css.size_text}>Extra Large:</div>
+    <div className={css.store_admin_container}>
+    <div className={css.store_admin_cont}>
+       <img id="imgCanvas"></img>
+       <canvas id="canvas"></canvas>
+         <div className={css.add_item_cont}>
+            <form id="itemForm" onSubmit={formSubmit}>
+               <input className={css.itemTitle} placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
+               <textarea className={css.itemDescription} placeholder="description" name="description" value={description} onChange={descriptionInput} type="text" />
+               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
+               <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
+                  <option>select category</option>
+                  <option className={css.sizeOption}>hats</option>
+                  <option className={css.sizeOption}>hoodies</option>
+                  <option className={css.sizeOption}>jackets</option>
+                  <option className={css.sizeOption}>joggers</option>
+                  <option className={css.sizeOption}>shorts</option>
+                  <option className={css.sizeOption}>t-shirts</option>
+                  <option className={css.sizeOption}>jumpers</option>
+                  <option className={css.sizeOption}>accessories</option>
+               </select>
+               <select className={css.itemColour} name="colour" value={colour} onChange={colourInput}>
+                  <option>select colour</option>
+                  <option className={css.sizeOption}>red</option>
+                  <option className={css.sizeOption}>green</option>
+                  <option className={css.sizeOption}>dark blue</option>
+                  <option className={css.sizeOption}>light blue</option>
+                  <option className={css.sizeOption}>green</option>
+                  <option className={css.sizeOption}>purple</option>
+                  <option className={css.sizeOption}>pink</option>
+                  <option className={css.sizeOption}>grey</option>
+                  <option className={css.sizeOption}>black</option>
+                  <option className={css.sizeOption}>orange</option>
+                  <option className={css.sizeOption}>white</option>
+                  <option className={css.sizeOption}>brown</option>
+                  <option className={css.sizeOption}>yellow</option>
+                  <option className={css.sizeOption}>cream</option>
+                  <option className={css.sizeOption}>burgundy</option>
+                  <option className={css.sizeOption}>beige</option>
+               </select>
+               <div className={css.size_qty_cont}>
+                  <div className={css.size_qty_inner_cont}>
+                     <div className={css.size_text}>Small:</div>
+                     <div className={css.size_text}>Medium:</div>
+                     <div className={css.size_text}>Large:</div>
+                     <div className={css.size_text}>Extra Large:</div>
+                  </div>
+                  <div className={css.size_qty_inner_cont}>
+                     <input className={css.qty_field} type="number" placeholder="qty" name="qty_small" value={qty_small} onChange={qtySmallInput} />
+                     <input className={css.qty_field} type="number" placeholder="qty" name="qty_medium" value={qty_medium} onChange={qtyMediumInput} />
+                     <input className={css.qty_field} type="number" placeholder="qty" name="qty_large" value={qty_large} onChange={qtyLargeInput} />
+                     <input className={css.qty_field} type="number" placeholder="qty" name="qty_extra_large" value={qty_extra_large} onChange={qtyExtraLargeInput} />
+                  </div>
                </div>
-               <div className={css.size_qty_inner_cont}>
-                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_small" value={qty_small} onChange={qtySmallInput} />
-                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_medium" value={qty_medium} onChange={qtyMediumInput} />
-                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_large" value={qty_large} onChange={qtyLargeInput} />
-                  <input className={css.qty_field} type="number" placeholder="qty" name="qty_extra_large" value={qty_extra_large} onChange={qtyExtraLargeInput} />
-               </div>
-            </div>
-            <input className={imageUpload1} type="file" id="ImageBtn1" name="image1" onChange={image1Input} />
-            <input className={imageUpload2} type="file" id="ImageBtn2" name="image2" onChange={image2Input} />
-            <input className={imageUpload3} type="file" id="ImageBtn3" name="image3" onChange={image3Input} />
-            <input className={newImageUpload1} type="button" id="newImageBtn1" value={imageSlicer(image1)} onClick={newUpload1} />
-            <input className={newImageUpload2} type="button" id="newImageBtn2" value={imageSlicer(image2)} onClick={newUpload2} />
-            <input className={newImageUpload3} type="button" id="newImageBtn3" value={imageSlicer(image3)} onClick={newUpload3} />
-            <button className={addEditDelClass} type="submit">{addEditDelText}</button>
-         </form>
+               <input className={imageUpload1} type="file" id="ImageBtn1" name="image1" onChange={image1Input} />
+               <input className={imageUpload2} type="file" id="ImageBtn2" name="image2" onChange={image2Input} />
+               <input className={imageUpload3} type="file" id="ImageBtn3" name="image3" onChange={image3Input} />
+               <input className={newImageUpload1} type="button" id="newImageBtn1" value={imageSlicer(image1)} onClick={newUpload1} />
+               <input className={newImageUpload2} type="button" id="newImageBtn2" value={imageSlicer(image2)} onClick={newUpload2} />
+               <input className={newImageUpload3} type="button" id="newImageBtn3" value={imageSlicer(image3)} onClick={newUpload3} />
+               <button className={addEditDelClass} type="submit">{addEditDelText}</button>
+            </form>
+         </div>
+         <div className={css.editItemCont} onClick={() => resetFields()}>{ createItems }</div>
       </div>
-      <div className={css.editItemCont} onClick={() => resetFields()}>{ createItems }</div>
     </div>
   );
 }

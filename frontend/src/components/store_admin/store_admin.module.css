@@ -1,14 +1,18 @@
-.storeAdminCont{
+.store_admin_container{
   display: flex;
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 5vw;
   height: auto;
-  background-color: green;
+  width: 90%;
+  margin: 0% 5% 0% 5%;
 }
 
-.addItemCont{
-  width: 35%;
+.store_admin_cont{
+  display: flex;
+  background-color: green;
+  margin: 150px 0px 150px 0px;
+}
+
+.add_item_cont{
+  width: 500px;
   border: 1px solid black;
 }
 
@@ -92,6 +96,7 @@
   left: -3%;
 }
 */
+
 #imgCanvas {
   height: 1px;
   width: 1px;
