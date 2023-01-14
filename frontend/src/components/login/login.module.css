@@ -1,15 +1,17 @@
-.adminCont{
+.admin_container {
+  display: flex;
+}
+
+.login_container{
   display: flex;
   width: 80%;
   height: 750px;
-  margin-left: 10%;
-  margin-top: 100px;
-  margin-bottom: 30px;
-  padding: 100px;
-  background-color: green;
-  opacity: 0.8;
+  margin: 150px auto 150px auto;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: green;
+  opacity: 0.8;
 }
 
 .usernameCont, .passwordCont, .login{

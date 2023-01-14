@@ -34,15 +34,17 @@ export default function Login() {
   }
 
 return (
-  <div className={css.adminCont}>
-    <div className={css.usernameCont}>
-      <div className={css.usernameTitle}>Username:</div>
-      <input className={css.username} type="text" value={username} onChange={userInput}/>
+  <div className={css.admin_container}>
+    <div className={css.login_container}>
+      <div className={css.usernameCont}>
+        <div className={css.usernameTitle}>Username:</div>
+        <input className={css.username} type="text" value={username} onChange={userInput}/>
+      </div>
+      <div className={css.passwordCont}>
+        <div className={css.passwordTitle}>Password:</div>
+        <input className={css.password} type="password" value={password} onChange={passInput}/>
+      </div>  
+      <div className={css.login} onClick={login}>Login</div>
     </div>
-    <div className={css.passwordCont}>
-      <div className={css.passwordTitle}>Password:</div>
-      <input className={css.password} type="password" value={password} onChange={passInput}/>
-    </div>  
-    <div className={css.login} onClick={login}>Login</div>
   </div>
 )}
