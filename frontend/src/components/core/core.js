@@ -51,10 +51,15 @@ return (
   <div className={css.underbar}/>
 )}
 
-
-export function UnderbarNav() {
+export function UnderbarHeader() {
 
 return (
-  <div className={css.underbar_nav}/>
+  <div className={css.underbar_header}/>
+)}
+
+export function UnderbarFooter() {
+
+return (
+  <div className={css.underbar_footer}/>
 )}
 

@@ -1,11 +1,11 @@
 .adminCont{
   display: flex;
   width: 80%;
+  height: 750px;
   margin-left: 10%;
   margin-top: 100px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding: 100px;
-
   background-color: green;
   opacity: 0.8;
   flex-direction: column;

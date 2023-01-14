@@ -5,8 +5,9 @@
   width: 100%;
   height: 100px;
   position: fixed;
-  background-color: #30003c;
+  top: 0px;
   z-index: 2;
+  background-color: #30003c;
 }
 
 .navbar_flex_item {
@@ -87,6 +88,30 @@
 }
 
 
+/* ----- Underbar ----- */
+
+.underbar {
+  width: 100%;
+  height: 15px;
+  background-color: #30003c;
+}
+
+.underbar_header {
+  width: 100%;
+  height: 15px;
+  background-color: #30003c;
+  position: fixed;
+  top: 105px;
+}
+
+.underbar_footer {
+  width: 100%;
+  height: 15px;
+  background-color: #30003c;
+  position: absolute;
+  bottom: 105px;
+}
+
 
 /* ------------  Footer  ------------ */
 
@@ -94,8 +119,10 @@
   display: flex;
   width: 100%;
   height: 100px;
-  bottom: 0vh;
   background-color: #30003c;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 0px;
 }
 
 .footerBox {
@@ -156,29 +183,6 @@
     margin: auto auto 10px auto;
   }
 }
-
-
-/* ----- Bar ----- */
-
-
-.underbar {
-  width: 100%;
-  margin-left: 0%;
-  height: 1.5vh;
-  margin-top: 0.5vh;
-  margin-bottom: 0.5vh;
-  background-color: #30003c;
-}
-
-.underbar_nav {
-  display: inline-block;
-  width: 100%;
-  margin-left: 0%;
-  background-color: red;
-}
-
-
-
 
 
 

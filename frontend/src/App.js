@@ -1,8 +1,7 @@
-import { Navbar, Footer, Underbar, UnderbarNav } from './components/core/core.js';
+import { Navbar, Footer, Underbar, UnderbarHeader, UnderbarFooter } from './components/core/core.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/home/home.js';
-import StoreSelect from './components/store/store_select.js';
-import Store from './components/store/store.js';
+import { Store, StoreSelect } from './components/store/store.js';
 import About from './components/about/about.js';
 import Skating from './components/skating/skating.js';
 import Designs from './components/designs/designs.js';
@@ -17,7 +16,7 @@ function App() {
       <div className={css.App}>
           <Router>  
           <Navbar/>
-          <UnderbarNav />
+          <UnderbarHeader />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/store_selection" element={<StoreSelect />} />
@@ -30,7 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/store_admin" element={<StoreAdmin />} />
           </Routes>
-          <Underbar/>
+          <UnderbarFooter/>
           <Footer />
          </Router>   
       </div>

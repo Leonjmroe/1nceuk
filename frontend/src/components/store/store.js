@@ -2,10 +2,10 @@ import ItemTile from './itemTile.js'
 import css from './store.module.css';
 import { getItems } from '../store_admin/admin_actions.js';
 import { useState, useEffect, useHistory } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
-export default function Store() {
+export function Store() {
 
   const location = useLocation()
   const [items, setItems] = useState([])
@@ -53,8 +53,55 @@ export default function Store() {
    return (
     <div className={css.store_container}>
       <div className={css.category_title}>{capitalise()}</div>
+      <div className={css.store_item_cont}>
         {createItems}
+      </div>
     </div>
   );
 }
+
+
+
+export function StoreSelect() {
+
+   const navigate = useNavigate();
+
+   return (
+    <div className={css.store_select_container}>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Hats</div>
+         <div className={`${css.sqrImage} ${css.img4}`} onClick={()=> navigate('/store', {state: {catagory: 'hats'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Hoodies</div>
+         <div className={`${css.sqrImage} ${css.img1}`} onClick={()=> navigate('/store', {state: {catagory: 'hoodies'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Jackets</div>
+         <div className={`${css.sqrImage} ${css.img2}`} onClick={()=> navigate('/store', {state: {catagory: 'jackets'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Joggers</div>
+         <div className={`${css.sqrImage} ${css.img3}`} onClick={()=> navigate('/store', {state: {catagory: 'joggers'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Shorts</div>
+         <div className={`${css.sqrImage} ${css.img3}`} onClick={()=> navigate('/store', {state: {catagory: 'shorts'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>T-Shirts</div>
+         <div className={`${css.sqrImage} ${css.img2}`} onClick={()=> navigate('/store', {state: {catagory: 't-shirts'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Jumpers</div>
+         <div className={`${css.sqrImage} ${css.img1}`} onClick={()=> navigate('/store', {state: {catagory: 'jumpers'} })} />
+       </div>
+       <div className={css.item_select_container}>
+         <div className={css.sqrText}>Accessories</div>
+         <div className={`${css.sqrImage} ${css.img4}`} onClick={()=> navigate('/store', {state: {catagory: 'accessories'} })} />
+       </div>
+    </div>
+  );
+}
+
 
