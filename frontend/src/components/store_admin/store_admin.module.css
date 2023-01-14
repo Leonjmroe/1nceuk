@@ -1,41 +1,45 @@
 .store_admin_container{
   display: flex;
-  height: auto;
-  width: 90%;
-  margin: 0% 5% 0% 5%;
+  margin: 0px 30px auto 30px;
 }
 
 .store_admin_cont{
   display: flex;
   background-color: green;
-  margin: 150px 0px 150px 0px;
-}
-
-.add_item_cont{
-  width: 500px;
+  margin: 140px auto 150px auto;
   border: 1px solid black;
 }
 
-.editItemCont{
+.add_item_cont{
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  border: 1px solid black;
+}
+
+.item_form {
+  margin: 30px auto 30px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_item_cont{
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  justify-content: left;
   border: 1px solid black;
 }
 
 .addItem, .editItem, .delItem {
+  width: 250px;
+  height: 70px;
+  margin: 40px auto 30px auto;
+  border-radius: 8px;
+  font-size: 40px;
+  border: 1px solid black;
   color: black;
   font-family: monospace;
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 50px;
-  margin-bottom: 4vw;
-  height: 4vw;
-  padding: 0.2em 0em 1.2em 0em;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 2vw;
-  border: 1px solid black;
   font-weight: bold;
 }
 
@@ -58,17 +62,16 @@
 
 .itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .itemCategory, 
 .imageUpload1, .imageUpload2, .imageUpload3, .newImageUpload1, .newImageUpload2, .newImageUpload3 {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 1.5vw;
-  font-size: 1.2vw;
+  width: 280px;
+  margin: 15px auto 15px auto;
+  font-size: 20px;
   color: black;
   font-family: monospace;
   font-weight: bold;
 }
 
 .itemDescription{
-  height: 8vw;
+  height: 100px;
 }
 
 .imgUploadToggle1, .imgUploadToggle2, .imgUploadToggle3, .newImgUploadToggle1, .newImgUploadToggle2, 
@@ -106,39 +109,51 @@
 /* ----- Size qty box ----- */
 
 .size_qty_cont {
-  height: 200px;
-  width: 325px;
-  margin-top: 35px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
+  width: 200px;
+  margin: 5px auto 5px auto;
 }
 
 .size_qty_inner_cont {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  width: 50%;
-  height: 100%;
+  width: 100px;
 }
 
 .size_text {
+  width: 50px;
+  margin: 10px auto 10px auto;
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
-  text-align: center;
-  margin-bottom: 15px;
-  margin-left: 10px;
-  color: black;
+  color: #eeeeee;
   font-family: monospace;
   border-radius: 2px;
-  background-color: #eeeeee;
+  background-color: #333333;
+  border: 1px solid white;
 }
 
 .qty_field {
-  margin-bottom: 15px;
   width: 60px;
-  margin-left: 60px;
+  margin: 11.5px auto 10px auto;
   text-align: center;
+  font-weight: bold;
+/*  border: 2px solid black;*/
+}
+
+@media screen and (max-width: 1600px) {
+  .edit_item_cont {  
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .store_admin_cont {  
+    flex-direction: column;
+  }
+  .add_item_cont {
+    width: 100%;
+  }
 }
 
 

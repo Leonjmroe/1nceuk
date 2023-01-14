@@ -247,7 +247,7 @@ export default function StoreAdmin() {
        <img id="imgCanvas"></img>
        <canvas id="canvas"></canvas>
          <div className={css.add_item_cont}>
-            <form id="itemForm" onSubmit={formSubmit}>
+            <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
                <input className={css.itemTitle} placeholder="title" type="text" name="title" value={title} onChange={titleInput} />
                <textarea className={css.itemDescription} placeholder="description" name="description" value={description} onChange={descriptionInput} type="text" />
                <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
@@ -283,10 +283,10 @@ export default function StoreAdmin() {
                </select>
                <div className={css.size_qty_cont}>
                   <div className={css.size_qty_inner_cont}>
-                     <div className={css.size_text}>Small:</div>
-                     <div className={css.size_text}>Medium:</div>
-                     <div className={css.size_text}>Large:</div>
-                     <div className={css.size_text}>Extra Large:</div>
+                     <div className={css.size_text}>S</div>
+                     <div className={css.size_text}>M</div>
+                     <div className={css.size_text}>L</div>
+                     <div className={css.size_text}>XL</div>
                   </div>
                   <div className={css.size_qty_inner_cont}>
                      <input className={css.qty_field} type="number" placeholder="qty" name="qty_small" value={qty_small} onChange={qtySmallInput} />
@@ -304,7 +304,7 @@ export default function StoreAdmin() {
                <button className={addEditDelClass} type="submit">{addEditDelText}</button>
             </form>
          </div>
-         <div className={css.editItemCont} onClick={() => resetFields()}>{ createItems }</div>
+         <div className={css.edit_item_cont} onClick={() => resetFields()}>{ createItems }</div>
       </div>
     </div>
   );

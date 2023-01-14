@@ -33,11 +33,13 @@ export default function Tile(props) {
     const [image_class_3, set_image_class_3] = useState(css.display_none)
 
     const [admin_button_toggle, set_admin_button_toggle] = useState(css.display_none)
+    const [tile_size_toggle, set_tile_size_toggle] = useState(css.tile)
 
     useEffect(() => {
       shuffle() 
       if( props.mode == "admin") {
         set_admin_button_toggle(css.admin_btn_cont)
+        set_tile_size_toggle(css.tile_admin)
       }
    }, []);
 
@@ -51,7 +53,7 @@ export default function Tile(props) {
 
 
   return (
-      <div className={css.tile}>
+      <div className={tile_size_toggle}>
 
         <img className={image_class_1} src={props.image1} onClick={()=> { if(props.mode === "store"){
                                                       navigate('/item_preview',{state: {item:props}})}}} />
