@@ -9,6 +9,7 @@ export default function Preview() {
   var img_int = 1
   
     const shuffle = () => {
+      console.log(1)
       if( img_int == 1 ) {
         img_int = 2
         set_image_class_1(css.image)
@@ -37,22 +38,24 @@ export default function Preview() {
    }, []);
 
    return (
-    <div className={css.container}>
-      <div className={css.tile_container}>
-        <div className={css.image_container}>
+    <div className={css.preview_container}>
+      <div className={css.preview_cont}>
+        <div className={css.carousel}>
           <img className={image_class_1} src={location.state.item.image1} />
           <img className={image_class_2} src={location.state.item.image2} />
           <img className={image_class_3} src={location.state.item.image3} />
         </div>
-        <div className={css.item_info_container}>
-          <div className={css.item_info_element}>{location.state.item.title}</div>
-          <div className={css.item_info_element}>{location.state.item.description}</div>
-          <div className={css.item_info_element}>{location.state.item.price}</div>
+        <div className={css.item_control_cont}>
+          <div className={css.item_info_cont}>
+            <div className={css.item_info_element}>{location.state.item.title}</div>
+            <div className={css.item_info_element}>{location.state.item.description}</div>
+            <div className={css.item_info_element}>{location.state.item.price}</div>
+          </div>
+          <div className={css.checkout_cont}>
+            <div className={css.add_to_basket}>Add to Basket</div>
+            <div className={css.continue_shopping}>Continue Shopping</div>
+          </div>
         </div>
-      </div>
-      <div className={css.checkout_continer}>
-        <div className={css.add_to_basket}>Add to Basket</div>
-        <div className={css.continue_shopping}>Continue Shopping</div>
       </div>
     </div>
   );
