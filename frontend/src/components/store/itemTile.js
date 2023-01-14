@@ -37,7 +37,7 @@ export default function Tile(props) {
     useEffect(() => {
       shuffle() 
       if( props.mode == "admin") {
-        set_admin_button_toggle(css.adminButtonCont)
+        set_admin_button_toggle(css.admin_btn_cont)
       }
    }, []);
 

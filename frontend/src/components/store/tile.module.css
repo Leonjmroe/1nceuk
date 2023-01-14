@@ -33,13 +33,14 @@
   width: 100%;
 }
 
-.adminButtonCont {
-  margin-top: -29vw;
-  margin-left: 80%;
-  width: 22.5%;
-  height: 6vw;
+.admin_btn_cont {
   display: flex;
   flex-direction: column;
+  height: 90px;
+  width: 70px;
+  position: absolute;
+  margin-top: -475px;
+  margin-left: 305px;
 }
 
 .deleteTile {
