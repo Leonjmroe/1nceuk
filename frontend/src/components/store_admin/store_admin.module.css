@@ -99,11 +99,6 @@
   margin-top: 741px;
 }
 
-#imgCanvas {
-  height: 1px;
-  width: 1px;
-}
-
 
 /* ----- Size qty box ----- */
 
@@ -137,7 +132,6 @@
   margin: 11.5px auto 10px auto;
   text-align: center;
   font-weight: bold;
-/*  border: 2px solid black;*/
 }
 
 @media screen and (max-width: 1600px) {

@@ -152,9 +152,8 @@ export default function StoreAdmin() {
 
 
    const get_blob = (item, image, id) => {
-      const img = document.getElementById('imgCanvas')
+      const img = document.getElementById('img_canvas')
       img.src = image
-      // const canvas = document.createElement('canvas');
       const canvas = document.getElementById('canvas')
       canvas.width = img.clientWidth;
       canvas.height = img.clientHeight;
@@ -251,7 +250,7 @@ export default function StoreAdmin() {
    return (
     <div className={css.store_admin_container}>
     <div className={css.store_admin_cont}>
-       <img id="imgCanvas"></img>
+       <img id="img_canvas"></img>
        <canvas id="canvas"></canvas>
          <div className={css.add_item_cont}>
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>

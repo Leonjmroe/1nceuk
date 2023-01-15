@@ -122,7 +122,6 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 50px 0px 140px 0px;
-/*  margin: 20px 0px 130px 0px;*/
 }
 
 .collection_tile {
@@ -213,7 +212,7 @@
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
   .collection_tile {
     margin-left: auto;
     margin-right: auto;
@@ -255,6 +254,28 @@
     width: 50px;
     height: 50px;
     margin: 20px auto 20px auto;
+  }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 650px) {
+  .collection_container {
+    flex-direction: column;
+  }
+  .collection_img {
+    width: 500px;
+    height: 500px;
+  }
+  .collection_image_3 {
+    width: 300px;
+    height: 200px;
+  }
+  .shop_now_button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .logo_login_button {
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 }
 

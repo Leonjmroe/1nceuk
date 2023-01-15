@@ -1,9 +1,8 @@
-#imgCanvas {
+#img_canvas {
   height: 1px;
   width: 1px;
 }
 
 #canvas {
-  height: 1px;
-  width: 1px;
+  display: none;
 }

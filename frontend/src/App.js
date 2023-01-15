@@ -1,5 +1,5 @@
 import { Navbar, Footer, Underbar, UnderbarHeader, UnderbarFooter } from './components/core/core.js';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/home/home.js';
 import { Store, StoreSelect } from './components/store/store.js';
 import { Collection2022, Collection2023 } from './components/collections/collections.js';
@@ -15,7 +15,7 @@ import css from './App.module.css';
 function App() {
  return (                                                                
       <div className={css.App}>
-          <Router>  
+          <Router >  
           <Navbar/>
           <UnderbarHeader />
           <Routes>
