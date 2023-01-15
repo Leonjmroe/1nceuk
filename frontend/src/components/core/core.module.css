@@ -73,17 +73,22 @@
 
 @media screen and (max-width: 800px) {
   .logo1nce {   
-    width: 180px;
+    width: 220px;
     margin-top: 20px;
   }
   .storeTitle {   
     width: 90px;
     font-size: 35px;
     line-height: 30px;
-    margin-top: 10px;
+    margin-top: 7px;
     border: 1px solid white;
     border-radius: 8px;
     padding: 10px 90px 10px 10px;
+  }
+  .basketCont {
+    width: 100px;
+    height: 80px;
+    margin-right: 20%;
   }
 }
 

@@ -47,14 +47,44 @@ export default function Preview() {
         </div>
         <div className={css.item_control_cont}>
           <div className={css.item_info_cont}>
-            <div className={css.item_info_element}>{location.state.item.title}</div>
-            <div className={css.item_info_element}>{location.state.item.description}</div>
-            <div className={css.item_info_element}>{location.state.item.price}</div>
+            <div className={css.item_info_element}>Title: {location.state.item.title}</div>
+            <div className={css.item_info_element}>Description: {location.state.item.description}</div>
+            <div className={css.item_info_element}>Price: {location.state.item.price}</div>
+            <div className={css.item_info_element}>category: {location.state.item.category}</div>
+            <div className={css.item_info_element}>colour: {location.state.item.colour}</div>
+            <div className={css.item_info_element}>Small: {location.state.item.qty_small}</div>
+            <div className={css.item_info_element}>Medium: {location.state.item.qty_medium}</div>
+            <div className={css.item_info_element}>Large: {location.state.item.qty_large}</div>
+            <div className={css.item_info_element}>Extra Large: {location.state.item.qty_extra_large}</div>
           </div>
           <div className={css.checkout_cont}>
             <div className={css.add_to_basket}>Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
           </div>
+        </div>
+      </div>
+      <div className={css.preview_mobile_cont}>
+        <div className={css.preview_mobile_header}>
+          <div className={css.item_info_element}>Title: {location.state.item.title}</div>
+          <div className={css.item_info_element}>Description: {location.state.item.description}</div>
+          <div className={css.item_info_element}>Price: {location.state.item.price}</div>
+          <div className={css.item_info_element}>category: {location.state.item.category}</div>
+        </div>
+        <div className={css.carousel_mobile}>
+          <img className={image_class_1} src={location.state.item.image1} />
+          <img className={image_class_2} src={location.state.item.image2} />
+          <img className={image_class_3} src={location.state.item.image3} />
+        </div>
+        <div className={css.preview_mobile_footer}>
+          <div className={css.item_info_element}>colour: {location.state.item.colour}</div>
+          <div className={css.item_info_element}>Small: {location.state.item.qty_small}</div>
+          <div className={css.item_info_element}>Medium: {location.state.item.qty_medium}</div>
+          <div className={css.item_info_element}>Large: {location.state.item.qty_large}</div>
+          <div className={css.item_info_element}>Extra Large: {location.state.item.qty_extra_large}</div>
+        </div>
+        <div className={css.checkout_mobile_cont}>
+          <div className={css.add_to_basket}>Add to Basket</div>
+          <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
       </div>
     </div>
