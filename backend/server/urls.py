@@ -10,8 +10,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', TemplateView.as_view(template_name='index.html')),  # dont need on if two below are on 
     path('api/items/', include('apps.items.urls')),
-    url(r'^$', TemplateView.as_view(template_name='index.html')),   # need on with below to fix url live bug 
-    url(r'^(?:.*)/?$', TemplateView.as_view(template_name='index.html')), # cant log in when on but need on for url live bug
+    url(r'^/', TemplateView.as_view(template_name='index.html')),
+    # url(r'^$', TemplateView.as_view(template_name='index.html')),   # need on with below to fix url live bug 
+    # url(r'^(?:.*)/?$', TemplateView.as_view(template_name='index.html')), # cant log in when on but need on for url live bug
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += accounts_urlpatterns  
