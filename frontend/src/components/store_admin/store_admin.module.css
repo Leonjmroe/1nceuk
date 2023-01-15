@@ -1,6 +1,5 @@
 .store_admin_container{
   display: flex;
-  margin: 0px 30px auto 30px;
 }
 
 .store_admin_cont{
@@ -8,6 +7,7 @@
   background-color: green;
   margin: 140px auto 150px auto;
   border: 1px solid black;
+  width: 95%;
 }
 
 .add_item_cont{
@@ -34,9 +34,9 @@
 .addItem, .editItem, .delItem {
   width: 250px;
   height: 70px;
-  margin: 40px auto 30px auto;
+  margin: 30px auto 30px auto;
   border-radius: 8px;
-  font-size: 40px;
+  font-size: 32px;
   border: 1px solid black;
   color: black;
   font-family: monospace;
@@ -68,6 +68,10 @@
   color: black;
   font-family: monospace;
   font-weight: bold;
+}
+
+.itemPrice {
+  width: 130px;
 }
 
 .itemDescription{
