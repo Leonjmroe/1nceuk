@@ -51,21 +51,25 @@ export default function StoreAdmin() {
 
    useEffect(() => {
       if (location.state.editSwitch != null) {
+         const imageUploadUpdate = () => {
+            setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
+            setNewImageUpload1(css.newImageUpload1)
+            setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
+            setNewImageUpload2(css.newImageUpload2)
+            setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
+            setNewImageUpload3(css.newImageUpload3)
+         }
          if ( location.state.editSwitch === 1 ) {
             populateFields()
             setaddEditDelText('Edit Item')
             setaddEditDelClass(css.editItem)
+            imageUploadUpdate()
          } else if( location.state.delSwitch === 1 ){
             populateFields()
             setaddEditDelText('Delete Item')
             setaddEditDelClass(css.delItem)
+            imageUploadUpdate()
          }
-         setImageUpload1(`${css.imageUpload1} ${css.imgUploadToggle1}`)
-         setNewImageUpload1(css.newImageUpload1)
-         setImageUpload2(`${css.imageUpload2} ${css.imgUploadToggle2}`)
-         setNewImageUpload2(css.newImageUpload2)
-         setImageUpload3(`${css.imageUpload3} ${css.imgUploadToggle3}`)
-         setNewImageUpload3(css.newImageUpload3)
       }
   }, [location.state]);
 
@@ -220,18 +224,21 @@ export default function StoreAdmin() {
       setNewImageUpload1(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
       setImageUpload1(css.imageUpload1)
       setImage1('')
+      console.log(1)
    }
 
    const newUpload2 = event => {
       setNewImageUpload2(`${css.newImageUpload2} ${css.newImgUploadToggle2}`)
       setImageUpload2(css.imageUpload2)
       setImage2('')
+      console.log(2)
    }
 
    const newUpload3 = event => {
       setNewImageUpload3(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
       setImageUpload3(css.imageUpload3)
       setImage3('')
+      console.log(3)
    }
 
 
@@ -295,12 +302,12 @@ export default function StoreAdmin() {
                      <input className={css.qty_field} type="number" placeholder="qty" name="qty_extra_large" value={qty_extra_large} onChange={qtyExtraLargeInput} />
                   </div>
                </div>
-               <input className={imageUpload1} type="file" id="ImageBtn1" name="image1" onChange={image1Input} />
-               <input className={imageUpload2} type="file" id="ImageBtn2" name="image2" onChange={image2Input} />
-               <input className={imageUpload3} type="file" id="ImageBtn3" name="image3" onChange={image3Input} />
-               <input className={newImageUpload1} type="button" id="newImageBtn1" value={imageSlicer(image1)} onClick={newUpload1} />
-               <input className={newImageUpload2} type="button" id="newImageBtn2" value={imageSlicer(image2)} onClick={newUpload2} />
-               <input className={newImageUpload3} type="button" id="newImageBtn3" value={imageSlicer(image3)} onClick={newUpload3} />
+               <input className={imageUpload1} type="file" name="image1" onChange={image1Input} />
+               <input className={imageUpload2} type="file" name="image2" onChange={image2Input} />
+               <input className={imageUpload3} type="file" name="image3" onChange={image3Input} />
+               <input className={newImageUpload1} type="button" value={imageSlicer(image1)} onClick={newUpload1} />
+               <input className={newImageUpload2} type="button" value={imageSlicer(image2)} onClick={newUpload2} />
+               <input className={newImageUpload3} type="button" value={imageSlicer(image3)} onClick={newUpload3} />
                <button className={addEditDelClass} type="submit">{addEditDelText}</button>
             </form>
          </div>

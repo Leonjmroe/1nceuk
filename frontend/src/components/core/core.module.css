@@ -25,14 +25,17 @@
 }
 
 .storeTitle{
-  width: 250px;
-  margin-top: 15px;
-  font-size: 45px;
+  width: 300px;
+  margin-top: 5px;
+  font-size: 55px;
   margin-right: auto;
   margin-left: auto;
   color: white;
   font-weight: bolder;
   font-family: monospace;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 0 10px 0px 10px;
 }
 
 .basketCont {

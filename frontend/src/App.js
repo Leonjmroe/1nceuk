@@ -2,6 +2,7 @@ import { Navbar, Footer, Underbar, UnderbarHeader, UnderbarFooter } from './comp
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/home/home.js';
 import { Store, StoreSelect } from './components/store/store.js';
+import { Collection2022, Collection2023 } from './components/collections/collections.js';
 import About from './components/about/about.js';
 import Skating from './components/skating/skating.js';
 import Designs from './components/designs/designs.js';
@@ -28,6 +29,8 @@ function App() {
             <Route path="/item_preview" element={<ItemPreview />} />
             <Route path="/login" element={<Login />} />
             <Route path="/store_admin" element={<StoreAdmin />} />
+            <Route path="/collection_2022" element={<Collection2022 />} />
+            <Route path="/collection_2023" element={<Collection2023 />} />
           </Routes>
           <UnderbarFooter/>
           <Footer />

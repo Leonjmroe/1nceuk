@@ -1,12 +1,26 @@
 .designs_container {
-	height: 50vw;
+  display: flex;
+}
+
+.designs_cont {
+  width: 90%;
+  margin: 130px auto 30px auto;
 }
 
 .designs_title {
-  margin-left: 1vw;
-  margin-top: 6vh;
-  font-weight: bold;
-  font-size: 4vw;
-  color: black;
+  background-color: black;
+  border-radius: 5px;
+  padding: 0px 0px 0px 30px;
+  opacity: 0.6;
+  color: white;
+  font-size: 100px;
   font-family: monospace;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .designs_title {
+    font-size: 75px;
+    height: 115px;
+  }
 }
