@@ -6,9 +6,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3'
-DEBUG = True 
+DEBUG = False 
 ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True
 
 
 INSTALLED_APPS = [
@@ -23,16 +22,15 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.items',
     'djoser',
-    'corsheaders',
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -47,12 +45,13 @@ DJOSER = {
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-    #    'rest_framework.authentication.TokenAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
-    #    'rest_framework.permissions.IsAuthenticated',
+       'rest_framework.permissions.IsAuthenticated',
     ]
 }
+
 
 TEMPLATES = [
     {
