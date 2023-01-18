@@ -6,56 +6,87 @@ import { useLocation } from 'react-router-dom';
 export default function Preview() {
 
   const location = useLocation();
-  var img_int = 1
-  
-    const shuffle = () => {
-      console.log(1)
-      if( img_int == 1 ) {
-        img_int = 2
-        set_image_class_1(css.image)
-        set_image_class_2(css.display_none)
-        set_image_class_3(css.display_none)
-      }else if( img_int == 2 ) {
-        img_int = 3
-        set_image_class_2(css.image)
-        set_image_class_1(css.display_none)
-        set_image_class_3(css.display_none)
-      }else {
-        img_int = 1
-        set_image_class_3(css.image)
-        set_image_class_1(css.display_none)
-        set_image_class_2(css.display_none)
-      }
-     setTimeout(shuffle, 3500);
-    }
 
-    const [image_class_1, set_image_class_1] = useState(css.display_none)
+    const [image_class_1, set_image_class_1] = useState(css.image)
     const [image_class_2, set_image_class_2] = useState(css.display_none)
     const [image_class_3, set_image_class_3] = useState(css.display_none)
 
     useEffect(() => {
-      shuffle() 
+      // shuffle() 
    }, []);
+
+    const tileClick = (img) => {
+      if (img == 1) {
+        set_image_class_1(css.image)
+        set_image_class_2(css.display_none)
+        set_image_class_3(css.display_none)
+
+      } else if(img == 2) {
+        set_image_class_2(css.image)
+        set_image_class_1(css.display_none)
+        set_image_class_3(css.display_none)
+      }else {
+        set_image_class_3(css.image)
+        set_image_class_2(css.display_none)
+        set_image_class_1(css.display_none)
+      }
+    }
+
+    const hoverSize = (size, qty) => {
+      if(size == "S") {
+
+      }else if(size == "M") {
+
+      }else if(size == "L") {
+
+      }else {
+
+      }
+    } 
 
    return (
     <div className={css.preview_container}>
       <div className={css.preview_cont}>
-        <div className={css.carousel}>
-          <img className={image_class_1} src={location.state.item.image1} />
-          <img className={image_class_2} src={location.state.item.image2} />
-          <img className={image_class_3} src={location.state.item.image3} />
+        <div className={css.image_cont}>
+          <div className={css.carousel}>
+            <img className={image_class_1} src={location.state.item.image1} />
+            <img className={image_class_2} src={location.state.item.image2} />
+            <img className={image_class_3} src={location.state.item.image3} />
+          </div>
+          <div className={css.mini_image_container}>
+            <div className={css.mini_image_cont}>
+              <img className={css.mini_image} src={location.state.item.image1} 
+                                              onClick={()=> { tileClick(1) }} />
+              <img className={css.mini_image} src={location.state.item.image2}
+                                              onClick={()=> { tileClick(2) }} />
+              <img className={css.mini_image} src={location.state.item.image3}
+                                              onClick={()=> { tileClick(3) }} />
+            </div>
+          </div>
         </div>
         <div className={css.item_control_cont}>
           <div className={css.item_info_cont}>
-            <div className={css.item_info_element}>Title: {location.state.item.title}</div>
-            <div className={css.item_info_element}>Description: {location.state.item.description}</div>
-            <div className={css.item_info_element}>Price: {location.state.item.price}</div>
-            <div className={css.item_info_element}>category: {location.state.item.category}</div>
-            <div className={css.item_info_element}>colour: {location.state.item.colour}</div>
-            <div className={css.item_info_element}>Small: {location.state.item.qty_small}</div>
-            <div className={css.item_info_element}>Medium: {location.state.item.qty_medium}</div>
-            <div className={css.item_info_element}>Large: {location.state.item.qty_large}</div>
-            <div className={css.item_info_element}>Extra Large: {location.state.item.qty_extra_large}</div>
+            <div className={css.title}>{location.state.item.title}</div>
+            <div className={css.description}>{location.state.item.description}</div>
+            <div className={css.price}>£{location.state.item.price}</div>
+            <div className={css.size_cont}>
+              <div className={css.size_element_cont}>
+                <div className={css.size_element} onHover={() => { hoverSize('S', location.state.item.qty_small)
+                                                                  }}>S</div>
+              </div>   
+              <div className={css.size_element_cont}>                                            
+                <div className={css.size_element} onHover={() => { hoverSize('M', location.state.item.qty_medium) 
+                                                                  }}>M</div>
+              </div>     
+              <div className={css.size_element_cont}>                                             
+                <div className={css.size_element} onHover={() => { hoverSize('L', location.state.item.qty_large) 
+                                                                  }}>L</div>
+              </div>    
+              <div className={css.size_element_cont}>                                               
+                <div className={css.size_element} onHover={() => { hoverSize('XL', location.state.item.qty_extra_large)
+                                                                  }}>XL</div>
+              </div>                                                  
+            </div>
           </div>
           <div className={css.checkout_cont}>
             <div className={css.add_to_basket}>Add to Basket</div>
