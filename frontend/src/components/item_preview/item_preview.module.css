@@ -132,6 +132,20 @@
   cursor: pointer;
 }
 
+.no_stock {
+  opacity: 0.2;
+}
+
+.no_stock:hover {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.size_select {
+  border: 2px solid green;
+  color: green;
+  opacity: 1;
+}
 
 .checkout_cont {
   display: flex;
