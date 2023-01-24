@@ -150,6 +150,14 @@ export default function Preview() {
         <div className={css.checkout_mobile_cont}>
           <div className={css.add_to_basket}>Add to Basket</div>
           <div className={css.continue_shopping}>Continue Shopping</div>
+          {/*<div class="buttons"> */}
+            {/*<button class="cart-button"> */}
+              {/*<span class="add-to-cart">Add to cart</span> */}
+              {/*<span class="added">Item added</span> */}
+                {/*<i class="fa fa-shopping-cart"></i> */}
+                {/*<i class="fa fa-square"></i> */}
+            {/*</button> */}
+          {/*</div>*/}
         </div>
       </div>
     </div>
