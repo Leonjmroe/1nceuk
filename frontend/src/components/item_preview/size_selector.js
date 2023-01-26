@@ -14,6 +14,12 @@ export default function SizeSelector(props) {
     const [element_style_switch, set_element_style_switch] = useState(css.size_element)
 
     useEffect(() => {
+      console.log(props.type)
+      device_check()
+      stock_check()
+    }, []);
+
+    const device_check = () => {
       if( props.type == "computer" ) {
         set_cont_style_switch(css.size_cont)
         set_element_style_switch(css.size_element)
@@ -21,10 +27,10 @@ export default function SizeSelector(props) {
         set_cont_style_switch(css.size_cont_mobile)
         set_element_style_switch(css.size_element_mobile)
       }
-      stock_check()
-    }, []);
+    }
 
     const stock_check = () => {
+      device_check()
       if(location.state.item.qty_small == 0) {
         set_size_small(`${element_style_switch} ${css.no_stock}`)
       }else {
@@ -51,6 +57,7 @@ export default function SizeSelector(props) {
       if(size == "S" && qty != 0) {
         stock_check()
         set_size_small(`${element_style_switch} ${css.size_select}`)
+        console.log(size_small)
       }else if(size == "M" && qty != 0) {
         stock_check()
         set_size_medium(`${element_style_switch} ${css.size_select}`)

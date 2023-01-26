@@ -75,6 +75,13 @@ export default function Preview() {
             <img className={image_class_3} src={location.state.item.image3} />
           </div>
         </div>
+        <div className={css.mini_image_container_mobile}>
+          <div className={css.mini_image_cont_mobile}>
+            <img className={css.mini_image_mobile} src={location.state.item.image1} onClick={()=> { tileClick(1) }} />
+            <img className={css.mini_image_mobile} src={location.state.item.image2} onClick={()=> { tileClick(2) }} />
+            <img className={css.mini_image_mobile} src={location.state.item.image3} onClick={()=> { tileClick(3) }} />
+          </div>
+        </div>
         <div className={css.preview_mobile_footer}>
             <SizeSelector type="mobile" />
             <div className={css.price_mobile}>£{location.state.item.price}</div>
