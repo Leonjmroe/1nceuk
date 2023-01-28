@@ -223,21 +223,18 @@ export default function StoreAdmin() {
       setNewImageUpload1(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
       setImageUpload1(css.imageUpload1)
       setImage1('')
-      console.log(1)
    }
 
    const newUpload2 = event => {
       setNewImageUpload2(`${css.newImageUpload2} ${css.newImgUploadToggle2}`)
       setImageUpload2(css.imageUpload2)
       setImage2('')
-      console.log(2)
    }
 
    const newUpload3 = event => {
       setNewImageUpload3(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
       setImageUpload3(css.imageUpload3)
       setImage3('')
-      console.log(3)
    }
 
 

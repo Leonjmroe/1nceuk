@@ -13,7 +13,8 @@ export default function SizeSelector(props) {
 
     useEffect(() => {
       stock_check()
-    }, []);
+      pass_on_selction()
+    }, [props]);
 
     const stock_check = () => {
       if(location.state.item.qty_small == 0) {
@@ -38,18 +39,36 @@ export default function SizeSelector(props) {
       }
     }
 
+    const pass_on_selction = () => {
+      if(props.pass_selection != null) {
+        const size = props.pass_selection
+        if(size == 'S') {
+          set_size_small(`${css.size_element} ${css.size_select}`)
+        }else if(size == 'M') {
+          set_size_medium(`${css.size_element} ${css.size_select}`)
+        }else if(size == 'L') {
+          set_size_large(`${css.size_element} ${css.size_select}`)
+        }else if (size == 'XL'){
+          set_size_extra_large(`${css.size_element} ${css.size_select}`)
+        }
+      } else {
+        stock_check()
+      }
+    }
+
     const size_select = (size, qty) => {
       if(qty != 0) {
-         stock_check()
-      }
-      if(size == "S" && qty != 0) {
-        set_size_small(`${css.size_element} ${css.size_select}`)
-      }else if(size == "M" && qty != 0) {
-        set_size_medium(`${css.size_element} ${css.size_select}`)
-      }else if(size == "L" && qty != 0) {
-        set_size_large(`${css.size_element} ${css.size_select}`)
-      }else if (size == "XL" && qty != 0){
-        set_size_extra_large(`${css.size_element} ${css.size_select}`)
+        stock_check()
+        props.size_select(size)
+        if(size == 'S' && qty != 0) {
+          set_size_small(`${css.size_element} ${css.size_select}`)
+        }else if(size == 'M' && qty != 0) {
+          set_size_medium(`${css.size_element} ${css.size_select}`)
+        }else if(size == 'L' && qty != 0) {
+          set_size_large(`${css.size_element} ${css.size_select}`)
+        }else if (size == 'XL' && qty != 0){
+          set_size_extra_large(`${css.size_element} ${css.size_select}`)
+        }
       }
     } 
 

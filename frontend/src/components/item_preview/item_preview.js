@@ -12,6 +12,8 @@ export default function Preview() {
     const [image_class_1, set_image_class_1] = useState(css.image)
     const [image_class_2, set_image_class_2] = useState(css.display_none)
     const [image_class_3, set_image_class_3] = useState(css.display_none)
+    const [add_basket, set_add_basket] = useState(css.add_to_basket)
+    const [size_selection, set_size_selection] = useState()
 
     const tileClick = (img) => {
       if (img == 1) {
@@ -29,10 +31,17 @@ export default function Preview() {
         set_image_class_1(css.display_none)
       }
     }
-   
-   const add_item = () => {
-    console.log(1)
-   }
+
+    const add_item = () => {
+      console.log(size_selection)
+      set_add_basket(css.add_to_basket)
+      set_size_selection(null)
+    }
+
+    const handle_size_select = (size) => {
+      set_add_basket(`${css.add_to_basket} ${css.add_to_basket_select}`)
+      set_size_selection(size)
+    }
 
    return (
 
@@ -57,10 +66,10 @@ export default function Preview() {
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
             <div className={css.price}>£{location.state.item.price}</div>
-            <SizeSelector />
+            <SizeSelector size_select={handle_size_select} pass_selection={size_selection} />
           </div>
           <div className={css.checkout_cont}>
-            <div className={css.add_to_basket} onClick={()=> { add_item() }} >Add to Basket</div>
+            <div className={add_basket} onClick={()=> { add_item() }} >Add to Basket</div>
             <div className={css.continue_shopping} onClick={()=> navigate('/store', 
                            {state: {catagory: location.state.item.catagory}})}>Continue Shopping</div>
           </div>
@@ -87,9 +96,9 @@ export default function Preview() {
           </div>
         </div>
         <div className={css.preview_mobile_footer}>
-            <SizeSelector />
+            <SizeSelector size_select={handle_size_select} pass_selection={size_selection} />
             <div className={css.price_mobile}>£{location.state.item.price}</div>
-            <div className={css.add_to_basket} onClick={()=> { add_item() }} >Add to Basket</div>
+            <div className={add_basket} onClick={()=> { add_item() }} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
       </div>
