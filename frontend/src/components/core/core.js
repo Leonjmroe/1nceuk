@@ -1,11 +1,14 @@
 import css from './core.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 
 export function Navbar(item) {
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log()
 
 return (
 <div className={css.navbar}>

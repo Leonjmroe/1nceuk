@@ -33,7 +33,7 @@ export default function Preview() {
     }
 
     const add_item = () => {
-      console.log(size_selection)
+      console.log([location.state.item, size_selection])
       set_add_basket(css.add_to_basket)
       set_size_selection(null)
     }
@@ -71,7 +71,7 @@ export default function Preview() {
           <div className={css.checkout_cont}>
             <div className={add_basket} onClick={()=> { add_item() }} >Add to Basket</div>
             <div className={css.continue_shopping} onClick={()=> navigate('/store', 
-                           {state: {catagory: location.state.item.catagory}})}>Continue Shopping</div>
+                           {state: {catagory: location.state.item.category}})}>Continue Shopping</div>
           </div>
         </div>
       </div>
