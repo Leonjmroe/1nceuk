@@ -102,7 +102,7 @@
 
 .size_cont {
   display: flex;
-  margin: 40px 150px 0px 150px;
+  margin: 40px 200px 0px 200px;
 }
 
 .size_element {
@@ -161,7 +161,11 @@
 }
 
 .add_to_basket {
-  background-color: #3b9913;
+  background-color: #111111;
+}
+
+.add_to_basket_select {
+  background-color: green;
 }
 
 .continue_shopping {
@@ -255,33 +259,6 @@
   background-color: #111111;
 }
 
-.size_cont_mobile {
-  width: 50%;
-  margin-left: 25%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-.size_element_mobile {
-  width: 80px;
-  font-size: 50px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-family: monospace;
-  border: 2px solid white;
-  background-color: #111111;
-  border-radius: 1000px;
-  margin: auto;
-  opacity: 0.85;
-}
-
-.size_element_mobile:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
 .mini_image_container_mobile {
   display: flex;
   background-color: #444444;
@@ -350,6 +327,9 @@
   .item_info_element {
     margin: 3px auto 3px auto;
   }
+  .size_cont {
+    margin-bottom: 30px;
+  }
 }
 
 
@@ -357,14 +337,6 @@
   .carousel_mobile {
     margin: 25px auto 25px auto;
     padding: 10px;
-  }
-  .size_cont_mobile {
-    width: 80%;
-    margin-left: 10%;
-  }
-  .size_element_mobile {
-    width: 72px;
-    font-size: 45px;
   }
   .preview_mobile_header {
     height: 300px;
@@ -381,14 +353,6 @@
   .carousel_mobile {
     margin: 25px auto 25px auto;
     padding: 10px;
-  }
-  .size_cont_mobile {
-    width: 90%;
-    margin-left: 5%;
-  }
-  .size_element_mobile {
-    width: 65px;
-    font-size: 40px;
   }
   .preview_mobile_header {
     height: 250px;
@@ -408,6 +372,10 @@
   }
   .mini_image_cont_mobile {
     height: 105px;
+  }
+  .size_element {
+    font-size: 40px;
+    width: 65px;
   }
 }
 

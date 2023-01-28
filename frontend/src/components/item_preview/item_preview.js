@@ -30,6 +30,10 @@ export default function Preview() {
       }
     }
    
+   const add_item = () => {
+    console.log(1)
+   }
+
    return (
 
     <div className={css.preview_container}>
@@ -53,10 +57,10 @@ export default function Preview() {
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
             <div className={css.price}>£{location.state.item.price}</div>
-            <SizeSelector type="computer" />
+            <SizeSelector />
           </div>
           <div className={css.checkout_cont}>
-            <div className={css.add_to_basket}>Add to Basket</div>
+            <div className={css.add_to_basket} onClick={()=> { add_item() }} >Add to Basket</div>
             <div className={css.continue_shopping} onClick={()=> navigate('/store', 
                            {state: {catagory: location.state.item.catagory}})}>Continue Shopping</div>
           </div>
@@ -83,9 +87,9 @@ export default function Preview() {
           </div>
         </div>
         <div className={css.preview_mobile_footer}>
-            <SizeSelector type="mobile" />
+            <SizeSelector />
             <div className={css.price_mobile}>£{location.state.item.price}</div>
-            <div className={css.add_to_basket}>Add to Basket</div>
+            <div className={css.add_to_basket} onClick={()=> { add_item() }} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
       </div>
