@@ -3,7 +3,7 @@ import { reducer, initialState } from "./reducer"
 
 export const StateContext = createContext({
   state: initialState,
-  // dispatch: () => null
+  dispatch: () => null            /* Unknown use */
 })
 
 export const StateProvider = ({ children }) => {

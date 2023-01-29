@@ -11,9 +11,6 @@ import ItemPreview from './components/item_preview/item_preview.js';
 import Login from './components/login/login.js';
 import StoreAdmin from './components/store_admin/store_admin.js';
 import css from './App.module.css';
-// import { initialState, reducer } from './components/state_management/reducer.js'
-// import { CounterContext } from './components/state_management/context.js'
-import { useState, useReducer, useContext, createContext } from 'react'
 import { StateProvider } from './components/state_management/context.js'
 
 

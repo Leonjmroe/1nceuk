@@ -73,6 +73,7 @@
   line-height: 50px;
   margin-left: 40px;
   margin-top: 20px;
+  user-select: none;
 }
 
 .description {
@@ -83,6 +84,7 @@
   margin-left: 100px;
   margin-top: 30px;
   word-wrap: break-word;
+  user-select: none;
 }
 
 .price {
@@ -98,6 +100,7 @@
   font-weight: bold;
   border-radius: 4px;
   background-color: #111111;
+  user-select: none;
 }
 
 .size_cont {
@@ -117,6 +120,7 @@
   border-radius: 1000px;
   margin: auto;
   opacity: 0.85;
+  user-select: none;
 }
 
 .size_element:hover {
@@ -159,6 +163,7 @@
   border-radius: 8px;
   opacity: 0.9;
   background-color: #111111;
+  user-select: none;
 }
 
 .add_to_basket_select {

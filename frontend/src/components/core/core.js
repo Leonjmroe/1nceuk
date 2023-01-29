@@ -1,14 +1,14 @@
 import css from './core.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { StateContext } from '../state_management/context.js'
 
 
 export function Navbar(item) {
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  console.log()
+  const [state, dispatch] = useContext(StateContext)
 
 return (
 <div className={css.navbar}>
@@ -20,7 +20,7 @@ return (
   </div>
   <div className={css.navbar_flex_item}>
     <div className={css.basketCont}>  
-      <div className={css.shopCounter}>1</div>
+      <div className={css.shopCounter}>{state.count}</div>
       <div className={css.shopBtn} onClick={()=> navigate('/checkout')}/>
     </div>
   </div>

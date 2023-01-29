@@ -10,7 +10,7 @@ export default function Preview() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const [state, dispatch] = useContext(StateContext);
+    const [state, dispatch] = useContext(StateContext)
 
     const [image_class_1, set_image_class_1] = useState(css.image)
     const [image_class_2, set_image_class_2] = useState(css.display_none)
@@ -18,13 +18,11 @@ export default function Preview() {
     const [add_basket, set_add_basket] = useState(css.add_to_basket)
     const [size_selection, set_size_selection] = useState()
 
-
     const tileClick = (img) => {
       if (img == 1) {
         set_image_class_1(css.image)
         set_image_class_2(css.display_none)
         set_image_class_3(css.display_none)
-
       } else if(img == 2) {
         set_image_class_2(css.image)
         set_image_class_1(css.display_none)
@@ -36,18 +34,43 @@ export default function Preview() {
       }
     }
 
+    const item_refine = (item, item_size) => {
+      const basket_item = {
+        'id': item.id,
+        'title': item.title,
+        'description': item.description,
+        'category': item.category,
+        'colour': item.colour,
+        'price': item.price,
+        'image1': item.image1,
+        'image2': item.image2,
+        'image3': item.image3,
+        'size': item_size
+      }
+      return basket_item
+    }
+
     const add_item = () => {
-      console.log([location.state.item, size_selection])
+      const payload = item_refine(location.state.item, size_selection)
+      dispatch({ type: 'add_to_basket', payload: payload })
       set_add_basket(css.add_to_basket)
       set_size_selection(null)
-      dispatch({ type: 'cunt_bucket', payload: 12 })
-      console.log(state)
+      store_locally(payload)
     }
 
     const handle_size_select = (size) => {
       set_add_basket(`${css.add_to_basket} ${css.add_to_basket_select}`)
       set_size_selection(size)
     }
+
+    const store_locally = (new_item) => {
+      const stored_items = state.items
+      console.log(stored_items)
+      // window.localStorage.setItem('basket', JSON.stringify(12));
+    }
+
+     useEffect(() => {
+    }, [add_item]);
 
    return (
 
