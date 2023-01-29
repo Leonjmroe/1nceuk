@@ -1,7 +1,8 @@
 import css from './item_preview.module.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer, useContext } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import SizeSelector from './size_selector.js'
+import { StateContext } from '../state_management/context.js'
 
 
 export default function Preview() {
@@ -9,11 +10,14 @@ export default function Preview() {
     const navigate = useNavigate()
     const location = useLocation()
 
+    const [state, dispatch] = useContext(StateContext);
+
     const [image_class_1, set_image_class_1] = useState(css.image)
     const [image_class_2, set_image_class_2] = useState(css.display_none)
     const [image_class_3, set_image_class_3] = useState(css.display_none)
     const [add_basket, set_add_basket] = useState(css.add_to_basket)
     const [size_selection, set_size_selection] = useState()
+
 
     const tileClick = (img) => {
       if (img == 1) {
@@ -36,6 +40,8 @@ export default function Preview() {
       console.log([location.state.item, size_selection])
       set_add_basket(css.add_to_basket)
       set_size_selection(null)
+      dispatch({ type: 'cunt_bucket', payload: 12 })
+      console.log(state)
     }
 
     const handle_size_select = (size) => {
