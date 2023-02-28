@@ -1,6 +1,6 @@
 import css from './core.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { StateContext } from '../state_management/context.js'
 
 
@@ -9,6 +9,17 @@ export function Navbar(item) {
   const navigate = useNavigate();
   const location = useLocation();
   const [state, dispatch] = useContext(StateContext)
+
+  const getData = key => {
+    return JSON.parse(window.localStorage.getItem(key));
+  };
+
+  useEffect(() => {
+    const items = getData('basket');
+    if( items != null ) {
+      dispatch({ type: 'set_basket', payload: items })
+    }
+  }, []);
 
 return (
 <div className={css.navbar}>

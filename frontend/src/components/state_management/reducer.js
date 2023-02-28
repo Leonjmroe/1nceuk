@@ -19,6 +19,9 @@ export const reducer = (state, action) => {
 		case 'reset_basket':
 			return { ...state, 
 					count: 0 }
+		case 'set_basket':
+			return { count: action.payload.length,
+					 items: action.payload }
 		default:
 			return state
 	}

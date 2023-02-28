@@ -15,6 +15,11 @@ import { StateProvider } from './components/state_management/context.js'
 
 
 function App() {
+
+  window.onbeforeunload = () => {
+    window.localStorage.getItem('basket');
+  }
+
  return (                                                                
       <div className={css.App}>
         <StateProvider>

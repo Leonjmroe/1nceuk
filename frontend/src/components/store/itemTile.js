@@ -1,6 +1,7 @@
 import css from './tile.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { StateContext } from '../state_management/context.js'
 
 
 export default function Tile(props) {
@@ -28,23 +29,24 @@ export default function Tile(props) {
      setTimeout(shuffle, 3500);
     }
 
+    const [state, dispatch] = useContext(StateContext)
+
     const [image_class_1, set_image_class_1] = useState(css.display_none)
     const [image_class_2, set_image_class_2] = useState(css.display_none)
     const [image_class_3, set_image_class_3] = useState(css.display_none)
 
     const [admin_button_toggle, set_admin_button_toggle] = useState(css.display_none)
+    const [checkout_button_toggle, set_checkout_button_toggle] = useState(css.display_none)
     const [tile_size_toggle, set_tile_size_toggle] = useState(css.tile)
 
     const mouseOverTile = event => {
       set_image_class_1(css.display_none)
       set_image_class_2(`${css.image} ${css.image_cursor}`)
-      // set_image_class_2(`${css.image} ${css.opacity0} ${css.image_fade_in}`)
     }
 
     const mouseLeaveTile = event => {
       set_image_class_2(css.display_none)
       set_image_class_1(`${css.image} ${css.image_cursor}`)
-      // set_image_class_1(`${css.image} ${css.opacity0} ${css.image_fade_in}`)
     }
 
     useEffect(() => {
@@ -54,6 +56,8 @@ export default function Tile(props) {
         shuffle() 
       } else if( props.mode == "store" ) {
         set_image_class_1(css.image)
+      } else if( props.mode == "checkout" ) {
+        set_checkout_button_toggle(css.checkout_del_btn)
       }
    }, []);
 
@@ -63,6 +67,23 @@ export default function Tile(props) {
 
   const deletePopulate = (item) => {
     navigate('/store_admin', {state:{item:item,editSwitch:0,delSwitch:1}})
+  }
+
+  const saveData = (key, data) => {
+    window.localStorage.setItem(key, JSON.stringify(data));
+  };
+
+  const removeFromBasket = (item) => {
+    for (let i = 0; i < state.count; i++) {
+      const items = state.items
+      const item_id = items[i].id
+      if(item_id == props.id) {
+        items.splice(i, 1)
+        saveData('basket', items);
+        dispatch({ type: 'remove_from_basket', payload: items })
+        break
+      }
+    }
   }
 
 
@@ -87,6 +108,9 @@ export default function Tile(props) {
         <div className={admin_button_toggle}>
           <div className={css.deleteTile} onClick={() => deletePopulate(props)}/>
           <div className={css.editTile} onClick={() => editPopulate(props)}/>
+        </div>
+        <div className={checkout_button_toggle}>
+          <div className={css.checkout_deleteTile} onClick={() => removeFromBasket(props)}/>
         </div>
       </div>
   );

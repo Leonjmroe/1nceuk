@@ -9,7 +9,6 @@ export default function Preview() {
 
     const navigate = useNavigate()
     const location = useLocation()
-
     const [state, dispatch] = useContext(StateContext)
 
     const [image_class_1, set_image_class_1] = useState(css.image)
@@ -34,9 +33,22 @@ export default function Preview() {
       }
     }
 
-    const item_refine = (item, item_size) => {
+    const handle_size_select = (size) => {
+      set_add_basket(`${css.add_to_basket} ${css.add_to_basket_select}`)
+      set_size_selection(size)
+    }
+
+    const saveData = (key, data) => {
+      window.localStorage.setItem(key, JSON.stringify(data));
+    };
+
+    const getData = key => {
+      return JSON.parse(window.localStorage.getItem(key));
+    };
+
+    const item_refine = (item, item_size, item_id) => {
       const basket_item = {
-        'id': item.id,
+        'id': item_id,
         'title': item.title,
         'description': item.description,
         'category': item.category,
@@ -51,26 +63,20 @@ export default function Preview() {
     }
 
     const add_item = () => {
-      const payload = item_refine(location.state.item, size_selection)
-      dispatch({ type: 'add_to_basket', payload: payload })
+      var items = getData('basket');
+      var item 
+      if( items == null ){
+        items = []
+        item = item_refine(location.state.item, size_selection, 0)
+      }else {
+        item = item_refine(location.state.item, size_selection, items.length)
+      }
+      items.push(item)
+      saveData('basket', items);
+      dispatch({ type: 'add_to_basket', payload: items })
       set_add_basket(css.add_to_basket)
       set_size_selection(null)
-      store_locally(payload)
     }
-
-    const handle_size_select = (size) => {
-      set_add_basket(`${css.add_to_basket} ${css.add_to_basket_select}`)
-      set_size_selection(size)
-    }
-
-    const store_locally = (new_item) => {
-      const stored_items = state.items
-      console.log(stored_items)
-      // window.localStorage.setItem('basket', JSON.stringify(12));
-    }
-
-     useEffect(() => {
-    }, [add_item]);
 
    return (
 
