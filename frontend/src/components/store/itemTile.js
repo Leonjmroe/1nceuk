@@ -58,6 +58,7 @@ export default function Tile(props) {
         set_image_class_1(css.image)
       } else if( props.mode == "checkout" ) {
         set_checkout_button_toggle(css.checkout_del_btn)
+        set_image_class_1(css.image)
       }
    }, []);
 
@@ -92,11 +93,13 @@ export default function Tile(props) {
 
         <img className={image_class_1} src={props.image1} onClick={()=> { if(props.mode === "store"){
                                                               navigate('/item_preview',{state: {item:props}})}}} 
-                                                          onMouseOver={()=> { if(props.mode === "store"){
+                                                          onMouseOver={()=> { if(props.mode === "store" || 
+                                                                                 props.mode === "checkout" ){
                                                               mouseOverTile() }}} />
         <img className={image_class_2} src={props.image2} onClick={()=> { if(props.mode === "store"){
                                                               navigate('/item_preview',{state: {item:props}})}}}
-                                                          onMouseLeave={()=> { if(props.mode === "store"){
+                                                          onMouseLeave={()=> { if(props.mode === "store" || 
+                                                                                 props.mode === "checkout" ){
                                                               mouseLeaveTile() }}} />
         <img className={image_class_3} src={props.image3} onClick={()=> { if(props.mode === "store"){
                                                       navigate('/item_preview',{state: {item:props}})}}} />
