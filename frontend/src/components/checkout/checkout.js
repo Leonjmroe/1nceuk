@@ -42,6 +42,6 @@ export default function Preview() {
         <div className={css.checkout_preview_cont}>{createItems}</div>
       </div>
     </div>
-  );
+  ); 
 }
 
