@@ -83,21 +83,20 @@ export default function StoreAdmin() {
    const pullItems = (x) => {
       getItems(location.state.token).then((data) => {
          setItems(data)
-         console.log(data)
       })
    }
 
-   const image_slice = (image) => {
-      const idx = image.lastIndexOf('.')
-      const img_type = image.slice(idx, image.length)
-      const img = (image.slice(0, (idx - 8)) + img_type)
-      return img 
-   }
+   // const image_slice = (image) => {
+   //    const idx = image.lastIndexOf('.')
+   //    const img_type = image.slice(idx, image.length)
+   //    const img = (image.slice(0, (idx - 8)) + img_type)
+   //    return img 
+   // }
 
    const createItems = items.map((item) => (
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
-                category={item.category} colour={item.colour} image1={image_slice(item.image1)} 
-                image2={image_slice(item.image2)} image3={image_slice(item.image3)} qty_small={item.qty_small} 
+                category={item.category} colour={item.colour} image1={item.image1} 
+                image2={item.image2} image3={item.image3} qty_small={item.qty_small} 
                 qty_medium={item.qty_medium} qty_large={item.qty_large} qty_extra_large={item.qty_extra_large} 
                 mode="admin" />
       )
@@ -126,19 +125,15 @@ export default function StoreAdmin() {
             const image2_blob_test = image2.slice(0, 5)
             const image3_blob_test = image3.slice(0, 5)
             if( image1_blob_test !== 'blob:' ){
-               console.log(1)
                get_blob(item, image1, 1)
             }
             if( image2_blob_test !== 'blob:' ){
-               console.log(2)
                get_blob(item, image2, 2)
             }
             if( image3_blob_test !== 'blob:' ){
-               console.log(3)
                get_blob(item, image3, 3)
             } else {
                const run_edit_item = () => {
-                  console.log(4)
                   editItem(item, location.state.item.id) 
                }
                setTimeout(run_edit_item, 1000);
@@ -190,7 +185,6 @@ export default function StoreAdmin() {
 
 
    const resetFields = () => {
-      console.log()
       setCategory('') 
       setTitle('') 
       setDescription('')
@@ -238,10 +232,10 @@ export default function StoreAdmin() {
    }
 
 
-   const imageSlicer = (img) => {
-      const new_img = ('Upload New: ' + img.slice(33,39))
-      return new_img
-   }
+   // const imageSlicer = (img) => {
+   //    const new_img = ('Upload New: ' + img.slice(33,39))
+   //    return new_img
+   // }
 
 
    return (
@@ -251,8 +245,8 @@ export default function StoreAdmin() {
        <canvas id="canvas"></canvas>
          <div className={css.add_item_cont}>
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
-               <input className={css.itemTitle} placeholder="title" type="text" name="title" maxlength="100" value={title} onChange={titleInput} />
-               <textarea className={css.itemDescription} placeholder="description" maxlength="300" name="description" value={description} onChange={descriptionInput} type="text" />
+               <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="100" value={title} onChange={titleInput} />
+               <textarea className={css.itemDescription} placeholder="description" maxLength="300" name="description" value={description} onChange={descriptionInput} type="text" />
                <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                   <option>select category</option>
@@ -301,9 +295,9 @@ export default function StoreAdmin() {
                <input className={imageUpload1} type="file" name="image1" onChange={image1Input} />
                <input className={imageUpload2} type="file" name="image2" onChange={image2Input} />
                <input className={imageUpload3} type="file" name="image3" onChange={image3Input} />
-               <input className={newImageUpload1} type="button" value={imageSlicer(image1)} onClick={newUpload1} />
-               <input className={newImageUpload2} type="button" value={imageSlicer(image2)} onClick={newUpload2} />
-               <input className={newImageUpload3} type="button" value={imageSlicer(image3)} onClick={newUpload3} />
+               <input className={newImageUpload1} type="button" value={image1} onClick={newUpload1} />
+               <input className={newImageUpload2} type="button" value={image2} onClick={newUpload2} />
+               <input className={newImageUpload3} type="button" value={image3} onClick={newUpload3} />
                <button className={addEditDelClass} type="submit">{addEditDelText}</button>
             </form>
          </div>

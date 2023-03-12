@@ -107,38 +107,19 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
-STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# ------ AWS ------ 
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage”'
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
-# AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
-# AWS_QUERYSTRING_AUTH = False 
-# AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
-
-# #static media settings
-# STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-# MEDIA_URL = STATIC_URL + 'media/'
-# STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
-# STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
-# ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-# STATICFILES_FINDERS = (
-# 'django.contrib.staticfiles.finders.FileSystemFinder',
-# 'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# )
+AWS_ACCESS_KEY_ID = 'AKIAZQ7AQAWACG7I7FPK'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = '1nceuk'
+AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
+AWS_DEFAULT_ACL = 'public-read'     
 
 
 

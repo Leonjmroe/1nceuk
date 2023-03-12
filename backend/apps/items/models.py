@@ -1,5 +1,10 @@
 from django.db import models
+from storages.backends.s3boto3 import S3Boto3Storage
 
+
+class ItemStorage(S3Boto3Storage):
+    bucket_name = '1nceuk'
+    location = 'Items'
 
 class Items(models.Model):
 	title = models.CharField(max_length=100)
@@ -7,9 +12,9 @@ class Items(models.Model):
 	price = models.FloatField()
 	category = models.CharField(max_length=100)
 	colour = models.CharField(max_length=100)
-	image1 = models.ImageField() 
-	image2 = models.ImageField() 
-	image3 = models.ImageField() 
+	image1 = models.ImageField(storage=ItemStorage()) 
+	image2 = models.ImageField(storage=ItemStorage()) 
+	image3 = models.ImageField(storage=ItemStorage()) 
 	qty_small = models.IntegerField(default=0)
 	qty_medium = models.IntegerField(default=0)
 	qty_large = models.IntegerField(default=0)
