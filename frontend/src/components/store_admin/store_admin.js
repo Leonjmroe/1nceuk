@@ -148,56 +148,6 @@ export default function StoreAdmin() {
 
    const get_blob = (item, image, id) => {
 
-
-//       function loadXHR(url) {
-
-//     return new Promise(function(resolve, reject) {
-//         try {
-//             var xhr = new XMLHttpRequest();
-//             xhr.open("GET", url);
-//             xhr.responseType = "blob";
-//             xhr.onerror = function() {reject("Network error.")};
-//             xhr.onload = function() {
-//                 if (xhr.status === 200) {resolve(xhr.response)}
-//                 else {reject("Loading error:" + xhr.statusText)}
-//             };
-//             xhr.send();
-//         }
-//         catch(err) {reject(err.message)}
-//     });
-// }
-
-
-// loadXHR(image).then(function(blob) {
-//   if( id === 1 ) {
-//             item.set('image1', blob, image1)
-//          }else if( id === 2 ){
-//             item.set('image2', blob, image2)
-//          }else {
-//             item.set('image3', blob, image3)
-//             editItem(item, location.state.item.id) 
-//          }
-// });
-
-
-      // fetch(image, { mode: 'cors', headers: { 'Access-Control-Allow-Origin': '*' }})
-      //   .then(function(response) {
-      //     return response.blob()
-      //   })
-      //   .then(function(blob) {
-      //     // here the image is a blob
-      //    console.log(blob)
-      //    if( id === 1 ) {
-      //       item.set('image1', blob, image1)
-      //    }else if( id === 2 ){
-      //       item.set('image2', blob, image2)
-      //    }else {
-      //       item.set('image3', blob, image3)
-      //       editItem(item, location.state.item.id) 
-      //    }
-      //   });
-
-
       const img = document.getElementById('img_canvas')
       img.src = image
       const canvas = document.getElementById('canvas')
