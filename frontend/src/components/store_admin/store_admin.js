@@ -147,14 +147,46 @@ export default function StoreAdmin() {
 
 
    const get_blob = (item, image, id) => {
-      const img = document.getElementById('img_canvas')
-      img.src = image
-      const canvas = document.getElementById('canvas')
-      canvas.width = img.clientWidth;
-      canvas.height = img.clientHeight;
-      const context = canvas.getContext('2d');
-      context.drawImage(img, 0, 0);
-      canvas.toBlob(function(blob) {
+
+
+//       function loadXHR(url) {
+
+//     return new Promise(function(resolve, reject) {
+//         try {
+//             var xhr = new XMLHttpRequest();
+//             xhr.open("GET", url);
+//             xhr.responseType = "blob";
+//             xhr.onerror = function() {reject("Network error.")};
+//             xhr.onload = function() {
+//                 if (xhr.status === 200) {resolve(xhr.response)}
+//                 else {reject("Loading error:" + xhr.statusText)}
+//             };
+//             xhr.send();
+//         }
+//         catch(err) {reject(err.message)}
+//     });
+// }
+
+
+// loadXHR(image).then(function(blob) {
+//   if( id === 1 ) {
+//             item.set('image1', blob, image1)
+//          }else if( id === 2 ){
+//             item.set('image2', blob, image2)
+//          }else {
+//             item.set('image3', blob, image3)
+//             editItem(item, location.state.item.id) 
+//          }
+// });
+
+
+      fetch(image, { mode: 'cors', headers: { 'Access-Control-Allow-Origin': '*' }})
+        .then(function(response) {
+          return response.blob()
+        })
+        .then(function(blob) {
+          // here the image is a blob
+         console.log(blob)
          if( id === 1 ) {
             item.set('image1', blob, image1)
          }else if( id === 2 ){
@@ -163,7 +195,26 @@ export default function StoreAdmin() {
             item.set('image3', blob, image3)
             editItem(item, location.state.item.id) 
          }
-      });   
+        });
+
+
+      // const img = document.getElementById('img_canvas')
+      // img.src = image
+      // const canvas = document.getElementById('canvas')
+      // canvas.width = img.clientWidth;
+      // canvas.height = img.clientHeight;
+      // const context = canvas.getContext('2d');
+      // context.drawImage(img, 0, 0);
+      // canvas.toBlob(function(blob) {
+      //    if( id === 1 ) {
+      //       item.set('image1', blob, image1)
+      //    }else if( id === 2 ){
+      //       item.set('image2', blob, image2)
+      //    }else {
+      //       item.set('image3', blob, image3)
+      //       editItem(item, location.state.item.id) 
+      //    }
+      // });   
    }
 
 
@@ -247,7 +298,7 @@ export default function StoreAdmin() {
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
                <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="100" value={title} onChange={titleInput} />
                <textarea className={css.itemDescription} placeholder="description" maxLength="300" name="description" value={description} onChange={descriptionInput} type="text" />
-               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
+               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} maxLength="4" onChange={priceInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                   <option>select category</option>
                   <option className={css.sizeOption}>hats</option>
