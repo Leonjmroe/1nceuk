@@ -9,8 +9,8 @@ SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3
 DEBUG = True 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = False
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_CREDENTIALS = False
 
 
 INSTALLED_APPS = [
@@ -26,14 +26,14 @@ INSTALLED_APPS = [
     'apps.items',
     'djoser',
     'storages',
-    'corsheaders',
+    # 'corsheaders',
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -114,17 +114,20 @@ django_heroku.settings(locals())
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
-MEDIA_URL = '/Items/'
-MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# MEDIA_URL = '/Items/'
+# MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
 
-AWS_ACCESS_KEY_ID = 'AKIAZQ7AQAWACG7I7FPK'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = '1nceuk'
-AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
-AWS_DEFAULT_ACL = 'public-read'     
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# AWS_ACCESS_KEY_ID = 'AKIAZQ7AQAWACG7I7FPK'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = '1nceuk'
+# AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
+# AWS_DEFAULT_ACL = 'public-read'     
 
 
 

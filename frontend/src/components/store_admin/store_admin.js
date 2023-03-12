@@ -180,32 +180,13 @@ export default function StoreAdmin() {
 // });
 
 
-      fetch(image, { mode: 'cors', headers: { 'Access-Control-Allow-Origin': '*' }})
-        .then(function(response) {
-          return response.blob()
-        })
-        .then(function(blob) {
-          // here the image is a blob
-         console.log(blob)
-         if( id === 1 ) {
-            item.set('image1', blob, image1)
-         }else if( id === 2 ){
-            item.set('image2', blob, image2)
-         }else {
-            item.set('image3', blob, image3)
-            editItem(item, location.state.item.id) 
-         }
-        });
-
-
-      // const img = document.getElementById('img_canvas')
-      // img.src = image
-      // const canvas = document.getElementById('canvas')
-      // canvas.width = img.clientWidth;
-      // canvas.height = img.clientHeight;
-      // const context = canvas.getContext('2d');
-      // context.drawImage(img, 0, 0);
-      // canvas.toBlob(function(blob) {
+      // fetch(image, { mode: 'cors', headers: { 'Access-Control-Allow-Origin': '*' }})
+      //   .then(function(response) {
+      //     return response.blob()
+      //   })
+      //   .then(function(blob) {
+      //     // here the image is a blob
+      //    console.log(blob)
       //    if( id === 1 ) {
       //       item.set('image1', blob, image1)
       //    }else if( id === 2 ){
@@ -214,7 +195,26 @@ export default function StoreAdmin() {
       //       item.set('image3', blob, image3)
       //       editItem(item, location.state.item.id) 
       //    }
-      // });   
+      //   });
+
+
+      const img = document.getElementById('img_canvas')
+      img.src = image
+      const canvas = document.getElementById('canvas')
+      canvas.width = img.clientWidth;
+      canvas.height = img.clientHeight;
+      const context = canvas.getContext('2d');
+      context.drawImage(img, 0, 0);
+      canvas.toBlob(function(blob) {
+         if( id === 1 ) {
+            item.set('image1', blob, image1)
+         }else if( id === 2 ){
+            item.set('image2', blob, image2)
+         }else {
+            item.set('image3', blob, image3)
+            editItem(item, location.state.item.id) 
+         }
+      });   
    }
 
 
