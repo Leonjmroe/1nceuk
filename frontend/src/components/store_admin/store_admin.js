@@ -86,12 +86,12 @@ export default function StoreAdmin() {
       })
    }
 
-   // const image_slice = (image) => {
-   //    const idx = image.lastIndexOf('.')
-   //    const img_type = image.slice(idx, image.length)
-   //    const img = (image.slice(0, (idx - 8)) + img_type)
-   //    return img 
-   // }
+   const image_slice = (image) => {
+      const idx = image.lastIndexOf('.')
+      const img_type = image.slice(idx, image.length)
+      const img = (image.slice(0, (idx - 8)) + img_type)
+      return img 
+   }
 
    const createItems = items.map((item) => (
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
@@ -125,18 +125,27 @@ export default function StoreAdmin() {
             const image2_blob_test = image2.slice(0, 5)
             const image3_blob_test = image3.slice(0, 5)
             if( image1_blob_test !== 'blob:' ){
-               get_blob(item, image1, 1)
+               const blob_run = () => {
+                  get_blob(item, image1, 1) 
+               }
+               setTimeout(blob_run, 300);
             }
             if( image2_blob_test !== 'blob:' ){
-               get_blob(item, image2, 2)
+               const blob_run = () => {
+                  get_blob(item, image2, 2) 
+               }
+               setTimeout(blob_run, 300);
             }
             if( image3_blob_test !== 'blob:' ){
-               get_blob(item, image3, 3)
+               const blob_run = () => {
+                  get_blob(item, image3, 3) 
+               }
+               setTimeout(blob_run, 300);
             } else {
                const run_edit_item = () => {
                   editItem(item, location.state.item.id) 
                }
-               setTimeout(run_edit_item, 1000);
+               setTimeout(run_edit_item, 5000);
             }
          }else {
             addItem(item)
@@ -148,23 +157,45 @@ export default function StoreAdmin() {
 
    const get_blob = (item, image, id) => {
 
-      const img = document.getElementById('img_canvas')
-      img.src = image
-      const canvas = document.getElementById('canvas')
-      canvas.width = img.clientWidth;
-      canvas.height = img.clientHeight;
-      const context = canvas.getContext('2d');
-      context.drawImage(img, 0, 0);
-      canvas.toBlob(function(blob) {
-         if( id === 1 ) {
-            item.set('image1', blob, image1)
-         }else if( id === 2 ){
-            item.set('image2', blob, image2)
-         }else {
-            item.set('image3', blob, image3)
-            editItem(item, location.state.item.id) 
-         }
-      });   
+      fetch(image)
+        .then(function(response) {
+          return response.blob()
+        })
+        .then(function(blob) {
+            if( id === 1 ) {
+               item.set('image1', blob, image)
+            }else if( id === 2 ){
+               item.set('image2', blob, image)
+            }else {
+               item.set('image3', blob, image)
+               editItem(item, location.state.item.id) 
+            }
+            console.log(image)
+        });
+
+
+      // const img = document.getElementById('img_canvas')
+      // img.src = image
+      // const canvas = document.getElementById('canvas')
+      // canvas.width = img.clientWidth;
+      // canvas.height = img.clientHeight;
+      // const context = canvas.getContext('2d');
+      // context.drawImage(img, 0, 0);
+
+      // const draw_wait = (canvas, image) => {
+      //    canvas.toBlob(function(blob) {
+      //       if( id === 1 ) {
+      //          item.set('image1', blob, image)
+      //       }else if( id === 2 ){
+      //          item.set('image2', blob, image)
+      //       }else {
+      //          item.set('image3', blob, image)
+      //          editItem(item, location.state.item.id) 
+      //       }
+      //       console.log(image)
+      //    });   
+      // }
+      //  setTimeout(draw_wait, 5000);
    }
 
 
@@ -233,10 +264,10 @@ export default function StoreAdmin() {
    }
 
 
-   // const imageSlicer = (img) => {
-   //    const new_img = ('Upload New: ' + img.slice(33,39))
-   //    return new_img
-   // }
+   const imageSlicer = (img) => {
+      const new_img = ('Upload New: ' + img.slice(33,39))
+      return new_img
+   }
 
 
    return (
@@ -248,7 +279,7 @@ export default function StoreAdmin() {
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
                <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="100" value={title} onChange={titleInput} />
                <textarea className={css.itemDescription} placeholder="description" maxLength="300" name="description" value={description} onChange={descriptionInput} type="text" />
-               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} maxLength="4" onChange={priceInput} />
+               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                   <option>select category</option>
                   <option className={css.sizeOption}>hats</option>
@@ -296,9 +327,9 @@ export default function StoreAdmin() {
                <input className={imageUpload1} type="file" name="image1" onChange={image1Input} />
                <input className={imageUpload2} type="file" name="image2" onChange={image2Input} />
                <input className={imageUpload3} type="file" name="image3" onChange={image3Input} />
-               <input className={newImageUpload1} type="button" value={image1} onClick={newUpload1} />
-               <input className={newImageUpload2} type="button" value={image2} onClick={newUpload2} />
-               <input className={newImageUpload3} type="button" value={image3} onClick={newUpload3} />
+               <input className={newImageUpload1} type="button" value={imageSlicer(image1)} onClick={newUpload1} />
+               <input className={newImageUpload2} type="button" value={imageSlicer(image2)} onClick={newUpload2} />
+               <input className={newImageUpload3} type="button" value={imageSlicer(image3)} onClick={newUpload3} />
                <button className={addEditDelClass} type="submit">{addEditDelText}</button>
             </form>
          </div>
