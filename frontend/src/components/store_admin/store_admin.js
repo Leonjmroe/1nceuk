@@ -86,13 +86,6 @@ export default function StoreAdmin() {
       })
    }
 
-   // const image_slice = (image) => {
-   //    const idx = image.lastIndexOf('.')
-   //    const img_type = image.slice(idx, image.length)
-   //    const img = (image.slice(0, (idx - 8)) + img_type)
-   //    return img 
-   // }
-
    const createItems = items.map((item) => (
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
                 category={item.category} colour={item.colour} image1={item.image1} 
@@ -231,12 +224,6 @@ export default function StoreAdmin() {
       setImageUpload3(css.imageUpload3)
       setImage3('')
    }
-
-
-   // const imageSlicer = (img) => {
-   //    const new_img = ('Upload New: ' + img.slice(33,39))
-   //    return new_img
-   // }
 
 
    return (

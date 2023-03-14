@@ -26,13 +26,6 @@ export function Store() {
       })
    }
 
-   // const image_slice = (image) => {
-   //    const idx = image.lastIndexOf('.')
-   //    const img_type = image.slice(idx, image.length)
-   //    const img = (image.slice(0, (idx - 8)) + img_type)
-   //    return img 
-   // }
-
    const createItems = items.map((item) => (
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
                 category={item.category} colour={item.colour} image1={item.image1} 

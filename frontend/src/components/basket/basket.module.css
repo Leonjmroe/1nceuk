@@ -1,0 +1,234 @@
+.basket_container {
+  display: flex;
+}
+
+.basket_cont {
+  width: 90%;
+  margin: 130px auto 150px auto;
+}
+
+.basket_title {
+  background-color: black;
+  border-radius: 5px;
+  padding: 0px 0px 0px 30px;
+  opacity: 0.6;
+  color: white;
+  font-size: 100px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .basket_title {
+    font-size: 75px;
+    height: 115px;
+  }
+}
+
+.basket_content_cont {
+  display: flex;
+}
+
+.basket_item_cont {
+  background-color: #333333;
+  opacity: 0.8;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.summary_cont {
+  width: 350px;
+  height: 350px;
+  margin: 50px;
+  flex: 1;
+  background-color: #333333;
+  opacity: 0.8;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.basket_tile {
+  display: flex;
+  width: 800px;
+  height: 250px;
+  background-color: black;
+  margin: 30px;
+  opacity: 0.9;
+}
+
+.basket_image_cont {
+  width: 220px;
+  background-color: red;
+}
+
+.basket_info_cont {
+  flex: 1;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+}
+
+.price_cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  width: 150px;
+}
+
+.basket_deleteTile {
+  width: 70px;
+  height: 50px;
+  background-image: url('../../images/deleteTile.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  position: absolute;
+  margin-top: -200px;
+  margin-right: -100px;
+}
+
+.basket_deleteTile:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.price {
+  color: white;
+  font-size: 30px;
+  font-family: monospace;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.basket_image {
+  width: 90%;
+  height: 90%;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.title {
+  color: white;
+  font-size: 40px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.description {
+  color: white;
+  font-size: 25px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.colour {
+  color: white;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.size {
+  color: white;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+
+/* ----- Summary Pannel ----- */
+
+.checkout_button {
+  width: 250px;
+  margin: 20px auto 20px auto;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: monospace;
+  border: 2px solid white;
+  font-weight: bold;
+  border-radius: 8px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  background-color: green;
+  user-select: none;
+}
+
+.checkout_button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.summary_title {
+  color: white;
+  font-size: 50px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.summary_price {
+  color: white;
+  font-size: 50px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1415px) {
+  .summary_title, .summary_price {
+    font-size: 40px;
+  }
+  .checkout_button {
+    font-size: 25px;
+    width: 170px;
+  }
+  .summary_cont {
+    height: 325px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 1277px) {
+  .basket_content_cont {
+    flex-direction: column;
+  }
+  .basket_tile {
+    width: 95%;
+    margin: 2.5%;
+  }
+  .summary_cont {
+    width: 80%;
+    margin-top: 15px;
+    margin-left: 10%;
+    margin-bottom: 40px;
+  }
+  .summary_title {
+    font-size: 60px;
+    margin-top: 20px;
+  }
+  .summary_price {
+    font-size: 60px;
+    margin: 0px;
+  }
+  .checkout_button {
+    font-size: 35px;
+    width: 300px;
+    margin-bottom: 50px;
+  }
+}

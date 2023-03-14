@@ -32,7 +32,7 @@ return (
   <div className={css.navbar_flex_item}>
     <div className={css.basketCont}>  
       <div className={css.shopCounter}>{state.count}</div>
-      <div className={css.shopBtn} onClick={()=> navigate('/checkout')}/>
+      <div className={css.shopBtn} onClick={()=> navigate('/basket')}/>
     </div>
   </div>
 </div>
