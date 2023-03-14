@@ -34,13 +34,13 @@
   opacity: 0.8;
   border-radius: 5px;
   margin: 20px;
+  flex: 1;
 }
 
 .summary_cont {
   width: 350px;
   height: 350px;
   margin: 50px;
-  flex: 1;
   background-color: #333333;
   opacity: 0.8;
   border-radius: 5px;
@@ -52,10 +52,10 @@
 
 .basket_tile {
   display: flex;
-  width: 800px;
+  width: 95%;
+  margin: 40px 2.5% 40px 2.5%;
   height: 250px;
   background-color: black;
-  margin: 30px;
   opacity: 0.9;
 }
 
@@ -69,6 +69,7 @@
   background-color: blue;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .price_cont {
@@ -116,31 +117,25 @@
 .title {
   color: white;
   font-size: 40px;
+  line-height: 40px;
   font-family: monospace;
   font-weight: bold;
   margin-left: 40px;
   margin-top: 10px;
+  max-height: 100px;
 }
 
 .description {
   color: white;
   font-size: 25px;
+  line-height: 30px;
   font-family: monospace;
   font-weight: bold;
   margin-left: 40px;
   margin-top: 10px;
 }
 
-.colour {
-  color: white;
-  font-size: 20px;
-  font-family: monospace;
-  font-weight: bold;
-  margin-left: 40px;
-  margin-top: 10px;
-}
-
-.size {
+.size_colour {
   color: white;
   font-size: 20px;
   font-family: monospace;
@@ -190,21 +185,8 @@
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 1415px) {
-  .summary_title, .summary_price {
-    font-size: 40px;
-  }
-  .checkout_button {
-    font-size: 25px;
-    width: 170px;
-  }
-  .summary_cont {
-    height: 325px;
-    margin-left: 5px;
-  }
-}
 
-@media screen and (max-width: 1277px) {
+@media screen and (max-width: 1650px) {
   .basket_content_cont {
     flex-direction: column;
   }
@@ -230,5 +212,15 @@
     font-size: 35px;
     width: 300px;
     margin-bottom: 50px;
+  }
+  .basket_cont {
+    width: 98%;
+    margin: 130px auto 150px auto;
+  }
+  .basket_tile {
+/*    height: 300px;*/
+  }
+  .basket_info_cont {
+/*    justify-content: center;*/
   }
 }
