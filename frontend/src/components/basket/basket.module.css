@@ -55,18 +55,17 @@
   width: 95%;
   margin: 40px 2.5% 40px 2.5%;
   height: 250px;
-  background-color: black;
   opacity: 0.9;
 }
 
 .basket_image_cont {
   width: 220px;
-  background-color: red;
+  background-color: #240822;
 }
 
 .basket_info_cont {
   flex: 1;
-  background-color: blue;
+  background-color: #1b1c22;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -199,10 +198,6 @@
   .basket_content_cont {
     flex-direction: column;
   }
-  .basket_tile {
-    width: 95%;
-    margin: 2.5%;
-  }
   .summary_cont {
     width: 80%;
     margin-top: 15px;
@@ -270,6 +265,9 @@
 }
 
 @media screen and (max-width: 750px) {
+  .basket_tile {
+    height: 200px;
+  }
   .title {
     font-size: 18px;
     line-height: 20px;
@@ -313,7 +311,7 @@
   }
   .basket_deleteTile {
     margin-right: 50px;
-    margin-top: -200px;
+    margin-top: -150px;
   }
   .price_mobile {
     display: inline;
