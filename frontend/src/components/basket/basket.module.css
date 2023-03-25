@@ -31,7 +31,7 @@
 
 .basket_item_cont {
   background-color: #333333;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 5px;
   margin: 20px;
   flex: 1;
@@ -42,7 +42,7 @@
   height: 350px;
   margin: 50px;
   background-color: #333333;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -105,6 +105,15 @@
   font-family: monospace;
   font-weight: bold;
   justify-content: center;
+}
+
+.price_mobile {
+  color: white;
+  font-size: 25px;
+  font-family: monospace;
+  font-weight: bold;
+  display: none;
+  margin: auto;
 }
 
 .basket_image {
@@ -186,7 +195,7 @@
 }
 
 
-@media screen and (max-width: 1650px) {
+@media screen and (max-width: 1750px) {
   .basket_content_cont {
     flex-direction: column;
   }
@@ -217,10 +226,100 @@
     width: 98%;
     margin: 130px auto 150px auto;
   }
-  .basket_tile {
-/*    height: 300px;*/
+}
+
+
+@media screen and (max-width: 1250px) {
+  .title {
+    font-size: 30px;
+    line-height: 30px;
   }
-  .basket_info_cont {
-/*    justify-content: center;*/
+  .description {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .title {
+    font-size: 22px;
+    line-height: 20px;
+    margin: 15px;
+  }
+  .description {
+    font-size: 15px;
+    line-height: 18px;
+    margin: 15px;
+  }
+  .price_cont {
+    width: 80px;
+  }
+  .price {
+    font-size: 20px;
+  }
+  .size_colour {
+    font-size: 15px;
+    margin: 15px;
+  }
+  .basket_deleteTile {
+    width: 55px;
+    height: 38px;
+    margin-top: -210px;
+    margin-right: -35px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .title {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .price_cont {
+    width: 80px;
+  }
+  .price {
+    font-size: 15px;
+  }
+  .size_colour {
+    font-size: 12px;
+  }
+  .basket_deleteTile {
+    width: 45px;
+    height: 30px;
+    margin-top: -220px;
+    margin-right: -40px;
+  }
+  .summary_title {
+    font-size: 45px;
+  }
+  .summary_price {
+    font-size: 45px;
+  }
+  .basket_image_cont {
+    width: 120px;
+  }
+  .basket_image {
+    height: 40%;
+  }
+  .price_cont {
+    width: 0px;
+  }
+  .price {
+    display: none;
+  }
+  .basket_deleteTile {
+    margin-right: 50px;
+    margin-top: -200px;
+  }
+  .price_mobile {
+    display: inline;
+  }
+  .basket_image_cont {
+    display: flex;
+    flex-direction: column;
   }
 }

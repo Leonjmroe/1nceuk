@@ -31,11 +31,13 @@ export default function BasketTile(props) {
     <div className={css.basket_tile}>
       <div className={css.basket_image_cont}>
         <img className={css.basket_image} src={props.image1}/>
+        <div className={css.price_mobile}>{"£" + props.price}</div>
       </div>
       <div className={css.basket_info_cont}> 
         <div className={css.title}>{props.title}</div>
         <div className={css.description}>{props.description}</div>
         <div className={css.size_colour}>Size: {props.size}  |  Colour: {props.colour}</div>
+        {/*<div className={css.basket_deleteTile_mobile} onClick={() => removeFromBasket(props)}/>*/}
       </div>
       <div className={css.price_cont}>
         <div className={css.basket_deleteTile} onClick={() => removeFromBasket(props)}/>

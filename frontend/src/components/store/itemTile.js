@@ -87,6 +87,13 @@ export default function Tile(props) {
     }
   }
 
+  const title_length_check = (title) => {
+      if( title.length > 25 ){
+         return css.title_two_lines
+      } else {
+         return css.title
+      }
+   }
 
   return (
       <div className={tile_size_toggle}>
@@ -105,7 +112,7 @@ export default function Tile(props) {
                                                       navigate('/item_preview',{state: {item:props}})}}} />
 
         <div className={css.detailBox}> 
-          <div className={css.title}>{props.title}</div>
+          <div className={title_length_check(props.title)}>{props.title}</div>
           <div className={css.price}>{"£" + props.price}</div>
         </div>
         <div className={admin_button_toggle}>

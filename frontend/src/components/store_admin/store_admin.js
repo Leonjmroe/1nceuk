@@ -12,6 +12,7 @@ export default function StoreAdmin() {
 
    const [addEditDelText, setaddEditDelText] = useState('Add Item')
    const [addEditDelClass, setaddEditDelClass] = useState(css.addItem)
+   const [items, setItems] = useState([])
 
    const [imageUpload1, setImageUpload1] = useState(css.imageUpload1)
    const [newImageUpload1, setNewImageUpload1] = useState(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
@@ -19,8 +20,6 @@ export default function StoreAdmin() {
    const [newImageUpload2, setNewImageUpload2] = useState(`${css.newImageUpload2} ${css.newImgUploadToggle2}`)
    const [imageUpload3, setImageUpload3] = useState(css.imageUpload3)
    const [newImageUpload3, setNewImageUpload3] = useState(`${css.newImageUpload3} ${css.newImgUploadToggle3}`)
-
-   const [items, setItems] = useState([])
 
    const [title, setTitle] = useState('')
    const [description, setDescription] = useState('')
@@ -35,7 +34,7 @@ export default function StoreAdmin() {
    const [qty_large, set_qty_large] = useState('')
    const [qty_extra_large, set_qty_extra_large] = useState('')
 
-   const titleInput = event => { setTitle(event.target.value) }
+   const titleInput = event => { setTitle(event.target.value.length) }
    const descriptionInput = event => { setDescription(event.target.value) }
    const priceInput = event => { setPrice(event.target.value) }
    const categoryInput = event => { setCategory(event.target.value) }
@@ -86,7 +85,7 @@ export default function StoreAdmin() {
       })
    }
 
-   const createItems = items.map((item) => (
+   const createItems = items.map((item) => ( 
       <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
                 category={item.category} colour={item.colour} image1={item.image1} 
                 image2={item.image2} image3={item.image3} qty_small={item.qty_small} 
@@ -233,9 +232,9 @@ export default function StoreAdmin() {
        <canvas id="canvas"></canvas>
          <div className={css.add_item_cont}>
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
-               <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="100" value={title} onChange={titleInput} />
-               <textarea className={css.itemDescription} placeholder="description" maxLength="300" name="description" value={description} onChange={descriptionInput} type="text" />
-               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" value={price} onChange={priceInput} />
+               <input className={css.title} placeholder="title" type="text" name="title" maxLength="50" value={title} onChange={titleInput} />
+               <textarea className={css.itemDescription} placeholder="description" maxLength="150" name="description" value={description} onChange={descriptionInput} type="text" />
+               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" min="0" max="10000" value={price} onChange={priceInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                   <option>select category</option>
                   <option className={css.sizeOption}>hats</option>
