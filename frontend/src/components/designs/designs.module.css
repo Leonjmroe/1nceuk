@@ -30,9 +30,10 @@
   flex-direction: column;
   background-color: #444444;
   padding: 50px;
+  padding-bottom: 10px;
   width: 90%;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 120px;
   margin-top: 20px;
   opacity: 0.9;
   border-radius: 5px;
@@ -41,7 +42,7 @@
 .logo_cont {
   display: flex;
   background-color: #111111;
-  border: 1px solid white;
+  border: 1px solid #aaaaaa;
   border-radius: 5px;
   padding: 30px;
   margin-bottom: 40px;
@@ -51,7 +52,7 @@
   width: 300px;
   height: 300px;
   margin: auto;
-  background-color: #aaaaaa;
+  background-color: #cccccc;
   background-size: contain;
   border-radius: 5px;
   background-repeat: no-repeat;
@@ -62,7 +63,6 @@
 .logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
   font-size: 18px;
   font-family: monospace;
-  font-weight: bold;
   color: white;
   padding: 30px;
   flex: 1;
@@ -75,14 +75,70 @@
 .logo_img_2 {
   background-image: url('../../images/Logo2.png');
   width: 350px;
+  order: 2;
 }
 
 .logo_img_3 {
-/*  background-image: url('../../images/Logo3.png');*/
+  background-image: url('../../images/Logo3.png');
 }
 
 .logo_img_4 {
   background-image: url('../../images/Logo4.png');
   width: 400px;
+  order: 2;
+}
+
+@media screen and (max-width: 1250px) {
+  .logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
+    font-size: 9px;
+  }
+  .logo_img_1, .logo_img_3 {
+    width: 200px;
+    height: 200px;
+  }
+  .logo_img_2 {
+    width: 235px;
+    height: 200px;
+  }
+  .logo_img_4 {
+    width: 280px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .designs_preview_cont {
+    width: 100%;
+    padding: 20px;
+  }
+  .logo_cont {
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .logo_img_2, .logo_img_4 {
+    order: 0;
+  }
+  .logo_img_1, .logo_img_3 {
+    width: 150px;
+    height: 150px;
+  }
+  .logo_img_2 {
+    width: 200px;
+    height: 150px;
+  }
+  .logo_img_4 {
+    width: 240px;
+    height: 150px;
+  }
+  .logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
+    width: 100%;
+  }
 }
 

@@ -20,6 +20,7 @@ export default function Designs() {
             </div>
           </div>
           <div className={css.logo_cont}>
+            <img className={css.logo_img_2} /> 
             <div className={css.logo_text_2}>As part of an opportunity, we got in touch with another newly starting brand,
                                              also skateboard oriented for a collaboration. We are proud to have got in
                                              touch with another great brand pushing the same message and content. With 
@@ -35,7 +36,6 @@ export default function Designs() {
                                              recent skates, but for extra footage https://www.instagram.com/1nceuk/, 
                                              here's a link to our social.
             </div> 
-            <img className={css.logo_img_2} /> 
           </div>
           <div className={css.logo_cont}>
             <img className={css.logo_img_3} />
@@ -52,6 +52,7 @@ export default function Designs() {
             </div>  
           </div>
           <div className={css.logo_cont}>
+            <img className={css.logo_img_4} />
             <div className={css.logo_text_4}>This design captures the vision of the brand effectively. This punchy 
                                              community created design, as well as our initial logo, and a number of other
                                              designs, from our community competition is a inner for creative expression.
@@ -62,7 +63,6 @@ export default function Designs() {
                                              found at the link to the shop. 
 
             </div> 
-            <img className={css.logo_img_4} />
           </div>                                   
         </div>
       </div>
