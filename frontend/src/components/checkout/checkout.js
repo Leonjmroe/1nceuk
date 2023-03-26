@@ -25,63 +25,28 @@ export default function Preview() {
   }, []);
 
 
-
   return (
     <div className={css.checkout_container}>
       <div className={css.checkout_cont}>
         <div className={css.checkout_title}>Checkout</div>
-        <div className={css.checkout_preview_cont}>{location.state.payment}</div>
-
-{/*
-        <div class="container">
-  <h1>Shipping</h1>
-  <p>Please enter your shipping details.</p>
-  <hr />
-  <div class="form">
-    
-  <div class="fields fields--2">
-    <label class="field">
-      <span class="field__label" for="firstname">First name</span>
-      <input class="field__input" type="text" id="firstname" value="John" />
-    </label>
-    <label class="field">
-      <span class="field__label" for="lastname">Last name</span>
-      <input class="field__input" type="text" id="lastname" value="Doe" />
-    </label>
-  </div>
-  <label class="field">
-    <span class="field__label" for="address">Address</span>
-    <input class="field__input" type="text" id="address" />
-  </label>
-  <label class="field">
-    <span class="field__label" for="country">Country</span>
-    <select class="field__input" id="country">
-      <option value=""></option>
-      <option value="unitedstates">United States</option>
-    </select>
-  </label>
-  <div class="fields fields--3">
-    <label class="field">
-      <span class="field__label" for="zipcode">Zip code</span>
-      <input class="field__input" type="text" id="zipcode" />
-    </label>
-    <label class="field">
-      <span class="field__label" for="city">City</span>
-      <input class="field__input" type="text" id="city" />
-    </label>
-    <label class="field">
-      <span class="field__label" for="state">State</span>
-      <select class="field__input" id="state">
-        <option value=""></option>
-      </select>
-    </label>
-  </div>
-  </div>
-  <hr>
-  <button class="button">Continue</button>
-</div>*/}
-
-
+        <div className={css.checkout_preview_cont}>
+          <div className={css.details_cont}>
+            <input className={css.first_name} type="text" placeholder="First Name"></input>
+            <input className={css.last_name} type="text" placeholder="Last Name"></input>
+            <input className={css.email} type="text" placeholder="Email"></input>
+            <input className={css.phone_number} type="text" placeholder="Phone Number"></input>
+          </div>
+          <div className={css.address_cont}>
+            <input className={css.address_line_1} type="text" placeholder="Address Line 1"></input>
+            <input className={css.address_line_2} type="text" placeholder="Address Line 2"></input>
+            <input className={css.address_line_3} type="text" placeholder="Address Line 3"></input>
+            <input className={css.address_city} type="text" placeholder="City/Locality"></input>
+            <input className={css.address_area} type="text" placeholder="State/Province"></input>
+            <input className={css.address_postcode} type="text" placeholder="Postal Code"></input>
+            <input className={css.address_country} type="dropdown" placeholder="Country"></input>
+          </div>
+          <div className={css.payment_button}>Payment</div>
+        </div>
       </div>
     </div>
   ); 

@@ -24,3 +24,77 @@
     height: 115px;
   }
 }
+
+.checkout_preview_cont {
+  display: flex;
+  flex-direction: column;
+  background-color: #333333;
+  opacity: 0.9;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 50px;
+}
+
+.details_cont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 460px;
+  margin: 0px auto 40px auto;
+}
+
+.address_cont {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin: 40px auto 40px auto;
+}
+
+.payment_button {
+  width: 250px;
+  margin: 40px auto 40px auto;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: monospace;
+  border: 2px solid white;
+  font-weight: bold;
+  border-radius: 8px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+  background-color: green;
+  user-select: none;
+}
+
+.payment_button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.address_line_1, .address_line_2, .address_line_3, .address_city, .address_area, .address_postcode, .address_country,
+.first_name, .last_name, .email, .phone_number {
+  margin: 10px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  .details_cont {
+    width: 230px;
+  }
+  .address_cont {
+    width: 350px;
+  }
+  .checkout_preview_cont {
+    padding: 50px 0px 50px 0px;
+  }
+  .checkout_cont {
+    width: 97%;
+    margin: 130px auto 30px auto;
+  }
+}
