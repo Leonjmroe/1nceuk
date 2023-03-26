@@ -24,3 +24,65 @@
     height: 115px;
   }
 }
+
+.designs_preview_cont {
+  display: flex;
+  flex-direction: column;
+  background-color: #444444;
+  padding: 50px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  opacity: 0.9;
+  border-radius: 5px;
+}
+
+.logo_cont {
+  display: flex;
+  background-color: #111111;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.logo_img_1, .logo_img_2, .logo_img_3, .logo_img_4 {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  background-color: #aaaaaa;
+  background-size: contain;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+}
+
+.logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bold;
+  color: white;
+  padding: 30px;
+  flex: 1;
+}
+
+.logo_img_1 {
+  background-image: url('../../images/Logo1.png');
+}
+
+.logo_img_2 {
+  background-image: url('../../images/Logo2.png');
+  width: 350px;
+}
+
+.logo_img_3 {
+/*  background-image: url('../../images/Logo3.png');*/
+}
+
+.logo_img_4 {
+  background-image: url('../../images/Logo4.png');
+  width: 400px;
+}
+

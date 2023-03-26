@@ -63,19 +63,22 @@ export default function Preview() {
     }
 
     const add_item = () => {
-      var items = getData('basket');
-      var item 
-      if( items == null ){
-        items = []
-        item = item_refine(location.state.item, size_selection, 0)
-      }else {
-        item = item_refine(location.state.item, size_selection, items.length)
+      var count = (add_basket.match(/item_preview/g) || []).length;
+      if( count > 1 ){
+        var items = getData('basket');
+        var item 
+        if( items == null ){
+          items = []
+          item = item_refine(location.state.item, size_selection, 0)
+        }else {
+          item = item_refine(location.state.item, size_selection, items.length)
+        }
+        items.push(item)
+        saveData('basket', items);
+        dispatch({ type: 'add_to_basket', payload: items })
+        set_add_basket(css.add_to_basket)
+        set_size_selection(null)
       }
-      items.push(item)
-      saveData('basket', items);
-      dispatch({ type: 'add_to_basket', payload: items })
-      set_add_basket(css.add_to_basket)
-      set_size_selection(null)
     }
 
    return (
@@ -104,7 +107,7 @@ export default function Preview() {
             <SizeSelector size_select={handle_size_select} pass_selection={size_selection} />
           </div>
           <div className={css.checkout_cont}>
-            <div className={add_basket} onClick={()=> { add_item() }} >Add to Basket</div>
+            <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping} onClick={()=> navigate('/store', 
                            {state: {catagory: location.state.item.category}})}>Continue Shopping</div>
           </div>
@@ -133,7 +136,7 @@ export default function Preview() {
         <div className={css.preview_mobile_footer}>
             <SizeSelector size_select={handle_size_select} pass_selection={size_selection} />
             <div className={css.price_mobile}>£{location.state.item.price}</div>
-            <div className={add_basket} onClick={()=> { add_item() }} >Add to Basket</div>
+            <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
       </div>
