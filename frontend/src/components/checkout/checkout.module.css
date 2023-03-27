@@ -20,8 +20,8 @@
 
 @media screen and (max-width: 800px) {
   .checkout_title {
-    font-size: 75px;
-    height: 115px;
+    font-size: 60px;
+    height: 90px;
   }
 }
 
@@ -32,6 +32,7 @@
   opacity: 0.9;
   border-radius: 5px;
   margin: 20px;
+  margin-bottom: 110px;
   padding-bottom: 30px;
 }
 
@@ -39,14 +40,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 460px;
+  width: 510px;
   margin: 0px auto 20px auto;
 }
 
 .address_cont {
   display: flex;
   flex-direction: column;
-  width: 450px;
+  width: 500px;
   margin: 40px auto 20px auto;
 }
 
@@ -75,7 +76,8 @@
 .address_line_1, .address_line_2, .address_line_3, .address_city, .address_area, .address_postcode, .address_country,
 .first_name, .last_name, .email, .phone_number {
   margin: 10px;
-  height: 45px;
+  height: 55px;
+  font-size: 20px;
   border-radius: 5px;
   border: none;
   font-family: monospace;
@@ -89,7 +91,7 @@
 }
 
 .address_line_1{
-  width: 80%;
+  width: 90%;
 }
 
 .suggestion_cont {
@@ -112,18 +114,18 @@
 }
 
 .address_lookup {
-  width: 80px;
+  width: 90px;
   margin: auto;
   margin-right: 10px;
-  padding: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
   color: white;
   font-family: monospace;
   border: 1px solid #aaaaaa;
   border-radius: 8px;
   opacity: 0.9;
-  background-color: #444444;
+  background-color: #111111;
   user-select: none;
 }
 
@@ -135,6 +137,10 @@
 
 .email {
   width: 100%;
+}
+
+.first_name, .last_name {
+  width: 45.5%;
 }
 
 .phone_number {
@@ -160,6 +166,10 @@
 
 
 @media screen and (max-width: 700px) {
+  .checkout_preview_cont {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
   .details_cont {
     width: 230px;
   }
@@ -169,11 +179,13 @@
   .checkout_preview_cont {
     padding: 50px 0px 50px 0px;
   }
-  .checkout_cont {
-    width: 97%;
-    margin: 130px auto 30px auto;
-  }
   .summary_title {
-    font-size: 25px;
+    font-size: 20px;
+  }
+  .first_name, .last_name, .phone_number, .email {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+

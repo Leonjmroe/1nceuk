@@ -16,6 +16,10 @@ export default function Preview() {
   const [options, set_options] = useState([])
   const [suggestions_display, set_suggestions_display] = useState(css.suggestion_cont)
 
+  const [address_line_1, set_address_line_1] = useState()
+  const [address_line_2, set_address_line_2] = useState()
+  const [address_county, set_address_county] = useState()
+
   const getData = key => {
     return JSON.parse(window.localStorage.getItem(key));
   };
@@ -50,24 +54,23 @@ export default function Preview() {
   }
 
   const createOptions = options.map((item) => ( 
-      <option className={css.options} onClick={suggestionsClose} key={options.indexOf(item)} data-addressline1={item.properties.address_line1} 
+      <option className={css.options} key={options.indexOf(item)} data-addressline1={item.properties.address_line1} 
               data-addressline2={item.properties.address_line2} data-county={item.properties.county} 
-              data-country={item.properties.country}>{item.properties.address_line1 + ', ' 
-                            + item.properties.address_line2 + ', '
-                            + item.properties.county + ', ' + item.properties.country}</option>
+              data-country={item.properties.country}>{item.properties.address_line1 + '; ' 
+                            + item.properties.address_line2 + '; '
+                            + item.properties.county}</option>
       )
    );
 
-  const suggestionsClose = () => {
-    // set_suggestions_display(css.suggestion_cont)
-  }
 
-  const suggestionsPopulate = () => {
-    // set_suggestions_display(css.suggestion_cont)
-    console.log(12)
+  const optionSelect = (event) => {
+    const output = event.target.value.split(';')
+    set_address_line_1(output[0])
+    set_address_line_2(output[1])
+    set_address_county(output[2])
+    set_suggestions_display(css.suggestion_cont)
   }
    
-
   return (
     <div className={css.checkout_container}>
       <div className={css.checkout_cont}>
@@ -82,15 +85,15 @@ export default function Preview() {
             <input className={css.email} type="text" placeholder="Email"></input>
             <input className={css.phone_number} type="text" placeholder="Phone Number"></input>
           </div>
-          <div className={css.address_cont}>
+          <div className={css.address_cont} >
             <div className={css.address_line_1_cont}>
-              <input className={css.address_line_1} onChange={addressInput} type="text" placeholder="Address Line 1"></input>
+              <input className={css.address_line_1} onChange={addressInput} type="text" placeholder="Address Line 1">{address_line_1}</input>
               <div className={css.address_lookup} onClick={addressAPI} type="text" placeholder="Lookup">Lookup</div>
             </div>
-            <select className={suggestions_display}>{createOptions}</select>
-            <input className={css.address_line_2} type="text" placeholder="Address Line 2"></input>
+            <select className={suggestions_display} onChange={optionSelect}>{createOptions}</select>
+            <input className={css.address_line_2} type="text" placeholder="Address Line 2">{address_line_2}</input>
             <input className={css.address_line_3} type="text" placeholder="Address Line 3"></input>
-            <input className={css.address_city} type="text" placeholder="City/Locality"></input>
+            <input className={css.address_city} type="text" placeholder="City/Locality">{address_county}</input>
             <input className={css.address_area} type="text" placeholder="State/Province"></input>
             <input className={css.address_postcode} type="text" placeholder="Postal Code"></input>
             <Countries />
