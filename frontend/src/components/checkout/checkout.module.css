@@ -73,7 +73,7 @@
   opacity: 1;
 }
 
-.address_line_1, .address_line_2, .address_line_3, .address_city, .address_area, .address_postcode, .address_country,
+.address_line_1, .address_line_2, .address_line_3, .city, .area, .postcode, .country,
 .first_name, .last_name, .email, .phone_number {
   margin: 10px;
   height: 55px;
@@ -83,6 +83,10 @@
   font-family: monospace;
   font-weight: bold;
   text-align: center;
+}
+
+.field_error {
+  border: 4px solid red;
 }
 
 .address_line_1_cont {

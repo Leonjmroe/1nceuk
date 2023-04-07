@@ -16,9 +16,13 @@ export default function Preview() {
   const [options, set_options] = useState([])
   const [suggestions_display, set_suggestions_display] = useState(css.suggestion_cont)
 
-  const [address_line_1, set_address_line_1] = useState()
-  const [address_line_2, set_address_line_2] = useState()
-  const [address_county, set_address_county] = useState()
+  const [first_name, set_first_name] = useState(css.first_name)
+  const [last_name, set_last_name] = useState(css.last_name)
+  const [email, set_email] = useState(css.email)
+  const [address_line_1, set_address_line_1] = useState(css.address_line_1)
+  const [city, set_city] = useState(css.city)
+  const [postcode, set_postcode] = useState(css.postcode)
+  const [country, set_country] = useState(css.country)
 
   const getData = key => {
     return JSON.parse(window.localStorage.getItem(key));
@@ -62,15 +66,87 @@ export default function Preview() {
       )
    );
 
-
   const optionSelect = (event) => {
     const output = event.target.value.split(';')
-    set_address_line_1(output[0])
-    set_address_line_2(output[1])
-    set_address_county(output[2])
+    document.getElementsByClassName(css.address_line_1)[0].value = output[0]
+    document.getElementsByClassName(css.address_line_2)[0].value = output[1]
+    const city = output[2] 
+    if( city !== ' undefined' && city !== undefined && typeof city !== 'undefined' ) {
+      document.getElementsByClassName(css.address_city)[0].value = output[2]
+    }
     set_suggestions_display(css.suggestion_cont)
   }
    
+  const validation = () => {
+    const first_name = document.getElementsByClassName(css.first_name)[0].value
+    const last_name = document.getElementsByClassName(css.last_name)[0].value
+    const email = document.getElementsByClassName(css.email)[0].value
+    const address_line_1 = document.getElementsByClassName(css.address_line_1)[0].value
+    const city = document.getElementsByClassName(css.city)[0].value
+    const postcode = document.getElementsByClassName(css.postcode)[0].value
+    const country = document.getElementsByClassName(css.country)[0].value
+
+    if(/[^A-Za-z]/.test(first_name)) {
+      set_first_name(`${css.first_name} ${css.field_error}`)
+    }else {
+      set_first_name(css.first_name)
+    }
+    if(/[^A-Za-z]/.test(last_name)) {
+      set_last_name(`${css.last_name} ${css.field_error}`)
+    }else {
+      set_last_name(css.last_name)
+    }
+    if(/[^A-Za-z]/.test(city)) {
+      set_city(`${css.city} ${css.field_error}`)
+    }else {
+      set_city(css.city)
+    }
+    if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+      set_email(`${css.email} ${css.field_error}`)
+    }else {
+      set_email(css.email)
+    }
+    if(first_name.length == 0) {
+      set_first_name(`${css.first_name} ${css.field_error}`)
+    }else {
+      set_first_name(css.first_name)
+    }
+    if(last_name.length == 0) {
+      set_last_name(`${css.last_name} ${css.field_error}`)
+    }else {
+      set_last_name(css.last_name)
+    }
+    if(city.length == 0) {
+      set_city(`${css.city} ${css.field_error}`)
+    }else {
+      set_city(css.city)
+    }
+    if(address_line_1.length == 0) {
+      set_address_line_1(`${css.address_line_1} ${css.field_error}`)
+    }else {
+      set_address_line_1(css.address_line_1)
+    }
+    if(postcode.length == 0) {
+      set_postcode(`${css.postcode} ${css.field_error}`)
+    }else {
+      set_postcode(css.postcode)
+    }
+    if(country == 'Select Country') {
+      set_country(`${css.country} ${css.field_error}`)
+    }else {
+      set_country(css.country)
+    }
+  }
+
+  const to_payment = () => {
+    console.log(postcode)
+  }
+
+  const detail_check = () => {
+    validation()
+    to_payment()
+  }
+
   return (
     <div className={css.checkout_container}>
       <div className={css.checkout_cont}>
@@ -80,25 +156,26 @@ export default function Preview() {
             <div className={css.summary_title}>{summary_title()}</div>
             </div>
           <div className={css.details_cont}>
-            <input className={css.first_name} type="text" placeholder="First Name"></input>
-            <input className={css.last_name} type="text" placeholder="Last Name"></input>
-            <input className={css.email} type="text" placeholder="Email"></input>
+            <input className={first_name} type="text" placeholder="First Name"></input>
+            <input className={last_name} type="text" placeholder="Last Name"></input>
+            <input className={email} type="text" placeholder="Email"></input>
             <input className={css.phone_number} type="text" placeholder="Phone Number"></input>
           </div>
           <div className={css.address_cont} >
             <div className={css.address_line_1_cont}>
-              <input className={css.address_line_1} onChange={addressInput} type="text" placeholder="Address Line 1">{address_line_1}</input>
+              <input className={address_line_1} onChange={addressInput} type="text" placeholder="Address Line 1"></input>
               <div className={css.address_lookup} onClick={addressAPI} type="text" placeholder="Lookup">Lookup</div>
             </div>
-            <select className={suggestions_display} onChange={optionSelect}>{createOptions}</select>
-            <input className={css.address_line_2} type="text" placeholder="Address Line 2">{address_line_2}</input>
+            <select className={suggestions_display} onChange={optionSelect}>
+            <option className={css.options} key="0"></option> {createOptions}</select>
+            <input className={css.address_line_2} type="text" placeholder="Address Line 2"></input>
             <input className={css.address_line_3} type="text" placeholder="Address Line 3"></input>
-            <input className={css.address_city} type="text" placeholder="City/Locality">{address_county}</input>
-            <input className={css.address_area} type="text" placeholder="State/Province"></input>
-            <input className={css.address_postcode} type="text" placeholder="Postal Code"></input>
+            <input className={city} type="text" placeholder="City/Locality"></input>
+            <input className={css.area} type="text" placeholder="State/Province"></input>
+            <input className={postcode} type="text" placeholder="Postal Code"></input>
             <Countries />
           </div>
-          <div className={css.payment_button}>Payment</div>
+          <div className={css.payment_button} onClick={detail_check}>Payment</div>
         </div>
       </div>
     </div>

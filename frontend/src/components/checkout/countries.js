@@ -3,7 +3,7 @@ import css from './checkout.module.css';
 export default function Countries() {
 
   return (
-    <select className={css.address_country} type="dropdown" placeholder="Country">
+    <select className={css.country} type="dropdown" placeholder="Country">
       <option>Select Country</option>
       <option value="AF">Afghanistan</option>
       <option value="AX">Aland Islands</option>
