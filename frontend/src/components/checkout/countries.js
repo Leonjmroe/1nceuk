@@ -1,9 +1,9 @@
 import css from './checkout.module.css';
 
-export default function Countries() {
+export default function Countries(props) {
 
   return (
-    <select className={css.country} type="dropdown" placeholder="Country">
+    <select className={props.class} type="dropdown" placeholder="Country">
       <option>Select Country</option>
       <option value="AF">Afghanistan</option>
       <option value="AX">Aland Islands</option>

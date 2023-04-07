@@ -77,7 +77,7 @@ export default function Preview() {
     set_suggestions_display(css.suggestion_cont)
   }
    
-  const validation = () => {
+  const validation = (event) => {
     const first_name = document.getElementsByClassName(css.first_name)[0].value
     const last_name = document.getElementsByClassName(css.last_name)[0].value
     const email = document.getElementsByClassName(css.email)[0].value
@@ -85,67 +85,102 @@ export default function Preview() {
     const city = document.getElementsByClassName(css.city)[0].value
     const postcode = document.getElementsByClassName(css.postcode)[0].value
     const country = document.getElementsByClassName(css.country)[0].value
+    var count = 0
 
     if(/[^A-Za-z]/.test(first_name)) {
-      set_first_name(`${css.first_name} ${css.field_error}`)
-    }else {
-      set_first_name(css.first_name)
+      count += 1
     }
     if(/[^A-Za-z]/.test(last_name)) {
-      set_last_name(`${css.last_name} ${css.field_error}`)
-    }else {
-      set_last_name(css.last_name)
+      count += 1
     }
     if(/[^A-Za-z]/.test(city)) {
-      set_city(`${css.city} ${css.field_error}`)
-    }else {
-      set_city(css.city)
+      count += 1
     }
     if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-      set_email(`${css.email} ${css.field_error}`)
-    }else {
-      set_email(css.email)
+      count += 1
     }
     if(first_name.length == 0) {
-      set_first_name(`${css.first_name} ${css.field_error}`)
-    }else {
-      set_first_name(css.first_name)
+      count += 1
     }
     if(last_name.length == 0) {
-      set_last_name(`${css.last_name} ${css.field_error}`)
-    }else {
-      set_last_name(css.last_name)
+      count += 1
     }
     if(city.length == 0) {
-      set_city(`${css.city} ${css.field_error}`)
-    }else {
-      set_city(css.city)
+      count += 1
     }
     if(address_line_1.length == 0) {
-      set_address_line_1(`${css.address_line_1} ${css.field_error}`)
-    }else {
-      set_address_line_1(css.address_line_1)
+      count += 1
     }
     if(postcode.length == 0) {
-      set_postcode(`${css.postcode} ${css.field_error}`)
-    }else {
-      set_postcode(css.postcode)
+      count += 1
     }
     if(country == 'Select Country') {
-      set_country(`${css.country} ${css.field_error}`)
+      count += 1
+    }
+
+    if( count !== 0 ) {
+      if(/[^A-Za-z]/.test(first_name)) {
+        set_first_name(`${css.first_name} ${css.field_error}`)
+      }else {
+        set_first_name(css.first_name)
+      }
+      if(/[^A-Za-z]/.test(last_name)) {
+        set_last_name(`${css.last_name} ${css.field_error}`)
+      }else {
+        set_last_name(css.last_name)
+      }
+      if(/[^A-Za-z]/.test(city)) {
+        set_city(`${css.city} ${css.field_error}`)
+      }else {
+        set_city(css.city)
+      }
+      if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+        set_email(`${css.email} ${css.field_error}`)
+      }else {
+        set_email(css.email)
+      }
+      if(first_name.length == 0) {
+        set_first_name(`${css.first_name} ${css.field_error}`)
+      }else {
+        set_first_name(css.first_name)
+      }
+      if(last_name.length == 0) {
+        set_last_name(`${css.last_name} ${css.field_error}`)
+      }else {
+        set_last_name(css.last_name)
+      }
+      if(city.length == 0) {
+        set_city(`${css.city} ${css.field_error}`)
+      }else {
+        set_city(css.city)
+      }
+      if(address_line_1.length == 0) {
+        set_address_line_1(`${css.address_line_1} ${css.field_error}`)
+      }else {
+        set_address_line_1(css.address_line_1)
+      }
+      if(postcode.length == 0) {
+        set_postcode(`${css.postcode} ${css.field_error}`)
+      }else {
+        set_postcode(css.postcode)
+      }
+      if(country == 'Select Country') {
+        set_country(`${css.country} ${css.field_error}`)
+      }else {
+        set_country(css.country)
+      }
     }else {
+      set_email(css.email)
+      set_first_name(css.first_name)
+      set_last_name(css.first_name)
+      set_city(css.city)
+      set_address_line_1(css.address_line_1)
+      set_postcode(css.postcode)
       set_country(css.country)
+      console.log('To Payment!')
     }
   }
 
-  const to_payment = () => {
-    console.log(postcode)
-  }
-
-  const detail_check = () => {
-    validation()
-    to_payment()
-  }
 
   return (
     <div className={css.checkout_container}>
@@ -173,9 +208,9 @@ export default function Preview() {
             <input className={city} type="text" placeholder="City/Locality"></input>
             <input className={css.area} type="text" placeholder="State/Province"></input>
             <input className={postcode} type="text" placeholder="Postal Code"></input>
-            <Countries />
+            <Countries class={country}/>
           </div>
-          <div className={css.payment_button} onClick={detail_check}>Payment</div>
+          <div className={css.payment_button} onClick={validation}>Payment</div>
         </div>
       </div>
     </div>
