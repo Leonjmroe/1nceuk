@@ -72,8 +72,12 @@ export default function Preview() {
     document.getElementsByClassName(css.address_line_2)[0].value = output[1]
     const city = output[2] 
     if( city !== ' undefined' && city !== undefined && typeof city !== 'undefined' ) {
-      document.getElementsByClassName(css.address_city)[0].value = output[2]
+      document.getElementsByClassName(css.city)[0].value = output[2]
     }
+    set_suggestions_display(css.suggestion_cont)
+  }
+
+  const close_lookup = (event) => {
     set_suggestions_display(css.suggestion_cont)
   }
    
@@ -177,7 +181,13 @@ export default function Preview() {
       set_address_line_1(css.address_line_1)
       set_postcode(css.postcode)
       set_country(css.country)
-      console.log('To Payment!')
+      var item_ids = []
+      items.map((item) => {
+        item_ids.push(item.id)
+      })
+      const payment_payload = {'amount': payment.slice(1, payment.length),
+                               'item_ids': item_ids}
+      console.log(payment_payload)
     }
   }
 
@@ -191,23 +201,24 @@ export default function Preview() {
             <div className={css.summary_title}>{summary_title()}</div>
             </div>
           <div className={css.details_cont}>
-            <input className={first_name} type="text" placeholder="First Name"></input>
-            <input className={last_name} type="text" placeholder="Last Name"></input>
-            <input className={email} type="text" placeholder="Email"></input>
-            <input className={css.phone_number} type="text" placeholder="Phone Number"></input>
+            <input className={first_name} onClick={close_lookup} type="text" placeholder="First Name"></input>
+            <input className={last_name} onClick={close_lookup} type="text" placeholder="Last Name"></input>
+            <input className={email} onClick={close_lookup} type="text" placeholder="Email"></input>
+            <input className={css.phone_number} onClick={close_lookup} type="text" placeholder="Phone Number"></input>
           </div>
           <div className={css.address_cont} >
             <div className={css.address_line_1_cont}>
-              <input className={address_line_1} onChange={addressInput} type="text" placeholder="Address Line 1"></input>
+              <input className={address_line_1} onChange={addressInput} onClick={close_lookup} type="text" 
+                     placeholder="Address Line 1"></input>
               <div className={css.address_lookup} onClick={addressAPI} type="text" placeholder="Lookup">Lookup</div>
             </div>
             <select className={suggestions_display} onChange={optionSelect}>
             <option className={css.options} key="0"></option> {createOptions}</select>
-            <input className={css.address_line_2} type="text" placeholder="Address Line 2"></input>
-            <input className={css.address_line_3} type="text" placeholder="Address Line 3"></input>
-            <input className={city} type="text" placeholder="City/Locality"></input>
-            <input className={css.area} type="text" placeholder="State/Province"></input>
-            <input className={postcode} type="text" placeholder="Postal Code"></input>
+            <input className={css.address_line_2} onClick={close_lookup} type="text" placeholder="Address Line 2"></input>
+            <input className={css.address_line_3} onClick={close_lookup} type="text" placeholder="Address Line 3"></input>
+            <input className={city} onClick={close_lookup} type="text" placeholder="City/Locality"></input>
+            <input className={css.area} onClick={close_lookup} type="text" placeholder="State/Province"></input>
+            <input className={postcode} onClick={close_lookup} type="text" placeholder="Postal Code"></input>
             <Countries class={country}/>
           </div>
           <div className={css.payment_button} onClick={validation}>Payment</div>
