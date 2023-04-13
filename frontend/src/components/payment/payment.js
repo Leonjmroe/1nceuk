@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {
-  PaymentElement,
-  LinkAuthenticationElement,
-  useStripe,
-  useElements
-} from '@stripe/react-stripe-js';
+import css from './payment.module.css';
+import { PaymentElement, LinkAuthenticationElement, useStripe, useElements} from '@stripe/react-stripe-js';
+import { useLocation } from 'react-router-dom';
 
-export default function CheckoutForm() {
+export default function Payment() {
+
+  const location = useLocation()
+  console.log(location.state, 12)
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -83,19 +84,19 @@ export default function CheckoutForm() {
   }
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form className="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
+      <PaymentElement className="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
+        <span className="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && <div className="payment-message">{message}</div>}
     </form>
   );
 }

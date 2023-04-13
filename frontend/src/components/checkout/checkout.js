@@ -3,11 +3,12 @@ import Countries from './countries.js';
 import { useContext, useEffect, useState } from "react";
 import { StateContext } from '../state_management/context.js'
 import ItemTile from './../store/itemTile.js';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export default function Preview() {
 
+  const navigate = useNavigate()
   const location = useLocation()
   const [state, dispatch] = useContext(StateContext)
   const [items, set_items] = useState([])
@@ -187,7 +188,7 @@ export default function Preview() {
       })
       const payment_payload = {'amount': payment.slice(1, payment.length),
                                'item_ids': item_ids}
-      console.log(payment_payload)
+      navigate('/payment', { state: { payload : payment_payload } })
     }
   }
 
