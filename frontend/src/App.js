@@ -21,31 +21,31 @@ import { useEffect, useState } from "react";
 
 function App() {
 
-  window.onbeforeunload = () => {
-    window.localStorage.getItem('basket');
-  }
+  // window.onbeforeunload = () => {
+  //   window.localStorage.getItem('basket');
+  // }
 
-  const stripePromise = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
-  const [clientSecret, setClientSecret] = useState("");
+  // const stripePromise = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
+  // const [clientSecret, setClientSecret] = useState("");
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+  // useEffect(() => {
+  //   // Create PaymentIntent as soon as the page loads
+  //   fetch("/create-payment-intent", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setClientSecret(data.clientSecret));
+  // }, []);
 
-  const appearance = {
-    theme: 'stripe',
-  };
-  const options = {
-    clientSecret,
-    appearance,
-  };
+  // const appearance = {
+  //   theme: 'stripe',
+  // };
+  // const options = {
+  //   clientSecret,
+  //   appearance,
+  // };
 
  return (                                                                
       <div className={css.App}>
@@ -67,11 +67,11 @@ function App() {
             <Route path="/store_admin" element={<StoreAdmin />} />
             <Route path="/collection_2022" element={<Collection2022 />} />
             <Route path="/collection_2023" element={<Collection2023 />} />
-            {clientSecret && (
+      {/*      {clientSecret && (
             <Elements options={options} stripe={stripePromise}>
               <Route path="/payment" element={<Payment />} />
             </Elements>
-            )}
+            )}*/}
           </Routes>
           <UnderbarFooter/>
           <Footer />

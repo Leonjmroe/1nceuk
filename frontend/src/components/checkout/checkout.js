@@ -189,6 +189,8 @@ export default function Preview() {
       const payment_payload = {'amount': payment.slice(1, payment.length),
                                'item_ids': item_ids}
       navigate('/payment', { state: { payload : payment_payload } })
+
+
     }
   }
 
@@ -222,7 +224,9 @@ export default function Preview() {
             <input className={postcode} onClick={close_lookup} type="text" placeholder="Postal Code"></input>
             <Countries class={country}/>
           </div>
-          <div className={css.payment_button} onClick={validation}>Payment</div>
+          <form action="/create-checkout-session" method="POST">
+            <button className={css.payment_button} type="submit">Payment</button>
+          </form>
         </div>
       </div>
     </div>
