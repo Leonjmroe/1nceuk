@@ -186,11 +186,12 @@ export default function Preview() {
       items.map((item) => {
         item_ids.push(item.id)
       })
-      const payment_payload = {'amount': payment.slice(1, payment.length),
-                               'item_ids': item_ids}
-      navigate('/payment', { state: { payload : payment_payload } })
-
-
+      const payment_payload = { 'amount': payment.slice(1, payment.length),
+                                'item_ids': item_ids,
+                                'customer_id': (first_name + '_' + last_name + '_' + postcode),
+                                'email': email }
+      console.log(count)
+      navigate('/payment', { state: payment_payload })
     }
   }
 
@@ -224,9 +225,10 @@ export default function Preview() {
             <input className={postcode} onClick={close_lookup} type="text" placeholder="Postal Code"></input>
             <Countries class={country}/>
           </div>
-          <form action="/create-checkout-session" method="POST">
+          <div className={css.payment_button} onClick={validation}>Payment</div>
+          {/*<<form action="/create-checkout-session" method="POST">
             <button className={css.payment_button} type="submit">Payment</button>
-          </form>
+          </form>*/}
         </div>
       </div>
     </div>

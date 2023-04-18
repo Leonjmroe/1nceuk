@@ -10,8 +10,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),  
     path('api/items/', include('apps.items.urls')),
+    path('api/payment/', include('apps.purchase.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
 
 urlpatterns += accounts_urlpatterns  
+
 

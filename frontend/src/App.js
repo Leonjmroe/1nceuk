@@ -17,37 +17,24 @@ import { StateProvider } from './components/state_management/context.js'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
+// import dotenv from 'dotenv';
+// import path from 'path';
 
 
 function App() {
 
-  // window.onbeforeunload = () => {
-  //   window.localStorage.getItem('basket');
-  // }
+// const dotenv = require('dotenv');
+// const path = require('path');
+// const envPath = path.resolve(__dirname, '../.env');
+// dotenv.config({ path: envPath });
+// const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+// console.log(dotenv)
 
-  // const stripePromise = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
-  // const [clientSecret, setClientSecret] = useState("");
+const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
+const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
 
-  // useEffect(() => {
-  //   // Create PaymentIntent as soon as the page loads
-  //   fetch("/create-payment-intent", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setClientSecret(data.clientSecret));
-  // }, []);
-
-  // const appearance = {
-  //   theme: 'stripe',
-  // };
-  // const options = {
-  //   clientSecret,
-  //   appearance,
-  // };
-
- return (                                                                
+ return (               
+    <Elements stripe={stripePromise}>                                                 
       <div className={css.App}>
         <StateProvider>
           <Router >  
@@ -67,17 +54,14 @@ function App() {
             <Route path="/store_admin" element={<StoreAdmin />} />
             <Route path="/collection_2022" element={<Collection2022 />} />
             <Route path="/collection_2023" element={<Collection2023 />} />
-      {/*      {clientSecret && (
-            <Elements options={options} stripe={stripePromise}>
-              <Route path="/payment" element={<Payment />} />
-            </Elements>
-            )}*/}
+            <Route path="/payment" element={<Payment />} />
           </Routes>
           <UnderbarFooter/>
           <Footer />
           </Router>   
         </ StateProvider>
       </div>
+    </Elements>
   )};
 
 export default App;

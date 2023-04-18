@@ -1,17 +1,16 @@
-/*#root {
+.payment_container {
+  display: flex;
+}
+
+.payment_cont {
+  display: flex;
+  width: 90%;
+  margin: 130px auto 30px auto;
+}
+
+#root {
   display: flex;
   align-items: center;
-}*/
-
-/*body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 100vh;
-  width: 100vw;
 }
 
 form {
@@ -22,10 +21,10 @@ form {
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
   padding: 40px;
-}*/
+}
 
 
-.payment-message {
+#payment-message {
   color: rgb(105, 115, 134);
   font-size: 16px;
   line-height: 20px;
@@ -33,7 +32,7 @@ form {
   text-align: center;
 }
 
-.payment-element {
+#payment-element {
   margin-bottom: 24px;
 }
 
