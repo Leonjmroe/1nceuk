@@ -87,18 +87,20 @@ export default function Preview() {
     const last_name = document.getElementsByClassName(css.last_name)[0].value
     const email = document.getElementsByClassName(css.email)[0].value
     const address_line_1 = document.getElementsByClassName(css.address_line_1)[0].value
-    const city = document.getElementsByClassName(css.city)[0].value
+    const city = document.getElementsByClassName(css.city)[0].value.slice(1)
     const postcode = document.getElementsByClassName(css.postcode)[0].value
     const country = document.getElementsByClassName(css.country)[0].value
     var count = 0
+    const city_wo_spaces = city.replace(/\s/g, '')
 
     if(/[^A-Za-z]/.test(first_name)) {
       count += 1
     }
     if(/[^A-Za-z]/.test(last_name)) {
       count += 1
+      console.log('huh?')
     }
-    if(/[^A-Za-z]/.test(city)) {
+    if(/[^A-Za-z]/.test(city_wo_spaces)) {
       count += 1
     }
     if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
@@ -189,8 +191,15 @@ export default function Preview() {
       const payment_payload = { 'amount': payment.slice(1, payment.length),
                                 'item_ids': item_ids,
                                 'customer_id': (first_name + '_' + last_name + '_' + postcode),
-                                'email': email }
-      console.log(count)
+                                'email': email,
+                                'phone_number': document.getElementsByClassName(css.phone_number)[0].value,
+                                'address_line_1': document.getElementsByClassName(css.address_line_1)[0].value,
+                                'address_line_2': document.getElementsByClassName(css.address_line_2)[0].value,
+                                'address_line_3': document.getElementsByClassName(css.address_line_3)[0].value,
+                                'country': document.getElementsByClassName(css.country)[0].value,
+                                'city': document.getElementsByClassName(css.city)[0].value,
+                                'area': document.getElementsByClassName(css.area)[0].value,
+                                'postcode': document.getElementsByClassName(css.postcode)[0].value }
       navigate('/payment', { state: payment_payload })
     }
   }

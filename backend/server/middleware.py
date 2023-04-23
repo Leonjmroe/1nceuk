@@ -15,6 +15,11 @@ class RedirectMiddleware:
             new_url = f"{protocol}://{host[4:]}{path}"
             return HttpResponsePermanentRedirect(new_url)
 
+        if host.startswith("http://www."):
+            # Redirect to the same URL with "http://www." removed
+            new_url = f"{protocol}://{host[11:]}{path}"
+            return HttpResponsePermanentRedirect(new_url)
+
         # Check if the request is not using HTTPS
         if not request.is_secure():
             # Redirect to the same URL with HTTPS protocol
