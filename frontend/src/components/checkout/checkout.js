@@ -4,13 +4,18 @@ import { useContext, useEffect, useState } from "react";
 import { StateContext } from '../state_management/context.js'
 import ItemTile from './../store/itemTile.js';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 
 export default function Preview() {
 
   const navigate = useNavigate()
   const location = useLocation()
+
   const [state, dispatch] = useContext(StateContext)
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const [items, set_items] = useState([])
   const [payment, set_payment] = useState()
   const [address_input, set_address_input] = useState()
@@ -82,7 +87,7 @@ export default function Preview() {
     set_suggestions_display(css.suggestion_cont)
   }
    
-  const validation = (event) => {
+  const validation = async (event) => {
     const first_name = document.getElementsByClassName(css.first_name)[0].value
     const last_name = document.getElementsByClassName(css.last_name)[0].value
     const email = document.getElementsByClassName(css.email)[0].value
@@ -188,7 +193,8 @@ export default function Preview() {
       items.map((item) => {
         item_ids.push(item.id)
       })
-      const payment_payload = { 'amount': payment.slice(1, payment.length),
+      const amount = payment.slice(1, payment.length)
+      const payment_payload = { 'amount': amount,
                                 'item_ids': item_ids,
                                 'customer_id': (first_name + '_' + last_name + '_' + postcode),
                                 'email': email,
@@ -200,7 +206,16 @@ export default function Preview() {
                                 'city': document.getElementsByClassName(css.city)[0].value,
                                 'area': document.getElementsByClassName(css.area)[0].value,
                                 'postcode': document.getElementsByClassName(css.postcode)[0].value }
-      navigate('/payment', { state: payment_payload })
+
+
+      try {
+        const client_secret = await axios.post('/api/payment/create-payment-intent/', { 'amount': amount })
+        navigate('/payment', {state: {payment_payload:payment_payload, client_secret:client_secret.data}})
+
+      } catch (error) {
+          setLoading(false);
+          setErrorMessage(error.message);
+      }
     }
   }
 
@@ -235,9 +250,6 @@ export default function Preview() {
             <Countries class={country}/>
           </div>
           <div className={css.payment_button} onClick={validation}>Payment</div>
-          {/*<<form action="/create-checkout-session" method="POST">
-            <button className={css.payment_button} type="submit">Payment</button>
-          </form>*/}
         </div>
       </div>
     </div>

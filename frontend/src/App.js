@@ -1,4 +1,4 @@
-import { Navbar, Footer, Underbar, UnderbarHeader, UnderbarFooter } from './components/core/core.js';
+import { Navbar, Footer, UnderbarHeader, UnderbarFooter } from './components/core/core.js';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/home/home.js';
 import { Store, StoreSelect } from './components/store/store.js';
@@ -16,7 +16,6 @@ import css from './App.module.css';
 import { StateProvider } from './components/state_management/context.js'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
 // import dotenv from 'dotenv';
 // import path from 'path';
 
@@ -33,7 +32,7 @@ function App() {
 const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
 const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
 
- return (               
+ return (              
     <Elements stripe={stripePromise}>                                                 
       <div className={css.App}>
         <StateProvider>
@@ -61,7 +60,7 @@ const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q
           </Router>   
         </ StateProvider>
       </div>
-    </Elements>
+     </Elements>
   )};
 
 export default App;

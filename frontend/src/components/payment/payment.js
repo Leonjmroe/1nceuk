@@ -1,32 +1,50 @@
 import { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements, PaymentElement, LinkAuthenticationElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 import css from './payment.module.css';
+// import PaymentForm from './payment_form.js';
 import { useLocation } from 'react-router-dom';
+
 
 export default function StripeForm() {
 
   const location = useLocation()
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
   const stripe = useStripe();
   const elements = useElements();
 
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [secure3D, set_secure3D] = useState('www.facebook.com');
+
+  // console.log(location.state.client_secret.client_secret)
+  // const [clientSecret, setclientSecret] = useState();
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    console.log(12)
+    set_secure3D('http://www.twitter.com')
+
     setLoading(true);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
     });
 
+
     if (error) {
       setLoading(false);
       setErrorMessage(error.message);
     } else {
-      const { card_details } = paymentMethod;
+      const payment_method_id = paymentMethod.id;
+
       try {
-        const { data } = await axios.post("/api/payment/", { 'card_details': card_details, 
+        const data = await axios.post("/api/payment/", { 'payment_method_id': payment_method_id, 
                                                              'amount': (location.state.amount * 100),
                                                              'email': location.state.email,
                                                              'customer_id': location.state.customer_id,
@@ -39,17 +57,63 @@ export default function StripeForm() {
                                                              'city': location.state.city,
                                                              'country': location.state.country,
                                                              'phone_number': location.state.phone_number });
-        console.log(data);
+        
+          const paymentIntent = data.data.payment_intent
+          console.log(paymentIntent)
+
+          if(paymentIntent.status == 'requires_action') {
+            set_secure3D(paymentIntent.next_action.use_stripe_sdk.three_ds_method_url)
+            console.log('requires_action')
+          }else {
+            console.log(data.data.status)
+          }
+
+
+          // const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+          //   payment_method: {
+          //     card: paymentMethod,
+          //     billing_details: {
+          //       name: location.state.customer_id
+          //     }
+          //   }
+          // });
+
+          // if (error) {
+          //   console.log(1, error)
+          // } else if (paymentIntent.status === 'succeeded') {
+          //   console.log('success!')
+          // } else if (paymentIntent.status === 'requires_action' &&
+          //   paymentIntent.next_action.type === 'use_stripe_sdk') {
+          //   // Use Stripe SDK to handle the card action
+          //   const { error: errorAction, paymentIntent: paymentIntentAction } =
+          //     await stripe.handleCardAction(paymentIntent.client_secret);
+          //   if (errorAction) {
+          //     console.log(errorAction)
+          //   } else if (paymentIntentAction.status === 'succeeded') {
+          //     console.log('success!')
+          //   } else {
+          //     console.log('failed')
+          //   }
+          // } else {
+          //   console.log('failed')
+          // }
+
+
+
+
       } catch (error) {
         setLoading(false);
         setErrorMessage(error.message);
       }
+
     }
   };
+
 
   return (
     <div className={css.payment_container}>
       <div className={css.payment_cont}>
+      <iframe className={css.iframe_secure} src={secure3D}></iframe>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="card-element">Card details</label>
@@ -64,106 +128,30 @@ export default function StripeForm() {
 };
 
 
+// return (
+//   <PaymentForm />
+// )}
 
-
-// import React, { useEffect, useState } from "react";
-// import {
-//   PaymentElement,
-//   LinkAuthenticationElement,
-//   useStripe,
-//   useElements
-// } from "@stripe/react-stripe-js";
-
-// export default function CheckoutForm() {
-//   const stripe = useStripe();
-//   const elements = useElements();
-
-//   const [email, setEmail] = useState('');
-//   const [message, setMessage] = useState(null);
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   useEffect(() => {
-//     if (!stripe) {
-//       return;
-//     }
-
-//     const clientSecret = new URLSearchParams(window.location.search).get(
-//       "payment_intent_client_secret"
-//     );
-
-//     if (!clientSecret) {
-//       return;
-//     }
-
-//     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-//       switch (paymentIntent.status) {
-//         case "succeeded":
-//           setMessage("Payment succeeded!");
-//           break;
-//         case "processing":
-//           setMessage("Your payment is processing.");
-//           break;
-//         case "requires_payment_method":
-//           setMessage("Your payment was not successful, please try again.");
-//           break;
-//         default:
-//           setMessage("Something went wrong.");
-//           break;
-//       }
-//     });
-//   }, [stripe]);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (!stripe || !elements) {
-//       // Stripe.js has not yet loaded.
-//       // Make sure to disable form submission until Stripe.js has loaded.
-//       return;
-//     }
-
-//     setIsLoading(true);
-
-//     const { error } = await stripe.confirmPayment({
-//       elements,
-//       confirmParams: {
-//         // Make sure to change this to your payment completion page
-//         return_url: "http://localhost:3000",
-//       },
-//     });
-
-//     // This point will only be reached if there is an immediate error when
-//     // confirming the payment. Otherwise, your customer will be redirected to
-//     // your `return_url`. For some payment methods like iDEAL, your customer will
-//     // be redirected to an intermediate site first to authorize the payment, then
-//     // redirected to the `return_url`.
-//     if (error.type === "card_error" || error.type === "validation_error") {
-//       setMessage(error.message);
-//     } else {
-//       setMessage("An unexpected error occurred.");
-//     }
-
-//     setIsLoading(false);
-//   };
-
-//   const paymentElementOptions = {
-//     layout: "tabs"
-//   }
-
-//   return (
-//     <form id="payment-form" onSubmit={handleSubmit}>
-//       <LinkAuthenticationElement
-//         id="link-authentication-element"
+// return (
+//   <div className={css.payment_container}>
+//   <div className={css.payment_cont}>
+//     <form className={css.payment_form} onSubmit={handleSubmit}>
+//       {clientSecret && (
+//        <LinkAuthenticationElement
+//         className={css.link_authentication_element}
 //         onChange={(e) => setEmail(e.target.value)}
-//       />
-//       <PaymentElement id="payment-element" options={paymentElementOptions} />
-//       <button disabled={isLoading || !stripe || !elements} id="submit">
-//         <span id="button-text">
-//           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+//       />)}
+//       {clientSecret && (
+//       <PaymentElement className={css.payment_element} /> )}
+//       <button disabled={isLoading || !stripe || !elements} className={css.submit}>
+//         <span className={css.button_text}>
+//           {isLoading ? <div className={css.spinner}></div> : "Pay now"}
 //         </span>
 //       </button>
-//       {/* Show any error or success messages */}
-//       {message && <div id="payment-message">{message}</div>}
+
+//       {message && <div className={css.payment_message}>{message}</div>} 
 //     </form>
-//   );
+//     </div>
+//   </div> 
+// );
 // }
