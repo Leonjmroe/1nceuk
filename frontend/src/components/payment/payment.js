@@ -27,8 +27,8 @@ export default function StripeForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(12)
-    set_secure3D('http://www.twitter.com')
+    // console.log(12)
+    // set_secure3D('http://www.twitter.com')
 
     setLoading(true);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
