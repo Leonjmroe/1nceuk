@@ -103,7 +103,6 @@ export default function Preview() {
     }
     if(/[^A-Za-z]/.test(last_name)) {
       count += 1
-      console.log('huh?')
     }
     if(/[^A-Za-z]/.test(city_wo_spaces)) {
       count += 1
@@ -181,6 +180,7 @@ export default function Preview() {
       }else {
         set_country(css.country)
       }
+    console.log(count)
     }else {
       set_email(css.email)
       set_first_name(css.first_name)
@@ -207,14 +207,12 @@ export default function Preview() {
                                 'area': document.getElementsByClassName(css.area)[0].value,
                                 'postcode': document.getElementsByClassName(css.postcode)[0].value }
 
-
+      console.log(payment_payload)                        
       try {
         const client_secret = await axios.post('/api/payment/create-payment-intent/', { 'amount': amount })
         navigate('/payment', {state: {payment_payload:payment_payload, client_secret:client_secret.data}})
-
       } catch (error) {
-          setLoading(false);
-          setErrorMessage(error.message);
+          console.log(error)
       }
     }
   }

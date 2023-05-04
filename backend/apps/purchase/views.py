@@ -36,7 +36,7 @@ class StripeChargeView(View):
 
         customer = stripe.Customer.create(
           name=customer_id,
-          email=email,
+          email=email
           # address={
           #   "line1": address_line_1,
           #   "line2": address_line_2,

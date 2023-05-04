@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { CardElement, useStripe, useElements, PaymentElement, LinkAuthenticationElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 import css from './payment.module.css';
-// import PaymentForm from './payment_form.js';
 import { useLocation } from 'react-router-dom';
 
 
@@ -11,6 +10,7 @@ export default function StripeForm() {
   const location = useLocation()
   const stripe = useStripe();
   const elements = useElements();
+  const iframeRef = useRef(null);
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -18,24 +18,21 @@ export default function StripeForm() {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [secure3D, set_secure3D] = useState('www.facebook.com');
+  const [secure3D, set_secure3D] = useState();
 
   // console.log(location.state.client_secret.client_secret)
   // const [clientSecret, setclientSecret] = useState();
 
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
 
-    // console.log(12)
-    // set_secure3D('http://www.twitter.com')
+    event.preventDefault();
 
     setLoading(true);
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: "card",
+      type: 'card',
       card: elements.getElement(CardElement),
     });
-
 
     if (error) {
       setLoading(false);
@@ -44,7 +41,7 @@ export default function StripeForm() {
       const payment_method_id = paymentMethod.id;
 
       try {
-        const data = await axios.post("/api/payment/", { 'payment_method_id': payment_method_id, 
+        const data = await axios.post('/api/payment/', { 'payment_method_id': payment_method_id, 
                                                              'amount': (location.state.amount * 100),
                                                              'email': location.state.email,
                                                              'customer_id': location.state.customer_id,
@@ -59,47 +56,16 @@ export default function StripeForm() {
                                                              'phone_number': location.state.phone_number });
         
           const paymentIntent = data.data.payment_intent
-          console.log(paymentIntent)
 
-          if(paymentIntent.status == 'requires_action') {
-            set_secure3D(paymentIntent.next_action.use_stripe_sdk.three_ds_method_url)
-            console.log('requires_action')
-          }else {
-            console.log(data.data.status)
+          const result = await stripe.confirmCardPayment(paymentIntent.client_secret, {
+            payment_method: paymentIntent.paymentMethod
+          });
+
+          if (error) {
+            window.alert('Payment Error')
+          } else {
+            window.alert('Payment Success!')
           }
-
-
-          // const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-          //   payment_method: {
-          //     card: paymentMethod,
-          //     billing_details: {
-          //       name: location.state.customer_id
-          //     }
-          //   }
-          // });
-
-          // if (error) {
-          //   console.log(1, error)
-          // } else if (paymentIntent.status === 'succeeded') {
-          //   console.log('success!')
-          // } else if (paymentIntent.status === 'requires_action' &&
-          //   paymentIntent.next_action.type === 'use_stripe_sdk') {
-          //   // Use Stripe SDK to handle the card action
-          //   const { error: errorAction, paymentIntent: paymentIntentAction } =
-          //     await stripe.handleCardAction(paymentIntent.client_secret);
-          //   if (errorAction) {
-          //     console.log(errorAction)
-          //   } else if (paymentIntentAction.status === 'succeeded') {
-          //     console.log('success!')
-          //   } else {
-          //     console.log('failed')
-          //   }
-          // } else {
-          //   console.log('failed')
-          // }
-
-
-
 
       } catch (error) {
         setLoading(false);
@@ -113,7 +79,7 @@ export default function StripeForm() {
   return (
     <div className={css.payment_container}>
       <div className={css.payment_cont}>
-      <iframe className={css.iframe_secure} src={secure3D}></iframe>
+      {/*<iframe className={css.iframe_secure} src={secure3D}></iframe>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="card-element">Card details</label>
@@ -121,7 +87,21 @@ export default function StripeForm() {
           </div>
           <button disabled={!stripe || loading}>£{location.state.amount}</button>
           {errorMessage && <div>{errorMessage}</div>}
-        </form>
+        </form>*/}
+
+      <iframe
+        ref={iframeRef}
+        width="400"
+        height="300"
+        style={{ border: '1px solid black' }}
+      ></iframe>
+
+
+      <form onSubmit={handleSubmit}>
+        <CardElement />
+          {errorMessage && <p>{errorMessage}</p>}
+        <button type="submit">Pay</button>
+      </form>
       </div>
     </div>
   );
