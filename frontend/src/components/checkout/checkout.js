@@ -189,7 +189,6 @@ export default function Checkout() {
       }else {
         set_country(css.country)
       }
-    console.log(count)
     }else {
       set_email(css.email)
       set_first_name(css.first_name)
@@ -203,7 +202,7 @@ export default function Checkout() {
         item_ids.push(item.id)
       })
       var amount = payment.slice(1, payment.length)
-      const payment_payload = { 'amount': amount,
+      const checkout_paylaod = {'amount': amount,
                                 'item_ids': item_ids,
                                 'customer_id': (first_name + '_' + last_name + '_' + postcode),
                                 'email': email,
@@ -216,12 +215,8 @@ export default function Checkout() {
                                 'area': document.getElementsByClassName(css.area)[0].value,
                                 'postcode': document.getElementsByClassName(css.postcode)[0].value }     
 
-      amount = 101  
-
       try {
-        const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': amount })
-        const clientSecret = payment_intent.data.payment_intent.client_secret
-        navigate('/payment', {state: {payment_payload:payment_payload, client_secret:clientSecret}})
+        navigate('/payment', { state: { checkout_paylaod : checkout_paylaod }})
       } catch (error) {
           console.log(error)
       }
@@ -235,7 +230,7 @@ export default function Checkout() {
         <div className={css.checkout_preview_cont}>
           <div className={css.summary_cont}>  
             <div className={css.summary_title}>{summary_title()}</div>
-            </div>
+          </div>
           <div className={css.details_cont}>
             <input className={first_name} onClick={close_lookup} type="text" placeholder="First Name"></input>
             <input className={last_name} onClick={close_lookup} type="text" placeholder="Last Name"></input>

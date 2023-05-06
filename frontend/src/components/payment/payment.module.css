@@ -1,4 +1,4 @@
-.payment_container {
+.payment_container, .payment_success_container {
   display: flex;
 }
 
@@ -7,20 +7,32 @@
   width: 90%;
   height: 100%;
   margin: 130px auto 30px auto;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.payment_success_cont {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin: 130px auto 30px auto;
+  flex-direction: column;
 }
 
 
 .form {
   margin: auto;
-  width: 500px;
+  width: 600px;
+  background: rgba(0,0,0,0.4);
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
-  padding: 40px;
+  padding: 60px;
   z-index: 1;
 }
 
+/*.payment_ele:hover  {
+  opacity: 0;
+}*/
 
 .button {
   background: #5469d4;
@@ -46,4 +58,78 @@
 .button:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+.summary_cont {
+  width: 60%;
+  background: rgba(0,0,0,0.5);
+  height: 80px;
+  opacity: ;
+  margin: 20px auto 70px auto;
+  display: flex;
+  border-radius: 5px;
+}
+
+.summary_title {
+  color: white;
+  font-size: 32px;
+  font-family: monospace;
+  font-weight: bold;
+  margin: auto;
+}
+
+.success_title {
+  width: 100%;
+  font-size: 60px;
+  margin-top: 30px;
+  font-weight: bold;
+  color: green;
+  font-family: monospace;
+  text-align: center;
+}
+
+.success_text {
+  font-size: 25px;
+  margin-top: 30px;
+  font-weight: bold;
+  color: black;
+  font-family: monospace;
+  text-align: center;
+}
+
+
+.success_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border-radius: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+  background-image: url('../../images/green_tick.png');
+}
+
+.redirect_button {
+  color: black;
+  font-family: monospace;
+  font-size: 40px;
+  border: 1px solid black;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #29E66B;
+  padding: 5px 40px 5px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+  margin-bottom: 100px;
+}
+
+.redirect_button:hover {
+  opacity: 1;
+  cursor: pointer;
 }
