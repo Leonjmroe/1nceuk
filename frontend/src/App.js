@@ -30,11 +30,12 @@ function App () {
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 // console.log(dotenv)
 
-// const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
-const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
+const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
+// const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
 
 const options = {
-  mode: 'setup',
+  mode: 'payment',
+  amount: 100,
   currency: 'gbp',
   appearance: {
     theme: 'night',
@@ -42,7 +43,7 @@ const options = {
   }}
 
  return (              
-    <Elements stripe={stripePromise} options={options}>                                            
+    <Elements stripe={stripePromise_test} options={options}>                                            
       <div className={css.App}>
         <StateProvider>
           <Router >  

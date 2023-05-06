@@ -110,7 +110,7 @@ import css from './payment.module.css';
 import axios from "axios";
  
 
-export default function CheckoutForm() {
+export default function Payment({updateAmount}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -123,36 +123,29 @@ export default function CheckoutForm() {
   }
 
   const handleSubmit = async (event) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
     event.preventDefault();
-
     if (!stripe) {
-      // Stripe.js hasn't yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
     setLoading(true);
 
-    // Trigger form validation and wallet collection
     const {error: submitError} = await elements.submit();
     if (submitError) {
       handleError(submitError);
       return;
     }
 
-    // Create the PaymentIntent and obtain clientSecret
-    const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': 101 })
+    const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': 100000 })
     const clientSecret = payment_intent.data.payment_intent.client_secret
 
-    // Confirm the PaymentIntent using the details collected by the Payment Element
     const {error} = await stripe.confirmPayment({
       elements,
       clientSecret,
       confirmParams: {
         return_url: 'https://www.1nceuk.com/payment',
       },
+      // redirect: "if_required"
     });
 
     if (error) {

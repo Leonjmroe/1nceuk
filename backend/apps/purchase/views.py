@@ -14,7 +14,7 @@ secret_key = "sk_live_51MphC6DH2VJ3YG9vSipwjytKlcuP3ZlumeDfP1NH64GlMXw9AWmJY9b1J
 class StripeChargeView(View):
     def post(self, request, *args, **kwargs):
 
-        stripe.api_key = secret_key
+        stripe.api_key = secret_key_test
 
         body_unicode = request.body.decode('utf-8')
         body_data = json.loads(body_unicode)
@@ -78,7 +78,7 @@ class StripeChargeView(View):
 class StripePaymentIntent(View):
     def post(self, request, *args, **kwargs):
 
-        stripe.api_key = secret_key
+        stripe.api_key = secret_key_test
 
         body_unicode = request.body.decode('utf-8')
         body_data = json.loads(body_unicode)
@@ -86,8 +86,12 @@ class StripePaymentIntent(View):
 
         payment_intent = stripe.PaymentIntent.create(
             currency='gbp', 
-            amount=amount
+            amount=amount,
+            automatic_payment_methods={
+              'enabled': True,
+            },
         )
+
 
         return JsonResponse({
             'payment_intent': payment_intent,
