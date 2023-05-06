@@ -33,11 +33,6 @@ export default function Checkout() {
   const [postcode, set_postcode] = useState(css.postcode)
   const [country, set_country] = useState(css.country)
 
-  const [stripePromise, setStripePromise] = useState(loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj"))
-  const [elementOptions, setElementOptions] = useState()
-  const [showComponent, setShowComponent] = useState(false)
-  const [client_secret, set_client_secret] = useState(null)
-
 
   const getData = key => {
     return JSON.parse(window.localStorage.getItem(key));

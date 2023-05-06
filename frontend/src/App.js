@@ -16,8 +16,6 @@ import StoreAdmin from './components/store_admin/store_admin.js';
 import css from './App.module.css';
 import { StateProvider } from './components/state_management/context.js'
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { useState, useContext, useEffect } from 'react';
 // import dotenv from 'dotenv';
 // import path from 'path';
 
@@ -34,45 +32,35 @@ function App () {
 const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
 // const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
 
-const options = {
-  mode: 'payment',
-  amount: 100,
-  currency: 'gbp',
-  appearance: {
-    theme: 'night',
-    labels: 'floating'
-  }}
 
- return (              
-    <Elements stripe={stripePromise_test} options={options}>                                            
-      <div className={css.App}>
-        <StateProvider>
-          <Router >  
-          <Navbar/>
-          <UnderbarHeader />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/store_selection" element={<StoreSelect />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/designs" element={<Designs />} />
-            <Route path="/skating" element={<Skating />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/basket" element={<Basket />} />
-            <Route path="/item_preview" element={<ItemPreview />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/store_admin" element={<StoreAdmin />} />
-            <Route path="/collection_2022" element={<Collection2022 />} />
-            <Route path="/collection_2023" element={<Collection2023 />} />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/payment_success" element={<Success />} />
-          </Routes>
-          <UnderbarFooter/>
-          <Footer />
-          </Router>   
-        </ StateProvider>
-      </div>
-    </Elements>
+ return (                                                     
+    <div className={css.App}>
+      <StateProvider>
+        <Router >  
+        <Navbar/>
+        <UnderbarHeader />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store_selection" element={<StoreSelect />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/designs" element={<Designs />} />
+          <Route path="/skating" element={<Skating />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/basket" element={<Basket />} />
+          <Route path="/item_preview" element={<ItemPreview />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/store_admin" element={<StoreAdmin />} />
+          <Route path="/collection_2022" element={<Collection2022 />} />
+          <Route path="/collection_2023" element={<Collection2023 />} />
+          <Route path="/payment" element={<Payment stripePromise={stripePromise_test} />} />
+          <Route path="/payment_success" element={<Success stripePromise={stripePromise_test} />} />
+        </Routes>
+        <UnderbarFooter/>
+        <Footer />
+        </Router>   
+      </ StateProvider>
+    </div>
   )};
 
 export default App;

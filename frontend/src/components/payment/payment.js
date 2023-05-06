@@ -1,54 +1,23 @@
-import React, {useState} from 'react';
-import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
+import { useEffect, useState } from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import PaymentForm from './payment_form'
 import css from './payment.module.css';
-import axios from "axios";
 import { useLocation } from 'react-router-dom';
- 
+import axios from "axios";
 
-export default function Payment() {
 
-  const stripe = useStripe();
-  const elements = useElements();
+export default function Payment(props) {
+
+  const [ clientSecret, setClientSecret ] = useState('');
   const location = useLocation()
-
   const payload = location.state.checkout_paylaod
-  const [errorMessage, setErrorMessage] = useState();
-  // const [loading, setLoading] = useState(false);
+  const { stripePromise } = props;
 
-  const handleError = (error) => {
-    // setLoading(false);
-    setErrorMessage(error.message);
-  }
+  useEffect( async () => {
+      const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': (payload.amount * 100) })
+      setClientSecret(payment_intent.data.payment_intent.client_secret)
+  }, []);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (!stripe) {
-      return;
-    }
-
-    // setLoading(true);
-
-    const {error: submitError} = await elements.submit();
-    if (submitError) {
-      handleError(submitError);
-      return;
-    }
-
-    const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': (payload.amount * 100) })
-    const clientSecret = payment_intent.data.payment_intent.client_secret
-
-    const {error} = await stripe.confirmPayment({
-      elements,
-      clientSecret,
-      confirmParams: {
-        return_url: 'http://localhost:3000/#/payment_success',
-      },
-    });
-
-    if (error) {
-      handleError(error);
-    }
-  };
 
   const summary_title  = () => {
     var item_text = ''
@@ -61,23 +30,24 @@ export default function Payment() {
     return output
   }
 
+  const appearance = { theme: 'night', labels: 'floating' }
+
+
   return (
     <div className={css.payment_container}>
       <div className={css.payment_cont}>
         <div className={css.summary_cont}>  
           <div className={css.summary_title}>{summary_title()}</div>
         </div>
-        <form className={css.form} onSubmit={handleSubmit}>
-          <PaymentElement className={css.payment_ele} />
-            {errorMessage && <p>{errorMessage}</p>}
-          <button className={css.button} type="submit">Pay</button>
-        </form>
-       </div>
-     </div>
+        {clientSecret && stripePromise && (
+          <Elements stripe={stripePromise} options={{ clientSecret, appearance }}>
+            <PaymentForm />
+          </Elements>
+        )}
+      </div>
+    </div>
   );
-};
-
-
+}
 
 
     // event.preventDefault();
@@ -108,4 +78,3 @@ export default function Payment() {
     //     const result = await stripe.confirmCardPayment(paymentIntent.client_secret, {
     //       payment_method: paymentIntent.paymentMethod
     //     });
-
