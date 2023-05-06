@@ -5,14 +5,17 @@ import { StateContext } from '../state_management/context.js'
 import ItemTile from './../store/itemTile.js';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import Payment from '../payment/payment.js';
 
 
-export default function Preview() {
+export default function Checkout() {
 
   const navigate = useNavigate()
   const location = useLocation()
-
   const [state, dispatch] = useContext(StateContext)
+
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -29,6 +32,12 @@ export default function Preview() {
   const [city, set_city] = useState(css.city)
   const [postcode, set_postcode] = useState(css.postcode)
   const [country, set_country] = useState(css.country)
+
+  const [stripePromise, setStripePromise] = useState(loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj"))
+  const [elementOptions, setElementOptions] = useState()
+  const [showComponent, setShowComponent] = useState(false)
+  const [client_secret, set_client_secret] = useState(null)
+
 
   const getData = key => {
     return JSON.parse(window.localStorage.getItem(key));
@@ -193,7 +202,7 @@ export default function Preview() {
       items.map((item) => {
         item_ids.push(item.id)
       })
-      const amount = payment.slice(1, payment.length)
+      var amount = payment.slice(1, payment.length)
       const payment_payload = { 'amount': amount,
                                 'item_ids': item_ids,
                                 'customer_id': (first_name + '_' + last_name + '_' + postcode),
@@ -205,18 +214,19 @@ export default function Preview() {
                                 'country': document.getElementsByClassName(css.country)[0].value,
                                 'city': document.getElementsByClassName(css.city)[0].value,
                                 'area': document.getElementsByClassName(css.area)[0].value,
-                                'postcode': document.getElementsByClassName(css.postcode)[0].value }
+                                'postcode': document.getElementsByClassName(css.postcode)[0].value }     
 
-      console.log(payment_payload)                        
+      amount = 101  
+
       try {
-        const client_secret = await axios.post('/api/payment/create-payment-intent/', { 'amount': amount })
-        navigate('/payment', {state: {payment_payload:payment_payload, client_secret:client_secret.data}})
+        const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': amount })
+        const clientSecret = payment_intent.data.payment_intent.client_secret
+        navigate('/payment', {state: {payment_payload:payment_payload, client_secret:clientSecret}})
       } catch (error) {
           console.log(error)
       }
     }
   }
-
 
   return (
     <div className={css.checkout_container}>

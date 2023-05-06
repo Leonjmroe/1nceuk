@@ -56,37 +56,41 @@ class StripeChargeView(View):
             customer=customer, 
             payment_method=payment_method_id,  
             currency='gbp', 
-            amount=100, 
+            amount=amount , 
             confirm=True)
 
         try:
             payment_intent.confirm()
-            # PaymentIntent was confirmed successfully
+            response = 'PaymentIntent was confirmed successfully'
         except stripe.error.CardError as e:
-            # Handle the card error
+            response = e
             pass
         except stripe.error.StripeError as e:
-            # Handle other Stripe errors
+            response = e
             pass
 
         return JsonResponse({
-        # 'client_secret': payment_intent.client_secret
-        'payment_intent': payment_intent
+            'payment_intent': payment_intent,
+            'response': response
         })
    
-
-
 @method_decorator(csrf_exempt, name='dispatch')
-class PaymentIntentView(View):
+class StripePaymentIntent(View):
     def post(self, request, *args, **kwargs):
 
         stripe.api_key = secret_key
 
+        body_unicode = request.body.decode('utf-8')
+        body_data = json.loads(body_unicode)
+        amount = body_data.get('amount')
+
         payment_intent = stripe.PaymentIntent.create(
-            amount=100,
-            currency='gbp')
+            currency='gbp', 
+            amount=amount
+        )
 
         return JsonResponse({
-            'client_secret': payment_intent.client_secret
+            'payment_intent': payment_intent,
         })
+
 

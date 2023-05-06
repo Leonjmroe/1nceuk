@@ -3,7 +3,8 @@ import { useState } from 'react';
 
 export const initialState = {
 	count: 0,
-	items: []
+	items: [],
+	client_secret: null
 }
 
 export const reducer = (state, action) => {
@@ -22,6 +23,9 @@ export const reducer = (state, action) => {
 		case 'set_basket':
 			return { count: action.payload.length,
 					 items: action.payload }
+		case 'client_secret':
+			return { ...state, 
+					 client_secret: action.payload }
 		default:
 			return state
 	}
