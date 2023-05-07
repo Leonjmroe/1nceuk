@@ -11,90 +11,32 @@ secret_key = "sk_live_51MphC6DH2VJ3YG9vSipwjytKlcuP3ZlumeDfP1NH64GlMXw9AWmJY9b1J
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class StripeChargeView(View):
-    def post(self, request, *args, **kwargs):
-
-        stripe.api_key = secret_key_test
-
-        body_unicode = request.body.decode('utf-8')
-        body_data = json.loads(body_unicode)
-
-        payment_method_id = body_data.get('payment_method_id')
-        amount = body_data.get('amount')
-        email = body_data.get('email')
-        customer_id = body_data.get('customer_id')
-        item_ids = body_data.get('items_ids')
-        address_line_1 = body_data.get('address_line_1')
-        address_line_2 = body_data.get('address_line_2')
-        address_line_3 = body_data.get('address_line_3')
-        area = body_data.get('area')
-        postcode = body_data.get('postcode')
-        city = body_data.get('city')
-        country = body_data.get('country')
-        phone_number = body_data.get('phone_number')
-
-
-        customer = stripe.Customer.create(
-          name=customer_id,
-          email=email
-          # address={
-          #   "line1": address_line_1,
-          #   "line2": address_line_2,
-          #   "city": city,
-          #   "state": area,
-          #   "postal_code": postcode,
-          #   "country": country
-          # },
-          # payment_method=card_details,
-          # invoice_settings={
-          #   "default_payment_method": card_details,
-          # }
-        )
-    
-
-        payment_intent = stripe.PaymentIntent.create(
-            customer=customer, 
-            payment_method=payment_method_id,  
-            currency='gbp', 
-            amount=amount , 
-            confirm=True)
-
-        try:
-            payment_intent.confirm()
-            response = 'PaymentIntent was confirmed successfully'
-        except stripe.error.CardError as e:
-            response = e
-            pass
-        except stripe.error.StripeError as e:
-            response = e
-            pass
-
-        return JsonResponse({
-            'payment_intent': payment_intent,
-            'response': response
-        })
-   
-@method_decorator(csrf_exempt, name='dispatch')
 class StripePaymentIntent(View):
     def post(self, request, *args, **kwargs):
 
         stripe.api_key = secret_key_test
+        data_unicode = request.body.decode('utf-8')
+        data = json.loads(data_unicode)
 
-        body_unicode = request.body.decode('utf-8')
-        body_data = json.loads(body_unicode)
-        amount = body_data.get('amount')
+        customer = stripe.Customer.create(
+            email = data.get('email'),
+            name = data.get('first_name') + ' ' + data.get('last_name'),
+            phone = data.get('phone_number'),
+            address = {
+                'city': data.get('city'),
+                'country': data.get('country'),
+                'postal_code': data.get('postcode'),
+                'state': data.get('area'),
+                'line1': data.get('address_line_1'),
+                'line2': data.get('address_line_2') + '; ' + data.get('address_line_3')
+            })
 
         payment_intent = stripe.PaymentIntent.create(
-            currency='gbp', 
-            amount=amount,
-            automatic_payment_methods={
-              'enabled': True,
-            },
-        )
+            customer = customer['id'],
+            currency = 'gbp', 
+            amount = data.get('amount'),
+            receipt_email = data.get('email'),
+            automatic_payment_methods = { 'enabled': True },
+            description = data.get('item_string') )
 
-
-        return JsonResponse({
-            'payment_intent': payment_intent,
-        })
-
-
+        return JsonResponse({ 'payment_intent': payment_intent })

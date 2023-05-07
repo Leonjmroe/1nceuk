@@ -13,8 +13,7 @@ export default function Success(props) {
   const [ successSwitch, setSuccessSwitch ] = useState(css.payment_success_cont);
   const [ noSuccessSwitch, setNoSuccessSwitch ] = useState(css.payment_no_success_cont);
   const [ errorMessage, setErrorMessage ] = useState();
-  const [items, set_items] = useState([])
-  const [email, setEmail] = useState('')
+  const [ items, set_items ] = useState([])
 
 
   const getData = key => {
@@ -44,21 +43,21 @@ export default function Success(props) {
         setSuccessSwitch(`${css.payment_success_cont} ${css.display_cont}`)
         dispatch({ type: 'reset_basket' })
         window.localStorage.setItem('basket', JSON.stringify([]));
-        setEmail(paymentIntent.email)
-        send_confirmation_email()
+        shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
+                                 paymentIntent.id )
       }
     });
   }, [stripePromise]);
 
 
-  const send_confirmation_email = async () => {
-    const res = await axios.post('/api/mail/payment_confirmation/', 
-              { 'subject': 'Your 1nce purchase receipt',
-                'recipient_list': email,
-                'message': 'Thank you very much for purchasing from 1nce!'
-    })
-    console.log(res)
-  }
+  const shipping_handling_email = async ( email, amount, description, id ) => {
+    const response = await axios.post('/api/mail/payment_confirmation/', 
+                    { 'subject': 'You have a new 1nce purchase!',
+                      'recipient': '1nceuk.clothing@gmail.com',
+                      'message': 'Customer Email: ' + email + '; Sale amount: £' + (amount/100) + '; Items: ' + description
+                                  + '; Stripe-Payment-ID: ' + id })}
+                                
+  
 
   return (
     <div className={css.payment_success_container}>

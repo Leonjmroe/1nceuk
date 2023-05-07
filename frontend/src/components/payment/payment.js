@@ -13,12 +13,29 @@ export default function Payment(props) {
   const payload = location.state.checkout_paylaod
   const { stripePromise } = props;
 
+  let total_item_string = ''
+
   useEffect( async () => {
+    const map_items = payload.item_ids.map((item) => {
+      const item_string = (item['category'] + ', ' + item['title'] + ', ' + item['colour'] + ', ' + 
+                    item['size'] + ', ' + '£' + item['price'])
+      total_item_string = total_item_string + '[' + item_string + '] '
+    })
       const payment_intent = await axios.post('/api/payment/create-payment-intent/', 
                                                  { 'amount': (payload.amount * 100),
-                                                   'receipt_email': payload.email,
+                                                   'email': payload.email,
+                                                   'first_name': payload.first_name,
+                                                   'last_name': payload.last_name,
+                                                   'item_string': total_item_string,
+                                                   'address_line_1': payload.address_line_1,
+                                                   'address_line_2': payload.address_line_2,
+                                                   'address_line_3': payload.address_line_3,
+                                                   'area': payload.area,
+                                                   'postcode': payload.postcode,
+                                                   'city': payload.city,
+                                                   'country': payload.country,
+                                                   'phone_number': payload.phone_number })
 
-    })
       setClientSecret(payment_intent.data.payment_intent.client_secret)
   }, []);
 
@@ -50,33 +67,3 @@ export default function Payment(props) {
     </div>
   );
 }
-
-
-    // event.preventDefault();
-    // const { error, paymentMethod } = await stripe.createPaymentMethod({
-    //   type: 'card',
-    //   card: elements.getElement(CardElement),
-    // });
-    // if (error) {
-    //   setErrorMessage(error.message);
-    // } else {
-    //   const payment_method_id = paymentMethod.id;
-    //   try {
-    //     const data = await axios.post('/api/payment/', {     'payment_method_id': payment_method_id, 
-    //                                                          'amount': payload.amount,
-    //                                                          'email': payload.email,
-    //                                                          'customer_id': payload.customer_id,
-    //                                                          'item_ids': payload.item_ids,
-    //                                                          'address_line_1': payload.address_line_1,
-    //                                                          'address_line_2': payload.address_line_2,
-    //                                                          'address_line_3': payload.address_line_3,
-    //                                                          'area': payload.area,
-    //                                                          'postcode': payload.postcode,
-    //                                                          'city': payload.city,
-    //                                                          'country': payload.country,
-    //                                                          'phone_number': payload.phone_number });
-    //     const paymentIntent = data.data.payment_intent
-
-    //     const result = await stripe.confirmCardPayment(paymentIntent.client_secret, {
-    //       payment_method: paymentIntent.paymentMethod
-    //     });
