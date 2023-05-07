@@ -46,8 +46,9 @@ export default function Preview() {
       return JSON.parse(window.localStorage.getItem(key));
     };
 
-    const item_refine = (item, item_size, item_id) => {
+    const item_refine = (item, item_size, item_id, parent_id) => {
       const basket_item = {
+        'parent_id': parent_id,
         'id': item_id,
         'title': item.title,
         'description': item.description,
@@ -69,9 +70,9 @@ export default function Preview() {
         var item 
         if( items == null ){
           items = []
-          item = item_refine(location.state.item, size_selection, 0)
+          item = item_refine(location.state.item, size_selection, 0, location.state.item.id)
         }else {
-          item = item_refine(location.state.item, size_selection, items.length)
+          item = item_refine(location.state.item, size_selection, items.length, location.state.item.id)
         }
         items.push(item)
         saveData('basket', items);

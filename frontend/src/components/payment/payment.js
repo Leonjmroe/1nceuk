@@ -17,8 +17,9 @@ export default function Payment(props) {
 
   useEffect( async () => {
     const map_items = payload.item_ids.map((item) => {
-      const item_string = (item['category'] + ', ' + item['title'] + ', ' + item['colour'] + ', ' + 
-                    item['size'] + ', ' + '£' + item['price'])
+      const item_string = ('Parent_ID: ' + item['parent_id'] + '; Category: ' + item['category'] + '; Item: ' + 
+                            item['title'] + '; Colour: ' + item['colour'] + '; Size: ' + item['size'] + '; Price: ' + 
+                            '£' + item['price'])
       total_item_string = total_item_string + '[' + item_string + '] '
     })
       const payment_intent = await axios.post('/api/payment/create-payment-intent/', 

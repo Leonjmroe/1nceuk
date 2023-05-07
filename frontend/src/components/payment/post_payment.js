@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useReducer, useContext } from "react";
 import { StateContext } from '../state_management/context.js'
 import axios from "axios";
+import { addItem, getItems, editItem, deleteItem  } from '../store_admin/admin_actions.js';
 
 
 export default function Success(props) {
@@ -43,8 +44,9 @@ export default function Success(props) {
         setSuccessSwitch(`${css.payment_success_cont} ${css.display_cont}`)
         dispatch({ type: 'reset_basket' })
         window.localStorage.setItem('basket', JSON.stringify([]));
-        shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
-                                 paymentIntent.id )
+        // shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
+        //                          paymentIntent.id )
+        get_items_to_remove(paymentIntent.description)
       }
     });
   }, [stripePromise]);
@@ -57,7 +59,22 @@ export default function Success(props) {
                       'message': 'Customer Email: ' + email + '; Sale amount: £' + (amount/100) + '; Items: ' + description
                                   + '; Stripe-Payment-ID: ' + id })}
                                 
-  
+  const get_items_to_remove = (items_string) => {
+    var items = items_string.split('] ')
+    items = items.slice(0, items.length - 1)
+    const items_to_del = []
+    const items_id = items.map((item) => {
+      const id = item.split(';')[0].split(' ')[1]
+      const size = item.split(';')[4].split(' ')[2]
+      const item_to_del = [id, size]
+      items_to_del.push(item_to_del)
+    })
+    remove_from_store(items_to_del)
+  }
+
+  const remove_from_store = (items_to_del) => {
+
+  }
 
   return (
     <div className={css.payment_success_container}>

@@ -141,7 +141,6 @@ export default function StoreAdmin() {
    const get_blob = (item, image, id) => {
       fetch(image)
          .then(function(response) {
-            console.log(1)
             return response.blob()
          })
      .then(function(blob) {

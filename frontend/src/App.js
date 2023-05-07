@@ -5,7 +5,7 @@ import { Store, StoreSelect } from './components/store/store.js';
 import { Collection2022, Collection2023 } from './components/collections/collections.js';
 import Payment from './components/payment/payment.js';
 import About from './components/about/about.js';
-import Success from './components/payment/success.js';
+import Success from './components/payment/post_payment.js';
 import Skating from './components/skating/skating.js';
 import Designs from './components/designs/designs.js';
 import Checkout from './components/checkout/checkout.js';
