@@ -187,19 +187,20 @@ export default function Checkout() {
     }else {
       set_email(css.email)
       set_first_name(css.first_name)
-      set_last_name(css.first_name)
+      set_last_name(css.last_name)
       set_city(css.city)
       set_address_line_1(css.address_line_1)
       set_postcode(css.postcode)
       set_country(css.country)
       var item_ids = []
       items.map((item) => {
-        item_ids.push(item.id)
+        item_ids.push(item)
       })
       var amount = payment.slice(1, payment.length)
       const checkout_paylaod = {'amount': amount,
-                                'item_ids': item_ids,
-                                'customer_id': (first_name + '_' + last_name + '_' + postcode),
+                                'item_ids': items,
+                                'first_name': first_name,
+                                'last_name': last_name,
                                 'email': email,
                                 'phone_number': document.getElementsByClassName(css.phone_number)[0].value,
                                 'address_line_1': document.getElementsByClassName(css.address_line_1)[0].value,

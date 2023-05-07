@@ -1,19 +1,22 @@
 import os.path, os
 import django_heroku
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-SECRET_KEY = 'django-insecure-=a*)s^uet7ai@!c6muqtt4w__+9enk@jx$+23g7iv!v!p#qja3'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True 
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 #production code
-# SECURE_SSL_REDIRECT = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 INSTALLED_APPS = [
@@ -28,6 +31,7 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.items',
     'apps.purchase',
+    'apps.mail',
     'djoser',
     'storages',
     'corsheaders',
@@ -119,6 +123,15 @@ USE_TZ = True
 # if IS_PROD:
 #     SECURE_SSL_REDIRECT = True
 #     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_USE_TLS = False #True
+EMAIL_PORT = 465 #587
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
 
 
 django_heroku.settings(locals())

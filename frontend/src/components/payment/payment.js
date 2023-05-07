@@ -14,10 +14,13 @@ export default function Payment(props) {
   const { stripePromise } = props;
 
   useEffect( async () => {
-      const payment_intent = await axios.post('/api/payment/create-payment-intent/', { 'amount': (payload.amount * 100) })
+      const payment_intent = await axios.post('/api/payment/create-payment-intent/', 
+                                                 { 'amount': (payload.amount * 100),
+                                                   'receipt_email': payload.email,
+
+    })
       setClientSecret(payment_intent.data.payment_intent.client_secret)
   }, []);
-
 
   const summary_title  = () => {
     var item_text = ''
@@ -31,7 +34,6 @@ export default function Payment(props) {
   }
 
   const appearance = { theme: 'night', labels: 'floating' }
-
 
   return (
     <div className={css.payment_container}>

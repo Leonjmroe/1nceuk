@@ -2,6 +2,7 @@ import css from './payment.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useReducer, useContext } from "react";
 import { StateContext } from '../state_management/context.js'
+import axios from "axios";
 
 
 export default function Success(props) {
@@ -13,6 +14,8 @@ export default function Success(props) {
   const [ noSuccessSwitch, setNoSuccessSwitch ] = useState(css.payment_no_success_cont);
   const [ errorMessage, setErrorMessage ] = useState();
   const [items, set_items] = useState([])
+  const [email, setEmail] = useState('')
+
 
   const getData = key => {
     return JSON.parse(window.localStorage.getItem(key));
@@ -41,10 +44,21 @@ export default function Success(props) {
         setSuccessSwitch(`${css.payment_success_cont} ${css.display_cont}`)
         dispatch({ type: 'reset_basket' })
         window.localStorage.setItem('basket', JSON.stringify([]));
+        setEmail(paymentIntent.email)
+        send_confirmation_email()
       }
     });
   }, [stripePromise]);
 
+
+  const send_confirmation_email = async () => {
+    const res = await axios.post('/api/mail/payment_confirmation/', 
+              { 'subject': 'Your 1nce purchase receipt',
+                'recipient_list': email,
+                'message': 'Thank you very much for purchasing from 1nce!'
+    })
+    console.log(res)
+  }
 
   return (
     <div className={css.payment_success_container}>

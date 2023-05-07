@@ -11,6 +11,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),  
     path('api/items/', include('apps.items.urls')),
     path('api/payment/', include('apps.purchase.urls')),
+    path('api/mail/', include('apps.mail.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
 
