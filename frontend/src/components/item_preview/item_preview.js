@@ -19,13 +19,13 @@ export default function Preview() {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
 
-    useEffect(() => {
-      const handleResize = () => {
-        setIsSmallScreen(window.innerWidth <= 800)
-        console.log(isSmallScreen)
-    }
-      window.addEventListener('resize', handleResize)
-    });
+    // useEffect(() => {
+    //   const handleResize = () => {
+    //     setIsSmallScreen(window.innerWidth <= 800)
+    //     console.log(isSmallScreen)
+    // }
+    //   window.addEventListener('resize', handleResize)
+    // });
 
     const tileClick = (img) => {
       if (img == 1) {
@@ -96,7 +96,7 @@ export default function Preview() {
 
     <div className={css.preview_container}>
 
-      { isSmallScreen ? (
+    {/*  { isSmallScreen ? ( */}
       <div className={css.preview_cont}>
         <div className={css.image_cont}>
           <div className={css.carousel}>
@@ -126,9 +126,9 @@ export default function Preview() {
                            {state: {catagory: location.state.item.category}})}>Continue Shopping</div>
           </div>
         </div>
-      </div> ) :
+      </div> {/* }) : */}
 
-      (
+     {/* ( */}
       <div className={css.preview_mobile_cont}>
         <div className={css.preview_mobile_header}>
           <div className={css.title_mobile}>{location.state.item.title}</div>
@@ -155,7 +155,7 @@ export default function Preview() {
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
-      </div> )}
+      </div> {/* //)} */}
       
     </div>
   );
