@@ -34,7 +34,7 @@ export default function StoreAdmin() {
    const [qty_large, set_qty_large] = useState('')
    const [qty_extra_large, set_qty_extra_large] = useState('')
 
-   const titleInput = event => { setTitle(event.target.value.length) }
+   const titleInput = event => { setTitle(event.target.value) }
    const descriptionInput = event => { setDescription(event.target.value) }
    const priceInput = event => { setPrice(event.target.value) }
    const categoryInput = event => { setCategory(event.target.value) }
@@ -102,7 +102,7 @@ export default function StoreAdmin() {
          const e = event.target
          const item = new FormData(e)  
          if (addEditDelText === 'Delete Item') {
-            deleteItem(item, location.state.item.id) 
+            deleteItem(location.state.item.id, 1) 
          }else if ( addEditDelText === 'Edit Item' ) {
             item.set('title', title)
             item.set('description', description)
@@ -110,7 +110,7 @@ export default function StoreAdmin() {
             item.set('price', price)
             item.set('colour', colour)
             item.set('qty_small', qty_small)
-            item.set('qty_medium', qty_small)
+            item.set('qty_medium', qty_medium)
             item.set('qty_large', qty_large)
             item.set('qty_extra_large', qty_extra_large)
             const image1_blob_test = image1.slice(0, 5)
@@ -231,7 +231,7 @@ export default function StoreAdmin() {
        <canvas id="canvas"></canvas>
          <div className={css.add_item_cont}>
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
-               <input className={css.title} placeholder="title" type="text" name="title" maxLength="50" value={title} onChange={titleInput} />
+               <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="50" value={title} onChange={titleInput} />
                <textarea className={css.itemDescription} placeholder="description" maxLength="150" name="description" value={description} onChange={descriptionInput} type="text" />
                <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" min="0" max="10000" value={price} onChange={priceInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>

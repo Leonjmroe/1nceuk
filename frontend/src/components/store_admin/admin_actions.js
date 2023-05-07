@@ -20,11 +20,12 @@ export const getItems = () => {
 }
 
 
-export const deleteItem = (item, id) => {
-  axios.delete(`/api/items/item-list/${id}`, item)
+export const deleteItem = (id, mode) => {
+  axios.delete(`/api/items/item-list/${id}`, { 'mode': mode })
     .then(function (response) { 
-      console.log(response) 
-      window.location.reload()
+      if( mode == 1 ) {
+        window.location.reload()
+      }
     })
     .catch(function (response) { 
       console.log(response) 

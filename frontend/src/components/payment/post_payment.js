@@ -62,18 +62,34 @@ export default function Success(props) {
   const get_items_to_remove = (items_string) => {
     var items = items_string.split('] ')
     items = items.slice(0, items.length - 1)
-    const items_to_del = []
+    const id_list = []
+    const size_list = []
     const items_id = items.map((item) => {
       const id = item.split(';')[0].split(' ')[1]
       const size = item.split(';')[4].split(' ')[2]
-      const item_to_del = [id, size]
-      items_to_del.push(item_to_del)
+      id_list.push(Number(id))
+      size_list.push(size)
     })
-    remove_from_store(items_to_del)
+    remove_from_store(id_list, size_list)
   }
 
-  const remove_from_store = (items_to_del) => {
-
+  const remove_from_store = (id_list, size_list) => {
+      getItems().then((data) => {
+        const items = []
+        const item = data.map((item) => {
+          const id = item.id
+            if( id_list.includes(id) ) {
+              const idx = id_list.indexOf(id)
+              const size = size_list[idx]
+              const inventory = item.qty_small + item.qty_medium + item.qty_large + item.qty_extra_large
+              if( inventory > 1 ) {
+                //update
+              }else {
+                deleteItem(id, 0)
+              }
+            }
+         })
+      })
   }
 
   return (

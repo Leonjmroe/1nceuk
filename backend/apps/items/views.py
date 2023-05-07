@@ -17,9 +17,10 @@ class ItemsList(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
+        mode = request.data.get('mode')
         item = Items.objects.get(pk=pk) 
         item.delete()
-        return Response(status=status.HTTP_200_OK)
+        return Response(mode, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
         item = Items.objects.get(pk=pk) 
