@@ -99,17 +99,17 @@ export default function Tile(props) {
       <div className={tile_size_toggle}>
 
         <img className={image_class_1} src={props.image1} onClick={()=> { if(props.mode === "store"){
-                                                              navigate('/item_preview',{state: {item:props}})}}} 
+                                                              navigate('/item_preview', {state: {item:props} })}}} 
                                                           onMouseOver={()=> { if(props.mode === "store" || 
                                                                                  props.mode === "checkout" ){
                                                               mouseOverTile() }}} />
         <img className={image_class_2} src={props.image2} onClick={()=> { if(props.mode === "store"){
-                                                              navigate('/item_preview',{state: {item:props}})}}}
+                                                              navigate('/item_preview', {state: {item:props} })}}}
                                                           onMouseLeave={()=> { if(props.mode === "store" || 
                                                                                  props.mode === "checkout" ){
                                                               mouseLeaveTile() }}} />
         <img className={image_class_3} src={props.image3} onClick={()=> { if(props.mode === "store"){
-                                                      navigate('/item_preview',{state: {item:props}})}}} />
+                                                      navigate('/item_preview', {state: {item:props} })}}} />
 
         <div className={css.detailBox}> 
           <div className={title_length_check(props.title)}>{props.title}</div>

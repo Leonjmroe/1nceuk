@@ -3,9 +3,10 @@ import { useState, useEffect, useReducer, useContext } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import SizeSelector from './size_selector.js'
 import { StateContext } from '../state_management/context.js'
+import { useRef } from 'react';
 
 
-export default function Preview() {
+export default function Preview(props) {
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -16,37 +17,31 @@ export default function Preview() {
     const [image_class_3, set_image_class_3] = useState(css.display_none)
     const [add_basket, set_add_basket] = useState(css.add_to_basket)
     const [size_selection, set_size_selection] = useState()
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [isSmallScreen, setIsSmallScreen] = useState(false)
+    
+    var [count_small, set_count_small] = useState(location.state.item.qty_small)
+    var [count_medium, set_count_medium] = useState(location.state.item.qty_medium)
+    var [count_large, set_count_large] = useState(location.state.item.qty_large)
+    var [count_extra_large, set_count_extra_large] = useState(location.state.item.qty_extra_large)
+
+    const [size_small, set_size_small] = useState(css.size_element)
+    const [size_medium, set_size_medium] = useState(css.size_element)
+    const [size_large, set_size_large] = useState(css.size_element)
+    const [size_extra_large, set_size_extra_large] = useState(css.size_element)
 
 
-    // useEffect(() => {
+
+    useEffect(() => {
     //   const handleResize = () => {
     //     setIsSmallScreen(window.innerWidth <= 800)
     //     console.log(isSmallScreen)
     // }
     //   window.addEventListener('resize', handleResize)
-    // });
 
-    const tileClick = (img) => {
-      if (img == 1) {
-        set_image_class_1(css.image)
-        set_image_class_2(css.display_none)
-        set_image_class_3(css.display_none)
-      } else if(img == 2) {
-        set_image_class_2(css.image)
-        set_image_class_1(css.display_none)
-        set_image_class_3(css.display_none)
-      }else {
-        set_image_class_3(css.image)
-        set_image_class_2(css.display_none)
-        set_image_class_1(css.display_none)
-      }
-    }
-
-    const handle_size_select = (size) => {
-      set_add_basket(`${css.add_to_basket} ${css.add_to_basket_select}`)
-      set_size_selection(size)
-    }
+      const item_data = getData('basket')
+      stock_revise(item_data)
+      stock_check()
+    }, []);
 
     const saveData = (key, data) => {
       window.localStorage.setItem(key, JSON.stringify(data));
@@ -55,6 +50,55 @@ export default function Preview() {
     const getData = key => {
       return JSON.parse(window.localStorage.getItem(key));
     };
+
+    const stock_revise = (items) => {
+      items.forEach((item) => {
+        if (item.parent_id === location.state.item.id) {
+          switch (item.size) {
+            case 'S':
+              count_small = count_small - 1
+              break;
+            case 'M':
+              count_medium = count_medium - 1
+              break;
+            case 'L':
+              count_large = count_large - 1
+              break;
+            case 'XL':
+              count_extra_large = count_extra_large - 1
+              break;
+            default:
+              break;
+          }
+        }
+      });
+      set_count_small(count_small);
+      set_count_medium(count_medium);
+      set_count_large(count_large);
+      set_count_extra_large(count_extra_large);
+    };
+
+    const tileClick = (img) => {
+      switch (img) {
+        case 1:
+          set_image_class_1(css.image)
+          set_image_class_2(css.display_none)
+          set_image_class_3(css.display_none)
+          break
+        case 2:
+          set_image_class_2(css.image)
+          set_image_class_1(css.display_none)
+          set_image_class_3(css.display_none)
+          break
+        case 3:
+          set_image_class_3(css.image)
+          set_image_class_2(css.display_none)
+          set_image_class_1(css.display_none)
+          break
+        default:
+          break
+      }
+    }
 
     const item_refine = (item, item_size, item_id, parent_id) => {
       const basket_item = {
@@ -88,9 +132,58 @@ export default function Preview() {
         saveData('basket', items);
         dispatch({ type: 'add_to_basket', payload: items })
         set_add_basket(css.add_to_basket)
-        set_size_selection(null)
+        stock_decrement(size_selection)
+        window.location.reload()            // ** Very Temporary Fix **
       }
     }
+
+    const stock_check = () => {
+      set_size_small(count_small <= 0 ? `${css.size_element} ${css.no_stock}` : css.size_element);
+      set_size_medium(count_medium <= 0 ? `${css.size_element} ${css.no_stock}` : css.size_element);
+      set_size_large(count_large <= 0 ? `${css.size_element} ${css.no_stock}` : css.size_element);
+      set_size_extra_large(count_extra_large <= 0 ? `${css.size_element} ${css.no_stock}` : css.size_element);
+    };
+
+    function size_select(size) {
+      stock_check()
+      switch (size) {
+        case 'S':
+          set_size_small(`${css.size_element} ${css.size_select}`);
+          break;
+        case 'M':
+          set_size_medium(`${css.size_element} ${css.size_select}`);
+          break;
+        case 'L':
+          set_size_large(`${css.size_element} ${css.size_select}`);
+          break;
+        case 'XL':
+          set_size_extra_large(`${css.size_element} ${css.size_select}`);
+          break;
+        default:
+          break;
+      }
+      set_size_selection(size);
+      set_add_basket(`${css.add_to_basket} ${css.add_to_basket_select}`);
+    }
+
+    const stock_decrement = (size) => {
+      switch (size) {
+        case 'S':
+          set_count_small(count_small - 1);
+          break;
+        case 'M':
+          set_count_medium(count_medium - 1);
+          break;
+        case 'L':
+          set_count_large(count_large - 1);
+          break;
+        case 'XL':
+          set_count_extra_large(count_extra_large - 1);
+          break;
+        default:
+          break;
+      }
+    };
 
    return (
 
@@ -117,8 +210,7 @@ export default function Preview() {
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
             <div className={css.price}>£{location.state.item.price}</div>
-            <SizeSelector parent_id={location.state.item.id} size_select={handle_size_select} 
-                          pass_selection={size_selection} />
+            <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
           </div>
           <div className={css.checkout_cont}>
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
@@ -149,8 +241,7 @@ export default function Preview() {
           </div>
         </div>
         <div className={css.preview_mobile_footer}>
-            <SizeSelector parent_id={location.state.item.id} size_select={handle_size_select} 
-                          pass_selection={size_selection} />
+            <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
             <div className={css.price_mobile}>£{location.state.item.price}</div>
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
