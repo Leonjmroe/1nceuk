@@ -1,8 +1,8 @@
 import axios from "axios";
 
 
-export const addItem = (item, id) => {
-  axios.post('/api/items/item-list/', item)
+export const addItem = async (item, id) => {
+  await axios.post('/api/items/item-list/', item)
     .then(function (response) {
       console.log(response);
       window.location.reload()
@@ -13,14 +13,14 @@ export const addItem = (item, id) => {
   };
 
 
-export const getItems = () => { 
-  const items = axios.get('/api/items/item-list/')
+export const getItems = async () => { 
+  const items = await axios.get('/api/items/item-list/')
     .then((response) => response.data)
   return items
 }
 
 
-export const deleteItem = (id, mode) => {
+export const deleteItem = async (id, mode) => {
   axios.delete(`/api/items/item-list/${id}`, { 'mode': mode })
     .then(function (response) { 
       if( mode == 1 ) {
@@ -33,8 +33,8 @@ export const deleteItem = (id, mode) => {
   };
 
 
-export const editItem = (item, id) => {
-  axios.put(`/api/items/item-list/${id}/`, item)
+export const editItem = async (item, id) => {
+  await axios.put(`/api/items/item-list/${id}/`, item)
     .then(function (response) { 
       console.log(response) 
       window.location.reload()
@@ -45,5 +45,14 @@ export const editItem = (item, id) => {
   };
 
 
-
+export const decrementItem = async (id, size_field) => {
+  await axios.put(`/api/items/item-bought/`, {id, size_field})
+    .then(function (response) { 
+      console.log(response) 
+      // window.location.reload()
+    })
+    .catch(function (response) { 
+      console.log(response) 
+    });
+  };
 

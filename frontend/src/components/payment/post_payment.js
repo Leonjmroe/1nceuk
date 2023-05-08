@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useReducer, useContext } from "react";
 import { StateContext } from '../state_management/context.js'
 import axios from "axios";
-import { addItem, getItems, editItem, deleteItem  } from '../store_admin/admin_actions.js';
+import { addItem, getItems, editItem, deleteItem, decrementItem } from '../store_admin/admin_actions.js';
 
 
 export default function Success(props) {
@@ -83,7 +83,23 @@ export default function Success(props) {
               const size = size_list[idx]
               const inventory = item.qty_small + item.qty_medium + item.qty_large + item.qty_extra_large
               if( inventory > 1 ) {
-                //update
+                let size_field
+                switch (size) {
+                  case 'S':
+                    size_field = 'qty_small'
+                    break
+                  case 'M':
+                    size_field = 'qty_medium'
+                    break
+                  case 'L':
+                    size_field = 'qty_large'
+                    break
+                  case 'XL':
+                    size_field = 'qty_extra_large'
+                    break
+                }
+                console.log(id, size_field)
+                decrementItem(id, size_field)
               }else {
                 deleteItem(id, 0)
               }
