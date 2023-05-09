@@ -78,6 +78,7 @@ export default function Success(props) {
         const items = []
         const item = data.map((item) => {
           const id = item.id
+          console.log(id, id_list)
             if( id_list.includes(id) ) {
               const idx = id_list.indexOf(id)
               const size = size_list[idx]
@@ -87,19 +88,16 @@ export default function Success(props) {
                 switch (size) {
                   case 'S':
                     size_field = 'qty_small'
-                    break
                   case 'M':
                     size_field = 'qty_medium'
-                    break
                   case 'L':
                     size_field = 'qty_large'
-                    break
                   case 'XL':
                     size_field = 'qty_extra_large'
-                    break
                 }
-                console.log(id, size_field)
-                decrementItem(id, size_field)
+                let size_qty = 0
+                console.log(id, size_field, size_qty)
+                // decrementItem(id, size_field)
               }else {
                 deleteItem(id, 0)
               }

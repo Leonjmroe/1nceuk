@@ -4,7 +4,7 @@ from .serializers import ItemsSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
+from django.http import HttpResponse
 import json
 
 
@@ -34,14 +34,16 @@ class ItemsList(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@method_decorator(csrf_exempt, name='dispatch')
+@csrf_exempt
 def item_bought(request, *args, **kwargs):
-    body_unicode = request.body.decode('utf-8')
-    body = json.loads(body_unicode)
-    item_id = body['id']
-    size_field = body['size_field']
-    item = Items.objects.get(id=item_id)
-    setattr(item, size_field, 3)
-    # item.size_field -= 1
-    item.save()
-    return request
+    if request.method == 'PUT':
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        item_id = body['id']
+        size_field = body['size_field']
+        item = Items.objects.get(id=item_id)
+        setattr(item, size_field, getattr(item, size_field) - 1)
+        item.save()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponseNotAllowed(['PUT'])
