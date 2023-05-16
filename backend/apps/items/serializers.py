@@ -12,6 +12,8 @@ class ItemsSerializer(serializers.ModelSerializer):
         	'price',
         	'category',
         	'colour',
+            'sale',
+            'label',
         	'image1',
         	'image2',
         	'image3',

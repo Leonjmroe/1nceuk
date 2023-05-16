@@ -60,7 +60,7 @@
   background-color: red;
 }
 
-.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemColour, .itemQuantity, .itemCategory, 
+.itemTitle, .itemPrice, .itemDescription, .itemSize, .itemLabel, .itemSale, .itemColour, .itemQuantity, .itemCategory, 
 .imageUpload1, .imageUpload2, .imageUpload3, .newImageUpload1, .newImageUpload2, .newImageUpload3 {
   width: 280px;
   margin: 15px auto 15px auto;
@@ -71,7 +71,7 @@
   z-index: 1;
 }
 
-.itemPrice {
+.itemPrice, .itemSale {
   width: 130px;
 }
 

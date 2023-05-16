@@ -26,6 +26,8 @@ export default function StoreAdmin() {
    const [price, setPrice] = useState('')
    const [category, setCategory] = useState('')
    const [colour, setColour] = useState('')
+   const [label, setLabel] = useState('')
+   const [sale, setSale] = useState('')
    const [image1, setImage1] = useState('')
    const [image2, setImage2] = useState('')
    const [image3, setImage3] = useState('')
@@ -39,6 +41,8 @@ export default function StoreAdmin() {
    const priceInput = event => { setPrice(event.target.value) }
    const categoryInput = event => { setCategory(event.target.value) }
    const colourInput = event => { setColour(event.target.value) }
+   const labelInput = event => { setLabel(event.target.value) }
+   const saleInput = event => { setSale(event.target.value) }
    const image1Input = event => { setImage1(URL.createObjectURL(event.target.files[0])) }
    const image2Input = event => { setImage2(URL.createObjectURL(event.target.files[0])) }
    const image3Input = event => { setImage3(URL.createObjectURL(event.target.files[0])) }
@@ -96,6 +100,8 @@ export default function StoreAdmin() {
            price={item.price}
            category={item.category}
            colour={item.colour}
+           sale={item.sale}
+           label={item.label}
            image1={item.image1}
            image2={item.image2}
            image3={item.image3}
@@ -117,6 +123,8 @@ export default function StoreAdmin() {
            price={item.price}
            category={item.category}
            colour={item.colour}
+           sale={item.sale}
+           label={item.label}
            image1={item.image1}
            image2={item.image2}
            image3={item.image3}
@@ -146,6 +154,8 @@ export default function StoreAdmin() {
             item.set('description', description)
             item.set('category', category)
             item.set('price', price)
+            item.set('label', label)
+            item.set('sale', sale)
             item.set('colour', colour)
             item.set('qty_small', qty_small)
             item.set('qty_medium', qty_medium)
@@ -204,6 +214,8 @@ export default function StoreAdmin() {
       setDescription(item.description)
       setPrice(item.price)
       setColour(item.colour)
+      setLabel(item.label)
+      setSale(item.sale)
       setImage1(item.image1)
       setImage2(item.image2)
       setImage3(item.image3)
@@ -220,6 +232,8 @@ export default function StoreAdmin() {
       setDescription('')
       setPrice('')
       setColour('')
+      setLabel('')
+      setSale('')
       setImage1('')
       setImage2('')
       setImage3('')
@@ -272,6 +286,7 @@ export default function StoreAdmin() {
                <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="50" value={title} onChange={titleInput} />
                <textarea className={css.itemDescription} placeholder="description" maxLength="150" name="description" value={description} onChange={descriptionInput} type="text" />
                <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" min="0" max="10000" value={price} onChange={priceInput} />
+               <input className={css.itemSale} type="number" placeholder="sale (%)" name="sale" min="0" max="100" value={sale} onChange={saleInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                   <option>select category</option>
                   <option className={css.sizeOption}>hats</option>
@@ -301,6 +316,12 @@ export default function StoreAdmin() {
                   <option className={css.sizeOption}>cream</option>
                   <option className={css.sizeOption}>burgundy</option>
                   <option className={css.sizeOption}>beige</option>
+               </select>
+               <select className={css.itemLabel} name="label" value={label} onChange={labelInput}>
+                  <option>select label</option>
+                  <option className={css.sizeOption}>No Label</option>
+                  <option className={css.sizeOption}>2022 Collection</option>
+                  <option className={css.sizeOption}>2023 Collection</option>
                </select>
                <div className={css.size_qty_cont}>
                   <div className={css.size_qty_inner_cont}>
