@@ -40,10 +40,21 @@ def item_bought(request, *args, **kwargs):
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)
         item_id = body['id']
-        size_field = body['size_field']
         item = Items.objects.get(id=item_id)
-        setattr(item, size_field, getattr(item, size_field) - 1)
+
+        qty_small = body['qty_small']
+        qty_medium = body['qty_medium']
+        qty_large = body['qty_large']
+        qty_extra_large = body['qty_extra_large']
+        setattr(item, 'qty_small', getattr(item, 'qty_small') - qty_small)
+        setattr(item, 'qty_medium', getattr(item, 'qty_medium') - qty_medium)
+        setattr(item, 'qty_large', getattr(item, 'qty_large') - qty_large)
+        setattr(item, 'qty_extra_large', getattr(item, 'qty_extra_large') - qty_extra_large)
+
+        print(item_id, qty_small, qty_medium, qty_large, qty_extra_large)
+
         item.save()
         return HttpResponse(status=200)
     else:
         return HttpResponseNotAllowed(['PUT'])
+

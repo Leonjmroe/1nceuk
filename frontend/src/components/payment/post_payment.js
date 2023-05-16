@@ -44,9 +44,9 @@ export default function Success(props) {
         setSuccessSwitch(`${css.payment_success_cont} ${css.display_cont}`)
         dispatch({ type: 'reset_basket' })
         window.localStorage.setItem('basket', JSON.stringify([]));
-        // shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
-        //                          paymentIntent.id )
-        get_items_to_remove(paymentIntent.description)
+        shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
+                                 paymentIntent.id )
+        remove_items(paymentIntent.description)
       }
     });
   }, [stripePromise]);
@@ -58,8 +58,9 @@ export default function Success(props) {
                       'recipient': '1nceuk.clothing@gmail.com',
                       'message': 'Customer Email: ' + email + '; Sale amount: £' + (amount/100) + '; Items: ' + description
                                   + '; Stripe-Payment-ID: ' + id })}
-                                
-  const get_items_to_remove = (items_string) => {
+               
+
+  const remove_items = (items_string) => {
     var items = items_string.split('] ')
     items = items.slice(0, items.length - 1)
     const id_list = []
@@ -70,41 +71,44 @@ export default function Success(props) {
       id_list.push(Number(id))
       size_list.push(size)
     })
-    remove_from_store(id_list, size_list)
+    const unique_item_obj = []
+    const unique_ids = [...new Set(id_list)];
+    unique_ids.map((item_id) => {
+      const size_obj = { 'S': 0,
+                         'M': 0,
+                         'L': 0,
+                         'XL': 0 }
+      const item_obj = [item_id, size_obj]
+      unique_item_obj.push(item_obj)
+    })
+    let count = 0 
+    id_list.map((list_id) => {
+      unique_item_obj.map((obj_id) => {
+        if( obj_id[0] == list_id) {
+          const size = size_list[count]
+          switch (size) {
+            case 'S':
+              obj_id[1]['S'] = obj_id[1]['S'] + 1
+              break
+            case 'M':
+              obj_id[1]['M'] = obj_id[1]['M'] + 1
+              break
+            case 'L':
+              obj_id[1]['L'] = obj_id[1]['L'] + 1
+              break
+            case 'XL':
+              obj_id[1]['XL'] = obj_id[1]['XL'] + 1
+              break
+          }
+          count += 1
+        }
+      })
+    })
+    unique_item_obj.map((obj_id) => {
+      decrementItem(obj_id[0], obj_id[1]['S'], obj_id[1]['M'], obj_id[1]['L'], obj_id[1]['XL'])
+    })
   }
 
-  const remove_from_store = (id_list, size_list) => {
-      getItems().then((data) => {
-        const items = []
-        const item = data.map((item) => {
-          const id = item.id
-          console.log(id, id_list)
-            if( id_list.includes(id) ) {
-              const idx = id_list.indexOf(id)
-              const size = size_list[idx]
-              const inventory = item.qty_small + item.qty_medium + item.qty_large + item.qty_extra_large
-              if( inventory > 1 ) {
-                let size_field
-                switch (size) {
-                  case 'S':
-                    size_field = 'qty_small'
-                  case 'M':
-                    size_field = 'qty_medium'
-                  case 'L':
-                    size_field = 'qty_large'
-                  case 'XL':
-                    size_field = 'qty_extra_large'
-                }
-                let size_qty = 0
-                console.log(id, size_field, size_qty)
-                // decrementItem(id, size_field)
-              }else {
-                deleteItem(id, 0)
-              }
-            }
-         })
-      })
-  }
 
   return (
     <div className={css.payment_success_container}>

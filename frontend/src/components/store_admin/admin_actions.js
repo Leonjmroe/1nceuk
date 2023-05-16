@@ -45,8 +45,8 @@ export const editItem = async (item, id) => {
   };
 
 
-export const decrementItem = async (id, size_field) => {
-  await axios.put(`/api/items/item-bought/`, {id, size_field})
+export const decrementItem = async (id, qty_small, qty_medium, qty_large, qty_extra_large) => {
+  await axios.put(`/api/items/item-bought/`, {id, qty_small, qty_medium, qty_large, qty_extra_large})
     .then(function (response) { 
       console.log(response) 
       // window.location.reload()
