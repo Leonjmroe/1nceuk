@@ -27,7 +27,7 @@ export default function Checkout() {
 
   const [first_name, set_first_name] = useState(css.first_name)
   const [last_name, set_last_name] = useState(css.last_name)
-  const [email, set_email] = useState(css.email)
+  // const [email, set_email] = useState(css.email)
   const [address_line_1, set_address_line_1] = useState(css.address_line_1)
   const [city, set_city] = useState(css.city)
   const [postcode, set_postcode] = useState(css.postcode)
@@ -94,7 +94,7 @@ export default function Checkout() {
   const validation = async (event) => {
     const first_name = document.getElementsByClassName(css.first_name)[0].value
     const last_name = document.getElementsByClassName(css.last_name)[0].value
-    const email = document.getElementsByClassName(css.email)[0].value
+    // const email = document.getElementsByClassName(css.email)[0].value
     const address_line_1 = document.getElementsByClassName(css.address_line_1)[0].value
     const city = document.getElementsByClassName(css.city)[0].value.slice(1)
     const postcode = document.getElementsByClassName(css.postcode)[0].value
@@ -111,9 +111,9 @@ export default function Checkout() {
     if(/[^A-Za-z]/.test(city_wo_spaces)) {
       count += 1
     }
-    if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-      count += 1
-    }
+    // if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+    //   count += 1
+    // }
     if(first_name.length == 0) {
       count += 1
     }
@@ -149,11 +149,11 @@ export default function Checkout() {
       }else {
         set_city(css.city)
       }
-      if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-        set_email(`${css.email} ${css.field_error}`)
-      }else {
-        set_email(css.email)
-      }
+      // if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+      //   set_email(`${css.email} ${css.field_error}`)
+      // }else {
+      //   set_email(css.email)
+      // }
       if(first_name.length == 0) {
         set_first_name(`${css.first_name} ${css.field_error}`)
       }else {
@@ -185,7 +185,7 @@ export default function Checkout() {
         set_country(css.country)
       }
     }else {
-      set_email(css.email)
+      // set_email(css.email)
       set_first_name(css.first_name)
       set_last_name(css.last_name)
       set_city(css.city)
@@ -201,7 +201,7 @@ export default function Checkout() {
                                 'item_ids': items,
                                 'first_name': first_name,
                                 'last_name': last_name,
-                                'email': email,
+                                // 'email': email,
                                 'phone_number': document.getElementsByClassName(css.phone_number)[0].value,
                                 'address_line_1': document.getElementsByClassName(css.address_line_1)[0].value,
                                 'address_line_2': document.getElementsByClassName(css.address_line_2)[0].value,
@@ -230,7 +230,7 @@ export default function Checkout() {
           <div className={css.details_cont}>
             <input className={first_name} onClick={close_lookup} type="text" placeholder="First Name"></input>
             <input className={last_name} onClick={close_lookup} type="text" placeholder="Last Name"></input>
-            <input className={email} onClick={close_lookup} type="text" placeholder="Email"></input>
+            {/*<input className={email} onClick={close_lookup} type="text" placeholder="Email"></input>*/}
             <input className={css.phone_number} onClick={close_lookup} type="text" placeholder="Phone Number"></input>
           </div>
           <div className={css.address_cont} >

@@ -5,7 +5,7 @@ export default function Countries(props) {
   return (
     <select className={props.class} type="dropdown" placeholder="Country">
       <option>Select Country</option>
-      <option value="AF">Afghanistan</option>
+{/*      <option value="AF">Afghanistan</option>
       <option value="AX">Aland Islands</option>
       <option value="AL">Albania</option>
       <option value="DZ">Algeria</option>
@@ -88,16 +88,16 @@ export default function Countries(props) {
       <option value="GM">Gambia</option>
       <option value="GE">Georgia</option>
       <option value="DE">Germany</option>
-      <option value="GH">Ghana</option>
-      <option value="GI">Gibraltar</option>
-      <option value="GR">Greece</option>
+      <option value="GH">Ghana</option>*/}
+      {/*<option value="GI">Gibraltar</option>*/}
+{/*      <option value="GR">Greece</option>
       <option value="GL">Greenland</option>
       <option value="GD">Grenada</option>
       <option value="GP">Guadeloupe</option>
       <option value="GU">Guam</option>
-      <option value="GT">Guatemala</option>
+      <option value="GT">Guatemala</option>*/}
       <option value="GG">Guernsey</option>
-      <option value="GN">Guinea</option>
+     {/* <option value="GN">Guinea</option>
       <option value="GW">Guinea-Bissau</option>
       <option value="GY">Guyana</option>
       <option value="HT">Haiti</option>
@@ -111,14 +111,14 @@ export default function Countries(props) {
       <option value="ID">Indonesia</option>
       <option value="IR">Iran, Islamic Republic of</option>
       <option value="IQ">Iraq</option>
-      <option value="IE">Ireland</option>
+      <option value="IE">Ireland</option>*/}
       <option value="IM">Isle of Man</option>
-      <option value="IL">Israel</option>
+      {/*<option value="IL">Israel</option>
       <option value="IT">Italy</option>
       <option value="JM">Jamaica</option>
-      <option value="JP">Japan</option>
+      <option value="JP">Japan</option>*/}
       <option value="JE">Jersey</option>
-      <option value="JO">Jordan</option>
+     {/* <option value="JO">Jordan</option>
       <option value="KZ">Kazakhstan</option>
       <option value="KE">Kenya</option>
       <option value="KI">Kiribati</option>
@@ -241,9 +241,9 @@ export default function Countries(props) {
       <option value="TV">Tuvalu</option>
       <option value="UG">Uganda</option>
       <option value="UA">Ukraine</option>
-      <option value="AE">United Arab Emirates</option>
+      <option value="AE">United Arab Emirates</option>*/}
       <option value="GB">United Kingdom</option>
-      <option value="US">United States</option>
+     {/* <option value="US">United States</option>
       <option value="UM">United States Minor Outlying Islands</option>
       <option value="UY">Uruguay</option>
       <option value="UZ">Uzbekistan</option>
@@ -256,7 +256,7 @@ export default function Countries(props) {
       <option value="EH">Western Sahara</option>
       <option value="YE">Yemen</option>
       <option value="ZM">Zambia</option>
-      <option value="ZW">Zimbabwe</option>
+      <option value="ZW">Zimbabwe</option>*/}
     </select>
   ); 
 }

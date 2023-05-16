@@ -24,7 +24,7 @@ export default function Payment(props) {
     })
       const payment_intent = await axios.post('/api/payment/create-payment-intent/', 
                                                  { 'amount': (payload.amount * 100),
-                                                   'email': payload.email,
+                                                   // 'email': payload.email,
                                                    'first_name': payload.first_name,
                                                    'last_name': payload.last_name,
                                                    'item_string': total_item_string,

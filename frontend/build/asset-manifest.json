@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.42c70002.chunk.css",
-    "main.js": "/static/js/main.50757856.chunk.js",
-    "main.js.map": "/static/js/main.50757856.chunk.js.map",
+    "main.js": "/static/js/main.a76ab0e4.chunk.js",
+    "main.js.map": "/static/js/main.a76ab0e4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.98f70eb5.js",
     "runtime-main.js.map": "/static/js/runtime-main.98f70eb5.js.map",
-    "static/js/2.5b36633b.chunk.js": "/static/js/2.5b36633b.chunk.js",
-    "static/js/2.5b36633b.chunk.js.map": "/static/js/2.5b36633b.chunk.js.map",
+    "static/js/2.4c98a792.chunk.js": "/static/js/2.4c98a792.chunk.js",
+    "static/js/2.4c98a792.chunk.js.map": "/static/js/2.4c98a792.chunk.js.map",
     "static/js/3.70e65622.chunk.js": "/static/js/3.70e65622.chunk.js",
     "static/js/3.70e65622.chunk.js.map": "/static/js/3.70e65622.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.42c70002.chunk.css.map": "/static/css/main.42c70002.chunk.css.map",
-    "static/js/2.5b36633b.chunk.js.LICENSE.txt": "/static/js/2.5b36633b.chunk.js.LICENSE.txt",
+    "static/js/2.4c98a792.chunk.js.LICENSE.txt": "/static/js/2.4c98a792.chunk.js.LICENSE.txt",
     "static/media/home.module.css": "/static/media/summer_vibes.486912f4.jpg",
     "static/media/core.module.css": "/static/media/whiteShoppingCart.00633afd.png",
     "static/media/store.module.css": "/static/media/IMG-3163.81fe0715.jpg",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.98f70eb5.js",
-    "static/js/2.5b36633b.chunk.js",
+    "static/js/2.4c98a792.chunk.js",
     "static/css/main.42c70002.chunk.css",
-    "static/js/main.50757856.chunk.js"
+    "static/js/main.a76ab0e4.chunk.js"
   ]
 }
