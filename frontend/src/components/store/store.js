@@ -26,14 +26,31 @@ export function Store() {
       })
    }
 
-   const createItems = items.map((item) => (
-      <ItemTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
-                category={item.category} colour={item.colour} image1={item.image1} 
-                image2={item.image2} image3={item.image3} qty_small={item.qty_small} 
-                qty_medium={item.qty_medium} qty_large={item.qty_large} qty_extra_large={item.qty_extra_large} 
-                mode="store" />
-      )
-   );
+   const createItems = items.map((item) => {
+    if (item.qty_small > 0 || item.qty_medium > 0 || item.qty_large > 0 || item.qty_extra_large > 0) {
+      return (
+        <ItemTile
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          description={item.description}
+          price={item.price}
+          category={item.category}
+          colour={item.colour}
+          image1={item.image1}
+          image2={item.image2}
+          image3={item.image3}
+          qty_small={item.qty_small}
+          qty_medium={item.qty_medium}
+          qty_large={item.qty_large}
+          qty_extra_large={item.qty_extra_large}
+          mode="store"
+          inventory="yes"
+        />
+      );
+    }
+  });
+
 
    const capitalise = () => {
       const catagory = location.state.catagory
@@ -52,7 +69,6 @@ export function Store() {
     </div>
   );
 }
-
 
 
 export function StoreSelect() {

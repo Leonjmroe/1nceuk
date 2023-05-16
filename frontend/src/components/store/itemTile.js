@@ -51,8 +51,12 @@ export default function Tile(props) {
 
     useEffect(() => {
       if( props.mode == "admin" ) {
+        if( props.inventory == "no" ) {
+          set_tile_size_toggle(css.tile_no_inventory)
+        }else {
+          set_tile_size_toggle(css.tile_admin)
+        }
         set_admin_button_toggle(css.admin_btn_cont)
-        set_tile_size_toggle(css.tile_admin)
         shuffle() 
       } else if( props.mode == "store" ) {
         set_image_class_1(css.image)
