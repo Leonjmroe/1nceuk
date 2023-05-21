@@ -130,6 +130,12 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0.95;
+}
+
+.collection_tile:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 
 .collection_text {
