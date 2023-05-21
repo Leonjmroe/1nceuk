@@ -40,6 +40,8 @@ export function Store() {
           image1={item.image1}
           image2={item.image2}
           image3={item.image3}
+          sale={item.sale}
+          label={item.label}
           qty_small={item.qty_small}
           qty_medium={item.qty_medium}
           qty_large={item.qty_large}

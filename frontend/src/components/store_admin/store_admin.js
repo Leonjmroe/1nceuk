@@ -143,8 +143,7 @@ export default function StoreAdmin() {
 
    const formSubmit = event => { 
       event.preventDefault();
-      const qty_total = (qty_small + qty_medium + qty_large + qty_extra_large)
-      if (title && description && price && colour && image1 && image2 && image3 && qty_total) {
+      if (title && description && price && colour && image1 && image2 && image3) {
          const e = event.target
          const item = new FormData(e)  
          if (addEditDelText === 'Delete Item') {
@@ -168,10 +167,10 @@ export default function StoreAdmin() {
                get_blob(item, image1, 1)
             }
             if( image2_blob_test !== 'blob:' ){
-               get_blob(item, image1, 2)
+               get_blob(item, image2, 2)
             }
             if( image3_blob_test !== 'blob:' ){
-               get_blob(item, image1, 3)
+               get_blob(item, image3, 3)
             } else {
                const run_edit_item = () => {
                   editItem(item, location.state.item.id) 

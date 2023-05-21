@@ -35,8 +35,8 @@ export default function PaymentForm() {
     const {error} = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // return_url: 'http://localhost:3000/#/payment_success',
-        return_url: 'https://www.1nceuk.com/#/payment_success',
+        return_url: 'http://localhost:3000/#/payment_success',
+        // return_url: 'https://www.1nceuk.com/#/payment_success',      # Produciton code 
       },
       receipt_email: email
     });

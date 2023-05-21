@@ -9,6 +9,21 @@ export default function Tile(props) {
   const navigate = useNavigate(props);
   var img_int = 1
 
+
+  useEffect(() => {
+    if( props.sale > 0 ) {
+      set_sale_container(`${css.sale_container} ${css.display_inline}`)
+      set_price_no_sale(css.display_none)
+      const sale_px = (Math.round((props.price * (1 - (props.sale/100))) * 100) / 100).toFixed(2)
+      set_sale_price(sale_px)
+      if( props.mode == 'admin' ) {
+        set_sale_tag(css.sale_tag_admin)
+      }else {
+        set_sale_tag(css.sale_tag)
+      }
+    }
+  }, []);
+
     const shuffle = () => {
       if( img_int == 1 ) {
         img_int = 2
@@ -38,6 +53,12 @@ export default function Tile(props) {
     const [admin_button_toggle, set_admin_button_toggle] = useState(css.display_none)
     const [checkout_button_toggle, set_checkout_button_toggle] = useState(css.display_none)
     const [tile_size_toggle, set_tile_size_toggle] = useState(css.tile)
+    const [sale_tag, set_sale_tag] = useState(css.display_none)
+    const [sale_amount, set_sale_amount] = useState(props.sale)
+    const [sale_price, set_sale_price] = useState(props.price)
+    const [sale_container, set_sale_container] = useState(css.sale_container)
+    const [price_no_sale, set_price_no_sale] = useState(css.price_no_sale)
+
 
     const mouseOverTile = event => {
       set_image_class_1(css.display_none)
@@ -117,7 +138,11 @@ export default function Tile(props) {
 
         <div className={css.detailBox}> 
           <div className={title_length_check(props.title)}>{props.title}</div>
-          <div className={css.price}>{"£" + props.price}</div>
+          <div className={sale_container}>
+            <div className={css.price}>{"£" + props.price}</div>
+            <div className={css.price_sale}>{"£" + sale_price}</div>
+          </div>
+          <div className={price_no_sale}>{"£" + props.price}</div>
         </div>
         <div className={admin_button_toggle}>
           <div className={css.deleteTile} onClick={() => deletePopulate(props)}/>
@@ -126,6 +151,7 @@ export default function Tile(props) {
         <div className={checkout_button_toggle}>
           <div className={css.checkout_deleteTile} onClick={() => removeFromBasket(props)}/>
         </div>
+        <div className={sale_tag}>{sale_amount}% Sale</div>
       </div>
   );
 }

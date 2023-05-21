@@ -12,7 +12,7 @@ class Items(models.Model):
 	price = models.FloatField()
 	category = models.CharField(max_length=100)
 	colour = models.CharField(max_length=100)
-	sale = models.CharField(max_length=100, default=0, null=True)
+	sale = models.IntegerField(default=0)
 	label = models.CharField(max_length=100, default='None', null=True)
 	image1 = models.ImageField()
 	image2 = models.ImageField()

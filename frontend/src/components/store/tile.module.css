@@ -35,7 +35,7 @@
   background-size: 100% 100%;
 }
 
-.title, .price  {
+.title, .price, .price_sale, .price_no_sale  {
   margin-top: auto;
   text-align: center;
   font-weight: bold;
@@ -44,6 +44,42 @@
   line-height: 34px;
   color: white;
 }
+
+.display_none {
+  display: none;
+}
+
+.sale_container {
+  margin: auto;
+  justify-content: center;
+  display: none;
+}
+
+.display_inline {
+  display: flex;
+}
+
+.price_sale {
+  margin-left: 20px;
+}
+
+.price {
+  margin-right: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.price::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: red;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
 
 .title_two_lines {
   margin-top: auto;
@@ -55,7 +91,6 @@
   color: white;
 }
 
-
 .display_none {
   display: none;
 }
@@ -63,6 +98,33 @@
 .detailBox {
   width: 100%;
 }
+
+.sale_tag {
+  display: inline;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  margin-top: -492px;
+  margin-left: 246px;
+  background: red;
+  position: absolute;
+  border-radius: 3px;
+  padding: 5px 10px 5px 10px;
+}
+
+.sale_tag_admin {
+  display: inline;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin-top: -450px;
+  margin-left: -1px;
+  background: red;
+  position: absolute;
+  border-radius: 3px;
+  padding: 5px 10px 5px 10px;
+}
+
 
 .admin_btn_cont {
   display: flex;
@@ -72,6 +134,7 @@
   position: absolute;
   margin-top: -435px;
   margin-left: 270px;
+
 }
 
 .checkout_del_btn {
