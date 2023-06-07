@@ -24,6 +24,7 @@
     "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
+    "react-iframe": "^1.8.5",
     "react-material-ui-carousel": "^2.3.8",
     "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^6.2.1",
