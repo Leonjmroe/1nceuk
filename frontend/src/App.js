@@ -8,6 +8,7 @@ import About from './components/about/about.js';
 import Success from './components/payment/post_payment.js';
 import Skating from './components/skating/skating.js';
 import Designs from './components/designs/designs.js';
+import Contact from './components/contact/contact.js';
 import Checkout from './components/checkout/checkout.js';
 import Basket from './components/basket/basket.js';
 import ItemPreview from './components/item_preview/item_preview.js';
@@ -48,6 +49,7 @@ const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41F
           <Route path="/skating" element={<Skating />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/basket" element={<Basket />} />
+          <Route path="/contact_us" element={<Contact />} />
           <Route path="/item_preview" element={<ItemPreview />} />
           <Route path="/login" element={<Login />} />
           <Route path="/store_admin" element={<StoreAdmin />} />

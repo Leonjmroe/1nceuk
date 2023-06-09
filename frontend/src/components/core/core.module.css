@@ -160,7 +160,7 @@
 }
 
 .icon {
-  width: 50px;
+  width: 55px;
   margin-left: 45%;
   height: 50px;
   margin-top: 25px;
@@ -188,11 +188,11 @@
 }
 
 .icon2 {
- background-image: url('../../images/depop.png');
+ background-image: url('../../images/youtube.png');
 }
 
 .icon3 {
- background-image: url('../../images/mail.png');
+ background-image: url('../../images/contact_us.png');
 }
 
 

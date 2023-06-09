@@ -41,19 +41,29 @@ return (
 
 export function Footer() {
 
+  const navigate = useNavigate();
+
+  const toYoutube = () => {
+    window.location.href = 'https://www.youtube.com/@1nceuk';
+  }
+
+  const toInstagram = () => {
+    window.location.href = 'https://www.instagram.com/1nceuk/';
+  }
+
 return (
   <div className={css.footer}>
   	<div className={css.footerBox}>
-		  <div className={`${css.icon} ${css.icon1}`}/>
+		  <div className={`${css.icon} ${css.icon1}`} onClick={toInstagram}/>
 		  <div className={css.iconTxt}>Instagram</div>
   	</div>
   	<div className={css.footerBox}>
-  	  <div className={`${css.icon} ${css.icon2}`}/>
-	  	<div className={css.iconTxt}>Depop</div>
+  	  <div className={`${css.icon} ${css.icon2}`} onClick={toYoutube}/>
+	  	<div className={css.iconTxt}>YouTube</div>
   	</div>
   	<div className={css.footerBox}>
-  	  <div className={`${css.icon} ${css.icon3}`}/>
-	  	<div className={css.iconTxt}>Email</div>
+  	  <div className={`${css.icon} ${css.icon3}`} onClick={()=> navigate('/contact_us')}/>
+	  	<div className={css.iconTxt}>Contact Us</div>
   	</div>
   </div>
 )}
