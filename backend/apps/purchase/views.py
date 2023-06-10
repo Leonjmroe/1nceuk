@@ -53,7 +53,6 @@ class StripePaymentIntent(View):
 
 
 
-
 @method_decorator(csrf_exempt, name='dispatch')
 class EmailDistributionListSave(generics.ListCreateAPIView):
     

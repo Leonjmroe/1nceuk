@@ -14,6 +14,7 @@ export default function StoreAdmin() {
    const [addEditDelText, setaddEditDelText] = useState('Add Item')
    const [addEditDelClass, setaddEditDelClass] = useState(css.addItem)
    const [items, setItems] = useState([])
+   const [copied_email_list, set_copied_email_list] = useState(css.opacity_0)
 
    const [imageUpload1, setImageUpload1] = useState(css.imageUpload1)
    const [newImageUpload1, setNewImageUpload1] = useState(`${css.newImageUpload1} ${css.newImgUploadToggle1}`)
@@ -291,7 +292,17 @@ export default function StoreAdmin() {
          list.push(email.email)
       })
       const unique_list = [...new Set(list)];
-      console.log(unique_list)
+      let email_string_list = ''
+      const email_list_string = unique_list.map((email) => { 
+         if( unique_list.indexOf(email) === 0 ){
+            email_string_list = email
+         }else {
+            email_string_list = email_string_list + ', ' + email
+         }
+      })
+      navigator.clipboard.writeText(email_string_list)
+      set_copied_email_list(css.clipboard_copied)
+      console.log(email_string_list)
    }
 
    return (
@@ -368,6 +379,7 @@ export default function StoreAdmin() {
       </div>
       <div className={css.store_admin_controls_cont}>
          <div className={css.get_email_distribution_list} onClick={get_email_list}>Get Email List</div>
+         <div className={copied_email_list}>Succesfully copied email list</div>
       </div>
     </div>
   );
