@@ -53,7 +53,7 @@ export default function Success(props) {
 
 
   const shipping_handling_email = async ( email, amount, description, id ) => {
-    const response = await axios.post('/api/mail/payment_confirmation/', 
+    const response = await axios.post('/api/mail/send_email/', 
                     { 'subject': 'You have a new 1nce purchase!',
                       'recipient': '1nceuk.clothing@gmail.com',
                       'message': 'Customer Email: ' + email + '; Sale amount: £' + (amount/100) + '; Items: ' + description

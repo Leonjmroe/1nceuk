@@ -61,6 +61,7 @@
   margin-left: auto;
   margin-right: auto;
   opacity: 0.9;
+  margin-bottom: 10px;
 }
 
 .send_button:hover {
@@ -68,6 +69,14 @@
   cursor: pointer;
 }
 
+.message_response {
+  font-size: 20px;
+  font-family: monospace;
+  margin: auto;
+  margin-top: 20px;
+  color: white;
+  height: 10px;
+}
 
 
 @media screen and (max-width: 1400px) {
