@@ -21,6 +21,7 @@ export default function Success(props) {
     return JSON.parse(window.localStorage.getItem(key));
   };
 
+
   const price_count = () => {
     var counter = 0
     items.map((item) => ( 
@@ -28,6 +29,7 @@ export default function Success(props) {
     )) 
     return ('£' + counter)
   }
+
 
   useEffect(() => {
     if (!stripePromise) return;
@@ -46,7 +48,8 @@ export default function Success(props) {
         window.localStorage.setItem('basket', JSON.stringify([]));
         shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
                                  paymentIntent.id )
-        remove_items(paymentIntent.description)
+        email_distribution_save_check(paymentIntent.description, paymentIntent.receipt_email)
+        console.log(paymentIntent)
       }
     });
   }, [stripePromise]);
@@ -58,7 +61,33 @@ export default function Success(props) {
                       'recipient': '1nceuk.clothing@gmail.com',
                       'message': 'Customer Email: ' + email + '; Sale amount: £' + (amount/100) + '; Items: ' + description
                                   + '; Stripe-Payment-ID: ' + id })}
-               
+  
+
+  const email_distribution_save_check = (data_string, email) => {
+    const email_idx = data_string.indexOf('}')
+    const email_string = data_string.substring(0, email_idx + 1)
+    const email_idx_2 = email_string.indexOf(':')
+    const email_idx_3 = email_string.indexOf('}')
+    const email_save = data_string.substring(email_idx_2 + 2, email_idx_3)
+    const items_string = data_string.substring(email_idx + 2, data_string.length)
+
+    if( email_save == 'true' ) {
+      handle_email_save(email)
+    }
+    remove_items(items_string)
+  }
+
+
+  const handle_email_save = async (email) => {
+      await axios.post('/api/payment/distribution-list-email-save/', { email: email })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (response) {
+          console.log(response);
+      });
+  };
+
 
   const remove_items = (items_string) => {
     var items = items_string.split('] ')

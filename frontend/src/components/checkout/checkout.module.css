@@ -168,6 +168,27 @@
   margin: auto;
 }
 
+.checkbox_cont {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+}
+ 
+.distribution_list {
+  margin-top: 6px;
+  transform: scale(1.75);
+  cursor: pointer;
+}
+
+.distribution_list_text {
+  font-weight: bold;
+  margin-left: 20px;
+  color: white;
+  font-size: 15px;
+  font-family: monospace;
+}
+
 
 @media screen and (max-width: 700px) {
   .checkout_preview_cont {

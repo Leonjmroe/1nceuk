@@ -22,12 +22,12 @@ export default function Payment(props) {
                             '£' + item['price'])
       total_item_string = total_item_string + '[' + item_string + '] '
     })
+      const data_string = '{Email List: ' + payload.email_distribution_save + '} ' + total_item_string
       const payment_intent = await axios.post('/api/payment/create-payment-intent/', 
                                                  { 'amount': (payload.amount * 100),
-                                                   // 'email': payload.email,
                                                    'first_name': payload.first_name,
                                                    'last_name': payload.last_name,
-                                                   'item_string': total_item_string,
+                                                   'data_string': data_string,
                                                    'address_line_1': payload.address_line_1,
                                                    'address_line_2': payload.address_line_2,
                                                    'address_line_3': payload.address_line_3,

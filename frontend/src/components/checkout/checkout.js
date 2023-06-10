@@ -18,6 +18,7 @@ export default function Checkout() {
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [checkbox_change, set_checkbox_change] = useState(true);
 
   const [items, set_items] = useState([])
   const [payment, set_payment] = useState()
@@ -27,7 +28,6 @@ export default function Checkout() {
 
   const [first_name, set_first_name] = useState(css.first_name)
   const [last_name, set_last_name] = useState(css.last_name)
-  // const [email, set_email] = useState(css.email)
   const [address_line_1, set_address_line_1] = useState(css.address_line_1)
   const [city, set_city] = useState(css.city)
   const [postcode, set_postcode] = useState(css.postcode)
@@ -90,11 +90,15 @@ export default function Checkout() {
   const close_lookup = (event) => {
     set_suggestions_display(css.suggestion_cont)
   }
+
+  const checkbox_change_handle = (event) => {
+    set_checkbox_change(event.target.checked)
+    console.log(event.target.checked)
+  }
    
   const validation = async (event) => {
     const first_name = document.getElementsByClassName(css.first_name)[0].value
     const last_name = document.getElementsByClassName(css.last_name)[0].value
-    // const email = document.getElementsByClassName(css.email)[0].value
     const address_line_1 = document.getElementsByClassName(css.address_line_1)[0].value
     const city = document.getElementsByClassName(css.city)[0].value.slice(1)
     const postcode = document.getElementsByClassName(css.postcode)[0].value
@@ -111,9 +115,6 @@ export default function Checkout() {
     if(/[^A-Za-z]/.test(city_wo_spaces)) {
       count += 1
     }
-    // if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-    //   count += 1
-    // }
     if(first_name.length == 0) {
       count += 1
     }
@@ -149,11 +150,6 @@ export default function Checkout() {
       }else {
         set_city(css.city)
       }
-      // if(email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-      //   set_email(`${css.email} ${css.field_error}`)
-      // }else {
-      //   set_email(css.email)
-      // }
       if(first_name.length == 0) {
         set_first_name(`${css.first_name} ${css.field_error}`)
       }else {
@@ -185,7 +181,6 @@ export default function Checkout() {
         set_country(css.country)
       }
     }else {
-      // set_email(css.email)
       set_first_name(css.first_name)
       set_last_name(css.last_name)
       set_city(css.city)
@@ -201,7 +196,6 @@ export default function Checkout() {
                                 'item_ids': items,
                                 'first_name': first_name,
                                 'last_name': last_name,
-                                // 'email': email,
                                 'phone_number': document.getElementsByClassName(css.phone_number)[0].value,
                                 'address_line_1': document.getElementsByClassName(css.address_line_1)[0].value,
                                 'address_line_2': document.getElementsByClassName(css.address_line_2)[0].value,
@@ -209,7 +203,8 @@ export default function Checkout() {
                                 'country': document.getElementsByClassName(css.country)[0].value,
                                 'city': document.getElementsByClassName(css.city)[0].value,
                                 'area': document.getElementsByClassName(css.area)[0].value,
-                                'postcode': document.getElementsByClassName(css.postcode)[0].value }     
+                                'postcode': document.getElementsByClassName(css.postcode)[0].value,
+                                'email_distribution_save': checkbox_change }     
 
       try {
         navigate('/payment', { state: { checkout_paylaod : checkout_paylaod }})
@@ -230,8 +225,12 @@ export default function Checkout() {
           <div className={css.details_cont}>
             <input className={first_name} onClick={close_lookup} type="text" placeholder="First Name"></input>
             <input className={last_name} onClick={close_lookup} type="text" placeholder="Last Name"></input>
-            {/*<input className={email} onClick={close_lookup} type="text" placeholder="Email"></input>*/}
             <input className={css.phone_number} onClick={close_lookup} type="text" placeholder="Phone Number"></input>
+            <div className={css.checkbox_cont}>
+              <input className={css.distribution_list} onClick={close_lookup} type="checkbox" defaultChecked 
+                      onChange={checkbox_change_handle} />
+              <div className={css.distribution_list_text}>Subscribe to future offers & newsletters</div>
+            </div>
           </div>
           <div className={css.address_cont} >
             <div className={css.address_line_1_cont}>

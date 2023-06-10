@@ -4,6 +4,7 @@ import ItemTile from './../store/itemTile.js';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import $ from 'jquery';
+import axios from "axios";
 
 
 export default function StoreAdmin() {
@@ -274,6 +275,24 @@ export default function StoreAdmin() {
       setImage3('')
    }
 
+   const get_email_list = async () => {
+      await axios.get('/api/payment/distribution-list-email-save/')
+        .then((response) => {
+         handle_email_list(response.data)
+        })
+        .catch((error) => {
+          console.error(error);
+      })
+   }
+
+   const handle_email_list = (email_list) => {
+      const list = []
+      email_list.map((email) => {
+         list.push(email.email)
+      })
+      const unique_list = [...new Set(list)];
+      console.log(unique_list)
+   }
 
    return (
     <div className={css.store_admin_container}>
@@ -346,6 +365,9 @@ export default function StoreAdmin() {
             </form>
          </div>
          <div className={css.edit_item_cont} onClick={() => resetFields()}>{ createItems }</div>
+      </div>
+      <div className={css.store_admin_controls_cont}>
+         <div className={css.get_email_distribution_list} onClick={get_email_list}>Get Email List</div>
       </div>
     </div>
   );
