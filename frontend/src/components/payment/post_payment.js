@@ -30,7 +30,6 @@ export default function Success(props) {
     return ('£' + counter)
   }
 
-
   useEffect(() => {
     if (!stripePromise) return;
     stripePromise.then(async (stripe) => {
@@ -43,13 +42,13 @@ export default function Success(props) {
         setErrorMessage(error)
         setNoSuccessSwitch(`${css.payment_no_success_cont} ${css.display_cont}`)
       } else {
+        console.log(paymentIntent)
         setSuccessSwitch(`${css.payment_success_cont} ${css.display_cont}`)
         dispatch({ type: 'reset_basket' })
         window.localStorage.setItem('basket', JSON.stringify([]));
         shipping_handling_email( paymentIntent.receipt_email, paymentIntent.amount, paymentIntent.description,
                                  paymentIntent.id )
-        email_distribution_save_check(paymentIntent.description, paymentIntent.receipt_email)
-        console.log(paymentIntent)
+        email_distribution_save_check(paymentIntent.description)
       }
     });
   }, [stripePromise]);
@@ -63,7 +62,7 @@ export default function Success(props) {
                                   + '; Stripe-Payment-ID: ' + id })}
   
 
-  const email_distribution_save_check = (data_string, email) => {
+  const email_distribution_save_check = (data_string) => {
     const email_idx = data_string.indexOf('}')
     const email_string = data_string.substring(0, email_idx + 1)
     const email_idx_2 = email_string.indexOf(':')
@@ -72,6 +71,8 @@ export default function Success(props) {
     const items_string = data_string.substring(email_idx + 2, data_string.length)
 
     if( email_save == 'true' ) {
+      const email = getData('email');
+      console.log(email)
       handle_email_save(email)
     }
     remove_items(items_string)

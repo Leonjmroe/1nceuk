@@ -18,20 +18,24 @@ export default function PaymentForm() {
     setErrorMessage(error.message);
   }
 
+
+  const saveData = (key, data) => {
+    window.localStorage.setItem(key, JSON.stringify(data));
+  };
+
+
   const handleSubmit = async (event) => {
+    saveData('email', email);
     event.preventDefault();
     if (!stripe) {
       return;
     }
-
     setLoading(true);
-
     const {error: submitError} = await elements.submit();
-    if (submitError) {
-      handleError(submitError);
-      return;
-    }
-
+      if (submitError) {
+        handleError(submitError);
+        return;
+      }
     const {error} = await stripe.confirmPayment({
       elements,
       confirmParams: {
@@ -40,13 +44,11 @@ export default function PaymentForm() {
       },
       receipt_email: email
     });
-
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
     } else {
       setMessage("An unexpected error occured.");
     }
-
     setLoading(false)
   };
 
