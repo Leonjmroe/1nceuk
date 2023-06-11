@@ -17,8 +17,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
 
 # Production code
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 INSTALLED_APPS = [
@@ -119,13 +119,14 @@ USE_L10N = True
 USE_TZ = True
 
 
+#Production code
 # Check if the app is running in production
-IS_PROD = os.environ.get('IS_PROD', False)
+# IS_PROD = os.environ.get('IS_PROD', False)
 
-# If the app is running in production, enable HTTPS redirect
-if IS_PROD:
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # If the app is running in production, enable HTTPS redirect
+# if IS_PROD:
+#     SECURE_SSL_REDIRECT = True
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
