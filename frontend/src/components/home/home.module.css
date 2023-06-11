@@ -6,8 +6,9 @@
 /* ------------  Carousel  ------------ */
 
 .carousel_cont {
-  height: 50vw;
-  margin: 90px 100px 50px 100px;
+  height: 800px;
+  width: 1500px;
+  margin: 90px auto 50px auto;
 }
 
 .carousel_img_style {
@@ -17,18 +18,19 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
+  margin: 20px auto 0px auto;
 }
 
 .carousel_img_1 {
-  background-image: url('../../images/carousel_new_1.png');
+  background-image: url('../../images/carousel_img_3.jpg');
 }
 
 .carousel_img_2 {
-  background-image: url('../../images/carousel_new_2.png');
+  background-image: url('../../images/carousel_img_2.jpg');
 }
 
 .carousel_img_3 {
-  background-image: url('../../images/carousel_new_3.png');
+  background-image: url('../../images/carousel_img_5.jpeg');
 }
 
 .display_none {
@@ -73,15 +75,15 @@
 }
 
 .circle_img1 {
-  background-image: url('../../images/summer_vibes.jpg');
+  background-image: url('../../images/skate_page_circle.png');
 }
 
 .circle_img2 {
-  background-image: url('../../images/IMG-3163.jpg');
+  background-image: url('../../images/panther_circle.png');
 }
 
 .circle_img3 {
-  background-image: url('../../images/louis_llangland_0.jpg');
+  background-image: url('../../images/llangland_mates_circle.png');
 }
 
 .circleImg:hover, .circleImg2:hover, .circleImg3:hover{
@@ -168,7 +170,7 @@
 }
 
 .collection_image_1 {
-  background-image: url('../../images/louis_llangland_1.jpg');
+  background-image: url('../../images/2022_collection_img.jpg');
 }
 
 .collection_image_2 {

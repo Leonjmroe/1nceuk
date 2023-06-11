@@ -42,7 +42,6 @@ export default function Success(props) {
         setErrorMessage(error)
         setNoSuccessSwitch(`${css.payment_no_success_cont} ${css.display_cont}`)
       } else {
-        console.log(paymentIntent)
         setSuccessSwitch(`${css.payment_success_cont} ${css.display_cont}`)
         dispatch({ type: 'reset_basket' })
         window.localStorage.setItem('basket', JSON.stringify([]));
@@ -72,7 +71,6 @@ export default function Success(props) {
 
     if( email_save == 'true' ) {
       const email = getData('email');
-      console.log(email)
       handle_email_save(email)
     }
     remove_items(items_string)

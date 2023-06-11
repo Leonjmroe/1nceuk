@@ -18,7 +18,8 @@ export default function Preview(props) {
     const [add_basket, set_add_basket] = useState(css.add_to_basket)
     const [size_selection, set_size_selection] = useState()
     const [isSmallScreen, setIsSmallScreen] = useState(false)
-    
+    const [price, set_price] = useState()
+
     var [count_small, set_count_small] = useState(location.state.item.qty_small)
     var [count_medium, set_count_medium] = useState(location.state.item.qty_medium)
     var [count_large, set_count_large] = useState(location.state.item.qty_large)
@@ -30,7 +31,6 @@ export default function Preview(props) {
     const [size_extra_large, set_size_extra_large] = useState(css.size_element)
 
 
-
     useEffect(() => {
     //   const handleResize = () => {
     //     setIsSmallScreen(window.innerWidth <= 800)
@@ -38,6 +38,7 @@ export default function Preview(props) {
     // }
     //   window.addEventListener('resize', handleResize)
 
+      set_price(location.state.item.price * (1 - (location.state.item.sale / 100)))
       const item_data = getData('basket')
       stock_revise(item_data)
       stock_check()
@@ -108,7 +109,7 @@ export default function Preview(props) {
         'description': item.description,
         'category': item.category,
         'colour': item.colour,
-        'price': item.price,
+        'price': price,
         'image1': item.image1,
         'image2': item.image2,
         'image3': item.image3,
@@ -209,7 +210,7 @@ export default function Preview(props) {
           <div className={css.item_info_cont}>
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
-            <div className={css.price}>£{location.state.item.price}</div>
+            <div className={css.price}>£{price}</div>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
           </div>
           <div className={css.checkout_cont}>
@@ -242,7 +243,7 @@ export default function Preview(props) {
         </div>
         <div className={css.preview_mobile_footer}>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
-            <div className={css.price_mobile}>£{location.state.item.price}</div>
+            <div className={css.price_mobile}>£{price}</div>
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
