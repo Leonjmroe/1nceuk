@@ -16,7 +16,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
 
-Production code
+# Production code
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
