@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.136f3374.chunk.css",
-    "main.js": "/static/js/main.81c043e9.chunk.js",
-    "main.js.map": "/static/js/main.81c043e9.chunk.js.map",
+    "main.css": "/static/css/main.17c639f1.chunk.css",
+    "main.js": "/static/js/main.1ac7bccb.chunk.js",
+    "main.js.map": "/static/js/main.1ac7bccb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a11e1db8.js",
     "runtime-main.js.map": "/static/js/runtime-main.a11e1db8.js.map",
-    "static/js/2.bfcb2559.chunk.js": "/static/js/2.bfcb2559.chunk.js",
-    "static/js/2.bfcb2559.chunk.js.map": "/static/js/2.bfcb2559.chunk.js.map",
+    "static/js/2.b4003b65.chunk.js": "/static/js/2.b4003b65.chunk.js",
+    "static/js/2.b4003b65.chunk.js.map": "/static/js/2.b4003b65.chunk.js.map",
     "static/js/3.f5a5e917.chunk.js": "/static/js/3.f5a5e917.chunk.js",
     "static/js/3.f5a5e917.chunk.js.map": "/static/js/3.f5a5e917.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.136f3374.chunk.css.map": "/static/css/main.136f3374.chunk.css.map",
-    "static/js/2.bfcb2559.chunk.js.LICENSE.txt": "/static/js/2.bfcb2559.chunk.js.LICENSE.txt",
+    "static/css/main.17c639f1.chunk.css.map": "/static/css/main.17c639f1.chunk.css.map",
+    "static/js/2.b4003b65.chunk.js.LICENSE.txt": "/static/js/2.b4003b65.chunk.js.LICENSE.txt",
     "static/media/home.module.css": "/static/media/summer_vibes.486912f4.jpg",
     "static/media/core.module.css": "/static/media/youtube.e681846c.png",
-    "static/media/store.module.css": "/static/media/IMG-3163.81fe0715.jpg",
     "static/media/designs.module.css": "/static/media/Logo4.b862b631.png",
+    "static/media/store.module.css": "/static/media/tshirts.7975db4c.jpeg",
     "static/media/payment.module.css": "/static/media/green_tick.33a0dc8f.png",
-    "static/media/louis_llangland_0.ce941904.jpg": "/static/media/louis_llangland_0.ce941904.jpg"
+    "static/media/louis_llangland_0.ce941904.jpg": "/static/media/louis_llangland_0.ce941904.jpg",
+    "static/media/skating.module.css": "/static/media/skatepark.09e64e03.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a11e1db8.js",
-    "static/js/2.bfcb2559.chunk.js",
-    "static/css/main.136f3374.chunk.css",
-    "static/js/main.81c043e9.chunk.js"
+    "static/js/2.b4003b65.chunk.js",
+    "static/css/main.17c639f1.chunk.css",
+    "static/js/main.1ac7bccb.chunk.js"
   ]
 }

@@ -24,38 +24,31 @@
   flex-wrap: wrap;
   padding: 50px;
   margin-bottom: 150px;
-}
-
-.main_text {
-  width: 95%;
-  height: 300px;
-  background-color: red;
-  color: white;
-  font-size: 18px;
-  font-family: monospace;
-  margin: auto;
-  margin-top: 30px;
-  background: #777777;
-  opacity: 0.9;
+  margin-top: 50px;
+  background-color: #333333;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
 }
 
+.main_image {
+  width: 800px;
+  height: 500px;
+  background-image: url('../../images/skatepark.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+  margin: 20px auto 0px auto;
+}
 
 .text {
   width: 500px;
   height: 450px;
   background-color: red;
-  color: white;
+  color: black;
   font-size: 18px;
   font-family: monospace;
   margin: auto;
-  margin-top: 50px;
-  background: #777777;
+  background-color: white;
   opacity: 0.9;
   border-radius: 5px;
   display: flex;
@@ -63,14 +56,21 @@
   align-items: center;
   text-align: center;
   padding: 20px;
+  margin-top: 120px;
+  margin-bottom: 50px;
+}
+
+.main_text {
+  margin-top: 45px
 }
 
 .video {
   width: 800px;
   height: 450px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 120px;
   border-radius: 5px;
+  margin-bottom: 50px;
 }
 
 

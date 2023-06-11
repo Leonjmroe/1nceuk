@@ -41,7 +41,7 @@
 }
 
 .sqrImage {
-  width: 400px;
+  width: 420px;
   height: 500px;
   object-fit: cover;
   background-size: contain;
@@ -55,8 +55,9 @@
   font-weight: bold;
   font-size: 25px;
   text-align: center;
-  color: black;
+  color: white;
   font-family: monospace;
+  background-color: purple;
 }
 
 .sqrImage:Hover {
@@ -65,24 +66,36 @@
 }
 
 
-.img1 {
-  background-image: url('../../images/IMG-3162.jpg');
+.hats {
+  background-image: url('../../images/hats.jpeg');
 }
 
-.img2 {
-  background-image: url('../../images/IMG-3163.jpg');
+.hoodies {
+  background-image: url('../../images/hoodies.jpeg');
 }
 
-.img3 {
-  background-image: url('../../images/IMG-3111.jpg');
+.jackets {
+  background-image: url('../../images/jackets.jpeg');
 }
 
-.img3 {
-  background-image: url('../../images/IMG-3111.jpg');
+.joggers {
+  background-image: url('../../images/joggers.jpeg');
 }
 
-.img4 {
-  background-image: url('../../images/IMG-3156.jpg');
+.shorts {
+  background-image: url('../../images/shorts.jpeg');
+}
+
+.tshirts {
+  background-image: url('../../images/tshirts.jpeg');
+}
+
+.jumpers {
+  background-image: url('../../images/jumpers.jpeg');
+}
+
+.accessories {
+  background-image: url('../../images/accessories.jpeg');
 }
 
 @media screen and (max-width: 800px) {
