@@ -53,7 +53,7 @@ export default function Preview(props) {
     };
 
     const stock_revise = (items) => {
-      items.forEach((item) => {
+      items.map((item) => {
         if (item.parent_id === location.state.item.id) {
           switch (item.size) {
             case 'S':
