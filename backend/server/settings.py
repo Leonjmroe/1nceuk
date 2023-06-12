@@ -120,7 +120,7 @@ USE_TZ = True
 
 
 #Production code
-Check if the app is running in production
+# Check if the app is running in production
 IS_PROD = os.environ.get('IS_PROD', False)
 
 # If the app is running in production, enable HTTPS redirect
