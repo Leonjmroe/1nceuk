@@ -41,8 +41,8 @@ export default function PaymentForm() {
       confirmParams: {
         // return_url: 'http://localhost:3000/#/payment_success',
         return_url: 'https://www.1nceuk.com/#/payment_success',     
+        receipt_email: email,
       },
-      receipt_email: email
     });
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
