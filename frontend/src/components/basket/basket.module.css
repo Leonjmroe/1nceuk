@@ -320,4 +320,9 @@
     display: flex;
     flex-direction: column;
   }
+  .checkout_button {
+    margin-top: 50px;
+    width: 80%;
+    font-size: 30px;
+  }
 }
