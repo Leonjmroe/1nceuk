@@ -30,8 +30,8 @@ function App () {
 // const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 // console.log(dotenv)
 
-const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
-// const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
+// const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
+const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
 
 
  return (                                                     
@@ -55,8 +55,8 @@ const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41F
           <Route path="/store_admin" element={<StoreAdmin />} />
           <Route path="/collection_2022" element={<Collection2022 />} />
           <Route path="/collection_2023" element={<Collection2023 />} />
-          <Route path="/payment" element={<Payment stripePromise={stripePromise_test} />} />
-          <Route path="/payment_success" element={<Success stripePromise={stripePromise_test} />} />
+          <Route path="/payment" element={<Payment stripePromise={stripePromise} />} />
+          <Route path="/payment_success" element={<Success stripePromise={stripePromise} />} />
         </Routes>
         <UnderbarFooter/>
         <Footer />

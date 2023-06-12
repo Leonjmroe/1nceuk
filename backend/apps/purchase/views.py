@@ -13,7 +13,7 @@ from rest_framework import status
 from django.http import HttpResponse
 
 
-secret_key_test = "sk_test_51MphC6DH2VJ3YG9v8aQPBWJF6Cqfbsv6SYWxq6rt4DJkyCR0zlJAxJO7mdQ8v5uN0pV86yT3cSby6nJmJmI1qWqH002bH54Qd6"
+# secret_key_test = "sk_test_51MphC6DH2VJ3YG9v8aQPBWJF6Cqfbsv6SYWxq6rt4DJkyCR0zlJAxJO7mdQ8v5uN0pV86yT3cSby6nJmJmI1qWqH002bH54Qd6"
 secret_key = "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"
 
 
@@ -23,7 +23,7 @@ class StripePaymentIntent(View):
 
     def post(self, request, *args, **kwargs):
 
-        stripe.api_key = secret_key_test
+        stripe.api_key = secret_key
         data_unicode = request.body.decode('utf-8')
         data = json.loads(data_unicode)
 
