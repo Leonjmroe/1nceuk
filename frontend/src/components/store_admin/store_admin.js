@@ -314,8 +314,8 @@ export default function StoreAdmin() {
             <form className={css.item_form} id="itemForm" onSubmit={formSubmit}>
                <input className={css.itemTitle} placeholder="title" type="text" name="title" maxLength="50" value={title} onChange={titleInput} />
                <textarea className={css.itemDescription} placeholder="description" maxLength="150" name="description" value={description} onChange={descriptionInput} type="text" />
-               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" min="0" max="4" value={price} onChange={priceInput} />
-               <input className={css.itemSale} type="number" placeholder="sale (%)" name="sale" min="0" max="2" value={sale} onChange={saleInput} />
+               <input className={css.itemPrice} type="number" placeholder="price (£)" name="price" min="0" max="10000" value={price} onChange={priceInput} />
+               <input className={css.itemSale} type="number" placeholder="sale (%)" name="sale" min="0" max="99" value={sale} onChange={saleInput} />
                <select className={css.itemCategory} name="category" value={category} onChange={categoryInput}>
                   <option>select category</option>
                   <option className={css.sizeOption}>hats</option>
