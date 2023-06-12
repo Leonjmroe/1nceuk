@@ -80,13 +80,30 @@
 
 
 @media screen and (max-width: 1400px) {
+  .contact_cont {
+    width: 95%;
+  }
+  .contact_title {
+    font-size: 50px;
+  }
   .contact_text {
     font-size: 14px;
     padding: 30px;
   }
   .contact_content_cont {
+    margin-top: 35px;
     width: 95%;
-    padding: 50px;
+    padding: 20px;
+  }
+  .email {
+    margin-top: 30px;
+    width: 90%;
+  }
+  .text_area {
+    width: 90%;
+  }
+  .send_button {
+    font-size: 25px;
   }
 }
 
