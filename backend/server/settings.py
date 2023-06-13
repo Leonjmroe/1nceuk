@@ -135,16 +135,7 @@ if IS_PROD:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-# # Example CSP header configuration in Django settings.py
-# CSP_HEADER = {
-#     'default-src': "'self' 'unsafe-inline'",
-#     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-#     'style-src': "'self' 'unsafe-inline'",
-#     # Other directives...
-# }
-
-CSP_FRAME_SRC = ("'self'", "https://youtube.com")
-
+CSP_FRAME_SRC = ("'self'", "https://youtube.com", "https://google.com", "'unsafe-inline'")
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

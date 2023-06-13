@@ -151,7 +151,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
-  background-image: url('../../images/green_tick.png');
+  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/green_tick.png');
 }
 
 .redirect_button, .retry_button {

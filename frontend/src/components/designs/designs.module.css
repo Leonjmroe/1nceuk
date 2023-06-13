@@ -69,21 +69,21 @@
 }
 
 .logo_img_1 {
-  background-image: url('../../images/Logo1.png');
+  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/Logo1.png');
 }
 
 .logo_img_2 {
-  background-image: url('../../images/Logo2.png');
+  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/Logo2.png');
   width: 350px;
   order: 2;
 }
 
 .logo_img_3 {
-  background-image: url('../../images/Logo3.png');
+  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/Logo3.png');
 }
 
 .logo_img_4 {
-  background-image: url('../../images/Logo4.png');
+  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/Logo4.png');
   width: 400px;
   order: 2;
 }
