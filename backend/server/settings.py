@@ -143,6 +143,8 @@ if IS_PROD:
 #     # Other directives...
 # }
 
+CSP_FRAME_SRC = ("'self'", "https://youtube.com")
+
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
