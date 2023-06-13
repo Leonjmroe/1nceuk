@@ -23,7 +23,7 @@ export default function Main() {
         set_image_class_1(css.display_none)
         set_image_class_2(css.display_none)
       }
-     setTimeout(shuffle, 3500);
+     setTimeout(shuffle, 6000);
     }
 
     const [image_class_1, set_image_class_1] = useState(css.display_none)
