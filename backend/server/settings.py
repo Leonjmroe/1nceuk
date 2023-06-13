@@ -3,6 +3,7 @@ import django_heroku
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
 
 load_dotenv()
@@ -87,12 +88,18 @@ TEMPLATES = [
 ]
 
 
+# Local DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default='postgres://user:password@localhost/dbname')
+# }
+
 
 WSGI_APPLICATION = 'server.wsgi.application'
 ROOT_URLCONF = 'server.urls'
@@ -156,8 +163,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # ---- AWS -----
-MEDIA_URL = '/Items/'
-MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -168,5 +173,8 @@ AWS_STORAGE_BUCKET_NAME = '1nceuk'
 AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
 AWS_DEFAULT_ACL = 'public-read'     
 
+# MEDIA_URL = '/Items/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/Items/'
+MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
 
 
