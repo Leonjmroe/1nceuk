@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'djoser',
     'storages',
     'corsheaders',
-    'csp',
+    # 'csp',
 ]
 
 
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',
+    # 'csp.middleware.CSPMiddleware',
 ]
 
 
@@ -135,13 +135,13 @@ if IS_PROD:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-# Example CSP header configuration in Django settings.py
-CSP_HEADER = {
-    'default-src': "'self' 'unsafe-inline'",
-    'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
-    'style-src': "'self' 'unsafe-inline'",
-    # Other directives...
-}
+# # Example CSP header configuration in Django settings.py
+# CSP_HEADER = {
+#     'default-src': "'self' 'unsafe-inline'",
+#     'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+#     'style-src': "'self' 'unsafe-inline'",
+#     # Other directives...
+# }
 
 
 
@@ -153,30 +153,30 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
-
 django_heroku.settings(locals())
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
-MEDIA_URL = '/mediafiles/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# MEDIA_URL = '/mediafiles/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # ---- AWS -----
-# MEDIA_URL = '/Items/'
-# MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
+MEDIA_URL = '/Items/'
+MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
 
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# AWS_ACCESS_KEY_ID = 'AKIAZQ7AQAWACG7I7FPK'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = '1nceuk'
-# AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
-# AWS_DEFAULT_ACL = 'public-read'     
+AWS_ACCESS_KEY_ID = 'AKIAZQ7AQAWACG7I7FPK'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = '1nceuk'
+AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
+AWS_DEFAULT_ACL = 'public-read'     
 
 
 

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc71de73.chunk.css",
+    "main.css": "/static/css/main.c2f372d5.chunk.css",
     "main.js": "/static/js/main.61734630.chunk.js",
     "main.js.map": "/static/js/main.61734630.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a11e1db8.js",
@@ -10,7 +10,7 @@
     "static/js/3.f5a5e917.chunk.js": "/static/js/3.f5a5e917.chunk.js",
     "static/js/3.f5a5e917.chunk.js.map": "/static/js/3.f5a5e917.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.bc71de73.chunk.css.map": "/static/css/main.bc71de73.chunk.css.map",
+    "static/css/main.c2f372d5.chunk.css.map": "/static/css/main.c2f372d5.chunk.css.map",
     "static/js/2.a4a21b3a.chunk.js.LICENSE.txt": "/static/js/2.a4a21b3a.chunk.js.LICENSE.txt",
     "static/media/home.module.css": "/static/media/summer_vibes.486912f4.jpg",
     "static/media/core.module.css": "/static/media/youtube.e681846c.png",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.a11e1db8.js",
     "static/js/2.a4a21b3a.chunk.js",
-    "static/css/main.bc71de73.chunk.css",
+    "static/css/main.c2f372d5.chunk.css",
     "static/js/main.61734630.chunk.js"
   ]
 }
