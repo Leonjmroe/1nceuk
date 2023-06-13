@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'djoser',
     'storages',
     'corsheaders',
-    # 'csp',
+    'csp',
 ]
 
 
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'csp.middleware.CSPMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 
@@ -123,7 +123,10 @@ USE_TZ = True
 
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_FRAME_ANCESTORS = ("'self'",)
-CSP_FRAME_SRC = ("'self'", "https://youtube.com")
+CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
+
 
 #Production code
 # Check if the app is running in production
