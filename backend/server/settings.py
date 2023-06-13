@@ -138,9 +138,6 @@ if IS_PROD:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-CSP_FRAME_SRC = ("'self'", "https://youtube.com", "https://google.com", "'unsafe-inline'")
-
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_USE_TLS = True #False

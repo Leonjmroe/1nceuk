@@ -53,26 +53,29 @@ export default function Preview(props) {
     };
 
     const stock_revise = (items) => {
-      items.map((item) => {
-        if (item.parent_id === location.state.item.id) {
-          switch (item.size) {
-            case 'S':
-              count_small = count_small - 1
-              break;
-            case 'M':
-              count_medium = count_medium - 1
-              break;
-            case 'L':
-              count_large = count_large - 1
-              break;
-            case 'XL':
-              count_extra_large = count_extra_large - 1
-              break;
-            default:
-              break;
+
+      if (items) {
+        items.map((item) => {
+          if (item.parent_id === location.state.item.id) {
+            switch (item.size) {
+              case 'S':
+                count_small = count_small - 1
+                break;
+              case 'M':
+                count_medium = count_medium - 1
+                break;
+              case 'L':
+                count_large = count_large - 1
+                break;
+              case 'XL':
+                count_extra_large = count_extra_large - 1
+                break;
+              default:
+                break;
+            }
           }
-        }
-      });
+        });
+      };
       set_count_small(count_small);
       set_count_medium(count_medium);
       set_count_large(count_large);
