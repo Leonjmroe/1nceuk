@@ -96,9 +96,13 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': dj_database_url.config(default='postgres://user:password@localhost/dbname')
-# }
+
+# Production DB
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('JAWSDB_URL'))
+}
+DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+
 
 
 WSGI_APPLICATION = 'server.wsgi.application'
@@ -128,8 +132,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-# CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
-# CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://js.stripe.com")
+CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
 
 
 #Production code
@@ -164,14 +168,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ---- AWS -----
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_ACCESS_KEY_ID = 'AKIAZQ7AQAWACG7I7FPK'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = '1nceuk'
-AWS_S3_CUSTOM_DOMAIN = '1nceuk.s3.amazonaws.com'                                  
-AWS_DEFAULT_ACL = 'public-read'     
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
+AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
 
 # MEDIA_URL = '/Items/'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/Items/'
