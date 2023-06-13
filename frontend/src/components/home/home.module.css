@@ -75,7 +75,8 @@
 }
 
 .circle_img1 {
-  background-image: url('../../images/skate_page_circle.png');
+/*  background-image: url('../../images/skate_page_circle.png');*/
+background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/1nce-logo.png');
 }
 
 .circle_img2 {
