@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'djoser',
     'storages',
     'corsheaders',
-    'csp',
+    # 'csp',
 ]
 
 
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',
+    # 'csp.middleware.CSPMiddleware',
 ]
 
 
@@ -121,7 +121,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
+# CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
 # CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://js.stripe.com")
 
 
