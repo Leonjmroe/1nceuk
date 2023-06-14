@@ -77,7 +77,8 @@
 }
 
 .itemDescription{
-  height: 100px;
+  height: 150px;
+  font-size: 18px;
 }
 
 .newImgUploadToggle1, .newImgUploadToggle2, .newImgUploadToggle3 {
