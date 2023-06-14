@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'storages',
     'corsheaders',
     # 'csp',
-]
+] 
 
 
 MIDDLEWARE = [
