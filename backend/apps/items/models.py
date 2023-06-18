@@ -1,10 +1,6 @@
 from django.db import models
-from storages.backends.s3boto3 import S3Boto3Storage
+from .storages import ItemStorage
 
-
-class ItemStorage(S3Boto3Storage):
-    bucket_name = '1nceuk'
-    location = 'Items'
 
 class Items(models.Model):
 	title = models.CharField(max_length=100)
@@ -21,3 +17,4 @@ class Items(models.Model):
 	qty_medium = models.IntegerField(default=0)
 	qty_large = models.IntegerField(default=0)
 	qty_extra_large = models.IntegerField(default=0)
+

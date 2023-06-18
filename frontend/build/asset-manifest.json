@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.012fc320.chunk.css",
+    "main.css": "/static/css/main.6a7c2aed.chunk.css",
     "main.js": "/static/js/main.c85cab69.chunk.js",
     "main.js.map": "/static/js/main.c85cab69.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a11e1db8.js",
@@ -10,14 +10,14 @@
     "static/js/3.f5a5e917.chunk.js": "/static/js/3.f5a5e917.chunk.js",
     "static/js/3.f5a5e917.chunk.js.map": "/static/js/3.f5a5e917.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.012fc320.chunk.css.map": "/static/css/main.012fc320.chunk.css.map",
+    "static/css/main.6a7c2aed.chunk.css.map": "/static/css/main.6a7c2aed.chunk.css.map",
     "static/js/2.a4a21b3a.chunk.js.LICENSE.txt": "/static/js/2.a4a21b3a.chunk.js.LICENSE.txt",
     "static/media/louis_llangland_0.ce941904.jpg": "/static/media/louis_llangland_0.ce941904.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.a11e1db8.js",
     "static/js/2.a4a21b3a.chunk.js",
-    "static/css/main.012fc320.chunk.css",
+    "static/css/main.6a7c2aed.chunk.css",
     "static/js/main.c85cab69.chunk.js"
   ]
 }

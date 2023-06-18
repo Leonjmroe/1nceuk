@@ -17,17 +17,17 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
 
-# # Production code -------
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # # Production code -------
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Check if the app is running in production
-IS_PROD = os.environ.get('IS_PROD', False)
+# # Check if the app is running in production
+# IS_PROD = os.environ.get('IS_PROD', False)
 
-# If the app is running in production, enable HTTPS redirect
-if IS_PROD:
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # If the app is running in production, enable HTTPS redirect
+# if IS_PROD:
+#     SECURE_SSL_REDIRECT = True
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
@@ -155,29 +155,23 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 django_heroku.settings(locals())
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
-
-# MEDIA_URL = '/mediafiles/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 # ---- AWS -----
-
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
 
+DEFAULT_FILE_STORAGE = os.environ.get('AWS_DEFAULT_FILE_STORAGE')
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 # MEDIA_URL = '/Items/'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/Items/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
+
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+
+
 
 
