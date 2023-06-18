@@ -15,11 +15,13 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
+CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
+CSP_FRAME_ANCESTORS = ("'self'", "https://www.youtube.com")
+
 
 # # Production code -------
 SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('Http_X_Forwarded_Proto', 'https')
 
 # Check if the app is running in production
 IS_PROD = os.environ.get('IS_PROD', False)
@@ -54,14 +56,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'csp.middleware.CSPMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 
@@ -141,10 +143,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
-
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_USE_TLS = True #False
@@ -159,18 +157,18 @@ django_heroku.settings(locals())
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
-AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')
 
-DEFAULT_FILE_STORAGE = os.environ.get('AWS_DEFAULT_FILE_STORAGE')
+DEFAULT_FILE_STORAGE = os.environ.get(AWS_DEFAULT_FILE_STORAGE)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# MEDIA_URL = '/Items/'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 
 
