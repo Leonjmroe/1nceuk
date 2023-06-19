@@ -169,7 +169,9 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'../frontend/build'),]
 
 STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+MEDIA_ROOT = ''
 
 
 
