@@ -11,12 +11,14 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_HEROKU_SECRET_KEY')
 # DEBUG = True 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']s
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 # CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
 # CSP_FRAME_ANCESTORS = ("'self'", "https://www.youtube.com")
+# CSP_DEFAULT_SRC = ("'self'",)
+# CSP_STYLE_SRC = ("'self'", "'unsafe-inline'")
 
 
 # # Production code -------
@@ -163,8 +165,8 @@ AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')
 
 # DEFAULT_FILE_STORAGE = os.environ.get('AWS_DEFAULT_FILE_STORAGE')
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'backend.apps.items.storages.ItemStorage'
+STATICFILES_STORAGE = 'backend.apps.items.storages.StaticStorage'
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR,'../frontend/build'),]
 
