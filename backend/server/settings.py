@@ -161,17 +161,12 @@ django_heroku.settings(locals())
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../frontend/build/static')
 
-# MEDIA_URL = '/mediafiles/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # ---- AWS -----
 
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'backend.apps.items.ItemStorage'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
@@ -179,8 +174,8 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
 
-# # MEDIA_URL = '/Items/'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/Items/'
-MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
+DEFAULT_FILE_STORAGE = 'backend.apps.items.storages.ItemStorage'
 
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
