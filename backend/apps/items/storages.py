@@ -4,6 +4,10 @@ class ItemStorage(S3Boto3Storage):
     bucket_name = '1nceuk'
     location = 'Items'
 
+class ItemDevStorage(S3Boto3Storage):
+    bucket_name = '1nceuk'
+    location = 'Items_Dev'
+
 class StaticStorage(S3Boto3Storage):
     bucket_name = '1nceuk'
     location = 'static'

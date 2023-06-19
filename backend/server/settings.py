@@ -116,6 +116,7 @@ if DJANGO_ENV == 'production':
         'default': dj_database_url.config(default=os.environ.get('JAWSDB_URL'))
     }
     DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+    DEFAULT_FILE_STORAGE = 'backend.apps.items.ItemStorage'
 else:
     DATABASES = {
         'default': {
@@ -123,6 +124,7 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+    DEFAULT_FILE_STORAGE = 'backend.apps.items.ItemDevStorage'
 
 
 
@@ -177,8 +179,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # ---- AWS -----
-
-DEFAULT_FILE_STORAGE = 'backend.apps.items.ItemStorage'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
