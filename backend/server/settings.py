@@ -116,7 +116,7 @@ if DJANGO_ENV == 'production':
         'default': dj_database_url.config(default=os.environ.get('JAWSDB_URL'))
     }
     DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
-    DEFAULT_FILE_STORAGE = 'backend.apps.items.ItemStorage'
+    DEFAULT_FILE_STORAGE = 'backend.apps.items.storages.ItemStorage'
 else:
     DATABASES = {
         'default': {
@@ -124,7 +124,7 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-    DEFAULT_FILE_STORAGE = 'backend.apps.items.ItemDevStorage'
+    DEFAULT_FILE_STORAGE = 'backend.apps.items.storages.ItemDevStorage'
 
 
 
