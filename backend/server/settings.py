@@ -151,6 +151,10 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'../frontend/build'),
+]
+
 django_heroku.settings(locals())
 
 # ---- AWS -----
@@ -168,6 +172,8 @@ STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 
 
