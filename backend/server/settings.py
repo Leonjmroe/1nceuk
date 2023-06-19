@@ -186,8 +186,6 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
 
-DEFAULT_FILE_STORAGE = 'backend.apps.items.storages.ItemStorage'
-
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
