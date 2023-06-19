@@ -10,7 +10,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_HEROKU_SECRET_KEY')
-DEBUG = True 
+# DEBUG = True 
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -166,7 +166,7 @@ AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'../frontend/build'),]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR,'../frontend/build'),]
 
 STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 

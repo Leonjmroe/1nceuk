@@ -17,13 +17,13 @@ import StoreAdmin from './components/store_admin/store_admin.js';
 import css from './App.module.css';
 import { StateProvider } from './components/state_management/context.js'
 import { loadStripe } from "@stripe/stripe-js";
-// import dotenv from 'dotenv';
-// import path from 'path';
+import dotenv from 'dotenv';
+import path from 'path';
 
 
 function App () {
 
-// const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 // const path = require('path');
 // const envPath = path.resolve(__dirname, '../.env');
 // dotenv.config({ path: envPath });
@@ -33,6 +33,7 @@ function App () {
 // const stripePromise_test = loadStripe("pk_test_51MphC6DH2VJ3YG9vNnyjTZ0fwf80k41FTWT0JvBUeF6SILu59mozZHSHJfxIdanpXNee3VR9UbUpIfNZ7qGguBQ600fwMA2Q9r");
 const stripePromise = loadStripe("pk_live_51MphC6DH2VJ3YG9vqxHK5GgKxE9bdmFvri83q5w5A6rIYTAAAqMfXUJoi5q0flDJ2PaNL2BLAq3rmfGiSWbQbT1000tjUe0pLj");
 
+console.log(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
  return (                                                     
     <div className={css.App}>
