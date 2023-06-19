@@ -18,17 +18,17 @@ CORS_ALLOW_ALL_ORIGINS = True
 X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
 
 
-# # Production code -------
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # # Production code -------
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Check if the app is running in production
-IS_PROD = os.environ.get('IS_PROD', False)
+# # Check if the app is running in production
+# IS_PROD = os.environ.get('IS_PROD', False)
 
-# If the app is running in production, enable HTTPS redirect
-if IS_PROD:
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # If the app is running in production, enable HTTPS redirect
+# if IS_PROD:
+#     SECURE_SSL_REDIRECT = True
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
@@ -107,11 +107,22 @@ DATABASES = {
 }
 
 
-# Production DB
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('JAWSDB_URL'))
-}
-DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+
+
+DJANGO_ENV = os.getenv('DJANGO_ENV')
+
+if DJANGO_ENV == 'production':
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ.get('JAWSDB_URL'))
+    }
+    DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 
