@@ -10,8 +10,8 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_HEROKU_SECRET_KEY')
-# DEBUG = True 
-# ALLOWED_HOSTS = ['*']s
+DEBUG = True 
+ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -145,7 +145,6 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')
 
-# DEFAULT_FILE_STORAGE = os.environ.get('AWS_DEFAULT_FILE_STORAGE')
 DEFAULT_FILE_STORAGE = 'backend.apps.items.storages.ItemStorage'
 STATICFILES_STORAGE = 'backend.apps.items.storages.StaticStorage'
 
