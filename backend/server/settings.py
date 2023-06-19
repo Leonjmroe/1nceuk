@@ -15,8 +15,8 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
-CSP_FRAME_ANCESTORS = ("'self'", "https://www.youtube.com")
+# CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
+# CSP_FRAME_ANCESTORS = ("'self'", "https://www.youtube.com")
 
 
 # # Production code -------
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',
+    # 'csp.middleware.CSPMiddleware',
 ]
 
 
