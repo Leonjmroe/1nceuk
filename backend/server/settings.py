@@ -180,7 +180,7 @@ AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
 
 # # MEDIA_URL = '/Items/'
-# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/Items/'
-# MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/Items/'
+MEDIA_ROOT = 'https://1nceuk.s3.eu-west-2.amazonaws.com'
 
 
