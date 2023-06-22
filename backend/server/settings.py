@@ -19,16 +19,16 @@ X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
 
 
 # # # Production code -------
-# SECURE_SSL_REDIRECT = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# # Check if the app is running in production
-# IS_PROD = os.environ.get('IS_PROD', False)
+# Check if the app is running in production
+IS_PROD = os.environ.get('IS_PROD', False)
 
-# # If the app is running in production, enable HTTPS redirect
-# if IS_PROD:
-#     SECURE_SSL_REDIRECT = True
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# If the app is running in production, enable HTTPS redirect
+if IS_PROD:
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
@@ -180,7 +180,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ---- AWS -----
 
-CLOUDFRONT_DOMAIN = os.getenv("CLOUDFRONT_DOMAIN")
+# CLOUDFRONT_DOMAIN = os.getenv("CLOUDFRONT_DOMAIN")
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')

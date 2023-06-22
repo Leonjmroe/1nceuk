@@ -4,6 +4,22 @@ import { useState, useEffect } from "react";
 
 export default function Main() {
 
+    const ImagePreloader = ({ imageURL, data_image }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    useEffect(() => {
+      const img = new Image();
+      img.src = imageURL;
+      img.onload = () => setIsLoaded(true);
+    }, [imageURL]);
+    if( data_image == "1" ) {
+      return ( <img src={imageURL} className={image_class_1} alt="Preloaded" /> )
+    }else if( data_image == "2" ) {
+      return ( <img src={imageURL} className={image_class_2} alt="Preloaded" /> )
+    }else {
+      return ( <img src={imageURL} className={image_class_3} alt="Preloaded" /> )
+    }
+  }
+
     var img_int = 1
 
     const shuffle = () => {
@@ -36,9 +52,9 @@ export default function Main() {
 
       return (
       <div className={css.carousel_cont}>
-        <img className={image_class_1} />
-        <img className={image_class_2} />
-        <img className={image_class_3} />
+        <ImagePreloader className={image_class_1} data_image="1" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_3.jpg" />
+        <ImagePreloader className={image_class_2} data_image="2" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_2.jpg" />
+        <ImagePreloader className={image_class_3} data_image="3" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_5.jpeg" />
       </div>
   );
 
