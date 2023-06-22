@@ -22,15 +22,15 @@
 }
 
 .carousel_img_1 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/carousel_img_3.jpg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_3.jpg');
 }
 
 .carousel_img_2 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/carousel_img_2.jpg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_2.jpg');
 }
 
 .carousel_img_3 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/carousel_img_5.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_5.jpeg');
 }
 
 .display_none {
@@ -75,15 +75,15 @@
 }
 
 .circle_img1 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/skate_page_circle.png');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/skate_page_circle.png');
 }
 
 .circle_img2 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/pink_panther_blue.png');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/pink_panther_blue.png');
 }
 
 .circle_img3 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/llangland_mates_circle.png');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/llangland_mates_circle.png');
 }
 
 .circleImg:hover, .circleImg2:hover, .circleImg3:hover{
@@ -170,15 +170,15 @@
 }
 
 .collection_image_1 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/2022_collection_img.jpg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/2022_collection_img.jpg');
 }
 
 .collection_image_2 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/summer_vibes.jpg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/summer_vibes.jpg');
 }
 
 .collection_image_3 {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/crown_gif.gif');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/crown_gif.gif');
   width: 300px;
   height: 200px;
   margin-left: auto;
@@ -207,7 +207,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/1nce_logo_2.png');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/1nce_logo_2.png');
   opacity: 0.9;
   margin-left: auto;
   margin-right: auto;
@@ -249,7 +249,7 @@
   .collection_img_mobile {
     display: inline;
     margin: 50px 0px 50px 0px;
-    background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/crown_gif.gif');
+    background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/crown_gif.gif');
     width: 300px;
     height: 200px;
     margin-left: auto;

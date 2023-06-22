@@ -18,7 +18,7 @@
   width: 300px;
   height: 80px;
   margin-top: 5px;
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/1ncelogo1.png');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/1ncelogo1.png');
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -56,7 +56,7 @@
 .shopBtn{
   width: 100px;
   height: 75px;
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/whiteShoppingCart.png');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/whiteShoppingCart.png');
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -184,15 +184,15 @@
 }
 
 .icon1 {
- background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/instagram.png');
+ background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/instagram.png');
 }
 
 .icon2 {
- background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/youtube.png');
+ background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/youtube.png');
 }
 
 .icon3 {
- background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/contact_us.png');
+ background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/contact_us.png');
 }
 
 

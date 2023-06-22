@@ -67,35 +67,35 @@
 
 
 .hats {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/hats.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/hats.jpeg');
 }
 
 .hoodies {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/hoodies.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/hoodies.jpeg');
 }
 
 .jackets {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/jackets.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/jackets.jpeg');
 }
 
 .joggers {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/joggers.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/joggers.jpeg');
 }
 
 .shorts {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/shorts.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/shorts.jpeg');
 }
 
 .tshirts {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/tshirts.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/tshirts.jpeg');
 }
 
 .jumpers {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/jumpers.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/jumpers.jpeg');
 }
 
 .accessories {
-  background-image: url('https://1nceuk.s3.eu-west-2.amazonaws.com/Core/accessories.jpeg');
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/accessories.jpeg');
 }
 
 @media screen and (max-width: 800px) {
