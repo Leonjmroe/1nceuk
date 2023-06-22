@@ -52,8 +52,8 @@ export default function Main() {
 
       return (
       <div className={css.carousel_cont}>
-        <ImagePreloader className={image_class_1} data_image="1" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_3.jpg" />
-        <ImagePreloader className={image_class_2} data_image="2" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_2.jpg" />
+        <ImagePreloader className={image_class_1} data_image="1" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_3.jpeg" />
+        <ImagePreloader className={image_class_2} data_image="2" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_2.jpeg" />
         <ImagePreloader className={image_class_3} data_image="3" imageURL="https://d3plr6xnj3tfvw.cloudfront.net/Core/carousel_img_5.jpeg" />
       </div>
   );

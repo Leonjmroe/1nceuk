@@ -213,7 +213,7 @@ export default function Preview(props) {
           <div className={css.item_info_cont}>
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
-            <div className={css.price}>£{price}</div>
+            <div className={css.price}>£{Math.round(price)}</div>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
           </div>
           <div className={css.checkout_cont}>
@@ -246,7 +246,7 @@ export default function Preview(props) {
         </div>
         <div className={css.preview_mobile_footer}>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
-            <div className={css.price_mobile}>£{price}</div>
+            <div className={css.price_mobile}>£{Math.round(price)}</div>
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>

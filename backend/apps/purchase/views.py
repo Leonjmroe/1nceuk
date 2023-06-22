@@ -11,11 +11,14 @@ from .models import EmailDistributionList
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import HttpResponse
+from dotenv import load_dotenv
+import os
 
+
+load_dotenv()
 
 # secret_key_test = "sk_test_51MphC6DH2VJ3YG9v8aQPBWJF6Cqfbsv6SYWxq6rt4DJkyCR0zlJAxJO7mdQ8v5uN0pV86yT3cSby6nJmJmI1qWqH002bH54Qd6"
-secret_key = "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"
-
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -23,7 +26,7 @@ class StripePaymentIntent(View):
 
     def post(self, request, *args, **kwargs):
 
-        stripe.api_key = secret_key
+        stripe.api_key = STRIPE_SECRET_KEY
         data_unicode = request.body.decode('utf-8')
         data = json.loads(data_unicode)
 
