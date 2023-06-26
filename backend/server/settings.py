@@ -22,7 +22,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Check if the app is running in production
+Check if the app is running in production
 IS_PROD = os.environ.get('IS_PROD', False)
 
 # If the app is running in production, enable HTTPS redirect
