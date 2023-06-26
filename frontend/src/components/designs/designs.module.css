@@ -96,7 +96,7 @@
 
 @media screen and (max-width: 1100px) {
   .logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
-    font-size: 9px;
+    font-size: 11px;
   }
   .logo_img_1, .logo_img_3 {
     width: 200px;
@@ -113,6 +113,7 @@
 }
 
 @media screen and (max-width: 850px) {
+
   .designs_preview_cont {
     width: 100%;
     padding: 20px;

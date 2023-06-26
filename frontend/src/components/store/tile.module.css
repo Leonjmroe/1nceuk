@@ -52,7 +52,7 @@
   text-align: center;
   font-weight: bold;
   font-family: monospace;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 34px;
   color: white;
 }
@@ -100,6 +100,7 @@
   font-size: 18px;
   line-height: 21px;
   color: white;
+  overflow: hidden;
 }
 
 .display_none {
@@ -124,6 +125,21 @@
   padding: 5px 10px 5px 10px;
 }
 
+.sale_tag_two_lines {
+  width: 120px;
+  display: inline;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: -500px;
+  margin-left: 253px;
+  background: red;
+  position: absolute;
+  padding: 5px 10px 5px 10px;
+}
+
+
 
 .sale_tag_admin {
   width: 120px;
@@ -132,13 +148,26 @@
   text-align: center;
   color: white;
   font-weight: bold;
-  margin-top: -450px;
+  margin-top: -447px;
   margin-left: -1px;
   background: red;
   position: absolute;
   padding: 5px 10px 5px 10px;
 }
 
+.sale_tag_admin_two_lines {
+  width: 120px;
+  display: inline;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: -456px;
+  margin-left: -1px;
+  background: red;
+  position: absolute;
+  padding: 5px 10px 5px 10px;
+}
 
 .admin_btn_cont {
   display: flex;

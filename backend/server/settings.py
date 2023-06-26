@@ -15,20 +15,20 @@ ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
+# X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
 
 
-# # # Production code -------
-# SECURE_SSL_REDIRECT = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# # Production code -------
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# # Check if the app is running in production
-# IS_PROD = os.environ.get('IS_PROD', False)
+# Check if the app is running in production
+IS_PROD = os.environ.get('IS_PROD', False)
 
-# # If the app is running in production, enable HTTPS redirect
-# if IS_PROD:
-#     SECURE_SSL_REDIRECT = True
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# If the app is running in production, enable HTTPS redirect
+if IS_PROD:
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'djoser',
     'storages',
     'corsheaders',
-    # 'csp',
+    'csp',
 ] 
 
 
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'csp.middleware.CSPMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 
@@ -164,9 +164,12 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
 
-
-# CSP_FRAME_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
-# CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://youtube.com")
+CSP_DEFAULT_SRC = ("'self'", )
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
+CSP_IMG_SRC = ("'self'", "data:", "https://*.youtube.com", "https://*.ytimg.com", "https://*.googleusercontent.com")
+CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
+CSP_CONNECT_SRC = ("'self'", "https://www.youtube.com")
 
 
 

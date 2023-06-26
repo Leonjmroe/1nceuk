@@ -120,6 +120,18 @@ export default function Tile(props) {
       }
    }
 
+  const title_length_check_for_sale = (title) => {
+      if( title.length > 25 ){
+        if( props.mode == 'admin' ) {
+          return css.sale_tag_admin_two_lines
+         }else {
+          return css.sale_tag_two_lines
+         }
+      } else {
+         return sale_tag
+      }
+   }
+
   return (
       <div className={tile_size_toggle}>
 
@@ -151,7 +163,7 @@ export default function Tile(props) {
         <div className={checkout_button_toggle}>
           <div className={css.checkout_deleteTile} onClick={() => removeFromBasket(props)}/>
         </div>
-        <div className={sale_tag}>{sale_amount}% Sale</div>
+        <div className={title_length_check_for_sale(props.title)}>{sale_amount}% Sale</div>
       </div>
   );
 }
