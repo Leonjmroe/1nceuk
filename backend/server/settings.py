@@ -166,10 +166,11 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 CSP_DEFAULT_SRC = ("'self'", )
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com")
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'")
-CSP_IMG_SRC = ("'self'", "data:", "https://*.youtube.com", "https://*.ytimg.com", "https://*.googleusercontent.com")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://*.stripe.com")
+CSP_IMG_SRC = ("'self'", "data:", "https://*.1nceuk.s3.amazonaws.com", "https://*.youtube.com", "https://*.ytimg.com", "https://*.googleusercontent.com")
 CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
-CSP_CONNECT_SRC = ("'self'", "https://www.youtube.com")
+CSP_CONNECT_SRC = ("'self'", "https://www.youtube.com", "https://*.stripe.com")
+
 
 
 
@@ -183,12 +184,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ---- AWS -----
 
-# CLOUDFRONT_DOMAIN = os.getenv("CLOUDFRONT_DOMAIN")
+AWS_S3_CUSTOM_DOMAIN = os.getenv("CLOUDFRONT_DOMAIN")
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
+# AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')                                 
 AWS_DEFAULT_ACL = os.environ.get('AWS_DEFAULT_ACL')     
 
 MEDIA_URL = '/mediafiles/'
