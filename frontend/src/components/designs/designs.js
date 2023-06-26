@@ -26,7 +26,7 @@ export default function Designs() {
           <div className={css.logo_cont}>
             <img className={css.logo_img_4} />
             <div className={css.logo_text_4}>
-              This design perfectly encapsulates our brand's vision. Featuring a bold community-created design alongside our original logo and several other designs from our community competition, it serves as a platform for artistic expression. Participants who contacted us after the competition had the chance to win a free T-shirt featuring their design. We extend our personal appreciation to (will find Henry on Instagram first) for discovering his unique style during the process and effectively collaborating with us. Congratulations! All items can be found at the link to our shop.
+              This design perfectly encapsulates our brand's vision. Featuring a bold community-created design alongside our original logo and several other designs from our community competition, it serves as a platform for artistic expression. Participants who contacted us after the competition had the chance to win a free T-shirt featuring their design. We extend our personal appreciation to <a href="https://www.instagram.com/henry_surfer/">https://www.instagram.com/henry_surfer/</a> for discovering his unique style during the process and effectively collaborating with us. Congratulations! All items can be found at the link to our shop.
 
             </div> 
           </div>                                   

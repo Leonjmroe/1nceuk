@@ -10,8 +10,8 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_HEROKU_SECRET_KEY')
-DEBUG = True 
-ALLOWED_HOSTS = ['*']
+# DEBUG = True 
+# ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'djoser',
     'storages',
     'corsheaders',
-    'csp',
+    # 'csp',
 ] 
 
 
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'csp.middleware.CSPMiddleware',
+    # 'csp.middleware.CSPMiddleware',
 ]
 
 
@@ -163,13 +163,13 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 
-
-CSP_DEFAULT_SRC = ("'self'", )
-CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com")
-CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://*.stripe.com")
-CSP_IMG_SRC = ("'self'", "data:", "https://*.1nceuk.s3.amazonaws.com", "https://*.youtube.com", "https://*.ytimg.com", "https://*.googleusercontent.com")
-CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
-CSP_CONNECT_SRC = ("'self'", "https://www.youtube.com", "https://*.stripe.com")
+# CSP
+# CSP_DEFAULT_SRC = ("'self'", )
+# CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com")
+# CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://*.stripe.com")
+# CSP_IMG_SRC = ("'self'", "data:", "https://*.1nceuk.s3.amazonaws.com", "https://*.youtube.com", "https://*.ytimg.com", "https://*.googleusercontent.com")
+# CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
+# CSP_CONNECT_SRC = ("'self'", "https://www.youtube.com", "https://*.stripe.com")
 
 
 
