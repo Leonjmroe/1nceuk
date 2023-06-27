@@ -121,14 +121,16 @@ export default function Tile(props) {
    }
 
   const title_length_check_for_sale = (title) => {
-      if( title.length > 25 ){
+      if( title.length > 25  && props.sale > 0){
         if( props.mode == 'admin' ) {
           return css.sale_tag_admin_two_lines
          }else {
           return css.sale_tag_two_lines
          }
-      } else {
+      } else if(props.sale > 0){
          return sale_tag
+      } else {
+        return css.display_none
       }
    }
 

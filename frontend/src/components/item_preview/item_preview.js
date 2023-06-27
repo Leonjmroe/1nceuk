@@ -32,12 +32,6 @@ export default function Preview(props) {
 
 
     useEffect(() => {
-    //   const handleResize = () => {
-    //     setIsSmallScreen(window.innerWidth <= 800)
-    //     console.log(isSmallScreen)
-    // }
-    //   window.addEventListener('resize', handleResize)
-
       set_price(location.state.item.price * (1 - (location.state.item.sale / 100)))
       const item_data = getData('basket')
       stock_revise(item_data)
@@ -192,8 +186,6 @@ export default function Preview(props) {
    return (
 
     <div className={css.preview_container}>
-
-    {/*  { isSmallScreen ? ( */}
       <div className={css.preview_cont}>
         <div className={css.image_cont}>
           <div className={css.carousel}>
@@ -213,7 +205,7 @@ export default function Preview(props) {
           <div className={css.item_info_cont}>
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
-            <div className={css.price}>£{Math.round(price)}</div>
+            <div className={css.price}>£{price}</div>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
           </div>
           <div className={css.checkout_cont}>
@@ -222,9 +214,8 @@ export default function Preview(props) {
                            {state: {catagory: location.state.item.category}})}>Continue Shopping</div>
           </div>
         </div>
-      </div> {/* }) : */}
+      </div> 
 
-     {/* ( */}
       <div className={css.preview_mobile_cont}>
         <div className={css.preview_mobile_header}>
           <div className={css.title_mobile}>{location.state.item.title}</div>
@@ -246,12 +237,11 @@ export default function Preview(props) {
         </div>
         <div className={css.preview_mobile_footer}>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
-            <div className={css.price_mobile}>£{Math.round(price)}</div>
+            <div className={css.price_mobile}>£{price}</div>
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>
-      </div> {/* //)} */}
-      
+      </div> 
     </div>
   );
 }
