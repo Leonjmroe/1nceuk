@@ -1,6 +1,14 @@
 import css from './skating.module.css';
+import YouTube from 'react-youtube';
 
 export default function Skating() {
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 0,
+    },
+  };
 
   return (
     <div className={css.skating_container}>
@@ -11,15 +19,11 @@ export default function Skating() {
             Swansea has had massive roots in skateboarding since the 70s and the community still remains strong, Within this community theres abundance of talented individuals in skate and art alike.  it is customary to acknowledge skateboarders as those who admire their attire. By supplying the local skating community with a distinct identity, we aimed to facilitate recognition and connection among skaters of all levels.Through the medium of clothing, 1NCEUK endeavors to unify the creative and ambitious minds, from filmmakers to skaters and artists within our community, creating fun skate projects such as films as a result.     
           </div>
           <div className={css.main_image}></div>
-          {/*<div className={css.text_1}>Text about skate vid 1</div>*/}
-          <iframe className={css.video_1} width="560" height="315" src="https://www.youtube.com/embed/xM8uQir3SOw"></iframe>
-          <iframe className={css.video_2} width="560" height="315" src="https://www.youtube.com/embed/OoE-yuzmoHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-{/*          <div className={css.text_2}>Text about skate vid 2</div>
-          <div className={css.text_3}>Text about skate vid 3</div>*/}
-          <iframe className={css.video_3} width="560" height="315" src="http://www.youtube.com/embed/OoE-yuzmoHQ" ></iframe>
+          <YouTube className={css.video_1} videoId="xM8uQir3SOw" opts={opts} />
+          <YouTube className={css.video_2} videoId="OoE-yuzmoHQ" opts={opts} />
+          <YouTube className={css.video_3} videoId="OoE-yuzmoHQ" opts={opts} />
         </div>
       </div>
     </div>
   );
 }
-
