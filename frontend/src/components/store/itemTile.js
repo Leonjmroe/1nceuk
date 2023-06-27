@@ -134,7 +134,7 @@ export default function Tile(props) {
 
   return (
       <div className={tile_size_toggle}>
-
+        <div className={title_length_check_for_sale(props.title)}>{sale_amount}% Sale</div>
         <img className={image_class_1} src={props.image1} onClick={()=> { if(props.mode === "store"){
                                                               navigate('/item_preview', {state: {item:props} })}}} 
                                                           onMouseOver={()=> { if(props.mode === "store" || 
@@ -163,7 +163,6 @@ export default function Tile(props) {
         <div className={checkout_button_toggle}>
           <div className={css.checkout_deleteTile} onClick={() => removeFromBasket(props)}/>
         </div>
-        <div className={title_length_check_for_sale(props.title)}>{sale_amount}% Sale</div>
       </div>
   );
 }

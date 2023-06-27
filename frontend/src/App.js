@@ -21,7 +21,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 function App () {
 
-const stripePromise = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
  return (                                                     
     <div className={css.App}>
