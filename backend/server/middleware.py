@@ -33,7 +33,7 @@ class CustomHeaderMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
-        csp = "default-src * 'unsafe-inline'; frame-src https://www.youtube.com; img-src 'self' data:;"
+        csp = "default-src 'self'; img-src 'self' data: https://d3plr6xnj3tfvw.cloudfront.net; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';"
         response["Content-Security-Policy"] = csp
         return response
 
