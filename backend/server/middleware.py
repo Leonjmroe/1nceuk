@@ -1,5 +1,6 @@
 from django.http import HttpResponsePermanentRedirect
 
+
 class RedirectMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
@@ -23,3 +24,15 @@ class RedirectMiddleware:
 
         return self.get_response(request)
 
+
+
+
+class CustomHeaderMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        csp = "frame-src 'self' https://www.youtube.com; default-src 'self';"
+        response["Content-Security-Policy"] = csp
+        return response

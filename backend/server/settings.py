@@ -62,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'server.middleware.CustomHeaderMiddleware',
     # 'csp.middleware.CSPMiddleware',
 ]
 
@@ -161,18 +162,6 @@ EMAIL_USE_TLS = True #False
 EMAIL_PORT = 587 #465
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-
-
-# CSP
-# CSP_DEFAULT_SRC = ("'self'", )
-# CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com")
-# CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://*.stripe.com")
-# CSP_IMG_SRC = ("'self'", "data:", "https://*.1nceuk.s3.amazonaws.com", "https://*.youtube.com", "https://*.ytimg.com", "https://*.googleusercontent.com")
-# CSP_FRAME_SRC = ("'self'", "https://www.youtube.com")
-# CSP_CONNECT_SRC = ("'self'", "https://www.youtube.com", "https://*.stripe.com")
-
-
-
 
 
 
