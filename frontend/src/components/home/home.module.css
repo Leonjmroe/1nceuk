@@ -6,7 +6,7 @@
 /* ------------  Carousel  ------------ */
 
 .carousel_cont {
-  height: 850px;
+  height: 980px;
   width: 95%;
   margin: 90px auto 50px auto;
   display: flex;
@@ -15,7 +15,8 @@
 }
 
 .carousel_img_style {
-  width: 100%;
+  margin: auto;
+  width: 95%;
   height: 100%;
   object-fit: cover;
 }
