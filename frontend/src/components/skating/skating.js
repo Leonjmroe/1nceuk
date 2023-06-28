@@ -7,6 +7,7 @@ export default function Skating() {
     width: '100%',
     playerVars: {
       autoplay: 0,
+      origin: window.location.origin 
     },
   };
 
