@@ -6,8 +6,6 @@
 /* ------------  Carousel  ------------ */
 
 .carousel_cont {
-  height: 980px;
-  width: 95%;
   margin: 90px auto 50px auto;
   display: flex;
   justify-content: space-between;
@@ -17,16 +15,15 @@
 .carousel_img_style {
   margin: auto;
   width: 95%;
-  height: 100%;
-  object-fit: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
 }
-
-
 
 .display_none {
   display: none;
 }
-
 
 
 /* ------------  Circles  ------------ */
@@ -83,8 +80,7 @@
 
 @media only screen and (max-width: 800px) {
   .carousel_cont {
-    width: 390px;
-    height: 275px;
+    margin: 90px auto 20px auto;
   }
   .circleContainer {
     flex-direction: column;

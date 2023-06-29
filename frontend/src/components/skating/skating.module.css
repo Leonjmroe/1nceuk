@@ -81,10 +81,18 @@
 
 .video_1 {
   background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/skate_vid_1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
 }
 
 .video_2 {
   background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/skate_vid_2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
 }
 
 .video_1:hover, .video_2:hover {
