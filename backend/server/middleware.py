@@ -27,14 +27,14 @@ class RedirectMiddleware:
 
 
 
-# class CustomHeaderMiddleware:
-#     def __init__(self, get_response):
-#         self.get_response = get_response
+class CustomHeaderMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
 
-#     def __call__(self, request):
-#         response = self.get_response(request)
-#         csp = "default-src 'self'; img-src 'self' data: https://d3plr6xnj3tfvw.cloudfront.net; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-#         response["Content-Security-Policy"] = csp
-#         return response
+    def __call__(self, request):
+        response = self.get_response(request)
+        csp = "default-src 'self'; img-src 'self' data: https://d3plr6xnj3tfvw.cloudfront.net; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';"
+        response["Content-Security-Policy"] = csp
+        return response
 
 

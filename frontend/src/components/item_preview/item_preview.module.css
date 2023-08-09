@@ -211,23 +211,22 @@
   font-weight: bold;
   font-family: monospace;
   font-size: 50px;
-  line-height: 50px;
+  line-height: 40px;
+  overflow-wrap: break-word;
   margin-left: 40px;
   margin-top: 40px;
-  overflow: hidden;
 }
 
 .description_mobile {
   color: white;
   font-weight: bold;
   font-family: monospace;
-  font-size: 20px;
+  font-size: 10px;
   margin-top: 30px;
   width: 80%;
-  margin-left: 10%;
-  word-wrap: break-word;
+  margin-left: 40px;
   margin-bottom: 40px;
-  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .carousel_cont_mobile {
@@ -360,16 +359,6 @@
   .carousel_mobile {
     margin: 25px auto 25px auto;
     padding: 10px;
-  }
-  .preview_mobile_header {
-    height: 250px;
-  }
-  .title_mobile {
-    font-size: 32px;
-    margin-top: 20px;
-  }
-  .description_mobile {
-    font-size: 12px;
   }
   .mini_image_mobile {
     height: 75px;

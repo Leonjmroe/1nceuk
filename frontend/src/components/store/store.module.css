@@ -118,5 +118,9 @@
     width: 350px;
     height: 450px;
   }
+  .category_title{
+    font-size: 50px;
+    height: 80px;
+  }
 }
 
