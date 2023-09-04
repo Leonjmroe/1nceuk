@@ -49,7 +49,7 @@ export const decrementItem = async (id, qty_small, qty_medium, qty_large, qty_ex
   await axios.put(`/api/items/item-bought/`, {id, qty_small, qty_medium, qty_large, qty_extra_large})
     .then(function (response) { 
       console.log(response) 
-      // window.location.reload()
+      window.location.reload()
     })
     .catch(function (response) { 
       console.log(response) 

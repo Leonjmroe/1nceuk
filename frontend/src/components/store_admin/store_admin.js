@@ -175,11 +175,14 @@ export default function StoreAdmin() {
                get_blob(item, image3, 3)
             } else {
                const run_edit_item = () => {
+                  console.log(1, item, location.state.item.id)
                   editItem(item, location.state.item.id) 
                }
                setTimeout(run_edit_item, 1000);
             }
          }else {
+            console.log(item, title, description, category, price, label, sale, colour, qty_small, qty_medium,
+                  qty_large, qty_extra_large)
             addItem(item)
          } 
          resetFields()
@@ -201,6 +204,7 @@ export default function StoreAdmin() {
             item.set('image3', blob, image)
             const run_edit_item = () => {
                editItem(item, location.state.item.id) 
+               console.log(2, item, location.state.item.id)
             }
             setTimeout(run_edit_item, 1000);
          };
