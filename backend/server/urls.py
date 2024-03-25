@@ -3,7 +3,6 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from apps.accounts.urls import accounts_urlpatterns
 from django.conf.urls.static import static
-from django.conf.urls import url
 from . import settings
 
 urlpatterns = [
