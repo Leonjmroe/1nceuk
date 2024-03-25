@@ -10,6 +10,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_HEROKU_SECRET_KEY')
+DEBUG = True 
 # ALLOWED_HOSTS = ['*']
 
 CORS_ALLOW_ALL_ORIGINS = True
