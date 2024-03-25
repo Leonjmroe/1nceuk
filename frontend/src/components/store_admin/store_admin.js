@@ -37,6 +37,7 @@ export default function StoreAdmin() {
    const [qty_medium, set_qty_medium] = useState('')
    const [qty_large, set_qty_large] = useState('')
    const [qty_extra_large, set_qty_extra_large] = useState('')
+   const [featured_checked, setFeaturedChecked] = useState(false)
 
    const titleInput = event => { setTitle(event.target.value) }
    const descriptionInput = event => { setDescription(event.target.value) }
@@ -52,6 +53,7 @@ export default function StoreAdmin() {
    const qtyMediumInput = event => { set_qty_medium(event.target.value) }
    const qtyLargeInput = event => { set_qty_large(event.target.value) }
    const qtyExtraLargeInput = event => { set_qty_extra_large(event.target.value) }
+   const featuredChangeInput = event => { setFeaturedChecked(event.target.checked) }
 
 
    useEffect(() => {
@@ -92,6 +94,7 @@ export default function StoreAdmin() {
    }
 
    const createItems = items.map((item) => {
+
      if (item.qty_small > 0 || item.qty_medium > 0 || item.qty_large > 0 || item.qty_extra_large > 0) {
        return (
          <ItemTile
@@ -111,6 +114,7 @@ export default function StoreAdmin() {
            qty_medium={item.qty_medium}
            qty_large={item.qty_large}
            qty_extra_large={item.qty_extra_large}
+           featured_checked={item.featured_checked}
            mode="admin"
            inventory="yes"
          />
@@ -134,6 +138,7 @@ export default function StoreAdmin() {
            qty_medium={0}
            qty_large={0}
            qty_extra_large={0}
+           featured_checked={item.featured_checked}
            mode="admin"
            inventory="no"
          />
@@ -162,6 +167,7 @@ export default function StoreAdmin() {
             item.set('qty_medium', qty_medium)
             item.set('qty_large', qty_large)
             item.set('qty_extra_large', qty_extra_large)
+            item.set('featured_checked', featured_checked)
             const image1_blob_test = image1.slice(0, 5)
             const image2_blob_test = image2.slice(0, 5)
             const image3_blob_test = image3.slice(0, 5)
@@ -175,14 +181,11 @@ export default function StoreAdmin() {
                get_blob(item, image3, 3)
             } else {
                const run_edit_item = () => {
-                  console.log(1, item, location.state.item.id)
                   editItem(item, location.state.item.id) 
                }
                setTimeout(run_edit_item, 1000);
             }
          }else {
-            console.log(item, title, description, category, price, label, sale, colour, qty_small, qty_medium,
-                  qty_large, qty_extra_large)
             addItem(item)
          } 
          resetFields()
@@ -204,7 +207,6 @@ export default function StoreAdmin() {
             item.set('image3', blob, image)
             const run_edit_item = () => {
                editItem(item, location.state.item.id) 
-               console.log(2, item, location.state.item.id)
             }
             setTimeout(run_edit_item, 1000);
          };
@@ -228,6 +230,7 @@ export default function StoreAdmin() {
       set_qty_medium(item.qty_medium)
       set_qty_large(item.qty_large)
       set_qty_extra_large(item.qty_extra_large)
+      setFeaturedChecked(item.featured_checked)
    }
 
 
@@ -246,6 +249,7 @@ export default function StoreAdmin() {
       set_qty_medium('')
       set_qty_large('')
       set_qty_extra_large('')
+      setFeaturedChecked(false)
       setaddEditDelText('Add Item')
       setaddEditDelClass(css.addItem)
       setImageUpload1(css.imageUpload1)
@@ -306,7 +310,6 @@ export default function StoreAdmin() {
       })
       navigator.clipboard.writeText(email_string_list)
       set_copied_email_list(css.clipboard_copied)
-      console.log(email_string_list)
    }
 
    return (
@@ -356,6 +359,10 @@ export default function StoreAdmin() {
                   <option className={css.sizeOption}>2022 Collection</option>
                   <option className={css.sizeOption}>2023 Collection</option>
                </select>
+               <div className={css.featured_item_cont}>
+                  <div className={css.featured_item_text}>Featured Item</div>
+                  <input className={css.featured_checkbox} type="checkbox" name="featured_checked" checked={featured_checked} onChange={featuredChangeInput} />
+               </div>
                <div className={css.size_qty_cont}>
                   <div className={css.size_qty_inner_cont}>
                      <div className={css.size_text}>S</div>

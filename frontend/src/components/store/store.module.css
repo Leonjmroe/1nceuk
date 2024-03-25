@@ -1,9 +1,8 @@
-.store_select_container{
+.container {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 100px;
-  justify-content: center;
-  padding: 40px 0px 140px 0px;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
 }
 
 .item_select_container {
@@ -11,6 +10,7 @@
   margin-bottom: 25px;
   margin-left: 10px;
   border: 5px solid black;
+  display: flex;
 }
 
 .store_container {
@@ -26,77 +26,66 @@
   margin-right: 20px;
 }
 
-.category_title {
+.category_title  {
   margin: 90px 10px 10px 10px;
   background-color: black;
   border-radius: 5px;
-  padding: 0px 0px 0px 30px;
+  padding: 0px 30px 0px 30px;
   opacity: 0.6;
   color: white;
   font-size: 100px;
   font-family: monospace;
   font-weight: bold;
-  width: 100%;
   height: 155px;
+  width: 100%;
 }
 
-.sqrImage {
-  width: 420px;
-  height: 500px;
-  object-fit: cover;
-  background-size: contain;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  background-size: 100% 100%;
+
+.store_category_cont{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  justify-content: center;
+  padding: 40px 0px 40px 0px;
 }
 
-.sqrText {
+.store_category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 120px;
   font-size: 30px;
+  border: 10px solid black;
   font-weight: bold;
-  font-size: 25px;
-  text-align: center;
   color: white;
   font-family: monospace;
-  background-color: purple;
+  background-color: rgb(149,0,179,0.9);
 }
 
-.sqrImage:Hover {
-  opacity: 0.9;
+.store_category:hover {
+  background-color: rgb(149,0,179,1);
   cursor: pointer;
 }
 
-
-.hats {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/hats.jpeg');
+.featured_item_title {
+  background-color: black;
+  border-radius: 5px;
+  padding: 10px 30px 10px 30px;
+  opacity: 0.6;
+  color: white;
+  font-size: 50px;
+  font-family: monospace;
+  font-weight: bold;
+  height: 95px;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  margin-top: 40px;
 }
 
-.hoodies {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/hoodies.jpeg');
-}
 
-.jackets {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/jackets.jpeg');
-}
 
-.joggers {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/joggers.jpeg');
-}
-
-.shorts {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/shorts.jpeg');
-}
-
-.tshirts {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/tshirts.jpeg');
-}
-
-.jumpers {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/jumpers.jpeg');
-}
-
-.accessories {
-  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/accessories.jpeg');
-}
 
 @media screen and (max-width: 800px) {
   .store_item_cont {  
@@ -107,6 +96,10 @@
   .category_title {
     font-size: 65px;
     height: 105px;
+  }
+  .featured_item_title {
+    font-size: 30px;
+    height: 65px;
   }
 }
 

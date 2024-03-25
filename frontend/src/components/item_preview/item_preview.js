@@ -142,6 +142,11 @@ export default function Preview(props) {
       set_size_extra_large(count_extra_large <= 0 ? `${css.size_element} ${css.no_stock}` : css.size_element);
     };
 
+    const roundNumber = (value, decimals) => {
+      const factor = Math.pow(10, decimals);
+      return Math.round(value * factor) / factor;
+    }
+
     function size_select(size) {
       stock_check()
       switch (size) {
@@ -205,7 +210,7 @@ export default function Preview(props) {
           <div className={css.item_info_cont}>
             <div className={css.title}>{location.state.item.title}</div>
             <div className={css.description}>{location.state.item.description}</div>
-            <div className={css.price}>£{price}</div>
+            <div className={css.price}>£{roundNumber(price, 2)}</div>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
           </div>
           <div className={css.checkout_cont}>

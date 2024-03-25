@@ -19,6 +19,8 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
+  border: 8px solid black;
+  border-radius: 5px;
 }
 
 .display_none {
@@ -50,6 +52,7 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
+  border: 8px solid black;
 }
 
 .circleText {
@@ -59,6 +62,11 @@
   margin-bottom: 20px;
   color: black;
   font-family: monospace;
+  color: white;
+  background: black;
+  border-radius: 5px;  
+  width: 200px;
+  margin: auto;
 }
 
 .circle_img1 {
@@ -97,6 +105,7 @@
   .circleText {
     margin: 120px auto auto auto;
     font-size: 30px;
+    width: 150px;
   }
 }
 
@@ -109,7 +118,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 50px 0px 140px 0px;
+  padding: 50px 0px 100px 0px;
 }
 
 .collection_tile {
@@ -133,6 +142,9 @@
   color: black;
   font-family: monospace;
   text-align: center;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
 }
 
 .dash {
@@ -140,6 +152,7 @@
   font-size: 50px;
   margin-left: auto;
   margin-right: auto;
+  color: black;
 }
 
 .collection_img {
@@ -149,6 +162,8 @@
   background-repeat: no-repeat;
   overflow: hidden;
   background-size: 100% 100%;
+  border: 8px solid black;
+  border-radius: 5px;
 }
 
 .collection_img_mobile {
@@ -169,16 +184,18 @@
   height: 200px;
   margin-left: auto;
   margin-right: auto;
+  border: none;
+  border-radius: 0px;
 }
 
 .shop_now_button {
-  color: black;
+  color: white;
   font-family: monospace;
-  font-size: 50px;
-  border: 1px solid black;
+  font-size: 60px;
+  border: 5px solid black;
   font-weight: bold;
-  border-radius: 8px;
-  background-color: #29E66B;
+  border-radius: 5px;
+  background-color: #30003c;
   padding: 5px 25px 5px 25px;
   margin-left: auto;
   margin-right: auto;
@@ -200,9 +217,15 @@
   margin-top: 100px;
 }
 
-.logo_login_button:hover, .shop_now_button:hover {
+.logo_login_button:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+.shop_now_button:hover {
+  opacity: 1;
+  cursor: pointer;
+  border: 5px solid white;
 }
 
 
@@ -272,5 +295,210 @@
     margin-bottom: 50px;
   }
 }
+
+
+/* ------- Contact Window --------- */
+
+
+.contact_cont {
+  width: 90%;
+  margin: 0px auto 30px auto;
+}
+
+.contact_container {
+  display: flex;
+}
+
+.contact_title {
+  width: 70%;
+  margin: 0px auto 30px auto;
+  background-color: rgba(0, 0, 0, 0.6); 
+  border-radius: 5px;
+  padding: 0px 0px 0px 30px;
+  color: white;
+  font-size: 60px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.contact_content_cont {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+  justify-content: center;
+  padding: 50px;
+  margin-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+.email {
+  margin: auto;
+  margin-top: 30px;
+  width: 80%;
+  height: 50px;
+  font-size: 18px;
+  font-family: monospace;
+  margin-bottom: 50px;
+}
+
+.text_area {
+  margin: auto;
+  width: 80%;
+  height: 250px;
+  font-size: 18px;
+  font-family: monospace;
+  margin-bottom: 50px;
+}
+
+.send_button {
+  color: black;
+  font-family: monospace;
+  font-size: 30px;
+  border: 1px solid black;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #29E66B;
+  padding: 10px 25px 10px 25px;
+  margin: auto;
+  margin-top: 20px;
+  opacity: 0.9;
+}
+
+.send_button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.message_response {
+  font-size: 20px;
+  font-family: monospace;
+  margin: auto;
+  margin-top: 20px;
+  color: white;
+  height: 10px;
+}
+
+
+@media screen and (max-width: 1400px) {
+  .contact_cont {
+    width: 95%;
+  }
+  .contact_title {
+    font-size: 50px;
+  }
+  .contact_text {
+    font-size: 14px;
+    padding: 30px;
+  }
+  .contact_content_cont {
+    margin-top: 35px;
+    width: 95%;
+    padding: 20px;
+  }
+  .email {
+    margin-top: 30px;
+    width: 90%;
+  }
+  .text_area {
+    width: 90%;
+  }
+  .send_button {
+    font-size: 25px;
+  }
+}
+
+
+
+/* Social Media Panel */
+
+.social_media_cont {
+  display: flex;
+  width: 50%;
+  margin: 0px auto 30px auto;
+  background: grey;
+  margin-bottom: 100px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+.item_cont {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  width: 50%;
+}
+
+.insta_img {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/instagram.png');
+}
+
+.youtube_img {
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-size: 100% 100%;
+  background-image: url('https://d3plr6xnj3tfvw.cloudfront.net/Core/youtube.png');
+}
+
+.iconTxt {
+  margin-top: 35px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: white;
+  font-family: monospace;
+}
+
+.youtube_img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.insta_widget:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1280px) {
+  .social_media_cont {
+    justify-content: center;
+  }
+  .insta_img, .youtube_img {
+    margin: auto;
+  }
+  .iconTxt { 
+    margin: auto;
+    margin-top: 30px;
+  }
+  .item_cont {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .social_media_cont {
+    flex-direction: column;
+  }
+  .footerBox {
+    flex-direction: column;
+  }
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 15px auto auto auto;
+  }
+}
+
 
 

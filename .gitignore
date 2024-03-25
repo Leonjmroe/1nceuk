@@ -1,1 +1,20 @@
+# Dependency directories
+node_modules/
+venv/
+
+
+# Environment variables
 .env
+
+# Python bytecode
+*.pyc
+
+# Database file
+*.sqlite3
+
+# OS generated files
+.DS_Store
+
+# Frontend build output
+frontend/node_modules/
+ 

@@ -88,17 +88,17 @@
 
 .newImageUpload1 {
   position: absolute;
-  margin-top: 782px;
+  margin-top: 845px;
 }
 
 .newImageUpload2 {
   position: absolute;
-  margin-top: 848px;
+  margin-top: 911px;
 }
 
 .newImageUpload3 {
   position: absolute;
-  margin-top: 914px;
+  margin-top: 977px;
 }
 
 
@@ -201,3 +201,25 @@
 }
 
 
+.featured_item_cont {
+  display: flex;
+  background: #eeeeee;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 2px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.featured_item_text {
+  margin-right: 50px;
+  font-size: 20px;
+  color: #333333;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.featured_checkbox {
+  width: 20px;  
+  cursor: pointer;
+}

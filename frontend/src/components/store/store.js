@@ -5,26 +5,30 @@ import { useState, useEffect, useHistory } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
-export function Store() {
+export function Store({defaultCategory}) {
 
   const location = useLocation()
+  const category = location.state?.category || defaultCategory;
   const [items, setItems] = useState([])
 
    useEffect(() => {
       pullItems()
    }, []);
 
-   const pullItems = (x) => {
-      getItems().then((data) => {
-         const items = []
-         const category_filter = data.map((item) => {
-            if( item.category == location.state.catagory ){
-               items.push(item)
-            }
-         })
-         setItems(items)
-      })
-   }
+
+   const pullItems = () => {
+    getItems().then((data) => {
+      let filteredItems;
+      if (!location.state?.category) {
+        filteredItems = data.filter(item => item.featured_checked);
+      } else {
+        filteredItems = data.filter(item => item.category === category);
+      }
+      setItems(filteredItems);
+    });
+  };
+
+
 
    const createItems = items.map((item) => {
     if (item.qty_small > 0 || item.qty_medium > 0 || item.qty_large > 0 || item.qty_extra_large > 0) {
@@ -46,6 +50,7 @@ export function Store() {
           qty_medium={item.qty_medium}
           qty_large={item.qty_large}
           qty_extra_large={item.qty_extra_large}
+          featured_checked={item.featured_checked}
           mode="store"
           inventory="yes"
         />
@@ -55,21 +60,19 @@ export function Store() {
 
 
    const capitalise = () => {
-      const catagory = location.state.catagory
-      const first_letter = catagory[0].toUpperCase()
-      const remaining = catagory.slice(1,catagory.length)
-      const capitalisation = first_letter + remaining
-      return capitalisation
+     const category = location.state?.category || defaultCategory;
+     if (!category) return ''; 
+     return category.charAt(0).toUpperCase() + category.slice(1);
    }
 
    return (
-    <div className={css.store_container}>
-      <div className={css.category_title}>{capitalise()}</div>
-      <div className={css.store_item_cont}>
-        {createItems}
-      </div>
-    </div>
-  );
+     <div className={css.store_container}>
+       {location.state?.category && <div className={css.category_title}>{capitalise()}</div>}
+       <div className={css.store_item_cont}>
+         {createItems}
+       </div>
+     </div>
+   )
 }
 
 
@@ -78,40 +81,22 @@ export function StoreSelect() {
    const navigate = useNavigate();
 
    return (
-    <div className={css.store_select_container}>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Hats</div>
-         <div className={`${css.sqrImage} ${css.hats}`} onClick={()=> navigate('/store', {state: {catagory: 'hats'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Hoodies</div>
-         <div className={`${css.sqrImage} ${css.hoodies}`} onClick={()=> navigate('/store', {state: {catagory: 'hoodies'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Jackets</div>
-         <div className={`${css.sqrImage} ${css.jackets}`} onClick={()=> navigate('/store', {state: {catagory: 'jackets'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Joggers</div>
-         <div className={`${css.sqrImage} ${css.joggers}`} onClick={()=> navigate('/store', {state: {catagory: 'joggers'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Shorts</div>
-         <div className={`${css.sqrImage} ${css.shorts}`} onClick={()=> navigate('/store', {state: {catagory: 'shorts'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>T-Shirts</div>
-         <div className={`${css.sqrImage} ${css.tshirts}`} onClick={()=> navigate('/store', {state: {catagory: 't-shirts'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Jumpers</div>
-         <div className={`${css.sqrImage} ${css.jumpers}`} onClick={()=> navigate('/store', {state: {catagory: 'jumpers'} })} />
-       </div>
-       <div className={css.item_select_container}>
-         <div className={css.sqrText}>Accessories</div>
-         <div className={`${css.sqrImage} ${css.accessories}`} onClick={()=> navigate('/store', {state: {catagory: 'accessories'} })} />
-       </div>
-    </div>
+      <div className={css.container}>
+         <div className={css.store_category_cont}>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'hats'} })}>Hats</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'hoodies'} })}>Hoodies</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'jackets'} })}>Jackets</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'joggers'} })}>Joggers</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'shorts'} })}>Shorts</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 't-shirts'} })}>T-Shirts</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'jumpers'} })}>Jumpers</div>
+            <div className={css.store_category} onClick={()=> navigate('/store', {state: {category: 'accessories'} })}>Accessories</div>
+         </div>
+         <div className={css.featured_item_title}>Featured Items</div>
+         <div className={css.featured_items_cont}>
+            <Store defaultCategory='featured'/>
+         </div>
+      </div>
   );
 }
 
