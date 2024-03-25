@@ -4,14 +4,14 @@
 
 .login_container{
   display: flex;
-  width: 80%;
-  height: 750px;
-  margin: 150px auto 150px auto;
+  margin: auto;
+  margin-top: 250px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: green;
   opacity: 0.8;
+  padding: 200px;
 }
 
 .usernameCont, .passwordCont, .login{
