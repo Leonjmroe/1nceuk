@@ -20,5 +20,6 @@ class ItemsSerializer(serializers.ModelSerializer):
             'qty_small',
             'qty_medium',
             'qty_large',
-            'qty_extra_large'
+            'qty_extra_large',
+            'featured_checked',
         )

@@ -79,8 +79,6 @@ export default function StoreAdmin() {
       }
   }, [location.state]);
 
-   console.log(location.state)
-
    useEffect(() => {
       pullItems()
       resetFields()
