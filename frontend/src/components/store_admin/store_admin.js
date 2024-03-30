@@ -55,7 +55,6 @@ export default function StoreAdmin() {
    const qtyExtraLargeInput = event => { set_qty_extra_large(event.target.value) }
    const featuredChangeInput = event => { setFeaturedChecked(event.target.checked) }
 
-
    useEffect(() => {
       if (location.state.editSwitch != null) {
          const imageUploadUpdate = () => {
@@ -80,6 +79,7 @@ export default function StoreAdmin() {
       }
   }, [location.state]);
 
+   console.log(location.state)
 
    useEffect(() => {
       pullItems()
@@ -186,6 +186,7 @@ export default function StoreAdmin() {
                setTimeout(run_edit_item, 1000);
             }
          }else {
+            console.log(featured_checked)
             addItem(item)
          } 
          resetFields()

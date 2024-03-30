@@ -17,4 +17,5 @@ class Items(models.Model):
 	qty_medium = models.IntegerField(default=0)
 	qty_large = models.IntegerField(default=0)
 	qty_extra_large = models.IntegerField(default=0)
+	featured_checked = models.BooleanField(default=False)
 
