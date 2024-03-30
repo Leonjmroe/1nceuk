@@ -184,7 +184,6 @@ export default function StoreAdmin() {
                setTimeout(run_edit_item, 1000);
             }
          }else {
-            console.log(featured_checked)
             addItem(item)
          } 
          resetFields()
