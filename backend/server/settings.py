@@ -12,15 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_HEROKU_SECRET_KEY')
 # DEBUG = True 
 # ALLOWED_HOSTS = ['*']
-
 CORS_ALLOW_ALL_ORIGINS = True
 
-# X_FRAME_OPTIONS = 'ALLOW-FROM https://www.youtube.com'
-
-
-# # Production code -------
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Check if the app is running in production
 IS_PROD = os.environ.get('IS_PROD', False)
@@ -29,6 +22,7 @@ IS_PROD = os.environ.get('IS_PROD', False)
 if IS_PROD:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 
