@@ -4,7 +4,7 @@
 
 .designs_cont {
   width: 90%;
-  margin: 130px auto 30px auto;
+  margin: 130px auto 0px auto;
 }
 
 .designs_title {
@@ -16,13 +16,6 @@
   font-size: 100px;
   font-family: monospace;
   font-weight: bold;
-}
-
-@media screen and (max-width: 800px) {
-  .designs_title {
-    font-size: 75px;
-    height: 115px;
-  }
 }
 
 .designs_preview_cont {
@@ -66,6 +59,9 @@
   color: white;
   padding: 30px;
   flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;  
+  hyphens: auto;  
 }
 
 .logo_img_1 {
@@ -141,5 +137,17 @@
   .logo_text_1, .logo_text_2, .logo_text_3, .logo_text_4 {
     width: 100%;
   }
+  .designs_title {
+    font-size: 75px;
+    height: 115px;
+  }
 }
 
+
+
+@media screen and (max-width: 400px) {
+  .designs_title {
+    font-size: 60px;
+    height: 95px;
+  }
+}

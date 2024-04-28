@@ -240,4 +240,12 @@
   }
 }
 
+@media screen and (max-width: 750px) {
+  .tile {  
+    height: 450px;
+    width: 325px;
+  }
+}
+
+
 

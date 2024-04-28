@@ -242,7 +242,7 @@ export default function Preview(props) {
         </div>
         <div className={css.preview_mobile_footer}>
             <SizeSelector size_select={size_select} size_small={size_small} size_medium={size_medium} size_large={size_large} size_extra_large={size_extra_large} />
-            <div className={css.price_mobile}>£{price}</div>
+            <div className={css.price_mobile}>£{roundNumber(price, 2)}</div>
             <div className={add_basket} onClick={add_item} >Add to Basket</div>
             <div className={css.continue_shopping}>Continue Shopping</div>
         </div>

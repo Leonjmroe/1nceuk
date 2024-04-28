@@ -212,6 +212,21 @@
   }
 }
 
-
-
-
+@media screen and (max-width: 400px) {
+  .logo1nce {
+    width: 200px;
+    margin-top: 20px;
+  }
+  .storeTitle {
+    width: 80px;
+    font-size: 25px;
+    padding: 10px 20px 10px 10px;
+  }
+  .shopBtn {
+    width: 60px;
+    height: 50px;
+  }
+  .shopCounter {
+    font-size: 20px;
+  }
+}

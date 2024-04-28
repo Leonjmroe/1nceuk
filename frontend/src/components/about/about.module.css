@@ -101,3 +101,10 @@
     padding: 10px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .about_title {
+    font-size: 60px;
+    height: 95px;
+  }
+}

@@ -4,7 +4,7 @@
 
 .skating_cont {
   width: 90%;
-  margin: 130px auto 30px auto;
+  margin: 130px auto 0px auto;
 }
 
 .skating_title {
@@ -120,7 +120,7 @@
   .main_text {
     order: 2;
     font-size: 11px;
-    height: 250px;
+    height: 300px;
     margin-top: 20px;
   }
   .video_1 {
@@ -159,3 +159,12 @@
 }
 
 
+@media screen and (max-width: 800px) {
+  .skating_title {
+    font-size: 60px;
+    height: 95px;
+  }
+  .main_text {
+    height: 350px;
+  }
+}

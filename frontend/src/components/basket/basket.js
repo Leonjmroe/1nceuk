@@ -22,9 +22,13 @@ export default function Basket() {
     }
   }, []);
 
+  const roundNumber = (value, decimals) => {
+    const factor = Math.pow(10, decimals);
+    return Math.round(value * factor) / factor;
+  }
 
   const createItems = items.map((item) => (
-    <BasketTile key={item.id} id={item.id} title={item.title} description={item.description} price={item.price} 
+    <BasketTile key={item.id} id={item.id} title={item.title} description={item.description} price={roundNumber(item.price, 2)} 
                 category={item.category} colour={item.colour} image1={item.image1} 
                 image2={item.image2} image3={item.image3} size={item.size}
                 mode="basket" />
@@ -36,7 +40,7 @@ export default function Basket() {
     items.map((item) => ( 
       counter = counter + item.price 
     )) 
-    return ('£' + counter)
+    return ('£' + roundNumber(counter, 2))
   }
 
   return (
