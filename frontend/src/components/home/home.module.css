@@ -6,7 +6,7 @@
 /* ------------  Carousel  ------------ */
 
 .carousel_cont {
-  margin: 90px auto 50px auto;
+  margin: 90px auto 20px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,12 +30,22 @@
 
 /* ------------  Circles  ------------ */
 
-.circleContainer {
+.shop_now_cont {
   display: flex;
-  margin: 50px 30px 50px 30px;
 }
 
 .circleCont {
+  width: 100%;
+}
+
+.verticle_cont{
+  display: flex;
+  flex-direction: column;
+}
+
+.circle_master_cont {
+  display: flex;
+  margin: 0px 30px 0px 30px;
   width: 100%;
 }
 
@@ -200,7 +210,6 @@
   margin-left: auto;
   margin-right: auto;
   opacity: 0.9;
-  margin-bottom: 100px;
 }
 
 .logo_login_button {

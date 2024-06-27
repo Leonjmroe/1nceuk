@@ -19,7 +19,6 @@ export default function Collections() {
       <div className={`${css.collection_img} ${css.collection_img_mobile}`}/>
 
       <div className={`${css.collection_tile} ${css.mobile_order}`}>
-        <div className={css.shop_now_button} onClick={()=> navigate('/store_selection')}>Shop Now</div>
         <div className={`${css.collection_img} ${css.collection_image_3}`}/>
         <div className={css.logo_login_button} onClick={()=> navigate('/login',{switch:0})}/>
       </div>
