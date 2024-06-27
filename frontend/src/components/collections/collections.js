@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 
-export function Collection2022() {
+export function Collection2023() {
 
   const location = useLocation()
   const [items, setItems] = useState([])
@@ -65,7 +65,7 @@ export function Collection2022() {
 }
 
 
-export function Collection2023() {
+export function Collection2024() {
 
   const location = useLocation()
   const [items, setItems] = useState([])

@@ -67,21 +67,18 @@ export default function Contact() {
     <div className={css.contact_container}>
       <div className={css.contact_cont}>
 
-            <div className={css.social_media_cont}>
-
+          {/*  <div className={css.social_media_cont}>
               <div className={css.item_cont}>
                 <div className={css.insta_img} onClick={toInstagram}/>
                 <div className={css.iconTxt}>Instagram</div>
-                {/*<InstagramFeed accessToken="25876ad79b3c0d00c8d5e697b58f1ebf" />*/}
-            </div>
+                <InstagramFeed accessToken="25876ad79b3c0d00c8d5e697b58f1ebf" />
+              </div>
       
-
               <div className={css.item_cont}>
                 <div className={css.youtube_img} onClick={toYoutube}/>
                 <div className={css.iconTxt}>YouTube</div>
               </div>
-
-            </div>
+            </div>*/}
 
             <div className={css.contact_title}>Get in touch</div>
 

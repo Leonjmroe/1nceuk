@@ -10,24 +10,19 @@ export default function Collections() {
     <div className={css.collection_container}>
 
       <div className={css.collection_tile}>
-        <div className={css.dash}>----------------</div>
-        <div className={`${css.collection_img} ${css.collection_image_1}`} onClick={()=> navigate('/collection_2022')}/>
-        <div className={css.collection_text}>2022 Collection</div>
-        <div className={css.dash}>----------------</div>
+        <div className={`${css.collection_img} ${css.collection_image_1}`} onClick={()=> navigate('/2023')}/>
+        <div className={css.collection_text}>2023</div>
       </div>
 
       <div className={`${css.collection_img} ${css.collection_img_mobile}`}/>
 
-      <div className={`${css.collection_tile} ${css.mobile_order}`}>
-        <div className={`${css.collection_img} ${css.collection_image_3}`}/>
-        <div className={css.logo_login_button} onClick={()=> navigate('/login',{switch:0})}/>
+      <div className={`${css.collection_tile_crown} ${css.mobile_order}`}>
+        <div className={`${css.collection_img} ${css.collection_image_3}`} onClick={()=> navigate('/login',{switch:0})}/>
       </div>
 
       <div className={css.collection_tile}>
-        <div className={css.dash}>----------------</div>
-        <div className={`${css.collection_img} ${css.collection_image_2}`} onClick={()=> navigate('/collection_2023')}/>
-        <div className={css.collection_text}>2023 Collection</div>
-        <div className={css.dash}>----------------</div>
+        <div className={`${css.collection_img} ${css.collection_image_2}`} onClick={()=> navigate('/2024')}/>
+        <div className={css.collection_text}>2024</div>
       </div>
 
     </div>
