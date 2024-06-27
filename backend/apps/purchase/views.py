@@ -17,7 +17,6 @@ import os
 
 load_dotenv()
 
-# secret_key_test = "sk_test_51MphC6DH2VJ3YG9v8aQPBWJF6Cqfbsv6SYWxq6rt4DJkyCR0zlJAxJO7mdQ8v5uN0pV86yT3cSby6nJmJmI1qWqH002bH54Qd6"
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 

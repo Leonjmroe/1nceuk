@@ -56,7 +56,7 @@ export default function Checkout() {
     var requestOptions = {
       method: 'GET',
     };
-    fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${address_input}&apiKey=bf1de4840f1e4e868aed2942d329321b`, requestOptions)
+    fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${address_input}&apiKey=${process.env.GEOAPIFY_KEY}`, requestOptions)
       .then(response => response.json())
       .then(result => set_options(result.features))
       .catch(error => console.log('error', error));
