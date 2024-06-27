@@ -9,6 +9,7 @@ export default function Home() {
 
    return (
     <div className={css.home_container}>
+      <div className={css.home_banner}>One Needed Clothing Enterprise UK</div>
       <Carousel />
       <Circles />
       <Collections />

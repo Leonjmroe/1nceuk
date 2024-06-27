@@ -18,16 +18,12 @@ export default function AboutUsLinks() {
 
         <div className={css.circle_master_cont}>
           <div className={css.circleCont}>
-            <div className={`${css.circleImg} ${css.circle_img1}`} onClick={()=> navigate('/skating')}/>
-            <div className={css.circleText}>Skating</div>
+            <div className={`${css.circleImg} ${css.circle_img1}`} onClick={()=> navigate('/learn_more')}/>
+            <div className={css.circleText}>Learn More</div>
           </div>
           <div className={css.circleCont}>
-            <div className={`${css.circleImg} ${css.circle_img2}`} onClick={()=> navigate('/designs')}/>
-            <div className={css.circleText}>Designs</div>
-          </div>
-          <div className={css.circleCont}>
-            <div className={`${css.circleImg} ${css.circle_img3}`} onClick={()=> navigate('/about')}/>
-            <div className={css.circleText}>About</div>
+            <div className={`${css.circleImg} ${css.circle_img2}`} onClick={()=> navigate('/gallery')}/>
+            <div className={css.circleText}>Gallery</div>
           </div>
         </div>
 
